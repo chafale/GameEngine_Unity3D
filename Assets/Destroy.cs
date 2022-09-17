@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class Destroy : MonoBehaviour
 {
-    void OnTriggerEnter(Collider collide) {
+    void OnCollisionEnter(Collision collide) {
 		Debug.Log("objected collided");
-            Destroy(gameObject);
+        string collided_letter = gameObject.tag;
+        Debug.Log("Collided with letter : " + collided_letter);
+        Destroy(gameObject);
 	}
-    // private void OnCollisionEnter (Collision collision)
-    // {
-        
-    //         Debug.Log("objected collided");
-    //         Destroy(collision.gameObject);
-    //         Destroy(gameObject);
-        
-    
-    // }
 }
