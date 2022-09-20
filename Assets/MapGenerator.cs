@@ -101,20 +101,20 @@ public class MapGenerator : MonoBehaviour {
 			bool character2_flag = false;
 
 			if (!character1){
-				Debug.Log("Character 1 not set");
+				// Debug.Log("Character 1 not set");
 				character1 = GenerateCharacter(obstacle3.transform.position.x, obstacle4.transform.position.x);
 				character1_flag = true;
 			}
 			else{
-				Debug.Log("Character 1 present");
+				// Debug.Log("Character 1 present");
 			}
 			if (!character2){
-				Debug.Log("Character 2 not set");
+				// Debug.Log("Character 2 not set");
 				character2 = GenerateCharacter(obstacle3.transform.position.x, obstacle4.transform.position.x);
 				character2_flag = true;
 			}
 			else{
-				Debug.Log("Character 2 present");
+				// Debug.Log("Character 2 present");
 			}
 			if (!character1_flag && player.transform.position.x > character1.transform.position.x){
 				character1 = GenerateCharacter(obstacle3.transform.position.x, obstacle4.transform.position.x);
