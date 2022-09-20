@@ -63,8 +63,18 @@ public class MapGenerator : MonoBehaviour {
 	GameObject GenerateCharacter(float start, float end) {
 		int num = Random.Range(0,6);
 		GameObject obstacle = GameObject.Instantiate(displayCharacter[num]);
-		SetTransformCharacter(obstacle,start,end);
-		return obstacle;
+
+		Collider2D[] neighbours = Physics2D.OverlapCircleAll(obstacle.transform.position, 2);
+		Debug.Log(neighbours.Length);
+		if (neighbours.Length>0){
+			Debug.Log(neighbours.Length);
+			Destroy(obstacle);
+			return null;
+		}
+		else{
+			SetTransformCharacter(obstacle,start,end);
+			return obstacle;
+		}
 	}
 	
 	void SetTransform(GameObject obstacle, float referenceX) {
@@ -73,7 +83,7 @@ public class MapGenerator : MonoBehaviour {
 	}
 
 	void SetTransformCharacter(GameObject obstacle, float start, float end) {
-		obstacle.transform.position = new Vector3(Random.Range(start, end), Random.Range(minObstacleY, maxObstacleY), 0);
+		obstacle.transform.position = new Vector3(Random.Range(start, end), Random.Range(minObstacleY+1, maxObstacleY-1), 0);
 	}
 	
 	// Update is called once per frame
@@ -102,7 +112,7 @@ public class MapGenerator : MonoBehaviour {
 
 			if (!character1){
 				// Debug.Log("Character 1 not set");
-				character1 = GenerateCharacter(obstacle3.transform.position.x, obstacle4.transform.position.x);
+				character1 = GenerateCharacter(obstacle3.transform.position.x+10, obstacle4.transform.position.x+10);
 				character1_flag = true;
 			}
 			else{
@@ -110,18 +120,18 @@ public class MapGenerator : MonoBehaviour {
 			}
 			if (!character2){
 				// Debug.Log("Character 2 not set");
-				character2 = GenerateCharacter(obstacle3.transform.position.x, obstacle4.transform.position.x);
+				character2 = GenerateCharacter(obstacle3.transform.position.x+10, obstacle4.transform.position.x+10);
 				character2_flag = true;
 			}
 			else{
 				// Debug.Log("Character 2 present");
 			}
 			if (!character1_flag && player.transform.position.x > character1.transform.position.x){
-				character1 = GenerateCharacter(obstacle3.transform.position.x, obstacle4.transform.position.x);
+				character1 = GenerateCharacter(obstacle3.transform.position.x+10, obstacle4.transform.position.x+10);
 				
 			}
 			if (!character2_flag && player.transform.position.x > character2.transform.position.x){
-		    	character2 = GenerateCharacter(obstacle3.transform.position.x, obstacle4.transform.position.x);
+		    	character2 = GenerateCharacter(obstacle3.transform.position.x+10, obstacle4.transform.position.x+10);
 			}
 		}
 	}

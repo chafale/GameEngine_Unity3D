@@ -6,8 +6,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public  static string[] wordList = {"DOG", "TREE", "COFFEE"};
-    public  static string[] hintList = {"Most Adopted Pet", "Seen in a forest", "Has lots of caffeine"};
+    public  static string[] wordList = {"DOG"};
+    public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();
 
     public  static List<TMP_Text> letterHolderList = new List<TMP_Text>();
