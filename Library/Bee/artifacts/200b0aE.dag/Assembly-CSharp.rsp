@@ -353,6 +353,7 @@
 "Assets/Destroy.cs"
 "Assets/MapGenerator.cs"
 "Assets/Player.cs"
+"Assets/Scripts/GameManager.cs"
 -langversion:9.0
 
 /deterministic
