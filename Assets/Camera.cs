@@ -8,7 +8,7 @@ public class Camera : MonoBehaviour {
 	
 	public Player player;
 	public GameObject Background;
-	public GameObject overReset;
+	public static GameObject overReset;
 	
 	// Use this for initialization
 	void Start () {
@@ -32,7 +32,7 @@ public class Camera : MonoBehaviour {
 		}
 	}
 	 
-	void GameEnd(){
+	public static void GameEnd(){
 		// GameObject.Find("Background").SetActive(true);
 		overReset.SetActive(true);
 	}
