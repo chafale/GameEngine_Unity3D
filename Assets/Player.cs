@@ -4,18 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
-	
-	Rigidbody body;
-	
-	
-	public bool gameOver = false;
-	private Vector2 playerDirection;
-	// Use this for initialization
-	void Start () {
-		body = GetComponent<Rigidbody>();
-	}
-	
-	void Update()
+    
+    public static Rigidbody body;
+    
+    
+    public bool gameOver = false;
+    private Vector2 playerDirection;
+    // Use this for initialization
+    void Start () {
+        body = GetComponent<Rigidbody>();
+    }
+    
+    void Update()
     {
         // up arrow = 1, down arrow = -1
         float directionY = Input.GetAxisRaw("Vertical");
@@ -25,24 +25,24 @@ public class Player : MonoBehaviour {
         playerDirection = new Vector2(0, directionY).normalized;
     }
 
-	void FixedUpdate () {
-		// if (gameOver) {
-			
-		// 	if (Input.GetMouseButtonDown(0)) {
-		// 		SceneManager.LoadScene("Game");
-		// 	}
-		// 	return;
-		// }
-		// if (Input.GetMouseButton(0)) {
-		// 	body.AddForce(new Vector3(0, 50,0), ForceMode.Acceleration);
-		// } else if (Input.GetMouseButtonUp(0)) {
-		// 	body.velocity *= 0.25f;
-		// }
-		body.velocity = new Vector2(0, playerDirection.y * 5);
-	}
-	
-	void OnTriggerEnter(Collider collider) {
-		gameOver = true;
-		body.isKinematic = true;
-	}
+    void FixedUpdate () {
+        // if (gameOver) {
+            
+        //  if (Input.GetMouseButtonDown(0)) {
+        //      SceneManager.LoadScene("Game");
+        //  }
+        //  return;
+        // }
+        // if (Input.GetMouseButton(0)) {
+        //  body.AddForce(new Vector3(0, 50,0), ForceMode.Acceleration);
+        // } else if (Input.GetMouseButtonUp(0)) {
+        //  body.velocity *= 0.25f;
+        // }
+        body.velocity = new Vector2(0, playerDirection.y * 5);
+    }
+    
+    void OnTriggerEnter(Collider collider) {
+        gameOver = true;
+        body.isKinematic = true;
+    }
 }
