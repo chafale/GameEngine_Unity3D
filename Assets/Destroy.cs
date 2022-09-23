@@ -13,7 +13,7 @@ public class Destroy : MonoBehaviour
         char inputLetter = char.Parse(collided_letter);
         int c = 0;
         for (int i = 0; i < mg.solvedList.Count; i++)
-        {   
+        {
             Debug.Log(mg.solvedList[i]);
             if(mg.solvedList[i] == inputLetter){
                 mg.letterHolderList[i].text = inputLetter.ToString();
@@ -23,13 +23,25 @@ public class Destroy : MonoBehaviour
         }
         if(c == 0){
             Debug.Log("You hit the wrong letter");
-            if(LivesScript.lives > 0) {
-                LivesScript.lives -= 1;
-            }
+            LivesScript.lives -= 1;
             if(LivesScript.lives == 0){
                 Camera.GameEnd();
                 Player.body.isKinematic = true;
             }
+        }
+        int check = 0;
+        // Check if all blanks are filled
+        for (int i = 0; i < mg.solvedList.Count; i++)
+        {
+            char[] holder = mg.letterHolderList[i].text.ToCharArray();
+            if(mg.solvedList[i] != holder[0]){
+                check = 1;
+                break;
+            }
+        }
+        if(check==0){
+          Camera.GameEnd();
+          Player.body.isKinematic = true;
         }
     }
 }
