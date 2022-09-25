@@ -15,33 +15,34 @@ public class Destroy : MonoBehaviour
         // Hint PopUp if letter = e
         if(inputLetter=='E')
         {
+            gs.goldIndex+=1;
             if(gs.goldIndex<=2)
             {
-                gs.goldIndex+=1;
-            }
-            else{
-                gs.goldIndex = 0;
+                mg.gamag.updateGameHint();
+               
             }
             gs.goldObj.updateHint();
             Camera.Pause();
-            mg.gamag.updateGameHint();
+            
         }
         // Fill blanks
-        for (int i = 0; i < mg.solvedList.Count; i++)
-        {
-            Debug.Log(mg.solvedList[i]);
-            if(mg.solvedList[i] == inputLetter){
-                mg.letterHolderList[i].text = inputLetter.ToString();
-                c=1;
-                break;
+        else{
+            for (int i = 0; i < mg.solvedList.Count; i++)
+            {
+                Debug.Log(mg.solvedList[i]);
+                if(mg.solvedList[i] == inputLetter){
+                    mg.letterHolderList[i].text = inputLetter.ToString();
+                    c=1;
+                    break;
+                }
             }
-        }
-        if(c == 0){
-            Debug.Log("You hit the wrong letter");
-            LivesScript.lives -= 1;
-            if(LivesScript.lives == 0){
-                Camera.GameEnd();
-                Player.body.isKinematic = true;
+            if(c == 0){
+                Debug.Log("You hit the wrong letter");
+                LivesScript.lives -= 1;
+                if(LivesScript.lives == 0){
+                    Camera.GameEnd();
+                    Player.body.isKinematic = true;
+                }
             }
         }
         int check = 0;
