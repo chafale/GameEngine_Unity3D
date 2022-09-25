@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using mg = GameManager;
-
+using gs = goldScript;
 public class Destroy : MonoBehaviour
 {
     void OnCollisionEnter(Collision collide) {
@@ -12,21 +12,37 @@ public class Destroy : MonoBehaviour
         Destroy(gameObject);
         char inputLetter = char.Parse(collided_letter);
         int c = 0;
-        for (int i = 0; i < mg.solvedList.Count; i++)
+        // Hint PopUp if letter = e
+        if(inputLetter=='E')
         {
-            Debug.Log(mg.solvedList[i]);
-            if(mg.solvedList[i] == inputLetter){
-                mg.letterHolderList[i].text = inputLetter.ToString();
-                c=1;
-                break;
+            gs.goldIndex+=1;
+            if(gs.goldIndex<=2)
+            {
+                mg.gamag.updateGameHint();
+               
             }
+            gs.goldObj.updateHint();
+            Camera.Pause();
+            
         }
-        if(c == 0){
-            Debug.Log("You hit the wrong letter");
-            LivesScript.lives -= 1;
-            if(LivesScript.lives == 0){
-                Camera.GameEnd();
-                Player.body.isKinematic = true;
+        // Fill blanks
+        else{
+            for (int i = 0; i < mg.solvedList.Count; i++)
+            {
+                Debug.Log(mg.solvedList[i]);
+                if(mg.solvedList[i] == inputLetter){
+                    mg.letterHolderList[i].text = inputLetter.ToString();
+                    c=1;
+                    break;
+                }
+            }
+            if(c == 0){
+                Debug.Log("You hit the wrong letter");
+                LivesScript.lives -= 1;
+                if(LivesScript.lives == 0){
+                    Camera.GameEnd();
+                    Player.body.isKinematic = true;
+                }
             }
         }
         int check = 0;
