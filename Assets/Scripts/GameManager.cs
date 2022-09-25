@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
             solvedList.Add(letter);
         }
 
-        for (int i = 0; i < solvedList.Count; i++)
+        for (int i = 0; i < 3; i++)
         {
             GameObject temp = Instantiate(letterPrefab, letterHolder, false);
             letterHolderList.Add(temp.GetComponent<TMP_Text>());
