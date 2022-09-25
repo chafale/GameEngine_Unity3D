@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using mg = GameManager;
 using gs = goldScript;
+using mapgen = MapGenerator;
+
 public class Destroy : MonoBehaviour
 {
     void OnCollisionEnter(Collision collide) {
@@ -29,9 +31,20 @@ public class Destroy : MonoBehaviour
         else{
             for (int i = 0; i < mg.solvedList.Count; i++)
             {
-                Debug.Log(mg.solvedList[i]);
+                Debug.Log("Letter Collided"+gameObject.tag);
+               
+               // Debug.Log(mg.solvedList[i]);
                 if(mg.solvedList[i] == inputLetter){
                     mg.letterHolderList[i].text = inputLetter.ToString();
+                    var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag); // like Where/Single
+                    if (index >= 0) {   // ensure item found
+                     Debug.Log("Element found at index"+ index);
+                     mapgen.displayCharacter.RemoveAt(index);
+                    }
+                    for (int k = 0;k < mapgen.displayCharacter.Count;k++)
+                     {
+                       Debug.Log("Sanya"+mapgen.displayCharacter[k].tag);
+                     }
                     c=1;
                     break;
                 }
