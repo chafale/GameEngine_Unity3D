@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
         string[] splittedWord = tempWord.Split(' ', tempWord.Length);
         char[] splitWord = tempWord.ToCharArray();
-        Debug.Log(splitWord[0]);
+        // Debug.Log(splitWord[0]);
         foreach (char letter in splitWord){
             solvedList.Add(letter);
         }
