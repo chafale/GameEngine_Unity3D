@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using mg = GameManager;
-
+using gs = goldScript;
 public class Destroy : MonoBehaviour
 {
     void OnCollisionEnter(Collision collide) {
@@ -12,6 +12,21 @@ public class Destroy : MonoBehaviour
         Destroy(gameObject);
         char inputLetter = char.Parse(collided_letter);
         int c = 0;
+        // Hint PopUp if letter = e
+        if(inputLetter=='E')
+        {
+            if(gs.goldIndex<=2)
+            {
+                gs.goldIndex+=1;
+            }
+            else{
+                gs.goldIndex = 0;
+            }
+            gs.goldObj.updateHint();
+            Camera.Pause();
+            mg.gamag.updateGameHint();
+        }
+        // Fill blanks
         for (int i = 0; i < mg.solvedList.Count; i++)
         {
             Debug.Log(mg.solvedList[i]);
