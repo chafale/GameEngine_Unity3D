@@ -38,7 +38,7 @@ public class MapGenerator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		displayCharacter.Clear();
 		displayCharacter.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
 		obstacle1 = GenerateObstacle(player.transform.position.x + 10);
 		obstacle2 = GenerateObstacle(obstacle1.transform.position.x);
@@ -55,6 +55,7 @@ public class MapGenerator : MonoBehaviour {
 	}
 
 	GameObject GenerateCharacter(float start, float end, float obj1, float obj2, float obj3, float obj4) {
+		Debug.Log(correctCharacters.Count + " " + displayCharacter.Count);
 		count += 1;
 		int num;
 		GameObject obstacle;

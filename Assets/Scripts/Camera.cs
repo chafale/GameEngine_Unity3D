@@ -29,7 +29,6 @@ public class Camera : MonoBehaviour {
         if (!player.gameOver)
         {
             transform.position += new Vector3(5f * Time.deltaTime, 0, 0);
-
         }
         else
         {
@@ -41,6 +40,7 @@ public class Camera : MonoBehaviour {
         // GameObject.Find("Background").SetActive(true);
         mg.solvedList = new List<char>();
         mg.letterHolderList = new List<TMP_Text>();
+        mg.chars = new List<GameObject>();
         mapgen.correctCharacters = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         overReset.SetActive(true);
@@ -48,6 +48,10 @@ public class Camera : MonoBehaviour {
     public void Reset()
     {
         Debug.Log("Reset");
+        mg.solvedList = new List<char>();
+        mg.letterHolderList = new List<TMP_Text>();
+        mapgen.correctCharacters = new List<GameObject>();
+        mapgen.displayCharacter = new List<GameObject>();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public static void Pause()
