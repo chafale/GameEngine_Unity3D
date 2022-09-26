@@ -42,7 +42,7 @@ public class Camera : MonoBehaviour {
         mg.letterHolderList = new List<TMP_Text>();
         mg.chars = new List<GameObject>();
         mapgen.correctCharacters = new List<GameObject>();
-        mapgen.displayCharacter = new List<GameObject>();
+        // mapgen.displayCharacter = new List<GameObject>();
         overReset.SetActive(true);
     }
     public void Reset()
