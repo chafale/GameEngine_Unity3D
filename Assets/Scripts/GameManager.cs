@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
             foreach(GameObject letter_prefab in chars){
               char inputLetter = char.Parse(letter_prefab.tag);
               if(inputLetter == letter){
-                Debug.Log("Ayush " + inputLetter);
+                // Debug.Log("Ayush " + inputLetter);
                 mg.correctCharacters.Add(letter_prefab);
               }
             }

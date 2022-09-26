@@ -55,12 +55,36 @@ public class MapGenerator : MonoBehaviour {
 	}
 
 	GameObject GenerateCharacter(float start, float end, float obj1, float obj2, float obj3, float obj4) {
-		Debug.Log(correctCharacters.Count + " " + displayCharacter.Count);
+		// Debug.Log(correctCharacters.Count + " " + displayCharacter.Count);
 		count += 1;
 		int num;
 		GameObject obstacle;
+		float start_obs = Random.Range(start, end);
+		float end_obs = Random.Range(minObstacleY+1, maxObstacleY-1);
+
+		float dist1 = Mathf.Abs(start_obs - obj1);
+		float dist2 = Mathf.Abs(start_obs - obj2);
+		float dist3 = Mathf.Abs(start_obs - obj3);
+		float dist4 = Mathf.Abs(start_obs - obj4);
+
+		if(dist1<1){
+			Debug.Log("1");
+			return null;
+		}
+		else if(dist2<1){
+			Debug.Log("2");
+			return null;
+		}
+		else if(dist3<1){
+			Debug.Log("3");
+			return null;
+		}
+		else if(dist4<1){
+			Debug.Log("4");
+			return null;
+		}
+
 		if(count%4==0 && correctCharacters.Count>0){
-			  // Debug.Log("Ayush " + correctCharacters.Count);
 				num = Random.Range(0,correctCharacters.Count);
 				obstacle = GameObject.Instantiate(correctCharacters[num]);
 		}
@@ -68,37 +92,8 @@ public class MapGenerator : MonoBehaviour {
 			num = Random.Range(0,displayCharacter.Count);
 			obstacle = GameObject.Instantiate(displayCharacter[num]);
 		}
-		SetTransformCharacter(obstacle,start,end);
 
-		//Debug.Log(obstacle.transform.position.x + " " +  obj1 + " " + obj2 + " " + obj3 + " " + obj4);
-		// Debug.Log(obstacle.transform.position.x + " " + dist1 + " " + dist2 + " " + dist3 + " " + dist4);
-
-	  float dist1 = Mathf.Abs(obstacle.transform.position.x - obj1);
-		float dist2 = Mathf.Abs(obstacle.transform.position.x - obj2);
-		float dist3 = Mathf.Abs(obstacle.transform.position.x - obj3);
-		float dist4 = Mathf.Abs(obstacle.transform.position.x - obj4);
-
-		if(dist1<1){
-			Debug.Log("1 " + obstacle.tag);
-			Destroy(obstacle);
-			return null;
-		}
-		else if(dist2<1){
-			Debug.Log("2" + obstacle.tag);
-			Destroy(obstacle);
-			return null;
-		}
-		else if(dist3<1){
-			Debug.Log("3" + obstacle.tag);
-			Destroy(obstacle);
-			return null;
-		}
-		else if(dist4<1){
-			Debug.Log("4" + obstacle.tag);
-			Destroy(obstacle);
-			return null;
-		}
-
+		SetTransformCharacter(obstacle,start_obs,end_obs);
 		return obstacle;
 
 		// var checkCollider = Physics2D.OverlapCircle(obstacle.transform.position, 1);
@@ -128,7 +123,7 @@ public class MapGenerator : MonoBehaviour {
 	}
 
 	void SetTransformCharacter(GameObject obstacle, float start, float end) {
-		obstacle.transform.position = new Vector3(Random.Range(start, end), Random.Range(minObstacleY+1, maxObstacleY-1), 0);
+		obstacle.transform.position = new Vector3(start, end, 0);
 	}
 
 	// Update is called once per frame
@@ -177,20 +172,12 @@ public class MapGenerator : MonoBehaviour {
 			// Debug.Log(obj1_x + " " + obj2_x + " " + obj3_x + " " + obj4_x);
 
 			if (!character1){
-				// Debug.Log("Character 1 not set");
 				character1 = GenerateCharacter(obstacle3.transform.position.x+10, obstacle4.transform.position.x+10, obj1_x, obj2_x, obj3_x, obj4_x);
 				character1_flag = true;
 			}
-			else{
-				// Debug.Log("Character 1 present");
-			}
 			if (!character2){
-				// Debug.Log("Character 2 not set");
 				character2 = GenerateCharacter(obstacle3.transform.position.x+10, obstacle4.transform.position.x+10, obj1_x, obj2_x, obj3_x, obj4_x);
 				character2_flag = true;
-			}
-			else{
-				// Debug.Log("Character 2 present");
 			}
 			if (!character1_flag && player.transform.position.x > character1.transform.position.x){
 				character1 = GenerateCharacter(obstacle3.transform.position.x+10, obstacle4.transform.position.x+10, obj1_x, obj2_x, obj3_x, obj4_x);
