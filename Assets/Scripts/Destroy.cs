@@ -41,6 +41,10 @@ public class Destroy : MonoBehaviour
                     if (index1 >= 0) {
                      mapgen.correctCharacters.RemoveAt(index1);
                     }
+                    for (int k = 0;k < mapgen.correctCharacters.Count;k++)
+                     {
+                       Debug.Log("Sanya "+mapgen.correctCharacters[k].tag);
+                     }
                     c=1;
                     break;
                 }
