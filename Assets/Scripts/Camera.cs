@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using mg = GameManager;
+using mapgen = MapGenerator;
 using TMPro;
 
 public class Camera : MonoBehaviour {
@@ -40,6 +41,7 @@ public class Camera : MonoBehaviour {
         // GameObject.Find("Background").SetActive(true);
         mg.solvedList = new List<char>();
         mg.letterHolderList = new List<TMP_Text>();
+        mapgen.correctCharacters = new List<GameObject>();
         overReset.SetActive(true);
     }
     public void Reset()

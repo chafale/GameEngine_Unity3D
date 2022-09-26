@@ -9,7 +9,7 @@ public class goldScript : MonoBehaviour
     // Start is called before the first frame update
     public static int goldIndex = 0;
     [SerializeField] TextMeshProUGUI goldText;
-    public  static string[] goldList = {"Most Adapted Pet","Very Loyal","Human Friendly"};
+    public  static string[] goldList = {"Most Adopted Pet","Very Loyal","Human Friendly"};
 
     public static goldScript goldObj;
     void Awake()

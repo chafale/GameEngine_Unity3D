@@ -20,35 +20,12 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject character2;
 
 	public GameObject obstaclePrefab;
-	public GameObject A;	
-	public GameObject B;	
-	public GameObject C;
-	public GameObject D;
-	public GameObject E;
-	public GameObject F;
-	public GameObject G;
-	public GameObject H;
-	public GameObject I;
-	public GameObject J;
-	public GameObject K;
-	public GameObject L;
-	public GameObject M;
-	public GameObject N;
-	public GameObject O;
-	public GameObject P;
-	public GameObject Q;
-	public GameObject R;
-	public GameObject S;
-	public GameObject T;
-	public GameObject U;
-	public GameObject V;
-	public GameObject W;
-	public GameObject X;
-	public GameObject Y;
-	public GameObject Z;
-	
-	
+	public GameObject A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z;
+
+  public int count;
+
 	public static List<GameObject> displayCharacter = new List<GameObject>();
+	public static List<GameObject> correctCharacters = new List<GameObject>();
 
 	public float minObstacleY;
 	public float maxObstacleY;
@@ -61,32 +38,8 @@ public class MapGenerator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		displayCharacter.Add(A);
-		displayCharacter.Add(B);
-	    displayCharacter.Add(C);
-	    displayCharacter.Add(D);
-		displayCharacter.Add(E);
-		displayCharacter.Add(F);
-		displayCharacter.Add(G);
-        displayCharacter.Add(H);
-	    displayCharacter.Add(I);
-        displayCharacter.Add(J);
-        displayCharacter.Add(K);
-		displayCharacter.Add(L);
-        displayCharacter.Add(M);
-	    displayCharacter.Add(N); 
-	    displayCharacter.Add(O);
-	    displayCharacter.Add(P);
-		displayCharacter.Add(Q);
-        displayCharacter.Add(R);
-	    displayCharacter.Add(S);
-        displayCharacter.Add(T);
-        displayCharacter.Add(U);
-		displayCharacter.Add(V);
-		displayCharacter.Add(W);
-        displayCharacter.Add(X);
-        displayCharacter.Add(Y);
-		displayCharacter.Add(Z);
+
+		displayCharacter.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
 		obstacle1 = GenerateObstacle(player.transform.position.x + 10);
 		obstacle2 = GenerateObstacle(obstacle1.transform.position.x);
 		obstacle3 = GenerateObstacle(obstacle2.transform.position.x);
@@ -102,8 +55,18 @@ public class MapGenerator : MonoBehaviour {
 	}
 
 	GameObject GenerateCharacter(float start, float end, float obj1, float obj2, float obj3, float obj4) {
-		int num = Random.Range(0,displayCharacter.Count);
-		GameObject obstacle = GameObject.Instantiate(displayCharacter[num]);
+		count += 1;
+		int num;
+		GameObject obstacle;
+		if(count%4==0){
+			  // Debug.Log("Ayush " + correctCharacters.Count);
+				num = Random.Range(0,correctCharacters.Count);
+				obstacle = GameObject.Instantiate(correctCharacters[num]);
+		}
+		else{
+			num = Random.Range(0,displayCharacter.Count);
+			obstacle = GameObject.Instantiate(displayCharacter[num]);
+		}
 		SetTransformCharacter(obstacle,start,end);
 
 		//Debug.Log(obstacle.transform.position.x + " " +  obj1 + " " + obj2 + " " + obj3 + " " + obj4);

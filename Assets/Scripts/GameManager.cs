@@ -4,6 +4,7 @@ using UnityEngine;
 
 using TMPro;
 using gs = goldScript;
+using mg = MapGenerator;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class GameManager : MonoBehaviour
     public  Transform letterHolder;
     public  TMP_Text hint;
 
-
+    public GameObject A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z;
+    public static List<GameObject> chars = new List<GameObject>();
 
     void Start(){
+        chars.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
         int index = Random.Range(0, wordList.Length);
         // hint.text = hintList[index]
         hint.text = "Hint: " + gs.goldList[gs.goldIndex].ToString();
@@ -29,6 +32,13 @@ public class GameManager : MonoBehaviour
         // Debug.Log(splitWord[0]);
         foreach (char letter in splitWord){
             solvedList.Add(letter);
+            foreach(GameObject letter_prefab in chars){
+              char inputLetter = char.Parse(letter_prefab.tag);
+              if(inputLetter == letter){
+                Debug.Log("Ayush " + inputLetter);
+                mg.correctCharacters.Add(letter_prefab);
+              }
+            }
         }
 
         for (int i = 0; i < 3; i++)

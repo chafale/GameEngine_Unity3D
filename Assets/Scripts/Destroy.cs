@@ -21,36 +21,31 @@ public class Destroy : MonoBehaviour
             if(gs.goldIndex<=2)
             {
                 mg.gamag.updateGameHint();
-               
+
             }
             gs.goldObj.updateHint();
             Camera.Pause();
-            
+
         }
         // Fill blanks
         else{
             for (int i = 0; i < mg.solvedList.Count; i++)
             {
-                Debug.Log("Letter Collided"+gameObject.tag);
-               
-               // Debug.Log(mg.solvedList[i]);
                 if(mg.solvedList[i] == inputLetter){
                     mg.letterHolderList[i].text = inputLetter.ToString();
-                    var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag); // like Where/Single
-                    if (index >= 0) {   // ensure item found
-                     Debug.Log("Element found at index"+ index);
+                    var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
+                    if (index >= 0) {
                      mapgen.displayCharacter.RemoveAt(index);
                     }
-                    for (int k = 0;k < mapgen.displayCharacter.Count;k++)
-                     {
-                       Debug.Log("Sanya"+mapgen.displayCharacter[k].tag);
-                     }
+                    var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
+                    if (index1 >= 0) {
+                     mapgen.correctCharacters.RemoveAt(index1);
+                    }
                     c=1;
                     break;
                 }
             }
             if(c == 0){
-                Debug.Log("You hit the wrong letter");
                 LivesScript.lives -= 1;
                 if(LivesScript.lives == 0){
                     Camera.GameEnd();
