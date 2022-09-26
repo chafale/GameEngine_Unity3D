@@ -59,7 +59,7 @@ public class MapGenerator : MonoBehaviour {
 		count += 1;
 		int num;
 		GameObject obstacle;
-		if(count%4==0){
+		if(count%4==0 && correctCharacters.Count>0){
 			  // Debug.Log("Ayush " + correctCharacters.Count);
 				num = Random.Range(0,correctCharacters.Count);
 				obstacle = GameObject.Instantiate(correctCharacters[num]);
