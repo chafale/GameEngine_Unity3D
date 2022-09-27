@@ -21,7 +21,7 @@ public class Destroy : MonoBehaviour
             int c = 0;
             // Hint PopUp if letter = e
             if(inputLetter=='*')
-            {
+            { 
                 mg.hints-=1;
                 gs.goldIndex+=1;
                 if(gs.goldIndex<=2)

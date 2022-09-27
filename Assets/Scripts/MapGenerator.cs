@@ -86,7 +86,7 @@ public class MapGenerator : MonoBehaviour {
 			return null;
 		}
 
-		if(count%13==0 && GameManager.hints>0){
+		if(count%6==0 && GameManager.hints>0){
 			Debug.Log("HI");
 			obstacle = GameObject.Instantiate(hintObject);
 		}
