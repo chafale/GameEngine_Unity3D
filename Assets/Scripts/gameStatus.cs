@@ -25,13 +25,8 @@ public class gameStatus : MonoBehaviour
     // Update is called once per frame
     public void updateStatus()
     {
-        // if(des.destroyObj.check==0)
-        // {
-        //     statusText.text = "GAME OVER Harsha";
-        // }
-        // else
-        // {
-            statusText.text = "CONGRATULATIONS! YOU WIN!";
-        // }
+        
+            statusText.text = "Congratulations!\n You Win!";
+ 
     }
 }
