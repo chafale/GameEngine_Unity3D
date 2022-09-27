@@ -14,7 +14,9 @@ public class Camera : MonoBehaviour {
     public static GameObject overReset;
 
     public GameObject Hintground;
-     public static GameObject goldReset;
+    public static GameObject goldReset;
+
+    public static GameObject completeLevelUI;
     // Use this for initialization
     void Start () {
         LivesScript.lives = 3;
@@ -63,5 +65,9 @@ public class Camera : MonoBehaviour {
     {
         Time.timeScale = 1;
         goldReset.SetActive(false);
+    }
+    public static void CompleteLevel()
+    {
+        completeLevelUI.SetActive(true);
     }
 }

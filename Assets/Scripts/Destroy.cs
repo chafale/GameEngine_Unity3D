@@ -4,9 +4,19 @@ using UnityEngine;
 using mg = GameManager;
 using gs = goldScript;
 using mapgen = MapGenerator;
+using gamsta = gameStatus;
 
 public class Destroy : MonoBehaviour
 {
+    public int check;
+
+    public static Destroy destroyObj;
+
+    void Awake()
+    {
+        destroyObj = this;
+    }
+
     void OnCollisionEnter(Collision collide) {
         //Debug.Log("objected collided");
         GameObject obj1 = this.gameObject;
@@ -62,7 +72,7 @@ public class Destroy : MonoBehaviour
                     }
                 }
             }
-            int check = 0;
+            check=0;
             // Check if all blanks are filled
             for (int i = 0; i < mg.solvedList.Count; i++)
             {
@@ -72,8 +82,11 @@ public class Destroy : MonoBehaviour
                     break;
                 }
             }
+            // Debug.Log(mg.solvedList);
+            
             if(check==0){
               Camera.GameEnd();
+              gamsta.gameStatusObj.updateStatus();
               Player.body.isKinematic = true;
             }
         }
