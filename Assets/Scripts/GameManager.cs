@@ -17,12 +17,15 @@ public class GameManager : MonoBehaviour
     public  Transform letterHolder;
     public  TMP_Text hint;
 
+    public static int hints;
+
     public GameObject A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z;
     public static List<GameObject> chars = new List<GameObject>();
 
     void Start(){
         mg.correctCharacters.Clear();
         chars.Clear();
+        hints = 2;
         chars.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
         int index = Random.Range(0, wordList.Length);
         // hint.text = hintList[index]

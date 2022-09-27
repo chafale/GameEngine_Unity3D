@@ -19,6 +19,8 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject character1;
 	public GameObject character2;
 
+	public GameObject hintObject;
+
 	public GameObject obstaclePrefab;
 	public GameObject A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z;
 
@@ -84,7 +86,11 @@ public class MapGenerator : MonoBehaviour {
 			return null;
 		}
 
-		if(count%4==0 && correctCharacters.Count>0){
+		if(count%6==0 && GameManager.hints>0){
+			Debug.Log("HI");
+			obstacle = GameObject.Instantiate(hintObject);
+		}
+		else if(count%4==0 && correctCharacters.Count>0){
 				num = Random.Range(0,correctCharacters.Count);
 				obstacle = GameObject.Instantiate(correctCharacters[num]);
 		}

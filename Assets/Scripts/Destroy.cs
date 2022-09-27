@@ -20,8 +20,9 @@ public class Destroy : MonoBehaviour
             char inputLetter = char.Parse(collided_letter);
             int c = 0;
             // Hint PopUp if letter = e
-            if(inputLetter=='E')
-            {
+            if(inputLetter=='*')
+            { 
+                mg.hints-=1;
                 gs.goldIndex+=1;
                 if(gs.goldIndex<=2)
                 {
@@ -30,7 +31,6 @@ public class Destroy : MonoBehaviour
                 }
                 gs.goldObj.updateHint();
                 Camera.Pause();
-
             }
             // Fill blanks
             else{
@@ -76,6 +76,10 @@ public class Destroy : MonoBehaviour
               Camera.GameEnd();
               Player.body.isKinematic = true;
             }
+        }
+        else{
+          Debug.Log("Letter collided with letter");
+          Destroy(gameObject);
         }
     }
 }
