@@ -81,12 +81,13 @@ public class Destroy : MonoBehaviour
                     check = 1;
                     break;
                 }
+                if(i==mg.solvedList.Count-1)
+                {
+                    gamsta.gameStatusObj.updateStatus();
+                }
             }
-            // Debug.Log(mg.solvedList);
-            
             if(check==0){
               Camera.GameEnd();
-              gamsta.gameStatusObj.updateStatus();
               Player.body.isKinematic = true;
             }
         }
