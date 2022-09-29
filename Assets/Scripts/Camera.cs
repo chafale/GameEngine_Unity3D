@@ -14,7 +14,9 @@ public class Camera : MonoBehaviour {
     public static GameObject overReset;
 
     public GameObject Hintground;
-     public static GameObject goldReset;
+    public static GameObject goldReset;
+
+    public static GameObject completeLevelUI;
     // Use this for initialization
     void Start () {
         LivesScript.lives = 3;
@@ -23,6 +25,7 @@ public class Camera : MonoBehaviour {
         overReset.SetActive(false);
         goldReset = GameObject.Find("Hintground");
         goldReset.SetActive(false);
+        Time.timeScale = 1;
     }
     // Update is called once per frame
     void Update () {
@@ -42,6 +45,7 @@ public class Camera : MonoBehaviour {
         mg.letterHolderList = new List<TMP_Text>();
         mg.chars = new List<GameObject>();
         mapgen.correctCharacters = new List<GameObject>();
+        Time.timeScale = 0;
         // mapgen.displayCharacter = new List<GameObject>();
         overReset.SetActive(true);
     }
@@ -63,5 +67,10 @@ public class Camera : MonoBehaviour {
     {
         Time.timeScale = 1;
         goldReset.SetActive(false);
+    }
+    public static void CompleteLevel()
+    {
+        
+        completeLevelUI.SetActive(true);
     }
 }
