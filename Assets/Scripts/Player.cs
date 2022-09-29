@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,12 +8,16 @@ public class Player : MonoBehaviour {
     
     public static Rigidbody body;
     
-    
     public bool gameOver = false;
     private Vector2 playerDirection;
+    
+    public DateTime gameStartTime;
+    
     // Use this for initialization
     void Start () {
         body = GetComponent<Rigidbody>();
+        gameStartTime = System.DateTime.Now;
+        PlayerPrefs.SetString("gameStartTime", gameStartTime.ToString());
     }
     
     void Update()
