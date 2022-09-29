@@ -8,7 +8,8 @@ using mg = MapGenerator;
 
 public class GameManager : MonoBehaviour
 {
-    public  static string[] wordList = {"DOG"};
+    //public  static string[] wordList = {"DOG"};
+    public  static string[] wordList = {"DOG","ELEPHANT","COFFEE","NEWTON"};
     // public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();
 
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     public  TMP_Text hint;
 
     public static int hints;
+    public static int index;
 
     public GameObject A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z;
     public static List<GameObject> chars = new List<GameObject>();
@@ -27,14 +29,17 @@ public class GameManager : MonoBehaviour
         chars.Clear();
         hints = 2;
         chars.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
-        int index = Random.Range(0, wordList.Length);
+        index = Random.Range(0, wordList.Length);
+
+        gs.assign_values();
+
         // hint.text = hintList[index]
         hint.text = "Hint: " + gs.goldList[gs.goldIndex].ToString();
         string tempWord = wordList[index];
 
         string[] splittedWord = tempWord.Split(' ', tempWord.Length);
         char[] splitWord = tempWord.ToCharArray();
-        // Debug.Log(splitWord[0]);
+        Debug.Log(tempWord);
         foreach (char letter in splitWord){
             solvedList.Add(letter);
             foreach(GameObject letter_prefab in chars){
@@ -46,7 +51,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < tempWord.Length; i++)
         {
             GameObject temp = Instantiate(letterPrefab, letterHolder, false);
             letterHolderList.Add(temp.GetComponent<TMP_Text>());

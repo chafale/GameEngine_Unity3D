@@ -37,6 +37,7 @@ public class Destroy : MonoBehaviour
                 for (int i = 0; i < mg.solvedList.Count; i++)
                 {
                     if(mg.solvedList[i] == inputLetter){
+                        Debug.Log("Ayush");
                         mg.letterHolderList[i].text = inputLetter.ToString();
                         var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
                         if (index >= 0) {
@@ -46,12 +47,12 @@ public class Destroy : MonoBehaviour
                         if (index1 >= 0) {
                          mapgen.correctCharacters.RemoveAt(index1);
                         }
+                        // Debug.Log(collided_letter + " " + mapgen.correctCharacters.Count);
                         // for (int k = 0;k < mapgen.correctCharacters.Count;k++)
                         //  {
                         //    Debug.Log("Sanya "+mapgen.correctCharacters[k].tag);
                         //  }
                         c=1;
-                        break;
                     }
                 }
                 if(c == 0){
