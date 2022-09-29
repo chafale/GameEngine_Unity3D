@@ -35,7 +35,6 @@ public class Camera : MonoBehaviour {
             GameEnd();
         }
     }
-
     public static void GameEnd(){
         // GameObject.Find("Background").SetActive(true);
         mg.solvedList = new List<char>();

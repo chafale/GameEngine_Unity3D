@@ -23,6 +23,7 @@ public class Destroy : MonoBehaviour
             if(inputLetter=='*')
             { 
                 mg.hints-=1;
+                PlayerPrefs.SetInt("hintsCollected",PlayerPrefs.GetInt("hintsCollected") + 1);
                 gs.goldIndex+=1;
                 if(gs.goldIndex<=2)
                 {
@@ -54,9 +55,12 @@ public class Destroy : MonoBehaviour
                         break;
                     }
                 }
-                if(c == 0){
+                if(c == 0)
+                {
                     LivesScript.lives -= 1;
+                    PlayerPrefs.SetInt("livesLeft", LivesScript.lives);
                     if(LivesScript.lives == 0){
+                        PlayerPrefs.SetInt("livesLeft", 0);
                         Camera.GameEnd();
                         Player.body.isKinematic = true;
                     }
