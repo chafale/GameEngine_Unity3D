@@ -25,6 +25,7 @@ public class Camera : MonoBehaviour {
         overReset.SetActive(false);
         goldReset = GameObject.Find("Hintground");
         goldReset.SetActive(false);
+        Time.timeScale = 1;
     }
     // Update is called once per frame
     void Update () {
@@ -44,6 +45,7 @@ public class Camera : MonoBehaviour {
         mg.letterHolderList = new List<TMP_Text>();
         mg.chars = new List<GameObject>();
         mapgen.correctCharacters = new List<GameObject>();
+        Time.timeScale = 0;
         // mapgen.displayCharacter = new List<GameObject>();
         overReset.SetActive(true);
     }
@@ -68,6 +70,7 @@ public class Camera : MonoBehaviour {
     }
     public static void CompleteLevel()
     {
+        
         completeLevelUI.SetActive(true);
     }
 }
