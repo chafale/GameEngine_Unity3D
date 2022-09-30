@@ -10,7 +10,7 @@ public class goldScript : MonoBehaviour
     public static int goldIndex;
 
     public static string [][] hint_array = new string[][] {
-                                                new string[] {"Animal","Loyal","Most adopted pet"},
+                                                new string[] {"Animal","Loyal","Pet"},
                                                 new string[] {"Animal","Huge","Grey"},
                                                 new string[] {"Drink","Caffeine","Starbucks"},
                                                 new string[] {"Scientist","Gravity","Motion"}

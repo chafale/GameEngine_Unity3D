@@ -134,7 +134,7 @@ public class MapGenerator : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (player.transform.position.x > floor.transform.position.x) {
+		if (player.transform.position.x > floor.transform.position.x-5) {
 			var tempCeiling = prevCeiling;
 			var tempFloor = prevFloor;
 			prevCeiling = ceiling;
