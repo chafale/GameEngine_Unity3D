@@ -16,7 +16,7 @@ public class goldScript : MonoBehaviour
                                                 new string[] {"Scientist","Gravity","Motion"}
                                                         };
 
-    [SerializeField] TextMeshProUGUI goldText;
+    [SerializeField] public static TextMeshProUGUI goldText;
 
     public static string[] goldList;
 
@@ -37,6 +37,14 @@ public class goldScript : MonoBehaviour
         goldText = GetComponent<TMPro.TextMeshProUGUI>();
     }
 
+    IEnumerator SetCountText()
+    {
+        Debug.Log("hi inside");
+        yield return new WaitForSeconds(2);
+        goldText.text = "";
+    }
+
+
     // Update is called once per frame
     public void updateHint()
     {
@@ -47,6 +55,7 @@ public class goldScript : MonoBehaviour
         else
         {
             goldText.text = "New Hint: " + goldList[goldIndex].ToString();
+            StartCoroutine(SetCountText());
         }
     }
 }

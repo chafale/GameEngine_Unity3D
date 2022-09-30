@@ -40,7 +40,7 @@ public class Destroy : MonoBehaviour
 
                 }
                 gs.goldObj.updateHint();
-                Camera.Pause();
+                // Camera.Pause();
             }
             // Fill blanks
             else{
