@@ -1,29 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using MongoDB.Bson;
-using MongoDB.Driver;
+using Proyecto26;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class DatabaseAccess : MonoBehaviour
 {
-    private MongoClient _client = new MongoClient("mongodb+srv://chafale:Password@flappykids.hpnerhl.mongodb.net/?retryWrites=true&w=majority");
-    private IMongoDatabase _database;
     private DateTime _gameEndTime;
-    private IMongoCollection<BsonDocument> _timingCollection;
-    private IMongoCollection<BsonDocument> _hintsCollection;
-    private IMongoCollection<BsonDocument> _livesCollection;
 
     void Start()
     {
         PlayerPrefs.SetInt("hintsCollected", 0);
         PlayerPrefs.SetInt("livesLeft", 3);
-        _database = _client.GetDatabase("Analytics");
-        _timingCollection = _database.GetCollection<BsonDocument>("timing");
-        _hintsCollection = _database.GetCollection<BsonDocument>("hints");
-        _livesCollection = _database.GetCollection<BsonDocument>("lives");
     }
-
+    
     private void OnApplicationQuit()
     {
         _gameEndTime = System.DateTime.Now;
@@ -32,8 +23,13 @@ public class DatabaseAccess : MonoBehaviour
         SaveHintsCollected();
         SaveLivesLeft();
     }
-
-    private async void SaveStartEndTimeToDatabase()
+    
+    [Serializable]
+    public class Timing
+    {
+        public double totalTimePlayed;
+    }   
+    private void SaveStartEndTimeToDatabase()
     {
         //getting gameStartTime
         string startTimeString = PlayerPrefs.GetString("gameStartTime"); 
@@ -51,32 +47,44 @@ public class DatabaseAccess : MonoBehaviour
         }
         DateTime gameStartTime = DateTime.ParseExact(startTimeString, "MM/dd/yyyy HH:mm:ss", null);
         
-        var result = _gameEndTime.Subtract(gameStartTime).TotalMinutes/1000;
+        var result = _gameEndTime.Subtract(gameStartTime).TotalMinutes;
         
-        var document = new BsonDocument()
-        {
-            {"totalPlayTime",result }
-        };
-        await _timingCollection.InsertOneAsync(document);
+        RestClient.Post("https://csci-526-flappy-kids-default-rtdb.firebaseio.com/game_timing.json", new Timing()
+            {
+                totalTimePlayed = result
+            }
+        );
     }
 
-    private async void SaveHintsCollected()
+    [Serializable]
+    class Hints
     {
-        var document = new BsonDocument()
-        {
-            {"registryTime", PlayerPrefs.GetString("gameEndTime")},
-            {"hintsCollected", PlayerPrefs.GetInt("hintsCollected")}
-        };
-        await _hintsCollection.InsertOneAsync(document);
+        public string registryTime;
+        public int hintsCollected;
+    }
+    private void SaveHintsCollected()
+    {
+        RestClient.Post("https://csci-526-flappy-kids-default-rtdb.firebaseio.com/game_hints.json", new Hints()
+            {
+                registryTime = PlayerPrefs.GetString("gameEndTime"),
+                hintsCollected = PlayerPrefs.GetInt("hintsCollected")
+            }
+        );
     }
 
-    private async void SaveLivesLeft()
+    [Serializable]
+    class Lives
     {
-        var document = new BsonDocument()
-        {
-            {"registryTime", PlayerPrefs.GetString("gameEndTime")},
-            {"livesLeft", PlayerPrefs.GetInt("livesLeft")}
-        };
-        await _livesCollection.InsertOneAsync(document);
+        public string registryTime;
+        public int liveLeft;
+    }
+    private void SaveLivesLeft()
+    {
+        RestClient.Post("https://csci-526-flappy-kids-default-rtdb.firebaseio.com/game_lives.json", new Lives()
+            {
+                registryTime = PlayerPrefs.GetString("gameEndTime"),
+                liveLeft = PlayerPrefs.GetInt("livesLeft"),
+            }
+        );
     }
 }
