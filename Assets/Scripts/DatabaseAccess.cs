@@ -15,7 +15,7 @@ public class DatabaseAccess : MonoBehaviour
         PlayerPrefs.SetInt("livesLeft", 3);
     }
     
-    private void OnApplicationQuit()
+    private void OnDisable()
     {
         _gameEndTime = System.DateTime.Now;
         PlayerPrefs.SetString("gameEndTime", _gameEndTime.ToString());
