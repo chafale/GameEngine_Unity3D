@@ -20,6 +20,8 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject character2;
 
 	public GameObject hintObject;
+	public GameObject speedObject;
+	public GameObject autofillObject;
 
 	public GameObject obstaclePrefab;
 	public GameObject A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z;
@@ -86,8 +88,16 @@ public class MapGenerator : MonoBehaviour {
 			return null;
 		}
 
-		if(count%6==0 && GameManager.hints>0){
-			Debug.Log("HI");
+		if(count%5==0){
+			Debug.Log("In speed object generation");
+			obstacle = GameObject.Instantiate(speedObject);
+		}
+		else if(count%7==0){
+			Debug.Log("In autofill object generation");
+			obstacle = GameObject.Instantiate(autofillObject);
+		}
+		else if(count%6==0 && GameManager.hints>0){
+			Debug.Log("In Hint object generation");
 			obstacle = GameObject.Instantiate(hintObject);
 		}
 		else if(count%4==0 && correctCharacters.Count>0){

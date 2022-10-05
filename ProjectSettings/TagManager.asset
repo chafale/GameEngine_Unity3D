@@ -31,6 +31,8 @@ TagManager:
   - I
   - V
   - '*'
+  - '@'
+  - $
   layers:
   - Default
   - TransparentFX

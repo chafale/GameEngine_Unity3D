@@ -5,11 +5,11 @@ using mg = GameManager;
 using gs = goldScript;
 using mapgen = MapGenerator;
 using gamsta = gameStatus;
+using pl = Player;
 
 public class Destroy : MonoBehaviour
 {
     public int check;
-
     public static Destroy destroyObj;
 
     void Awake()
@@ -29,8 +29,36 @@ public class Destroy : MonoBehaviour
             Destroy(gameObject);
             char inputLetter = char.Parse(collided_letter);
             int c = 0;
-            // Hint PopUp if letter = e
-            if(inputLetter=='*')
+            
+            // Autofill the first uncaught character if letter = $
+            if(inputLetter == '$')
+            {
+                for(int i=0;i<mg.letterHolderList.Count;i++)
+                {
+                    if(mg.letterHolderList[i].text == '_'.ToString())
+                    {
+                        gs.goldObj.updateHint(i+1);
+                        mg.letterHolderList[i].text  = mg.solvedList[i].ToString();
+                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
+                        if (index >= 0) {
+                         mapgen.displayCharacter.RemoveAt(index);
+                        }
+                        var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
+                        if (index1 >= 0) {
+                         mapgen.correctCharacters.RemoveAt(index1);
+                        }
+                        break;
+                    }
+                }
+            }
+            // Speed up player if letter = @
+            else if(inputLetter=='@')
+            {
+                pl.playerSpeed+=3;
+                gs.goldObj.updateHint(101);
+            }
+            // Hint PopUp if letter = *
+            else if(inputLetter=='*')
             { 
                 mg.hints-=1;
                 PlayerPrefs.SetInt("hintsCollected",PlayerPrefs.GetInt("hintsCollected") + 1);
@@ -40,7 +68,7 @@ public class Destroy : MonoBehaviour
                     mg.gamag.updateGameHint();
 
                 }
-                gs.goldObj.updateHint();
+                gs.goldObj.updateHint(100);
                 // Camera.Pause();
             }
             // Fill blanks
