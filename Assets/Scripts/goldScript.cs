@@ -6,7 +6,6 @@ using TMPro;
 
 public class goldScript : MonoBehaviour
 {
-    // Start is called before the first frame update
     public static int goldIndex;
 
     public static string [][] hint_array = new string[][] {
@@ -46,7 +45,7 @@ public class goldScript : MonoBehaviour
 
 
     // Update is called once per frame
-    public void updateHint()
+    public void updateHint(int temp)
     {
         if(goldIndex >= 3)
         {
@@ -54,7 +53,16 @@ public class goldScript : MonoBehaviour
         }
         else
         {
-            goldText.text = "New Hint: " + goldList[goldIndex].ToString();
+            if(temp==100)
+            {
+                goldText.text = "New Hint: " + goldList[goldIndex].ToString();
+            }
+            else if(temp==101){
+                goldText.text = "Speed Power up Collected !!";
+            }
+            else{
+                goldText.text = "Autofill Power up Collected !! Blank "+ temp.ToString() + " is filled";
+            }
             StartCoroutine(SetCountText());
         }
     }
