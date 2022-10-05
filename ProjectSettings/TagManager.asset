@@ -31,6 +31,8 @@ TagManager:
   - I
   - V
   - '*'
+  - ArrowKey1
+  - ArrowKey2
   layers:
   - Default
   - TransparentFX
