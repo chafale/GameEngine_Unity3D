@@ -9,7 +9,7 @@ using mg = MapGenerator;
 public class GameManager : MonoBehaviour
 {
     //public  static string[] wordList = {"DOG"};
-    public  static string[] wordList = {"DOG","ELEPHANT","COFFEE","NEWTON"};
+    public  static string[] wordList = {"TON","EGG","CANDLE","FUTURE","PROMISE","BANK","CHICAGO","QUEUE","SILENCE","PIANO"};
     // public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();
 
@@ -24,17 +24,21 @@ public class GameManager : MonoBehaviour
     public GameObject A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z;
     public static List<GameObject> chars = new List<GameObject>();
 
+    public TMP_Text riddle;
+
     void Start(){
         mg.correctCharacters.Clear();
         chars.Clear();
-        hints = 2;
+        hints = 3;
         chars.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
         index = Random.Range(0, wordList.Length);
 
         gs.assign_values();
 
         // hint.text = hintList[index]
-        hint.text = "Hint: " + gs.goldList[gs.goldIndex].ToString();
+        // hint.text = "Hint: " + gs.goldList[gs.goldIndex].ToString();
+        riddle.text = gs.goldList[0].ToString();
+
         string tempWord = wordList[index];
 
         string[] splittedWord = tempWord.Split(' ', tempWord.Length);

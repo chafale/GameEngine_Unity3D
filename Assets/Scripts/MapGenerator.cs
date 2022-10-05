@@ -96,7 +96,7 @@ public class MapGenerator : MonoBehaviour {
 			Debug.Log("In autofill object generation");
 			obstacle = GameObject.Instantiate(autofillObject);
 		}
-		else if(count%6==0 && GameManager.hints>0){
+		else if(count%4==0 && GameManager.hints>0){
 			Debug.Log("In Hint object generation");
 			obstacle = GameObject.Instantiate(hintObject);
 		}
