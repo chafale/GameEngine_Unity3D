@@ -12,7 +12,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject obstacle1;
     public GameObject character1;
     public GameObject character2;
-    public GameObject character3;
+    public GameObject character3, temp_chr;
     public GameObject prevCeiling;
 	public GameObject prevFloor;
 	public GameObject ceiling;
@@ -21,6 +21,12 @@ public class TutorialManager : MonoBehaviour
     public GameObject obstaclePrefab;
     public GameObject A, D, E, G, O;
     public  GameObject letterPrefab;
+    public GameObject hintObj;
+    public GameObject hintData;
+    public GameObject speedUp;
+    public GameObject speedUpData;
+    public GameObject autofill;
+    public GameObject autofillData;
 
     public static List<GameObject> chars = new List<GameObject>();
 
@@ -80,6 +86,13 @@ public class TutorialManager : MonoBehaviour
             GameObject temp = Instantiate(letterPrefab, letterHolder, false);
             letterHolderList.Add(temp.GetComponent<TMP_Text>());
         }
+       // hintObj=GameObject.FindWithTag("HintObj");
+        hintObj.SetActive(false);
+        hintData.SetActive(false);
+        speedUp.SetActive(false);
+        speedUpData.SetActive(false);
+        autofill.SetActive(false);
+        autofillData.SetActive(false);
     }
 
 
@@ -96,32 +109,37 @@ public class TutorialManager : MonoBehaviour
 	}
 
       GameObject GenerateCharacter(float referenceX,int i) {
-        int num = Random.Range(0,correctCharacters.Count);
-        Debug.Log("Correct Numer "+num);
+        float y;
         if (i == 1){
             character = GameObject.Instantiate(correctCharacters[0]);
+            y = 1.5f;
         }
         else if (i ==2){
             character = GameObject.Instantiate(correctCharacters[1]);
+            y = -1.5f;
         }
         else{
             character = GameObject.Instantiate(correctCharacters[2]);
+            y = 1.5f;
         }
-		
-		SetTransform(character,referenceX);
+		SetTransformCharacter(character,referenceX,y);
+        Debug.Log(i + " " + character.transform.position.x + " " + character.transform.position.y);
 		return character;
 	}
 
     void SetTransform(GameObject obstacle, float referenceX) {
-		obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(minObstacleY, maxObstacleY), 0);
+		obstacle.transform.position = new Vector3(referenceX, Random.Range(minObstacleY, maxObstacleY), 0);
 		obstacle.transform.localScale = new Vector3(obstacle.transform.localScale.x, Random.Range(minObstacleScaleY, maxObstacleY), obstacle.transform.localScale.z);
+	}
+
+    void SetTransformCharacter(GameObject obstacle, float referenceX, float y) {
+		obstacle.transform.position = new Vector3(referenceX, y, 0);
 	}
 
     IEnumerator SetCountText()
     {
-        Debug.Log("hi inside");
-        yield return new WaitForSeconds(2);
-        
+        Debug.Log("hi inside SetCountText");
+        yield return new WaitForSeconds(5);
     }
     void Update(){
         if (player.transform.position.x > floor.transform.position.x-5) {
@@ -136,8 +154,8 @@ public class TutorialManager : MonoBehaviour
 		}
         
         for(int i = 0;i<popUps.Length; i++){
-            Debug.Log("PopUpIndex"+popUpIndex);
-            Debug.Log("value of i"+i);
+            //Debug.Log("PopUpIndex"+popUpIndex);
+            //Debug.Log("value of i"+i);
             if(i == popUpIndex){
                 popUps[i].transform.position = new Vector3(player.transform.position.x+10, 0, 0);
                 popUps[i].SetActive(true);
@@ -146,6 +164,7 @@ public class TutorialManager : MonoBehaviour
             }
         }
         if(popUpIndex == 0){
+            Time.timeScale = 0;
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 Debug.Log("Sapce Bar was pressed");
@@ -155,14 +174,10 @@ public class TutorialManager : MonoBehaviour
                     Debug.Log("Arrow 1 is not null");
                     arrow1.SetActive(false);
                 }
-                else {
-                      Debug.Log("Arrow 1 is null");
-                }
                 if (arrow2 != null){
-                      Debug.Log("Arrow 2 is not null");
                      arrow2.SetActive(false);
                 }
-               
+                Time.timeScale = 1;
                 popUpIndex++;
             }
         } else if (popUpIndex == 1) {
@@ -174,11 +189,13 @@ public class TutorialManager : MonoBehaviour
 
         } else if (popUpIndex == 2 ){
                 if (flag == 1){
-                obstacle1 = GenerateObstacle(player.transform.position.x + 10);
+                obstacle1 = GenerateObstacle(player.transform.position.x + 25);
                 }
+                Time.timeScale = 1;
                 if (player.transform.position.x > obstacle1.transform.position.x)
                 {
                     popUpIndex++;
+                    
                 }
                 flag = 0;
         } else if (popUpIndex == 3 ){
@@ -192,12 +209,31 @@ public class TutorialManager : MonoBehaviour
                     {
                     Debug.Log("Move to Character Generation");
                     popUps[4].SetActive(true);
-                    character1 = GenerateCharacter(player.transform.position.x + 5,1);
-                    character2 = GenerateCharacter(player.transform.position.x + 15,2);
-                    character3 = GenerateCharacter(player.transform.position.x + 25,3);
+                    character1 = GenerateCharacter(player.transform.position.x + 20,1);
+                    character2 = GenerateCharacter(player.transform.position.x + 30,2);
+                    character3 = GenerateCharacter(player.transform.position.x + 40,3);
+                    temp_chr = GenerateCharacter(player.transform.position.x + 45,3);
+                    temp_chr.SetActive(false);
                     flag = 1;
                     }
-               
+                if(temp_chr && player.transform.position.x > temp_chr.transform.position.x){
+                    player.SetActive(false);
+                    popUps[4].SetActive(false);
+                    popUpIndex++;
+                    hintObj.SetActive(true);
+                    hintData.SetActive(true);
+                    speedUp.SetActive(true);
+                    speedUpData.SetActive(true);
+                    autofill.SetActive(true);
+                    autofillData.SetActive(true);
+                    // Time.timeScale = 0;
+                    // if (Input.GetKeyDown(KeyCode.Space))
+                    // {
+                    //      Time.timeScale = 1;
+                    // }
+                    //Camera.GameEnd();
+                    //Player.body.isKinematic = true;
+                }
             }
     }
 }

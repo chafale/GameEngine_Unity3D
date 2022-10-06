@@ -61,24 +61,6 @@ public class DestroyTutorial : MonoBehaviour
                     }
                 }
             }
-            check=0;
-            // Check if all blanks are filled
-            for (int i = 0; i < tm.solvedList.Count; i++)
-            {
-                char[] holder = tm.letterHolderList[i].text.ToCharArray();
-                if(tm.solvedList[i] != holder[0]){
-                    check = 1;
-                    break;
-                }
-                if(i==tm.solvedList.Count-1)
-                {
-                    gamsta.gameStatusObj.updateStatus();
-                }
-            }
-            if(check==0){
-              Camera.GameEnd();
-              Player.body.isKinematic = true;
-            }
         }
         else{
           Debug.Log("Letter collided with letter");
