@@ -33,6 +33,11 @@ TagManager:
   - '*'
   - '@'
   - $
+  - ArrowKey1
+  - ArrowKey2
+  - Hint
+  - HintObj
+  - HintData
   layers:
   - Default
   - TransparentFX
