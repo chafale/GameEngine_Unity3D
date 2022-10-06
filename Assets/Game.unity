@@ -1704,6 +1704,7 @@ MonoBehaviour:
   obstacle2: {fileID: 0}
   obstacle3: {fileID: 0}
   obstacle4: {fileID: 0}
+  bladePrefab: {fileID: 8016871299957817026, guid: baaefbbe1a6c4470f9f915647b6c5618, type: 3}
   character1: {fileID: 0}
   character2: {fileID: 0}
   hintObject: {fileID: 1367839526414575666, guid: 05f1f63cf36564fa3806741a6b699c47, type: 3}
