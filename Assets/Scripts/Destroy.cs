@@ -23,22 +23,34 @@ public class Destroy : MonoBehaviour
         // Debug.Log("OBJ1 " + obj1.tag);
         GameObject collion_obj = collide.gameObject;
         // Debug.Log("collion_obj " + collion_obj.tag);
+
+        if(obj1.tag=="blade"){
+          if(collion_obj.tag=="Player"){
+            Debug.Log("DIED HEREEEEEEE");
+            Camera.GameEnd();
+            Player.body.isKinematic = true;
+          }
+          return;
+        }
+
         if(collion_obj.tag=="Player"){
             string collided_letter = gameObject.tag;
             Debug.Log("Collided with letter : " + collided_letter);
             Destroy(gameObject);
             char inputLetter = char.Parse(collided_letter);
             int c = 0;
-            
+
             // Autofill the first uncaught character if letter = $
             if(inputLetter == '$')
             {
+                char solved='a';
                 for(int i=0;i<mg.letterHolderList.Count;i++)
                 {
                     if(mg.letterHolderList[i].text == '_'.ToString())
                     {
                         gs.goldObj.updateHint(i+1);
                         mg.letterHolderList[i].text  = mg.solvedList[i].ToString();
+                        solved = mg.solvedList[i];
                         var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
                         if (index >= 0) {
                          mapgen.displayCharacter.RemoveAt(index);
@@ -50,6 +62,23 @@ public class Destroy : MonoBehaviour
                         break;
                     }
                 }
+
+                for (int i = 0; i < mg.solvedList.Count; i++)
+                {
+                    if(mg.solvedList[i] == solved && mg.letterHolderList[i].text == '_'.ToString()){
+                        mg.letterHolderList[i].text = solved.ToString();
+                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
+                        if (index >= 0) {
+                         mapgen.displayCharacter.RemoveAt(index);
+                        }
+                        var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
+                        if (index1 >= 0) {
+                         mapgen.correctCharacters.RemoveAt(index1);
+                        }
+                        c=1;
+                    }
+                }
+
             }
             // Speed up player if letter = @
             else if(inputLetter=='@')
@@ -59,7 +88,7 @@ public class Destroy : MonoBehaviour
             }
             // Hint PopUp if letter = *
             else if(inputLetter=='*')
-            { 
+            {
                 mg.hints-=1;
                 PlayerPrefs.SetInt("hintsCollected",PlayerPrefs.GetInt("hintsCollected") + 1);
                 gs.goldIndex+=1;
