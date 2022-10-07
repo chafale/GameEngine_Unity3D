@@ -232,13 +232,19 @@ public class TutorialManager : MonoBehaviour
                     speedUpData.SetActive(true);
                     autofill.SetActive(true);
                     autofillData.SetActive(true);
-                    // Time.timeScale = 0;
-                    // if (Input.GetKeyDown(KeyCode.Space))
-                    // {
-                    //      Time.timeScale = 1;
-                    // }
-                    //Camera.GameEnd();
-                    //Player.body.isKinematic = true;
+                    Time.timeScale = 0;
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        Debug.Log("Check if the Space bar was pressed ");
+                        Time.timeScale = 1;
+                        Camera.GameEnd();
+                        Player.body.isKinematic = true;
+                    }
+                    else{
+                        popUpIndex--;
+                    }
+
+                   
                 }
             }
     }
