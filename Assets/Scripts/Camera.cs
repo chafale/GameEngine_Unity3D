@@ -20,11 +20,10 @@ public class Camera : MonoBehaviour {
     // Use this for initialization
     void Start () {
         LivesScript.lives = 3;
-        goldScript.goldIndex = 0;
         overReset = GameObject.Find("Background");
         overReset.SetActive(false);
-        goldReset = GameObject.Find("Hintground");
-        goldReset.SetActive(false);
+        // goldReset = GameObject.Find("Hintground");
+        // goldReset.SetActive(false);
         Time.timeScale = 1;
     }
     // Update is called once per frame

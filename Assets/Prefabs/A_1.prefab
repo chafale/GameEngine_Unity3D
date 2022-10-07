@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7153090048448184449}
   - component: {fileID: 6706888690243941183}
   - component: {fileID: 7971247217513557126}
-  - component: {fileID: 2330957356216642722}
+  - component: {fileID: 589339695621672260}
   m_Layer: 0
-  m_Name: A
+  m_Name: A_1
   m_TagString: A
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!65 &7971247217513557126
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -116,7 +116,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.48, y: 0.48, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2330957356216642722
+--- !u!114 &589339695621672260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,7 +125,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 195844281613412553}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 736986338d60c49f4868d8caeca8493e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d09a11553eb54fda9451fae5f1d1b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  check: 0

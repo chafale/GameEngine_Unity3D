@@ -25,8 +25,7 @@ public class gameStatus : MonoBehaviour
     // Update is called once per frame
     public void updateStatus()
     {
-        
-            statusText.text = "Congratulations!\n You Win!";
- 
+        statusText.text = "Congratulations!\n You Win!";
+        PlayerPrefs.SetInt("gameStatus", 1);
     }
 }

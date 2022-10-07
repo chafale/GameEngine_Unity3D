@@ -7,17 +7,18 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour {
     
     public static Rigidbody body;
-    
     public bool gameOver = false;
     private Vector2 playerDirection;
-    
     public DateTime gameStartTime;
     
+    public static int playerSpeed;
     // Use this for initialization
     void Start () {
+        playerSpeed = 5;
         body = GetComponent<Rigidbody>();
         gameStartTime = System.DateTime.Now;
         PlayerPrefs.SetString("gameStartTime", gameStartTime.ToString());
+        
     }
     
     void Update()
@@ -43,7 +44,7 @@ public class Player : MonoBehaviour {
         // } else if (Input.GetMouseButtonUp(0)) {
         //  body.velocity *= 0.25f;
         // }
-        body.velocity = new Vector2(0, playerDirection.y * 5);
+        body.velocity = new Vector2(0, playerDirection.y * playerSpeed);
     }
     
     void OnTriggerEnter(Collider collider) {
