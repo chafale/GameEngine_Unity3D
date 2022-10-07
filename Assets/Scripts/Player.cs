@@ -10,11 +10,16 @@ public class Player : MonoBehaviour {
     public bool gameOver = false;
     private Vector2 playerDirection;
     public DateTime gameStartTime;
+    public int maxHealth = 100;
+    public int currentHealth;
+    // public HealthBar healthBar;
     
     public static int playerSpeed;
     // Use this for initialization
     void Start () {
         playerSpeed = 5;
+        currentHealth = maxHealth;
+        FindObjectOfType<HealthBar>().SetMaxHealth(maxHealth);
         body = GetComponent<Rigidbody>();
         gameStartTime = System.DateTime.Now;
         PlayerPrefs.SetString("gameStartTime", gameStartTime.ToString());
@@ -50,5 +55,11 @@ public class Player : MonoBehaviour {
     void OnTriggerEnter(Collider collider) {
         gameOver = true;
         body.isKinematic = true;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        FindObjectOfType<HealthBar>().SetHealth(currentHealth);
     }
 }
