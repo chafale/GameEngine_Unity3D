@@ -38,6 +38,7 @@ TagManager:
   - Hint
   - HintObj
   - HintData
+  - PopUp05
   layers:
   - Default
   - TransparentFX
