@@ -27,6 +27,8 @@ public class TutorialManager : MonoBehaviour
     public GameObject speedUpData;
     public GameObject autofill;
     public GameObject autofillData;
+    public BoxCollider2D prevBackground;
+	public BoxCollider2D currBackground;
 
     public static List<GameObject> chars = new List<GameObject>();
 
@@ -145,12 +147,16 @@ public class TutorialManager : MonoBehaviour
         if (player.transform.position.x > floor.transform.position.x-5) {
 			var tempCeiling = prevCeiling;
 			var tempFloor = prevFloor;
+			var tempBackground = prevBackground;
 			prevCeiling = ceiling;
 			prevFloor = floor;
-			tempCeiling.transform.position += new Vector3(80, 0, 0);
-			tempFloor.transform.position += new Vector3(80, 0, 0);
+			prevBackground = currBackground;
+			tempCeiling.transform.position += new Vector3(79.85f, 0, 0);
+			tempFloor.transform.position += new Vector3(79.85f, 0, 0);
+			tempBackground.transform.position += new Vector3(79.85f, 0, 0);
 			ceiling = tempCeiling;
 			floor = tempFloor;
+			currBackground = tempBackground;
 		}
         
         for(int i = 0;i<popUps.Length; i++){
