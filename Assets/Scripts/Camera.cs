@@ -20,6 +20,7 @@ public class Camera : MonoBehaviour {
     // Use this for initialization
     void Start () {
         LivesScript.lives = 3;
+        goldScript.goldIndex = 0;
         overReset = GameObject.Find("Background");
         overReset.SetActive(false);
         // goldReset = GameObject.Find("Hintground");
@@ -35,6 +36,15 @@ public class Camera : MonoBehaviour {
         else
         {
             GameEnd();
+            player.currentHealth = 0;
+            FindObjectOfType<HealthBar>().SetHealth(player.currentHealth);
+            Debug.Log("I am obstacle here");
+        }
+
+        if(player.currentHealth == 0 )
+        {
+            GameEnd();
+            Debug.Log("I am health here");
         }
     }
 

@@ -86,18 +86,13 @@ public class Destroy : MonoBehaviour
             {
                 pl.playerSpeed+=3;
                 gs.goldObj.updateHint(101);
-                
-                // Analytics : Speed Power-up capture
-                PlayerPrefs.SetInt("speedPowerUp", PlayerPrefs.GetInt("speedPowerUp") + 1);
+                FindObjectOfType<Player>().TakeDamage(10);
             }
             // Hint PopUp if letter = *
             else if(inputLetter=='*')
             {
                 mg.hints-=1;
-                
-                // Analytics : Hints capture
                 PlayerPrefs.SetInt("hintsCollected",PlayerPrefs.GetInt("hintsCollected") + 1);
-                
                 gs.goldIndex+=1;
                 if(gs.goldIndex<=2)
                 {
@@ -105,6 +100,7 @@ public class Destroy : MonoBehaviour
 
                 }
                 gs.goldObj.updateHint(100);
+                FindObjectOfType<Player>().TakeDamage(10);
                 // Camera.Pause();
             }
             // Fill blanks
@@ -131,18 +127,17 @@ public class Destroy : MonoBehaviour
                     }
                 }
                 if(c == 0){
-                    LivesScript.lives -= 1;
-                    
-                    // Analytics : LivesLeft capture
+                    // LivesScript.lives -= 1;
                     PlayerPrefs.SetInt("livesLeft", LivesScript.lives);
-                    
-                    if(LivesScript.lives == 0){
-                        PlayerPrefs.SetInt("livesLeft", 0);
-                        gamsta.gameStatusObj.updateStatus();
-                        Debug.Log("The correct word was" + mg.correct_word);
-                        Camera.GameEnd();
-                        Player.body.isKinematic = true;
-                    }
+                    FindObjectOfType<Player>().TakeDamage(20);
+                    gamsta.gameStatusObj.updateStatus();
+                    Debug.Log("The correct word was" + mg.correct_word);
+                    // if(LivesScript.lives == 0){
+                    //     PlayerPrefs.SetInt("livesLeft", 0);
+                    //     Camera.GameEnd();
+                    //     Player.body.isKinematic = true;
+                    //     Debug.Log("I am lives here");
+                    // }
                 }
             }
             check=0;
