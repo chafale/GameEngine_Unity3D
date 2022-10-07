@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public string firstLevel;
+    public string firstLevel;  
+    public string tutorialLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -21,5 +22,8 @@ public class Menu : MonoBehaviour
 
     public void StartGame() {
         SceneManager.LoadScene(firstLevel);
+    }
+    public void StartTutorial() {
+        SceneManager.LoadScene(tutorialLevel);
     }
 }
