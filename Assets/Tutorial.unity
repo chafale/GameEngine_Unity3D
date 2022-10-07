@@ -1816,7 +1816,7 @@ RectTransform:
   m_GameObject: {fileID: 710305382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 11.807703, y: 11.98936, z: 14.5325575}
+  m_LocalScale: {x: 59.295372, y: 43.169147, z: 14.5325575}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 685157405}
@@ -1824,7 +1824,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -573.9023, y: -39}
+  m_AnchoredPosition: {x: -5432, y: -98.5}
   m_SizeDelta: {x: 6.3461914, y: 4.0692}
   m_Pivot: {x: 0.50000024, y: 0.5}
 --- !u!114 &710305384
@@ -3049,7 +3049,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Collect this Autofill Power Up to automatically fill in letters
+  m_text: 'Collect this Autofill Power Up to automatically fill in letters
+
+
+    Great
+    You have finished the tutorial. Press Space Bar to go back to main menu'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4758,7 +4762,7 @@ RectTransform:
   m_GameObject: {fileID: 2043008589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 11.8975, y: 10.431837, z: 14.5325575}
+  m_LocalScale: {x: 59, y: 43, z: 14.5325575}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 685157405}
@@ -4766,7 +4770,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1, y: -40}
+  m_AnchoredPosition: {x: -209, y: -116}
   m_SizeDelta: {x: 6.6032, y: 4.9558}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2043008591
