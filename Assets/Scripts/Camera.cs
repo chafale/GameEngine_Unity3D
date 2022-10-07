@@ -38,13 +38,13 @@ public class Camera : MonoBehaviour {
             GameEnd();
             player.currentHealth = 0;
             FindObjectOfType<HealthBar>().SetHealth(player.currentHealth);
-            Debug.Log("I am obstacle here");
+            //Debug.Log("I am obstacle here");
         }
 
         if(player.currentHealth == 0 )
         {
             GameEnd();
-            Debug.Log("I am health here");
+            //Debug.Log("I am health here");
         }
     }
 
@@ -53,6 +53,7 @@ public class Camera : MonoBehaviour {
         mg.solvedList = new List<char>();
         mg.letterHolderList = new List<TMP_Text>();
         mg.chars = new List<GameObject>();
+        mapgen.displayCharacter = new List<GameObject>();
         mapgen.correctCharacters = new List<GameObject>();
         Time.timeScale = 0;
         // mapgen.displayCharacter = new List<GameObject>();
@@ -79,7 +80,7 @@ public class Camera : MonoBehaviour {
     }
     public static void CompleteLevel()
     {
-        
+
         completeLevelUI.SetActive(true);
     }
 }

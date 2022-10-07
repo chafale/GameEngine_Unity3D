@@ -18,7 +18,7 @@ public class Destroy : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collide) {
-        
+
         GameObject obj1 = this.gameObject;
         GameObject collion_obj = collide.gameObject;
 
@@ -43,7 +43,7 @@ public class Destroy : MonoBehaviour
             {
                 // Analytics : Autofill Power-up capture
                 PlayerPrefs.SetInt("autofillPowerUp", PlayerPrefs.GetInt("autofillPowerUp") + 1);
-                
+
                 char solved='a';
                 for(int i=0;i<mg.letterHolderList.Count;i++)
                 {
@@ -52,11 +52,12 @@ public class Destroy : MonoBehaviour
                         gs.goldObj.updateHint(i+1);
                         mg.letterHolderList[i].text  = mg.solvedList[i].ToString();
                         solved = mg.solvedList[i];
-                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
+                        Debug.Log("solved " + solved);
+                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == solved.ToString());
                         if (index >= 0) {
                          mapgen.displayCharacter.RemoveAt(index);
                         }
-                        var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
+                        var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == solved.ToString());
                         if (index1 >= 0) {
                          mapgen.correctCharacters.RemoveAt(index1);
                         }
@@ -68,15 +69,14 @@ public class Destroy : MonoBehaviour
                 {
                     if(mg.solvedList[i] == solved && mg.letterHolderList[i].text == '_'.ToString()){
                         mg.letterHolderList[i].text = solved.ToString();
-                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
+                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == solved.ToString());
                         if (index >= 0) {
                          mapgen.displayCharacter.RemoveAt(index);
                         }
-                        var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
+                        var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == solved.ToString());
                         if (index1 >= 0) {
                          mapgen.correctCharacters.RemoveAt(index1);
                         }
-                        c=1;
                     }
                 }
 
