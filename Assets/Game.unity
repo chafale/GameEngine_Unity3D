@@ -1530,6 +1530,7 @@ GameObject:
   - component: {fileID: 1420289910}
   - component: {fileID: 1420289909}
   - component: {fileID: 1420289911}
+  - component: {fileID: 1420289912}
   m_Layer: 5
   m_Name: HintText
   m_TagString: Untagged
@@ -1666,6 +1667,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abde5b6b3afda4fc9bb5d2af26428990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1420289912
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420289907}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d55471c8d595a4d1ead80bf376bfaa60, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1476601627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,6 +1728,7 @@ MonoBehaviour:
   bladePrefab: {fileID: 8016871299957817026, guid: baaefbbe1a6c4470f9f915647b6c5618, type: 3}
   character1: {fileID: 0}
   character2: {fileID: 0}
+  character3: {fileID: 0}
   hintObject: {fileID: 1367839526414575666, guid: 05f1f63cf36564fa3806741a6b699c47, type: 3}
   speedObject: {fileID: 5377792005926250530, guid: d28fe744493f74127bca8a3ad7d2bd98, type: 3}
   autofillObject: {fileID: 692368207568431423, guid: d10233cbf770443eb95fa958d24068aa, type: 3}
