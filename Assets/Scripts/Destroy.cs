@@ -18,11 +18,9 @@ public class Destroy : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collide) {
-        //Debug.Log("objected collided");
+        
         GameObject obj1 = this.gameObject;
-        // Debug.Log("OBJ1 " + obj1.tag);
         GameObject collion_obj = collide.gameObject;
-        // Debug.Log("collion_obj " + collion_obj.tag);
 
         if(obj1.tag=="blade"){
           if(collion_obj.tag=="Player"){
@@ -43,6 +41,9 @@ public class Destroy : MonoBehaviour
             // Autofill the first uncaught character if letter = $
             if(inputLetter == '$')
             {
+                // Analytics : Autofill Power-up capture
+                PlayerPrefs.SetInt("autofillPowerUp", PlayerPrefs.GetInt("autofillPowerUp") + 1);
+                
                 char solved='a';
                 for(int i=0;i<mg.letterHolderList.Count;i++)
                 {
@@ -85,12 +86,18 @@ public class Destroy : MonoBehaviour
             {
                 pl.playerSpeed+=3;
                 gs.goldObj.updateHint(101);
+                
+                // Analytics : Speed Power-up capture
+                PlayerPrefs.SetInt("speedPowerUp", PlayerPrefs.GetInt("speedPowerUp") + 1);
             }
             // Hint PopUp if letter = *
             else if(inputLetter=='*')
             {
                 mg.hints-=1;
+                
+                // Analytics : Hints capture
                 PlayerPrefs.SetInt("hintsCollected",PlayerPrefs.GetInt("hintsCollected") + 1);
+                
                 gs.goldIndex+=1;
                 if(gs.goldIndex<=2)
                 {
@@ -125,9 +132,14 @@ public class Destroy : MonoBehaviour
                 }
                 if(c == 0){
                     LivesScript.lives -= 1;
+                    
+                    // Analytics : LivesLeft capture
                     PlayerPrefs.SetInt("livesLeft", LivesScript.lives);
+                    
                     if(LivesScript.lives == 0){
                         PlayerPrefs.SetInt("livesLeft", 0);
+                        gamsta.gameStatusObj.updateStatus();
+                        Debug.Log("The correct word was" + mg.correct_word);
                         Camera.GameEnd();
                         Player.body.isKinematic = true;
                     }
