@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     public  static string[] wordList = {"TON","EGG","CANDLE","FUTURE","PROMISE","BANK","CHICAGO","QUEUE","SILENCE","PIANO"};
     // public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();
-
     public  static List<TMP_Text> letterHolderList = new List<TMP_Text>();
     public  GameObject letterPrefab;
     public  Transform letterHolder;
@@ -20,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public static int hints;
     public static int index;
+    public static string correct_word;
 
     public GameObject A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z;
     public static List<GameObject> chars = new List<GameObject>();
@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
         hints = 3;
         chars.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
         index = Random.Range(0, wordList.Length);
+        correct_word = wordList[index];
+        Debug.Log("CORRECT WORD IS:" + correct_word);
 
         gs.assign_values();
 

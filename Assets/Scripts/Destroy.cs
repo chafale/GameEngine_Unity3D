@@ -138,6 +138,8 @@ public class Destroy : MonoBehaviour
                     
                     if(LivesScript.lives == 0){
                         PlayerPrefs.SetInt("livesLeft", 0);
+                        gamsta.gameStatusObj.updateStatus();
+                        Debug.Log("The correct word was" + mg.correct_word);
                         Camera.GameEnd();
                         Player.body.isKinematic = true;
                     }
