@@ -78,48 +78,40 @@ public class MapGenerator : MonoBehaviour {
 		float dist3 = Mathf.Abs(start_obs - obj3);
 		float dist4 = Mathf.Abs(start_obs - obj4);
 
-		if(dist1<1){
+		if(dist1<1.25){
 			Debug.Log("1");
 			return null;
 		}
-		else if(dist2<1){
+		else if(dist2<1.25){
 			Debug.Log("2");
 			return null;
 		}
-		else if(dist3<1){
+		else if(dist3<1.25){
 			Debug.Log("3");
 			return null;
 		}
-		else if(dist4<1){
+		else if(dist4<1.25){
 			Debug.Log("4");
 			return null;
 		}
 
 		Debug.Log(correctCharacters.Count + " " +  displayCharacter.Count);
 
-		if(count%2==0 && correctCharacters.Count>0){
+		if(count%3==0 && correctCharacters.Count>0){
 				num = Random.Range(0,correctCharacters.Count);
 				obstacle = GameObject.Instantiate(correctCharacters[num]);
 		}
-		else if((count==3 || count%3==0) && GameManager.hints>0){
-			Debug.Log("In Hint object generation");
+		else if((count==2 || count%5==0) && GameManager.hints>0){
+			// Debug.Log("In Hint object generation");
 			obstacle = GameObject.Instantiate(hintObject);
 		}
-		else if(count%5==0){
-			Debug.Log("In speed object generation");
+		else if(count%6==0){
+			// Debug.Log("In speed object generation");
 			obstacle = GameObject.Instantiate(speedObject);
 		}
-		else if(count%7==0){
-			Debug.Log("In autofill object generation");
+		else if(count%8==0){
+			// Debug.Log("In autofill object generation");
 			obstacle = GameObject.Instantiate(autofillObject);
-		}
-		else if(count%4==0 && GameManager.hints>0){
-			Debug.Log("In Hint object generation");
-			obstacle = GameObject.Instantiate(hintObject);
-		}
-		else if(count%4==0 && correctCharacters.Count>0){
-				num = Random.Range(0,correctCharacters.Count);
-				obstacle = GameObject.Instantiate(correctCharacters[num]);
 		}
 		else{
 			num = Random.Range(0,displayCharacter.Count);
@@ -153,8 +145,8 @@ public class MapGenerator : MonoBehaviour {
 	void SetTransform(GameObject obstacle, float referenceX) {
 		obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(minObstacleY, maxObstacleY), 0);
 		if(obstacle.tag == "blade"){
-			float scale_blade1 = Random.Range(1, 5);
-			float scale_blade2 = Random.Range(scale_blade1+1, 2*scale_blade1);
+			float scale_blade1 = Random.Range(1, 10);
+			float scale_blade2 = Random.Range(scale_blade1+1, 3*scale_blade1);
 			obstacle.transform.localScale = new Vector3(scale_blade1/scale_blade2, scale_blade1/scale_blade2, scale_blade1/scale_blade2);
 		}
 		else{
@@ -194,21 +186,21 @@ public class MapGenerator : MonoBehaviour {
 
 			if(character1){
 				float dist_obs4_1 = Mathf.Abs(obstacle4.transform.position.x - character1.transform.position.x);
-				if(dist_obs4_1<1){
+				if(dist_obs4_1<1.25){
 					Destroy(character1);
 				}
 			}
 
 			if(character2){
 				float dist_obs4_2 = Mathf.Abs(obstacle4.transform.position.x - character2.transform.position.x);
-				if(dist_obs4_2<1){
+				if(dist_obs4_2<1.25){
 					Destroy(character2);
 				}
 			}
 
 			if(character3){
 				float dist_obs4_3 = Mathf.Abs(obstacle4.transform.position.x - character3.transform.position.x);
-				if(dist_obs4_3<1){
+				if(dist_obs4_3<1.25){
 					Destroy(character3);
 				}
 			}

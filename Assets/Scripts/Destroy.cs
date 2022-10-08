@@ -22,14 +22,14 @@ public class Destroy : MonoBehaviour
         GameObject obj1 = this.gameObject;
         GameObject collion_obj = collide.gameObject;
 
-        if(obj1.tag=="blade"){
-          if(collion_obj.tag=="Player"){
-            Debug.Log("DIED HEREEEEEEE");
-            Camera.GameEnd();
-            Player.body.isKinematic = true;
-          }
-          return;
-        }
+        // if(obj1.tag=="blade"){
+        //   if(collion_obj.tag=="Player"){
+        //     Debug.Log("DIED HEREEEEEEE");
+        //     Camera.GameEnd();
+        //     Player.body.isKinematic = true;
+        //   }
+        //   return;
+        // }
 
         if(collion_obj.tag=="Player"){
             string collided_letter = gameObject.tag;
