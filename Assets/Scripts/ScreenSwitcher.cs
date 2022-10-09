@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ScreenSwitcher : MonoBehaviour
+// switching the screen to home page
 {
     public void Back()
     {
