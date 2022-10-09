@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 using des = Destroy;
 using mg = GameManager;
 
@@ -12,7 +13,8 @@ public class gameStatus : MonoBehaviour
     // Start is called before the first frame update
     
     [SerializeField] TextMeshProUGUI statusText;
-
+    public Player player;
+    
     public static gameStatus gameStatusObj;
 
     void Awake()
@@ -27,10 +29,11 @@ public class gameStatus : MonoBehaviour
     // Update is called once per frame
     public void updateStatus()
     {
-        if (LivesScript.lives == 0)
+        if (player.currentHealth == 0 )
         {
             statusText.text = "Game Over!\n The correct word was : " + mg.correct_word;
             PlayerPrefs.SetInt("gameStatus", 1);
+            Camera.GameEnd();
 
 
         }
@@ -38,6 +41,7 @@ public class gameStatus : MonoBehaviour
         {
             statusText.text = "Congratulations!\n You Win!\n The correct word was: " + mg.correct_word;
             PlayerPrefs.SetInt("gameStatus", 1);
+            Camera.GameEnd();
         }
     }
 

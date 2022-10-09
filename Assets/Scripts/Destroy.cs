@@ -11,6 +11,7 @@ public class Destroy : MonoBehaviour
 {
     public int check;
     public static Destroy destroyObj;
+    public Player player;
 
     void Awake()
     {
@@ -128,10 +129,15 @@ public class Destroy : MonoBehaviour
                 }
                 if(c == 0){
                     // LivesScript.lives -= 1;
-                    PlayerPrefs.SetInt("livesLeft", LivesScript.lives);
+                   
                     FindObjectOfType<Player>().TakeDamage(20);
                     gamsta.gameStatusObj.updateStatus();
                     Debug.Log("The correct word was" + mg.correct_word);
+                    if (player.currentHealth == 0)
+                    {
+                        Camera.GameEnd();
+                        Debug.Log("In C=0 if health 0");
+                    }
                     // if(LivesScript.lives == 0){
                     //     PlayerPrefs.SetInt("livesLeft", 0);
                     //     Camera.GameEnd();
