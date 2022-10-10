@@ -29,7 +29,7 @@ public class gameStatus : MonoBehaviour
 
     // Update is called once per frame
     public void updateStatus()
-    {
+    {   //when health is zero
         if (FindObjectOfType<Player>().currentHealth <= 0 )
         {
             Debug.Log("Game end health: "+ FindObjectOfType<Player>().currentHealth);
@@ -38,7 +38,7 @@ public class gameStatus : MonoBehaviour
             Camera.GameEnd();
         }
         else
-        {
+        { //when player wins
             statusText.text = "Congratulations!\n You Win!\n The correct word was: " + mg.correct_word;
             PlayerPrefs.SetInt("gameStatus", 1);
             // Camera.GameEnd();
