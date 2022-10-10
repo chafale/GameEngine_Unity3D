@@ -11,6 +11,7 @@ public class Destroy : MonoBehaviour
 {
     public int check;
     public static Destroy destroyObj;
+    public Player player;
 
     void Awake()
     {
@@ -128,8 +129,9 @@ public class Destroy : MonoBehaviour
                 }
                 if(c == 0){
                     // LivesScript.lives -= 1;
-                    PlayerPrefs.SetInt("livesLeft", LivesScript.lives);
+                   
                     FindObjectOfType<Player>().TakeDamage(20);
+                    Debug.Log("Health decreased" + FindObjectOfType<Player>().currentHealth);
                     gamsta.gameStatusObj.updateStatus();
                     Debug.Log("The correct word was" + mg.correct_word);
                     // if(LivesScript.lives == 0){

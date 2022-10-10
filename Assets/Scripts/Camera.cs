@@ -19,7 +19,7 @@ public class Camera : MonoBehaviour {
     public static GameObject completeLevelUI;
     // Use this for initialization
     void Start () {
-        LivesScript.lives = 3;
+       
         goldScript.goldIndex = 0;
         overReset = GameObject.Find("Background");
         overReset.SetActive(false);
@@ -32,20 +32,23 @@ public class Camera : MonoBehaviour {
         if (!player.gameOver)
         {
             transform.position += new Vector3(5f * Time.deltaTime, 0, 0);
+            
         }
         else
         {
             GameEnd();
             player.currentHealth = 0;
             FindObjectOfType<HealthBar>().SetHealth(player.currentHealth);
-            //Debug.Log("I am obstacle here");
+            Debug.Log("I am obstacle here");
         }
-
-        if(player.currentHealth == 0 )
+        
+        if(player.currentHealth <= 0 )
         {
             GameEnd();
-            //Debug.Log("I am health here");
+            Debug.Log("I am health here");
         }
+
+       
     }
 
     public static void GameEnd(){

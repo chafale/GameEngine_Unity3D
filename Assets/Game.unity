@@ -2147,6 +2147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusText: {fileID: 1503808477}
+  player: {fileID: 1722864599}
 --- !u!1 &1555333907
 GameObject:
   m_ObjectHideFlags: 0
