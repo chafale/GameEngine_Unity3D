@@ -24,24 +24,24 @@ public class gameStatus : MonoBehaviour
     void Start()
     {
         statusText = GetComponent<TMPro.TextMeshProUGUI>();
+        player = gameObject.AddComponent<Player>();
     }
 
     // Update is called once per frame
     public void updateStatus()
     {
-        if (player.currentHealth == 0 )
+        if (FindObjectOfType<Player>().currentHealth <= 0 )
         {
+            Debug.Log("Game end health: "+ FindObjectOfType<Player>().currentHealth);
             statusText.text = "Game Over!\n The correct word was : " + mg.correct_word;
             PlayerPrefs.SetInt("gameStatus", 1);
             Camera.GameEnd();
-
-
         }
         else
         {
             statusText.text = "Congratulations!\n You Win!\n The correct word was: " + mg.correct_word;
             PlayerPrefs.SetInt("gameStatus", 1);
-            Camera.GameEnd();
+            // Camera.GameEnd();
         }
     }
 

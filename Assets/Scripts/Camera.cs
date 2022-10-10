@@ -41,7 +41,7 @@ public class Camera : MonoBehaviour {
             FindObjectOfType<HealthBar>().SetHealth(player.currentHealth);
             Debug.Log("I am obstacle here");
         }
-        Debug.Log(player.currentHealth);
+        
         if(player.currentHealth <= 0 )
         {
             GameEnd();

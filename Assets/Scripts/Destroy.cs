@@ -131,6 +131,7 @@ public class Destroy : MonoBehaviour
                     // LivesScript.lives -= 1;
                    
                     FindObjectOfType<Player>().TakeDamage(20);
+                    Debug.Log("Health decreased" + FindObjectOfType<Player>().currentHealth);
                     gamsta.gameStatusObj.updateStatus();
                     Debug.Log("The correct word was" + mg.correct_word);
                     // if(LivesScript.lives == 0){
