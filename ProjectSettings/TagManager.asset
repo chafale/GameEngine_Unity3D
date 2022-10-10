@@ -38,6 +38,9 @@ TagManager:
   - Hint
   - HintObj
   - HintData
+  - blade
+  - '#'
+  - ~
   layers:
   - Default
   - TransparentFX
