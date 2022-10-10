@@ -6,6 +6,7 @@ using gs = goldScript;
 using mapgen = MapGenerator;
 using gamsta = gameStatus;
 using pl = Player;
+using hb = HealthBar;
 
 public class Destroy : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class Destroy : MonoBehaviour
         //   }
         //   return;
         // }
+        Debug.Log(collion_obj.tag);
 
         if(collion_obj.tag=="Player"){
             string collided_letter = gameObject.tag;
@@ -39,8 +41,22 @@ public class Destroy : MonoBehaviour
             char inputLetter = char.Parse(collided_letter);
             int c = 0;
 
+            if(inputLetter=='~')
+            {
+                Debug.Log("In Invisible Mode");
+                
+            }
+            // Health bar increase power up if letter = #
+            if(inputLetter=='#')
+            {
+                if(hb.healthObj.slider.value<=75)
+                {
+                    gs.goldObj.updateHint(102);
+                    hb.healthObj.slider.value+=25f;
+                }
+            }
             // Autofill the first uncaught character if letter = $
-            if(inputLetter == '$')
+            else if(inputLetter == '$')
             {
                 // Analytics : Autofill Power-up capture
                 PlayerPrefs.SetInt("autofillPowerUp", PlayerPrefs.GetInt("autofillPowerUp") + 1);

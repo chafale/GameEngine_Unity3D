@@ -60,6 +60,7 @@ public class Camera : MonoBehaviour {
         mapgen.correctCharacters = new List<GameObject>();
         Time.timeScale = 0;
         // mapgen.displayCharacter = new List<GameObject>();
+        goldScript.goldText.text="";
         overReset.SetActive(true);
     }
     public void Reset()
@@ -69,6 +70,7 @@ public class Camera : MonoBehaviour {
         mg.letterHolderList = new List<TMP_Text>();
         mapgen.correctCharacters = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
+        goldScript.goldText.text="";
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public static void Pause()

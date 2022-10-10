@@ -1943,6 +1943,8 @@ MonoBehaviour:
   hintObject: {fileID: 1367839526414575666, guid: 05f1f63cf36564fa3806741a6b699c47, type: 3}
   speedObject: {fileID: 5377792005926250530, guid: d28fe744493f74127bca8a3ad7d2bd98, type: 3}
   autofillObject: {fileID: 692368207568431423, guid: d10233cbf770443eb95fa958d24068aa, type: 3}
+  healthUpObject: {fileID: 1801001809952329807, guid: 08717df376d8f40caa7a35e2de0c06ee, type: 3}
+  invisibleObject: {fileID: 8188863263824143127, guid: cfec838a6db4b4acdbcd0067484e67e8, type: 3}
   obstaclePrefab: {fileID: 1130431016740994, guid: 4f29d0d0d3d5190409d2d05756c134f6, type: 3}
   A: {fileID: 195844281613412553, guid: 1a0aa93eb88b34810909a38938b4328a, type: 3}
   B: {fileID: 530938983474132534, guid: 0c758788fc9c0448998404a9d8d496a4, type: 3}

@@ -27,8 +27,8 @@ public class goldScript : MonoBehaviour
 
     public static void assign_values(){
         goldList = hint_array[GameManager.index];
-        Debug.Log(goldIndex);
-        Debug.Log(goldList);
+        // Debug.Log(goldIndex);
+        // Debug.Log(goldList);
     }
 
     public static goldScript goldObj;
@@ -54,7 +54,7 @@ public class goldScript : MonoBehaviour
     {
         if(goldIndex > 3)
         {
-            goldText.text = "No More Hints";
+            goldText.text = "";
         }
         else
         {
@@ -65,8 +65,11 @@ public class goldScript : MonoBehaviour
             else if(temp==101){
                 goldText.text = "Speed Power up Collected !!";
             }
+            else if(temp==102){
+                goldText.text = "Health Power up Collected !!";
+            }
             else{
-                goldText.text = "Autofill Power up Collected !! Blank "+ temp.ToString() + " is filled";
+                goldText.text = "Autofill Power up Collected !!";
             }
             StartCoroutine(SetCountText());
         }

@@ -26,6 +26,8 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject hintObject;
 	public GameObject speedObject;
 	public GameObject autofillObject;
+	public GameObject healthUpObject;
+	public GameObject invisibleObject;
 
 	public GameObject obstaclePrefab;
 	public GameObject A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z;
@@ -79,35 +81,41 @@ public class MapGenerator : MonoBehaviour {
 		float dist4 = Mathf.Abs(start_obs - obj4);
 
 		if(dist1<1.25){
-			Debug.Log("1");
+			// Debug.Log("1");
 			return null;
 		}
 		else if(dist2<1.25){
-			Debug.Log("2");
+			// Debug.Log("2");
 			return null;
 		}
 		else if(dist3<1.25){
-			Debug.Log("3");
+			// Debug.Log("3");
 			return null;
 		}
 		else if(dist4<1.25){
-			Debug.Log("4");
+			// Debug.Log("4");
 			return null;
 		}
 
-		Debug.Log(correctCharacters.Count + " " +  displayCharacter.Count);
+		// Debug.Log(correctCharacters.Count + " " +  displayCharacter.Count);
 
 		if(count%3==0 && correctCharacters.Count>0){
 				num = Random.Range(0,correctCharacters.Count);
 				obstacle = GameObject.Instantiate(correctCharacters[num]);
 		}
-		else if((count==2 || count%5==0) && GameManager.hints>0){
-			// Debug.Log("In Hint object generation");
+		else if((count==2 || count%5==0) && GameManager.hints>0 && GameManager.hints<=3){
+			Debug.Log("In Hint object generation");
 			obstacle = GameObject.Instantiate(hintObject);
+			// obstacle = GameObject.Instantiate(invisibleObject);
 		}
 		else if(count%6==0){
 			// Debug.Log("In speed object generation");
 			obstacle = GameObject.Instantiate(speedObject);
+		}
+		else if(count%7 == 0 && HealthBar.healthObj.slider.value<=75)
+		{
+			// Debug.Log("In Healthup object generation");
+			obstacle = GameObject.Instantiate(healthUpObject);
 		}
 		else if(count%8==0){
 			// Debug.Log("In autofill object generation");
