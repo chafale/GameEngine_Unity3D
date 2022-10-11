@@ -145,7 +145,7 @@ public class Destroy : MonoBehaviour
                 }
                 if(c == 0){
                     // LivesScript.lives -= 1;
-                   
+                   // when health has decreased to zero
                     FindObjectOfType<Player>().TakeDamage(20);
                     Debug.Log("Health decreased" + FindObjectOfType<Player>().currentHealth);
                     gamsta.gameStatusObj.updateStatus();
@@ -164,17 +164,23 @@ public class Destroy : MonoBehaviour
             {
                 char[] holder = mg.letterHolderList[i].text.ToCharArray();
                 if(mg.solvedList[i] != holder[0]){
+                    Debug.Log("mg.solvedList[i] is not equal to holder[0]");
                     check = 1;
                     break;
                 }
-                if(i==mg.solvedList.Count-1)
-                {
-                    gamsta.gameStatusObj.updateStatus();
-                }
+                //if (i == mg.solvedList.Count - 1)
+                //{
+                //    Debug.Log("solvedlist count -1");
+                //    gamsta.gameStatusObj.updateStatus();
+                //}
             }
             if(check==0){
-              Camera.GameEnd();
-              Player.body.isKinematic = true;
+                // same as i == mg.solvedList.Count - 1 
+                Debug.Log("check ==0");
+                // win message
+                gamsta.gameStatusObj.updateStatus();
+                Camera.GameEnd();
+                Player.body.isKinematic = true;
             }
         }
         else{

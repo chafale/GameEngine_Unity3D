@@ -41,7 +41,7 @@ public class gameStatus : MonoBehaviour
         { //when player wins
             statusText.text = "Congratulations!\n You Win!\n The correct word was: " + mg.correct_word;
             PlayerPrefs.SetInt("gameStatus", 1);
-            // Camera.GameEnd();
+            //Camera.GameEnd();
         }
     }
 
