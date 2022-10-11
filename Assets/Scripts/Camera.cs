@@ -46,6 +46,7 @@ public class Camera : MonoBehaviour {
         
         if(player.currentHealth <= 0 )
         {
+            gameStatus.gameStatusObj.updateStatus();
             GameEnd();
             Debug.Log("I am health here");
         }
