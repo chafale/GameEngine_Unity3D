@@ -145,7 +145,7 @@ public class Destroy : MonoBehaviour
                 }
                 if(c == 0){
                     // LivesScript.lives -= 1;
-                   
+                   // when health has decreased to zero
                     FindObjectOfType<Player>().TakeDamage(20);
                     Debug.Log("Health decreased" + FindObjectOfType<Player>().currentHealth);
                     gamsta.gameStatusObj.updateStatus();
