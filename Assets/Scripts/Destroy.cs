@@ -175,7 +175,9 @@ public class Destroy : MonoBehaviour
                 //}
             }
             if(check==0){
+                // same as i == mg.solvedList.Count - 1 
                 Debug.Log("check ==0");
+                // win message
                 gamsta.gameStatusObj.updateStatus();
                 Camera.GameEnd();
                 Player.body.isKinematic = true;
