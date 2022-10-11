@@ -43,10 +43,10 @@ public class Camera : MonoBehaviour {
             gameStatus.gameStatusObj.updateStatus();
             Debug.Log("I am obstacle here");
         }
-        
-        if(player.currentHealth <= 0 )
+        //if (player.currentHealth == 0)
+        if (player.currentHealth <= 0 )
         {
-            gameStatus.gameStatusObj.updateStatus();
+            //gameStatus.gameStatusObj.updateStatus();
             GameEnd();
             Debug.Log("I am health here");
         }
