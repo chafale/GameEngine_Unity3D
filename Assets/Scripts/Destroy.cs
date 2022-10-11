@@ -164,17 +164,21 @@ public class Destroy : MonoBehaviour
             {
                 char[] holder = mg.letterHolderList[i].text.ToCharArray();
                 if(mg.solvedList[i] != holder[0]){
+                    Debug.Log("mg.solvedList[i] is not equal to holder[0]");
                     check = 1;
                     break;
                 }
-                if(i==mg.solvedList.Count-1)
-                {
-                    gamsta.gameStatusObj.updateStatus();
-                }
+                //if (i == mg.solvedList.Count - 1)
+                //{
+                //    Debug.Log("solvedlist count -1");
+                //    gamsta.gameStatusObj.updateStatus();
+                //}
             }
             if(check==0){
-              Camera.GameEnd();
-              Player.body.isKinematic = true;
+                Debug.Log("check ==0");
+                gamsta.gameStatusObj.updateStatus();
+                Camera.GameEnd();
+                Player.body.isKinematic = true;
             }
         }
         else{
