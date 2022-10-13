@@ -11,6 +11,7 @@ using hb = HealthBar;
 public class Destroy : MonoBehaviour
 {
     public int check;
+    public int healCheck;
     public static Destroy destroyObj;
     public Player player;
 
@@ -143,6 +144,27 @@ public class Destroy : MonoBehaviour
                         c=1;
                     }
                 }
+                for (int i = 0; i < mg.healList.Count; i++)
+                {
+                    if(mg.healList[i] == inputLetter){
+                        Debug.Log("PJ");
+                        mg.healHolderList[i].text = inputLetter.ToString();
+                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
+                        if (index >= 0) {
+                         mapgen.displayCharacter.RemoveAt(index);
+                        }
+                        var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
+                        if (index1 >= 0) {
+                         mapgen.correctCharacters.RemoveAt(index1);
+                        }
+                        // Debug.Log(collided_letter + " " + mapgen.correctCharacters.Count);
+                        // for (int k = 0;k < mapgen.correctCharacters.Count;k++)
+                        //  {
+                        //    Debug.Log("Sanya "+mapgen.correctCharacters[k].tag);
+                        //  }
+                        c=1;
+                    }
+                }
                 if(c == 0){
                     // LivesScript.lives -= 1;
                    // when health has decreased to zero
@@ -173,6 +195,20 @@ public class Destroy : MonoBehaviour
                 //    Debug.Log("solvedlist count -1");
                 //    gamsta.gameStatusObj.updateStatus();
                 //}
+            }
+            healCheck = 0;
+            for (int i = 0; i < mg.healList.Count; i++)
+            {
+                char[] holder = mg.healHolderList[i].text.ToCharArray();
+                if(mg.healList[i] != holder[0]){
+                    Debug.Log("mg.healList[i] is not equal to holder[0]");
+                    healCheck = 1;
+                    break;
+
+                }
+            }
+            if (healCheck == 0) {
+                FindObjectOfType<HealthBar>().SetMaxHealth(100);
             }
             if(check==0){
                 // same as i == mg.solvedList.Count - 1 
