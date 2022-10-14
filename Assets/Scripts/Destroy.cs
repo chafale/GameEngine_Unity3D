@@ -137,6 +137,7 @@ public class Destroy : MonoBehaviour
                         var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
                         if (index1 >= 0) {
                          mapgen.correctCharacters.RemoveAt(index1);
+                         // incrementing score each time we have a correct letter
                          ScoringSystem.instance.AddPoint();
                         }
                         // Debug.Log(collided_letter + " " + mapgen.correctCharacters.Count);
