@@ -43,6 +43,7 @@ TagManager:
   - ~
   - rod
   - mace
+  - fire
   layers:
   - Default
   - TransparentFX
