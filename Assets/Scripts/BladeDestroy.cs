@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BladeDestroy : MonoBehaviour
 {
+  public float rotatespeed;
 
   void OnTriggerEnter(Collider collider) {
       if(collider.tag=="Player"){
@@ -16,6 +17,10 @@ public class BladeDestroy : MonoBehaviour
         Debug.Log("Collide with blade");
         Destroy(collider);
       }
+  }
+
+  void Update(){
+    transform.Rotate(0,0,rotatespeed);
   }
 
 }
