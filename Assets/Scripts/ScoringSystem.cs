@@ -33,8 +33,3 @@ public class ScoringSystem : MonoBehaviour
         //    PlayerPrefs.SetInt("highscore", score);
     }
 }
-
-
-
-//ScoringSystem.instance.AddPoint();
-//public int gamescore = 0;
