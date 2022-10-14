@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public  Transform letterHolder;
     public  Transform healHolder;
     public  TMP_Text hint;
-
+    public  ScoringSystem instance;
     public static int hints;
     public static int index;
     public static string correct_word;
@@ -57,9 +57,9 @@ public class GameManager : MonoBehaviour
             foreach(GameObject letter_prefab in chars){
               char inputLetter = char.Parse(letter_prefab.tag);
               if(inputLetter == letter){
-                // Debug.Log("Ayush " + inputLetter);
-                mg.correctCharacters.Add(letter_prefab);
-              }
+                    mg.correctCharacters.Add(letter_prefab);
+
+                }
             }
         }
         //Add letters of the word HEAL
@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
 
     // To call non static methods.
     public static GameManager gamag;
+    internal static object displayCharacter;
     void Awake()
     {
         gamag = this;

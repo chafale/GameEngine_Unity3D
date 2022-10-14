@@ -101,8 +101,7 @@ public class MapGenerator : MonoBehaviour {
 		}
 
 		// Debug.Log(correctCharacters.Count + " " +  displayCharacter.Count);
-
-		if(count%3==0 && correctCharacters.Count>0){
+		if (count%3==0 && correctCharacters.Count>0){
 			num = Random.Range(0,correctCharacters.Count);
 			obstacle = GameObject.Instantiate(correctCharacters[num]);
 		}
