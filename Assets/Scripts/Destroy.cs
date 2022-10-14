@@ -127,9 +127,7 @@ public class Destroy : MonoBehaviour
             else{
                 for (int i = 0; i < mg.solvedList.Count; i++)
                 {
-                    if(mg.solvedList[i] == inputLetter){
-                        //ScoringSystem.instance.AddPoint();
-                        
+                    if(mg.solvedList[i] == inputLetter){                        
                         Debug.Log("Ayush");
                         mg.letterHolderList[i].text = inputLetter.ToString();
                         var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
