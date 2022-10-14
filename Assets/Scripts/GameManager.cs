@@ -57,12 +57,9 @@ public class GameManager : MonoBehaviour
             foreach(GameObject letter_prefab in chars){
               char inputLetter = char.Parse(letter_prefab.tag);
               if(inputLetter == letter){
-                    //ScoringSystem.instance.AddPoint();
-                    //Debug.Log("Ayush " + inputLetter);
                     mg.correctCharacters.Add(letter_prefab);
 
                 }
-                //ScoringSystem.instance.AddPoint();
             }
         }
         //Add letters of the word HEAL
