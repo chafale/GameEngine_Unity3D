@@ -24,6 +24,7 @@ public class Destroy : MonoBehaviour
 
         GameObject obj1 = this.gameObject;
         GameObject collion_obj = collide.gameObject;
+        GameManager gameMananger = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         // if(obj1.tag=="blade"){
         //   if(collion_obj.tag=="Player"){
@@ -147,6 +148,7 @@ public class Destroy : MonoBehaviour
                 for (int i = 0; i < mg.healList.Count; i++)
                 {
                     if(mg.healList[i] == inputLetter){
+                        gameMananger.HealCanvas.SetActive(true);
                         Debug.Log("PJ");
                         mg.healHolderList[i].text = inputLetter.ToString();
                         var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);

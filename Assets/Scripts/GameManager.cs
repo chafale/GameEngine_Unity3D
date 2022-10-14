@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     public static string healWord = "HEAL";
 
     void Start(){
-        // HealCanvas.SetActive(false);
+        HealCanvas.SetActive(false);
         mg.correctCharacters.Clear();
         chars.Clear();
         hints = 3;
