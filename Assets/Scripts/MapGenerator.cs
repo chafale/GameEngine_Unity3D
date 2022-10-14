@@ -18,6 +18,7 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject obstacle3;
 	public GameObject obstacle4;
 	public GameObject bladePrefab;
+		public GameObject firePrefab;
 
 	public GameObject character1;
 	public GameObject character2;
@@ -51,7 +52,7 @@ public class MapGenerator : MonoBehaviour {
 	void Start () {
 		displayCharacter.Clear();
 		obstaclesSpawn.Clear();
-		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,obstaclePrefab,bladePrefab});
+		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,obstaclePrefab,obstaclePrefab,bladePrefab,firePrefab});
 		displayCharacter.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
 		obstacle1 = GenerateObstacle(player.transform.position.x + 10);
 		obstacle2 = GenerateObstacle(obstacle1.transform.position.x);
@@ -151,17 +152,21 @@ public class MapGenerator : MonoBehaviour {
 	}
 
 	void SetTransform(GameObject obstacle, float referenceX) {
-		obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(minObstacleY, maxObstacleY), 0);
 		if(obstacle.tag == "blade"){
+			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(minObstacleY, maxObstacleY), 0);
 			float scale_blade1 = Random.Range(1, 10);
 			float scale_blade2 = Random.Range(scale_blade1+1, 3*scale_blade1);
 			obstacle.transform.localScale = new Vector3(scale_blade1/scale_blade2, scale_blade1/scale_blade2, scale_blade1/scale_blade2);
 		}
 		else if(obstacle.tag == "rod"){
+			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(minObstacleY, maxObstacleY), 0);
 			float random_size = Random.Range(1, 10);
 			if(random_size==5 || random_size==6){
 				obstacle.transform.localScale = new Vector3(1,2, 0);
 			}
+		}
+		else if(obstacle.tag == "fire"){
+			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(-2, 2), 0);
 		}
 	}
 
