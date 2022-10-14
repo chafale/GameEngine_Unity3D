@@ -71,7 +71,9 @@ public class Camera : MonoBehaviour {
         Debug.Log("Reset");
         mg.solvedList = new List<char>();
         mg.letterHolderList = new List<TMP_Text>();
+        mg.healHolderList = new List<TMP_Text>();
         mapgen.correctCharacters = new List<GameObject>();
+        mapgen.healCharacters = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         goldScript.goldText.text="";
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
