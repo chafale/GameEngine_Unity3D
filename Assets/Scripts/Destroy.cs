@@ -14,6 +14,7 @@ public class Destroy : MonoBehaviour
     public int healCheck;
     public static Destroy destroyObj;
     public Player player;
+    public int gamescore = 0;
 
     void Awake()
     {
@@ -127,6 +128,8 @@ public class Destroy : MonoBehaviour
                 for (int i = 0; i < mg.solvedList.Count; i++)
                 {
                     if(mg.solvedList[i] == inputLetter){
+                        //ScoringSystem.instance.AddPoint();
+                        
                         Debug.Log("Ayush");
                         mg.letterHolderList[i].text = inputLetter.ToString();
                         var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
@@ -136,6 +139,7 @@ public class Destroy : MonoBehaviour
                         var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
                         if (index1 >= 0) {
                          mapgen.correctCharacters.RemoveAt(index1);
+                         ScoringSystem.instance.AddPoint();
                         }
                         // Debug.Log(collided_letter + " " + mapgen.correctCharacters.Count);
                         // for (int k = 0;k < mapgen.correctCharacters.Count;k++)
@@ -173,6 +177,7 @@ public class Destroy : MonoBehaviour
                     FindObjectOfType<Player>().TakeDamage(20);
                     Debug.Log("Health decreased" + FindObjectOfType<Player>().currentHealth);
                     gamsta.gameStatusObj.updateStatus();
+                    PlayerPrefs.SetInt("highscore", gamescore);
                     Debug.Log("The correct word was" + mg.correct_word);
                     // if(LivesScript.lives == 0){
                     //     PlayerPrefs.SetInt("livesLeft", 0);

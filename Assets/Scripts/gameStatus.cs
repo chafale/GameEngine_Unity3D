@@ -16,6 +16,7 @@ public class gameStatus : MonoBehaviour
     public Player player;
     
     public static gameStatus gameStatusObj;
+    public static int score = MapGenerator.displayCharacter.Count;
 
     void Awake()
     {
@@ -33,13 +34,13 @@ public class gameStatus : MonoBehaviour
         if (FindObjectOfType<Player>().currentHealth <= 0 )
         {
             Debug.Log("Game end health: "+ FindObjectOfType<Player>().currentHealth);
-            statusText.text = "Game Over!\n The correct word was : " + mg.correct_word;
+            statusText.text = "Game Over!\n The correct word was : " + mg.correct_word + "\n\nYour score is : " + ScoringSystem.myScore;
             PlayerPrefs.SetInt("gameStatus", 1);
             Camera.GameEnd();
         }
         else
         { //when player wins
-            statusText.text = "Congratulations!\n You Win!\n The correct word was: " + mg.correct_word;
+            statusText.text = "Congratulations!\n You Win!\n The correct word was: " + mg.correct_word + "\n\nYour score is : " + ScoringSystem.myScore;
             PlayerPrefs.SetInt("gameStatus", 1);
             //Camera.GameEnd();
         }
