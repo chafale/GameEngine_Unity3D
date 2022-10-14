@@ -41,6 +41,7 @@ TagManager:
   - blade
   - '#'
   - ~
+  - rod
   layers:
   - Default
   - TransparentFX

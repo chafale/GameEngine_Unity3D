@@ -157,8 +157,11 @@ public class MapGenerator : MonoBehaviour {
 			float scale_blade2 = Random.Range(scale_blade1+1, 3*scale_blade1);
 			obstacle.transform.localScale = new Vector3(scale_blade1/scale_blade2, scale_blade1/scale_blade2, scale_blade1/scale_blade2);
 		}
-		else{
-			obstacle.transform.localScale = new Vector3(obstacle.transform.localScale.x, Random.Range(minObstacleScaleY, maxObstacleY), obstacle.transform.localScale.z);
+		else if(obstacle.tag == "rod"){
+			float random_size = Random.Range(1, 10);
+			if(random_size==5 || random_size==6){
+				obstacle.transform.localScale = new Vector3(1,2, 0);
+			}
 		}
 	}
 
