@@ -42,6 +42,7 @@ TagManager:
   - '#'
   - ~
   - rod
+  - mace
   layers:
   - Default
   - TransparentFX
