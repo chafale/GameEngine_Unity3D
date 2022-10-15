@@ -11,6 +11,7 @@ public class ScoringSystem : MonoBehaviour
     public Text scoreText;
     //public Text highscoreText;
     public static int myScore = 0;
+    [SerializeField] GameObject scoreAnimPrefab;
     //public static int highscore = 0;
 
     private void Awake()
@@ -29,7 +30,15 @@ public class ScoringSystem : MonoBehaviour
     {
         myScore += 10;
         scoreText.text = "Score : " + myScore.ToString();
+        showScoreAnim("+10");
         //if (highscore < score)
         //    PlayerPrefs.SetInt("highscore", score);
+    }
+    public void showScoreAnim(string text){
+        if(scoreAnimPrefab)
+        {
+            GameObject prefab = Instantiate(scoreAnimPrefab, transform.position, Quaternion.identity);
+            prefab.GetComponentInChildren<TMP_Text>().text = text;
+        }
     }
 }
