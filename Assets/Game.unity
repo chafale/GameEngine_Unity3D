@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 20628468}
+  scoreAnimPrefab: {fileID: 0}
 --- !u!114 &20628468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1653,6 +1654,7 @@ MonoBehaviour:
   Y: {fileID: 4752191548605056332, guid: 1504b489909814eeb89e4960088ec9ca, type: 3}
   Z: {fileID: 6962685886252760066, guid: 423ee4af034124b09a07e2b3547b50c7, type: 3}
   riddle: {fileID: 652656195}
+  scoreAnimPrefab: {fileID: 8039097304386431397, guid: ed5192287082585448f207395ad656d6, type: 3}
 --- !u!1 &1156341250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3340,6 +3342,9 @@ MonoBehaviour:
   gameOver: 0
   maxHealth: 100
   currentHealth: 0
+  scoreAnimPrefab: {fileID: 2385413481178058446, guid: ed5192287082585448f207395ad656d6, type: 3}
+  animeCanvas: {fileID: 1708747845}
+  player: {fileID: 1722864593}
 --- !u!23 &1722864600
 MeshRenderer:
   m_ObjectHideFlags: 0

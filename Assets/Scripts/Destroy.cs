@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using mg = GameManager;
 using gs = goldScript;
@@ -15,6 +16,10 @@ public class Destroy : MonoBehaviour
     public static Destroy destroyObj;
     public Player player;
     public int gamescore = 0;
+    [SerializeField] GameObject scoreAnimPrefab;
+    public Canvas animeCanvas;
+    public bool sc = false;
+    
 
     void Awake()
     {
@@ -40,6 +45,7 @@ public class Destroy : MonoBehaviour
         if(collion_obj.tag=="Player"){
             string collided_letter = gameObject.tag;
             Debug.Log("Collided with letter : " + collided_letter);
+            
             Destroy(gameObject);
             char inputLetter = char.Parse(collided_letter);
             int c = 0;
@@ -56,6 +62,7 @@ public class Destroy : MonoBehaviour
                 {
                     gs.goldObj.updateHint(102);
                     hb.healthObj.slider.value+=25f;
+                    showScoreAnim("10000");
                 }
             }
             // Autofill the first uncaught character if letter = $
@@ -139,6 +146,7 @@ public class Destroy : MonoBehaviour
                          mapgen.correctCharacters.RemoveAt(index1);
                          // incrementing score each time we have a correct letter
                          ScoringSystem.instance.AddPoint();
+                         showScoreAnim("+10");
                         }
                         // Debug.Log(collided_letter + " " + mapgen.correctCharacters.Count);
                         // for (int k = 0;k < mapgen.correctCharacters.Count;k++)
@@ -146,6 +154,8 @@ public class Destroy : MonoBehaviour
                         //    Debug.Log("Sanya "+mapgen.correctCharacters[k].tag);
                         //  }
                         c=1;
+                        sc = true;
+                        FindObjectOfType<Player>().showScoreAnim(" +10 ",sc);
                     }
                 }
                 for (int i = 0; i < mg.healList.Count; i++)
@@ -168,11 +178,15 @@ public class Destroy : MonoBehaviour
                         //    Debug.Log("Sanya "+mapgen.correctCharacters[k].tag);
                         //  }
                         c=1;
+                        sc = true;
+                        FindObjectOfType<Player>().showScoreAnim("10",sc);
                     }
                 }
-                if(c == 0){
+
+                if (c == 0)
+                {
                     // LivesScript.lives -= 1;
-                   // when health has decreased to zero
+                    // when health has decreased to zero
                     FindObjectOfType<Player>().TakeDamage(10);
                     Debug.Log("Health decreased" + FindObjectOfType<Player>().currentHealth);
                     gamsta.gameStatusObj.updateStatus();
@@ -228,6 +242,19 @@ public class Destroy : MonoBehaviour
         else{
           Debug.Log("Letter collided with letter");
           Destroy(gameObject);
+        }
+    }
+    
+    public void showScoreAnim(string text){
+        Debug.Log("Hellllooooo ichhaaaaaaa");
+        if(sc == true)
+        {
+            GameObject prefab = Instantiate(scoreAnimPrefab, Vector3.zero, Quaternion.identity);
+            prefab.transform.SetParent(animeCanvas.transform);
+            prefab.transform.localPosition = player.transform.position - new Vector3(200f, 0f, 0f);
+            prefab.GetComponentInChildren<TMP_Text>().text = text;
+            Debug.Log("Anim Here");
+            Destroy(prefab, 1f);
         }
     }
 }
