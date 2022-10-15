@@ -106,7 +106,7 @@ public class Destroy : MonoBehaviour
             {
                 pl.playerSpeed+=3;
                 gs.goldObj.updateHint(101);
-                FindObjectOfType<Player>().TakeDamage(10);
+                FindObjectOfType<Player>().TakeDamage(5);
             }
             // Hint PopUp if letter = *
             else if(inputLetter=='*')
@@ -120,7 +120,7 @@ public class Destroy : MonoBehaviour
 
                 }
                 gs.goldObj.updateHint(100);
-                FindObjectOfType<Player>().TakeDamage(10);
+                FindObjectOfType<Player>().TakeDamage(5);
                 // Camera.Pause();
             }
             // Fill blanks
@@ -173,7 +173,7 @@ public class Destroy : MonoBehaviour
                 if(c == 0){
                     // LivesScript.lives -= 1;
                    // when health has decreased to zero
-                    FindObjectOfType<Player>().TakeDamage(20);
+                    FindObjectOfType<Player>().TakeDamage(10);
                     Debug.Log("Health decreased" + FindObjectOfType<Player>().currentHealth);
                     gamsta.gameStatusObj.updateStatus();
                     PlayerPrefs.SetInt("highscore", gamescore);
