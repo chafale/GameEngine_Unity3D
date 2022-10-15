@@ -108,6 +108,7 @@ public class MapGenerator : MonoBehaviour {
 		else if(count%4==0){
 			num = Random.Range(0,healCharacters.Count);
 			obstacle = GameObject.Instantiate(healCharacters[num]);
+			
 		}
 		else if((count==2 || count%5==0) && GameManager.hints>0 && GameManager.hints<=3){
 			Debug.Log("In Hint object generation");
@@ -133,6 +134,8 @@ public class MapGenerator : MonoBehaviour {
 		}
 
 		SetTransformCharacter(obstacle,start_obs,end_obs);
+		GameManager gameMananger = GameObject.Find("GameManager").GetComponent<GameManager>();
+		gameMananger.HealCanvas.SetActive(false);
 		return obstacle;
 
 		// var checkCollider = Physics2D.OverlapCircle(obstacle.transform.position, 1);
