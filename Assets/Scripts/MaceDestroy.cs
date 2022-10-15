@@ -26,10 +26,11 @@ public class MaceDestroy : MonoBehaviour
 
     void OnTriggerEnter(Collider collider) {
       if(collider.tag=="Player"){
-        Debug.Log("Trigger");
-        Debug.Log(collider.isTrigger);
-        Camera.GameEnd();
-        Player.body.isKinematic = true;
+        Debug.Log("Mace Trigger");
+        // Debug.Log(collider.isTrigger);
+        // FindObjectOfType<Player>().TakeDamage(10);
+        //Camera.GameEnd();
+        //Player.body.isKinematic = true;
       }
       else{
         Debug.Log("Collide with blade");

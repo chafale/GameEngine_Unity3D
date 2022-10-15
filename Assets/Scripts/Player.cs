@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -53,8 +54,36 @@ public class Player : MonoBehaviour {
     }
     
     void OnTriggerEnter(Collider collider) {
-        gameOver = true;
-        body.isKinematic = true;
+        if (collider.gameObject.CompareTag("blade"))
+        {
+            Debug.Log("player blade enter");
+            FindObjectOfType<Player>().TakeDamage(15);
+        }
+        if (collider.gameObject.CompareTag("fire"))
+        {
+            Debug.Log("player fire enter");
+            FindObjectOfType<Player>().TakeDamage(20);
+           
+        }
+        if (collider.gameObject.CompareTag("rod"))
+        {
+            Debug.Log("player rod enter");
+            FindObjectOfType<Player>().TakeDamage(10);
+            
+        }
+        if (collider.gameObject.CompareTag("mace"))
+        {
+            Debug.Log("player mace enter");
+            FindObjectOfType<Player>().TakeDamage(15);
+            
+        }
+        
+        if(currentHealth <= 0)
+        {
+            gameOver = true;
+            body.isKinematic = true;
+        }
+       
     }
 
     public void TakeDamage(int damage)
