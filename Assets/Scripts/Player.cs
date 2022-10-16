@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,8 +15,12 @@ public class Player : MonoBehaviour {
     public int maxHealth = 100;
     public int currentHealth;
     // public HealthBar healthBar;
-    
+    [SerializeField] GameObject scoreAnimPrefab;
+    public Canvas animeCanvas;
+    public GameObject player;
     public static int playerSpeed;
+
+    public bool sc = false; 
     // Use this for initialization
     void Start () {
         playerSpeed = 5;
@@ -75,7 +80,8 @@ public class Player : MonoBehaviour {
         {
             Debug.Log("player mace enter");
             FindObjectOfType<Player>().TakeDamage(15);
-            
+            // showScoreAnim("+10");
+
         }
         
         if(currentHealth <= 0)
@@ -90,5 +96,19 @@ public class Player : MonoBehaviour {
     {
         currentHealth -= damage;
         FindObjectOfType<HealthBar>().SetHealth(currentHealth);
+    }
+    
+    public void showScoreAnim(string text, bool pr){
+        Debug.Log("Anime Function Here");
+        sc = pr;
+        if(sc == true)
+        {
+            GameObject prefab = Instantiate(scoreAnimPrefab, Vector3.zero, Quaternion.identity);
+            prefab.transform.SetParent(animeCanvas.transform);
+            prefab.transform.localPosition = player.transform.position - new Vector3(200f, 0f, 0f);
+            prefab.GetComponentInChildren<TMP_Text>().text = text;
+            Debug.Log("Anime Here");
+            Destroy(prefab, 1f);
+        }
     }
 }

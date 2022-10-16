@@ -1,10 +1,10 @@
 fileFormatVersion: 2
 guid: db0c63403941c8647921de61030406a0
-timeCreated: 1498165089
-licenseType: Free
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - scoreAnimPrefab: {fileID: 2385413481178058446, guid: ed5192287082585448f207395ad656d6, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

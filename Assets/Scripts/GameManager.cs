@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text riddle;
     public static List<char> healList = new List<char>{'H', 'E', 'A', 'L'};
     public static string healWord = "HEAL";
+    [SerializeField] GameObject scoreAnimPrefab;
+
 
     void Start(){
         HealCanvas.SetActive(false);
@@ -96,6 +98,16 @@ public class GameManager : MonoBehaviour
     public void updateGameHint()
     {
         hint.text = "Hint: " + gs.goldList[gs.goldIndex].ToString();
+        showScoreAnim("1000000");
+    }
+    public void showScoreAnim(string text){
+        Debug.Log("Anime Function Here");
+        if(scoreAnimPrefab)
+        {
+            GameObject prefab = Instantiate(scoreAnimPrefab, transform.position, Quaternion.identity);
+            prefab.GetComponentInChildren<TMP_Text>().text = text;
+            Debug.Log("Anime Here");
+        }
     }
 
 }
