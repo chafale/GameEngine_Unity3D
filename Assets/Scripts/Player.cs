@@ -19,6 +19,8 @@ public class Player : MonoBehaviour {
     public Canvas animeCanvas;
     public GameObject player;
     public static int playerSpeed;
+    private Renderer test;
+
 
     public bool sc = false; 
     // Use this for initialization
@@ -29,17 +31,17 @@ public class Player : MonoBehaviour {
         body = GetComponent<Rigidbody>();
         gameStartTime = System.DateTime.Now;
         PlayerPrefs.SetString("gameStartTime", gameStartTime.ToString());
-        
+
     }
     
     void Update()
     {
         // up arrow = 1, down arrow = -1
         float directionY = Input.GetAxisRaw("Vertical");
-        
         // Normalized for stability
         // x = 0, since the player doesn't need to move on horizontal axis.
         playerDirection = new Vector2(0, directionY).normalized;
+
     }
 
     void FixedUpdate () {
@@ -59,28 +61,36 @@ public class Player : MonoBehaviour {
     }
     
     void OnTriggerEnter(Collider collider) {
+        
         if (collider.gameObject.CompareTag("blade"))
         {
             Debug.Log("player blade enter");
             FindObjectOfType<Player>().TakeDamage(15);
+            sc = true;
+            showScoreAnim("Health: -15",sc);
         }
         if (collider.gameObject.CompareTag("fire"))
         {
             Debug.Log("player fire enter");
             FindObjectOfType<Player>().TakeDamage(20);
+            sc = true;
+            showScoreAnim("Health: -20",sc);
            
         }
         if (collider.gameObject.CompareTag("rod"))
         {
             Debug.Log("player rod enter");
             FindObjectOfType<Player>().TakeDamage(10);
+            sc = true;
+            showScoreAnim("Health: -10",sc);
             
         }
         if (collider.gameObject.CompareTag("mace"))
         {
             Debug.Log("player mace enter");
             FindObjectOfType<Player>().TakeDamage(15);
-            // showScoreAnim("+10");
+            sc = true;
+            showScoreAnim("Health: -15",sc);
 
         }
         
@@ -111,4 +121,5 @@ public class Player : MonoBehaviour {
             Destroy(prefab, 1f);
         }
     }
+    
 }

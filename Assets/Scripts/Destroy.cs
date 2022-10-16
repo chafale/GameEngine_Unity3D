@@ -18,7 +18,9 @@ public class Destroy : MonoBehaviour
     public int gamescore = 0;
     [SerializeField] GameObject scoreAnimPrefab;
     public Canvas animeCanvas;
-    public bool sc = false;
+    public bool sc_correct = false;
+    public bool sc_incorrect = false;
+    
     
 
     void Awake()
@@ -70,7 +72,7 @@ public class Destroy : MonoBehaviour
             {
                 // Analytics : Autofill Power-up capture
                 PlayerPrefs.SetInt("autofillPowerUp", PlayerPrefs.GetInt("autofillPowerUp") + 1);
-
+                FindObjectOfType<Player>().TakeDamage(5);
                 char solved='a';
                 for(int i=0;i<mg.letterHolderList.Count;i++)
                 {
@@ -127,7 +129,7 @@ public class Destroy : MonoBehaviour
 
                 }
                 gs.goldObj.updateHint(100);
-                FindObjectOfType<Player>().TakeDamage(5);
+                // FindObjectOfType<Player>().TakeDamage(5);
                 // Camera.Pause();
             }
             // Fill blanks
@@ -154,8 +156,8 @@ public class Destroy : MonoBehaviour
                         //    Debug.Log("Sanya "+mapgen.correctCharacters[k].tag);
                         //  }
                         c=1;
-                        sc = true;
-                        FindObjectOfType<Player>().showScoreAnim(" +10 ",sc);
+                        sc_correct  = true;
+                        FindObjectOfType<Player>().showScoreAnim(" +10 ",sc_correct);
                     }
                 }
                 for (int i = 0; i < mg.healList.Count; i++)
@@ -178,8 +180,8 @@ public class Destroy : MonoBehaviour
                         //    Debug.Log("Sanya "+mapgen.correctCharacters[k].tag);
                         //  }
                         c=1;
-                        sc = true;
-                        FindObjectOfType<Player>().showScoreAnim("10",sc);
+                        sc_correct  = true;
+                        FindObjectOfType<Player>().showScoreAnim("+10",sc_correct);
                     }
                 }
 
@@ -188,6 +190,8 @@ public class Destroy : MonoBehaviour
                     // LivesScript.lives -= 1;
                     // when health has decreased to zero
                     FindObjectOfType<Player>().TakeDamage(10);
+                    sc_incorrect  = true;
+                    FindObjectOfType<Player>().showScoreAnim("Health: -10 ",sc_incorrect);
                     Debug.Log("Health decreased" + FindObjectOfType<Player>().currentHealth);
                     gamsta.gameStatusObj.updateStatus();
                     PlayerPrefs.SetInt("highscore", gamescore);
@@ -247,14 +251,5 @@ public class Destroy : MonoBehaviour
     
     public void showScoreAnim(string text){
         Debug.Log("Hellllooooo ichhaaaaaaa");
-        if(sc == true)
-        {
-            GameObject prefab = Instantiate(scoreAnimPrefab, Vector3.zero, Quaternion.identity);
-            prefab.transform.SetParent(animeCanvas.transform);
-            prefab.transform.localPosition = player.transform.position - new Vector3(200f, 0f, 0f);
-            prefab.GetComponentInChildren<TMP_Text>().text = text;
-            Debug.Log("Anim Here");
-            Destroy(prefab, 1f);
-        }
     }
 }
