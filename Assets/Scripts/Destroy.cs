@@ -70,7 +70,7 @@ public class Destroy : MonoBehaviour
             {
                 // Analytics : Autofill Power-up capture
                 PlayerPrefs.SetInt("autofillPowerUp", PlayerPrefs.GetInt("autofillPowerUp") + 1);
-
+                FindObjectOfType<Player>().TakeDamage(5);
                 char solved='a';
                 for(int i=0;i<mg.letterHolderList.Count;i++)
                 {
@@ -127,7 +127,7 @@ public class Destroy : MonoBehaviour
 
                 }
                 gs.goldObj.updateHint(100);
-                FindObjectOfType<Player>().TakeDamage(5);
+                // FindObjectOfType<Player>().TakeDamage(5);
                 // Camera.Pause();
             }
             // Fill blanks
