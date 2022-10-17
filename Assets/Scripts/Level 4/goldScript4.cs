@@ -68,7 +68,11 @@ public class goldScript4 : MonoBehaviour
             else if(temp==102){
                 goldText.text = "Health Power up Collected !!";
             }
-            else{
+            else if(temp==103){
+                 goldText.text = "Split Colour Power up Collected !!";
+            }
+            else
+            {
                 goldText.text = "Autofill Power up Collected !!";
             }
             StartCoroutine(SetCountText());

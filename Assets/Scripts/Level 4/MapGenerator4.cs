@@ -21,20 +21,16 @@ public class MapGenerator4 : MonoBehaviour {
 	public GameObject mace;
 	public GameObject firePrefab;
 
-	public GameObject character1;
-	public GameObject character2;
-	public GameObject character3;
+	public GameObject character1, character2, character3;
 
-	public GameObject hintObject;
-	public GameObject speedObject;
-	public GameObject autofillObject;
-	public GameObject healthUpObject;
+	public GameObject hintObject, speedObject, autofillObject, healthUpObject, splitObject;
 	public GameObject invisibleObject;
 
 	public GameObject obstaclePrefab;
 	public GameObject A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z;
 
-  public int count;
+  	public int count;
+	public static int activateColorChange = 0;
 
 	public static List<GameObject> displayCharacter = new List<GameObject>();
 	public static List<GameObject> correctCharacters = new List<GameObject>();
@@ -104,6 +100,12 @@ public class MapGenerator4 : MonoBehaviour {
 		if (count%3==0 && correctCharacters.Count>0){
 			num = Random.Range(0,correctCharacters.Count);
 			obstacle = GameObject.Instantiate(correctCharacters[num]);
+			// Change Color to Green
+			if(activateColorChange > 0)
+			{
+				obstacle.GetComponent<Renderer>().material.color = new Color(0,255,0);
+				Invoke(nameof(ResetEffect),5);
+			}
 		}
 		else if(count%4==0){
 			num = Random.Range(0,healCharacters.Count);
@@ -112,8 +114,8 @@ public class MapGenerator4 : MonoBehaviour {
 		}
 		else if((count==2 || count%5==0) && GameManager4.hints>0 && GameManager4.hints<=3){
 			Debug.Log("In Hint object generation");
-			obstacle = GameObject.Instantiate(hintObject);
-			// obstacle = GameObject.Instantiate(invisibleObject);
+			// obstacle = GameObject.Instantiate(hintObject);
+			obstacle = GameObject.Instantiate(splitObject);
 		}
 		else if(count%6==0){
 			// Debug.Log("In speed object generation");
@@ -128,9 +130,19 @@ public class MapGenerator4 : MonoBehaviour {
 			// Debug.Log("In autofill object generation");
 			obstacle = GameObject.Instantiate(autofillObject);
 		}
+		else if(count%9==0){
+			// Debug.Log("In split object generation");
+			obstacle = GameObject.Instantiate(splitObject);
+		}
 		else{
 			num = Random.Range(0,displayCharacter.Count);
 			obstacle = GameObject.Instantiate(displayCharacter[num]);
+			// Change color to red
+			if(activateColorChange > 0)
+			{
+				obstacle.GetComponent<Renderer>().material.color = new Color(255,0,0);
+				Invoke(nameof(ResetEffect),5);
+			}
 		}
 
 		SetTransformCharacter(obstacle,start_obs,end_obs);
@@ -158,6 +170,11 @@ public class MapGenerator4 : MonoBehaviour {
 		// 	return obstacle;
 		// }
 	}
+
+	private void ResetEffect(){
+        activateColorChange -= 1;
+        // Debug.Log("Inside split timer  "+ activateColorChange);
+    }
 
 	void SetTransform(GameObject obstacle, float referenceX) {
 		if(obstacle.tag == "blade"){
