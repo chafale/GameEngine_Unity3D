@@ -96,6 +96,7 @@ public class Player : MonoBehaviour {
         
         if(currentHealth <= 0)
         {
+            gameStatus1.gameStatusObj.updateStatus();
             gameOver = true;
             body.isKinematic = true;
         }
