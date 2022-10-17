@@ -115,7 +115,7 @@ public class MapGenerator2 : MonoBehaviour {
 			obstacle = GameObject.Instantiate(hintObject);
 			// obstacle = GameObject.Instantiate(invisibleObject);
 		}
-		else if(count%7==0){
+		else if(count%11==0){
 			Debug.Log("Autofill character generation");
 			obstacle = GameObject.Instantiate(autofillObject);
 		}
