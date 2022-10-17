@@ -96,8 +96,28 @@ public class MapGenerator4 : MonoBehaviour {
 			return null;
 		}
 
-		// Debug.Log(correctCharacters.Count + " " +  displayCharacter.Count);
-		if (count%3==0 && correctCharacters.Count>0){
+		if(count%9==0){
+			// Debug.Log("In split object generation");
+			obstacle = GameObject.Instantiate(splitObject);
+		}
+		else if(count%8==0){
+			// Debug.Log("In autofill object generation");
+			obstacle = GameObject.Instantiate(autofillObject);
+		}
+		else if(count%7 == 0 && HealthBar.healthObj.slider.value<=75)
+		{
+			// Debug.Log("In Healthup object generation");
+			obstacle = GameObject.Instantiate(healthUpObject);
+		}
+		else if(count%6==0){
+			// Debug.Log("In speed object generation");
+			obstacle = GameObject.Instantiate(speedObject);
+		}
+		else if(count%4==0){
+			num = Random.Range(0,healCharacters.Count);
+			obstacle = GameObject.Instantiate(healCharacters[num]);
+		}
+		else if (count%3==0 && correctCharacters.Count>0){
 			num = Random.Range(0,correctCharacters.Count);
 			obstacle = GameObject.Instantiate(correctCharacters[num]);
 			// Change Color to Green
@@ -107,31 +127,9 @@ public class MapGenerator4 : MonoBehaviour {
 				Invoke(nameof(ResetEffect),5);
 			}
 		}
-		else if(count%4==0){
-			num = Random.Range(0,healCharacters.Count);
-			obstacle = GameObject.Instantiate(healCharacters[num]);
-
-		}
 		else if((count==2 || count%5==0) && GameManager4.hints>0 && GameManager4.hints<=3){
 			Debug.Log("In Hint object generation");
 			// obstacle = GameObject.Instantiate(hintObject);
-			obstacle = GameObject.Instantiate(splitObject);
-		}
-		else if(count%6==0){
-			// Debug.Log("In speed object generation");
-			obstacle = GameObject.Instantiate(speedObject);
-		}
-		else if(count%7 == 0 && HealthBar.healthObj.slider.value<=75)
-		{
-			// Debug.Log("In Healthup object generation");
-			obstacle = GameObject.Instantiate(healthUpObject);
-		}
-		else if(count%8==0){
-			// Debug.Log("In autofill object generation");
-			obstacle = GameObject.Instantiate(autofillObject);
-		}
-		else if(count%9==0){
-			// Debug.Log("In split object generation");
 			obstacle = GameObject.Instantiate(splitObject);
 		}
 		else{
