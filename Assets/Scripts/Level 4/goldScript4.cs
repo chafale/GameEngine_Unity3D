@@ -56,21 +56,21 @@ public class goldScript4 : MonoBehaviour
         }
         else
         {
-            if(temp==100)
+            if(temp == 100)
             {
                 goldText.text = "New Hint: " + goldList[goldIndex].ToString();
             }
-            else if(temp==101){
-                goldText.text = "Speed Power up Collected !!";
+            else if(temp == 101){
+                goldText.text = "Speed Power up Collected!!";
             }
-            else if(temp==102){
-                goldText.text = "Health Power up Collected !!";
+            else if(temp == 102){
+                goldText.text = "Health Power up Collected!!";
             }
-            else if(temp==103){
-                goldText.text = "Split Colour Power up Collected !!";
+            else if(temp == 103){
+                goldText.text = "Split Color Power up Collected!!";
             }
             else{
-                goldText.text = "Autofill Power up Collected !!";
+                goldText.text = "Autofill Power up Collected!!";
             }
             StartCoroutine(SetCountText());
         }
