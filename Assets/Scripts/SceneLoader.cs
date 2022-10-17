@@ -29,13 +29,13 @@ public class SceneLoader : MonoBehaviour
 
         SceneManager.LoadScene("Level_4");
     }
-    // tutorial routing
+    // Tutorial scene routing
     public void goToTutorial()
     {
 
         SceneManager.LoadScene("Tutorial");
     }
-    // mainmenu scene routing
+    // MainMenu scene routing
     public void LoadStartScene()
     {
         SceneManager.LoadScene("MainMenu");
