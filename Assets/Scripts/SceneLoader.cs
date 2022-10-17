@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+// routing to different scenes
 public class SceneLoader : MonoBehaviour
 {
 
@@ -29,15 +29,15 @@ public class SceneLoader : MonoBehaviour
 
         SceneManager.LoadScene("Level_4");
     }
-
+    // Tutorial scene routing
     public void goToTutorial()
     {
 
         SceneManager.LoadScene("Tutorial");
     }
-
+    // MainMenu scene routing
     public void LoadStartScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 }
