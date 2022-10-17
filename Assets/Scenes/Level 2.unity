@@ -1866,6 +1866,9 @@ MonoBehaviour:
   Z: {fileID: 6962685886252760066, guid: 9adcbe7bada6d459c9ce6f772346651d, type: 3}
   riddle: {fileID: 652656195}
   scoreAnimPrefab: {fileID: 0}
+  RiddleletterHolder: {fileID: 1133404613}
+  check: 1
+  RiddleCanvasriddle: {fileID: 57451591}
 --- !u!1 &1133404612
 GameObject:
   m_ObjectHideFlags: 0
