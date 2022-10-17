@@ -96,6 +96,7 @@ public class Player : MonoBehaviour {
         
         if(currentHealth <= 0)
         {
+            // new code for death by obstacles
             gameStatus1.gameStatusObj.updateStatus();
             gameOver = true;
             body.isKinematic = true;
