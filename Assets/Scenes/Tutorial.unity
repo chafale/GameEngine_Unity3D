@@ -2022,7 +2022,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1555333913}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Camera, Assembly-CSharp
         m_MethodName: Reset
         m_Mode: 1
@@ -3214,7 +3214,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1555333913}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Camera, Assembly-CSharp
         m_MethodName: Reset
         m_Mode: 1
@@ -3359,7 +3359,6 @@ GameObject:
   - component: {fileID: 1420289908}
   - component: {fileID: 1420289910}
   - component: {fileID: 1420289909}
-  - component: {fileID: 1420289911}
   m_Layer: 5
   m_Name: HintText
   m_TagString: Untagged
@@ -3484,18 +3483,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420289907}
   m_CullTransparentMesh: 1
---- !u!114 &1420289911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1420289907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abde5b6b3afda4fc9bb5d2af26428990, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1503808475
 GameObject:
   m_ObjectHideFlags: 0
@@ -3507,7 +3494,6 @@ GameObject:
   - component: {fileID: 1503808476}
   - component: {fileID: 1503808478}
   - component: {fileID: 1503808477}
-  - component: {fileID: 1503808479}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -3632,20 +3618,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503808475}
   m_CullTransparentMesh: 1
---- !u!114 &1503808479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503808475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 727d982d1bf064785887c0117dfa68bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statusText: {fileID: 1503808477}
-  player: {fileID: 0}
 --- !u!1 &1555333907
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,7 +3630,6 @@ GameObject:
   - component: {fileID: 1555333911}
   - component: {fileID: 1555333909}
   - component: {fileID: 1555333908}
-  - component: {fileID: 1555333913}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3741,21 +3712,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1555333913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1555333907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8085b5278dea125489c551bd4e43a964, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1853572507}
-  Background: {fileID: 0}
-  Hintground: {fileID: 0}
 --- !u!1 &1557618506
 GameObject:
   m_ObjectHideFlags: 0
@@ -4689,7 +4645,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1555333913}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Camera, Assembly-CSharp
         m_MethodName: Reset
         m_Mode: 1

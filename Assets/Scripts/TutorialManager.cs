@@ -27,6 +27,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject speedUpData;
     public GameObject autofill;
     public GameObject autofillData;
+    public static GameObject overReset;
 
     public static List<GameObject> chars = new List<GameObject>();
 
@@ -60,6 +61,8 @@ public class TutorialManager : MonoBehaviour
 
 
     void Start(){
+        overReset = GameObject.Find("Background");
+        overReset.SetActive(false);
         correctCharacters.Clear();
         chars.Clear();
         hints = 2;
@@ -228,7 +231,7 @@ public class TutorialManager : MonoBehaviour
                     {
                         Debug.Log("Check if the Space bar was pressed ");
                         Time.timeScale = 1;
-                        // Camera.GameEnd();
+                        GameEnd();
                         Player.body.isKinematic = true;
                     }
                     else{
@@ -238,5 +241,9 @@ public class TutorialManager : MonoBehaviour
 
                 }
             }
+    }
+
+    void GameEnd(){
+        overReset.SetActive(true);
     }
 }
