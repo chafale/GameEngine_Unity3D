@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using tm = TutorialManager;
-using gamsta = gameStatus;
 public class DestroyTutorial : MonoBehaviour
 {
      public int check;
@@ -17,10 +16,10 @@ public class DestroyTutorial : MonoBehaviour
             Debug.Log("Collided with letter : " + collided_letter);
             Destroy(gameObject);
             char inputLetter = char.Parse(collided_letter);
-            int c = 0;
+            //int c = 0;
             // Hint PopUp if letter = e
             if(inputLetter=='*')
-            { 
+            {
                 Debug.Log("Hints");
                 // tm.hints-=1;
                 // PlayerPrefs.SetInt("hintsCollected",PlayerPrefs.GetInt("hintsCollected") + 1);
@@ -48,18 +47,18 @@ public class DestroyTutorial : MonoBehaviour
                         if (index1 >= 0) {
                          tm.correctCharacters.RemoveAt(index1);
                         }
-                        c=1;
+                        //c=1;
                     }
                 }
-                if(c == 0){
-                    LivesScript.lives -= 1;
-                    PlayerPrefs.SetInt("livesLeft", LivesScript.lives);
-                    if(LivesScript.lives == 0){
-                        PlayerPrefs.SetInt("livesLeft", 0);
-                        Camera.GameEnd();
-                        Player.body.isKinematic = true;
-                    }
-                }
+                // if(c == 0){
+                //     LivesScript.lives -= 1;
+                //     PlayerPrefs.SetInt("livesLeft", LivesScript.lives);
+                //     if(LivesScript.lives == 0){
+                //         PlayerPrefs.SetInt("livesLeft", 0);
+                //         Camera.GameEnd();
+                //         Player.body.isKinematic = true;
+                //     }
+                // }
             }
         }
         else{

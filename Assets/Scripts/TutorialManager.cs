@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using gs = goldScript;
-
 
 public class TutorialManager : MonoBehaviour
 {
@@ -97,13 +95,6 @@ public class TutorialManager : MonoBehaviour
         autofillData.SetActive(false);
     }
 
-
-    public void updateGameHint()
-    {
-        hint.text = "Hint: " + gs.goldList[gs.goldIndex].ToString();
-    }
-
-
     GameObject GenerateObstacle(float referenceX) {
 		GameObject obstacle = GameObject.Instantiate(obstaclePrefab);
 		SetTransform(obstacle,referenceX);
@@ -158,7 +149,7 @@ public class TutorialManager : MonoBehaviour
 			floor = tempFloor;
 			currBackground = tempBackground;
 		}
-        
+
         for(int i = 0;i<popUps.Length; i++){
             //Debug.Log("PopUpIndex"+popUpIndex);
             //Debug.Log("value of i"+i);
@@ -201,7 +192,7 @@ public class TutorialManager : MonoBehaviour
                 if (player.transform.position.x > obstacle1.transform.position.x)
                 {
                     popUpIndex++;
-                    
+
                 }
                 flag = 0;
         } else if (popUpIndex == 3 ){
@@ -237,14 +228,14 @@ public class TutorialManager : MonoBehaviour
                     {
                         Debug.Log("Check if the Space bar was pressed ");
                         Time.timeScale = 1;
-                        Camera.GameEnd();
+                        // Camera.GameEnd();
                         Player.body.isKinematic = true;
                     }
                     else{
                         popUpIndex--;
                     }
 
-                   
+
                 }
             }
     }
