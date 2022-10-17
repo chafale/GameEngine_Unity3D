@@ -1802,6 +1802,7 @@ GameObject:
   - component: {fileID: 906306927}
   - component: {fileID: 906306926}
   - component: {fileID: 906306925}
+  - component: {fileID: 906306928}
   m_Layer: 5
   m_Name: HomeButton
   m_TagString: Untagged
@@ -1874,9 +1875,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1708747847}
-        m_TargetAssemblyTypeName: ScreenSwitcher, Assembly-CSharp
-        m_MethodName: Back
+      - m_Target: {fileID: 906306928}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadStartScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1924,6 +1925,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906306923}
   m_CullTransparentMesh: 1
+--- !u!114 &906306928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906306923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf69568a5755f4d08b647bac69f5a803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &960214594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,6 +2809,7 @@ GameObject:
   - component: {fileID: 1365853671}
   - component: {fileID: 1365853670}
   - component: {fileID: 1365853669}
+  - component: {fileID: 1365853672}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2868,9 +2882,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1555333913}
-        m_TargetAssemblyTypeName: Camera, Assembly-CSharp
-        m_MethodName: Reset
+      - m_Target: {fileID: 1365853672}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: goToLevel_One
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2918,6 +2932,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365853667}
   m_CullTransparentMesh: 1
+--- !u!114 &1365853672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365853667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf69568a5755f4d08b647bac69f5a803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1420289907
 GameObject:
   m_ObjectHideFlags: 0
@@ -4654,7 +4680,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2029664231}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadNextScene
+        m_MethodName: goToLevel_Two
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
