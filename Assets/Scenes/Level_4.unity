@@ -3107,6 +3107,7 @@ MonoBehaviour:
   speedObject: {fileID: 5377792005926250530, guid: f943ec1a386454061afdc91ad0df2b2d, type: 3}
   autofillObject: {fileID: 692368207568431423, guid: b77a5ad12b24044968d59a6018bb2a80, type: 3}
   healthUpObject: {fileID: 1801001809952329807, guid: c5c1e030fde0f441b95b6f7aee19655d, type: 3}
+  splitObject: {fileID: 4603214084831550269, guid: 27b0bd044b00d4a988b9319ce99f57a0, type: 3}
   invisibleObject: {fileID: 8188863263824143127, guid: b95c4f1713a15491586d523f54725cbc, type: 3}
   obstaclePrefab: {fileID: 1130431016740994, guid: 4f29d0d0d3d5190409d2d05756c134f6, type: 3}
   A: {fileID: 195844281613412553, guid: b31e0dd94a4b7488eb19ea1ebd521b7e, type: 3}

@@ -21,8 +21,6 @@ public class Destroy4 : MonoBehaviour
     public bool sc_correct = false;
     public bool sc_incorrect = false;
 
-
-
     void Awake()
     {
         destroyObj = this;
@@ -57,8 +55,16 @@ public class Destroy4 : MonoBehaviour
                 Debug.Log("In Invisible Mode");
 
             }
+            // Change letters colour to red or green if letter = '^'
+            else if(inputLetter=='^')
+            {
+                gs.goldObj.updateHint(103);
+                mapgen.activateColorChange += 1;
+                Debug.Log("Activating colour change  "+ mapgen.activateColorChange);
+
+            }
             // Health bar increase power up if letter = #
-            if(inputLetter=='#')
+            else if(inputLetter=='#')
             {
                 if(hb.healthObj.slider.value<=75)
                 {
@@ -113,9 +119,12 @@ public class Destroy4 : MonoBehaviour
             // Speed up player if letter = @
             else if(inputLetter=='@')
             {
+                if(pl.playerSpeed<10)
+                {
                 pl.playerSpeed+=3;
                 gs.goldObj.updateHint(101);
                 FindObjectOfType<Player>().TakeDamage(5);
+                }
             }
             // Hint PopUp if letter = *
             else if(inputLetter=='*')
