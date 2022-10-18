@@ -18,8 +18,8 @@ public class MapGenerator1 : MonoBehaviour {
 	public GameObject obstacle3;
 	public GameObject obstacle4;
 	public GameObject bladePrefab;
-	public GameObject mace;
-	public GameObject firePrefab;
+	// public GameObject mace;
+	// public GameObject firePrefab;
 
 	public GameObject character1;
 	public GameObject character2;
@@ -54,7 +54,7 @@ public class MapGenerator1 : MonoBehaviour {
 	void Start () {
 		displayCharacter.Clear();
 		obstaclesSpawn.Clear();
-		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,obstaclePrefab,bladePrefab,firePrefab,mace});
+		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab});
 		displayCharacter.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
 		obstacle1 = GenerateObstacle(player.transform.position.x + 10);
 		obstacle2 = GenerateObstacle(obstacle1.transform.position.x);
@@ -108,12 +108,11 @@ public class MapGenerator1 : MonoBehaviour {
 		else if(count%4==0){
 			num = Random.Range(0,healCharacters.Count);
 			obstacle = GameObject.Instantiate(healCharacters[num]);
-
 		}
 		else if((count==2 || count%5==0) && GameManager1.hints>0 && GameManager1.hints<=3){
 			Debug.Log("In Hint object generation");
 			obstacle = GameObject.Instantiate(hintObject);
-			// obstacle = GameObject.Instantiate(invisibleObject);
+			//obstacle = GameObject.Instantiate(invisibleObject);
 		}
 		else if(count%6==0){
 			// Debug.Log("In speed object generation");
@@ -124,10 +123,7 @@ public class MapGenerator1 : MonoBehaviour {
 			// Debug.Log("In Healthup object generation");
 			obstacle = GameObject.Instantiate(healthUpObject);
 		}
-		else if(count%8==0){
-			// Debug.Log("In autofill object generation");
-			obstacle = GameObject.Instantiate(autofillObject);
-		}
+		
 		else{
 			num = Random.Range(0,displayCharacter.Count);
 			obstacle = GameObject.Instantiate(displayCharacter[num]);
@@ -137,26 +133,6 @@ public class MapGenerator1 : MonoBehaviour {
 		GameManager1 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager1>();
 		gameMananger.HealCanvas.SetActive(false);
 		return obstacle;
-
-		// var checkCollider = Physics2D.OverlapCircle(obstacle.transform.position, 1);
-		// if (checkCollider != null && checkCollider.transform != obstacle.transform)
-		// {
-		// 	Destroy(obstacle);
-		// 	return null;
-		// }
-		// SetTransformCharacter(obstacle,start,end);
-		// return obstacle;
-
-		// Collider2D[] neighbours = Physics2D.OverlapCircleAll(obstacle.transform.position, 4);
-		// if (neighbours.Length>0){
-		// 	Debug.Log(neighbours.Length);
-		// 	Destroy(obstacle);
-		// 	return null;
-		// }
-		// else{
-		// 	SetTransformCharacter(obstacle,start,end);
-		// 	return obstacle;
-		// }
 	}
 
 	void SetTransform(GameObject obstacle, float referenceX) {
@@ -172,14 +148,14 @@ public class MapGenerator1 : MonoBehaviour {
 			if(random_size==5 || random_size==6){
 				obstacle.transform.localScale = new Vector3(1,2, 0);
 			}
-		}
-		else if(obstacle.tag == "mace"){
-			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(-2, 2), 0);
-
-		}
-		else if(obstacle.tag == "fire"){
-			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(-2, 2), 0);
-		}
+		 }
+		// else if(obstacle.tag == "mace"){
+		// 	obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(-2, 2), 0);
+		//
+		// }
+		// else if(obstacle.tag == "fire"){
+		// 	obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(-2, 2), 0);
+		// }
 	}
 
 	void SetTransformCharacter(GameObject obstacle, float start, float end) {
