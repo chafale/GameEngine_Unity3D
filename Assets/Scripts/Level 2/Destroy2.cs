@@ -13,6 +13,7 @@ public class Destroy2 : MonoBehaviour
 {
     public int check;
     public int healCheck;
+    public int healCount = 0;
     public static Destroy2 destroyObj;
     public Player player;
     public int gamescore = 0;
@@ -32,7 +33,7 @@ public class Destroy2 : MonoBehaviour
 
         GameObject obj1 = this.gameObject;
         GameObject collion_obj = collide.gameObject;
-        GameManager2 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager2>();
+        GameManager2 gameManager = GameObject.Find("GameManager").GetComponent<GameManager2>();
 
         // if(obj1.tag=="blade"){
         //   if(collion_obj.tag=="Player"){
@@ -160,11 +161,12 @@ public class Destroy2 : MonoBehaviour
                         FindObjectOfType<Player>().showScoreAnim(" +10 ",sc_correct);
                     }
                 }
-                for (int i = 0; i < mg.healList.Count; i++)
+               for (int i = 0; i < mg.healList.Count; i++)
                 {
                     if(mg.healList[i] == inputLetter){
-                        gameMananger.HealCanvas.SetActive(true);
-                        Debug.Log("PJ");
+                        gameManager.healCount += 1;
+                        // gameManager.HealCanvas.SetActive(true);
+                        Debug.Log(healCount);
                         mg.healHolderList[i].text = inputLetter.ToString();
                         var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
                         if (index >= 0) {
@@ -174,16 +176,15 @@ public class Destroy2 : MonoBehaviour
                         if (index1 >= 0) {
                          mapgen.correctCharacters.RemoveAt(index1);
                         }
-                        // Debug.Log(collided_letter + " " + mapgen.correctCharacters.Count);
-                        // for (int k = 0;k < mapgen.correctCharacters.Count;k++)
-                        //  {
-                        //    Debug.Log("Sanya "+mapgen.correctCharacters[k].tag);
-                        //  }
                         c=1;
                         sc_correct  = true;
                         FindObjectOfType<Player>().showScoreAnim("+10",sc_correct);
                     }
                 }
+                if (gameManager.healCount == 1){
+                    gameManager.HealCanvas.SetActive(true);
+                }
+        
 
                 if (c == 0)
                 {
@@ -231,8 +232,11 @@ public class Destroy2 : MonoBehaviour
 
                 }
             }
-            if (healCheck == 0) {
+            if (healCheck == 0 && gameManager.healCollected == false) {
                 FindObjectOfType<HealthBar>().SetMaxHealth(100);
+                gameManager.healCollected = true;
+                gameManager.healText.text = "Awesome! Your health has been refilled";
+                gameManager.HealCanvas.SetActive(true);
             }
             if(check==0){
                 // same as i == mg.solvedList.Count - 1
