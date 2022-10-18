@@ -55,9 +55,15 @@ public class MapGenerator3 : MonoBehaviour {
 	public float minObstacleScaleY;
 	public float maxObstacleScaleY;
 
+	 void Awake () {
+		QualitySettings.vSyncCount = 0;  // VSync must be disabled
+		Application.targetFrameRate = 45;
+	}
+	
 	// Use this for initialization
 	void Start () {
 		flag = true;
+		Debug.Log("Application.targetFrameRate: " + Application.targetFrameRate);
 		displayCharacter.Clear();
 		obstaclesSpawn.Clear();
 		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,obstaclePrefab,bladePrefab,firePrefab,mace});
