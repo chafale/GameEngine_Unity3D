@@ -9,7 +9,7 @@ using mg = MapGenerator2;
 public class GameManager2 : MonoBehaviour
 {
     //public  static string[] wordList = {"DOG"};
-    public  static string[] wordList = {"TON","EGG","CANDLE","FUTURE","PROMISE","BANK","CHICAGO","QUEUE","SILENCE","PIANO"};
+    public  static string[] wordList = {"CANDLE","FUTURE","QUEUE","PIANO","STARS","CLOCK","CLOUDS","COFFIN","SKULL","JOKES"};
     // public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();
     public  static List<TMP_Text> letterHolderList = new List<TMP_Text>();
@@ -32,6 +32,11 @@ public class GameManager2 : MonoBehaviour
     public static string healWord = "HEAL";
     [SerializeField] GameObject scoreAnimPrefab;
 
+    public  static List<TMP_Text> RiddleletterHolderList = new List<TMP_Text>();
+    public  Transform RiddleletterHolder;
+    public bool check = true;
+    public TMP_Text RiddleCanvasriddle;
+
 
     void Start(){
         HealCanvas.SetActive(false);
@@ -48,6 +53,8 @@ public class GameManager2 : MonoBehaviour
         // hint.text = hintList[index]
         // hint.text = "Hint: " + gs.goldList[gs.goldIndex].ToString();
         riddle.text = gs.goldList[0].ToString();
+        RiddleCanvasriddle.text = gs.goldList[0].ToString();
+
 
         string tempWord = wordList[index];
 
@@ -78,6 +85,9 @@ public class GameManager2 : MonoBehaviour
         {
             GameObject temp = Instantiate(letterPrefab, letterHolder, false);
             letterHolderList.Add(temp.GetComponent<TMP_Text>());
+            GameObject temp1 = Instantiate(letterPrefab, RiddleletterHolder, false);
+            RiddleletterHolderList.Add(temp1.GetComponent<TMP_Text>());
+ 
         }
 
         for (int i = 0; i < healWord.Length; i++)
@@ -110,4 +120,16 @@ public class GameManager2 : MonoBehaviour
         }
     }
 
+        public void Update(){
+        if (check)
+        Time.timeScale = 0; 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Continue Bar was pressed");
+            GameObject RiddleCanvas=GameObject.FindWithTag("RiddleCanvas");
+            RiddleCanvas.SetActive(false);
+            Time.timeScale = 1; 
+            check = false;
+        }
+}
 }

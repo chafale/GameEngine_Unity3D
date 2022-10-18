@@ -54,7 +54,7 @@ public class MapGenerator2 : MonoBehaviour {
 	void Start () {
 		displayCharacter.Clear();
 		obstaclesSpawn.Clear();
-		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,obstaclePrefab,bladePrefab,firePrefab,mace});
+		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,obstaclePrefab,bladePrefab});
 		displayCharacter.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
 		obstacle1 = GenerateObstacle(player.transform.position.x + 10);
 		obstacle2 = GenerateObstacle(obstacle1.transform.position.x);
@@ -115,19 +115,19 @@ public class MapGenerator2 : MonoBehaviour {
 			obstacle = GameObject.Instantiate(hintObject);
 			// obstacle = GameObject.Instantiate(invisibleObject);
 		}
-		else if(count%6==0){
-			// Debug.Log("In speed object generation");
-			obstacle = GameObject.Instantiate(speedObject);
-		}
-		else if(count%7 == 0 && HealthBar.healthObj.slider.value<=75)
-		{
-			// Debug.Log("In Healthup object generation");
-			obstacle = GameObject.Instantiate(healthUpObject);
-		}
-		else if(count%8==0){
-			// Debug.Log("In autofill object generation");
+		else if(count%11==0){
+			Debug.Log("Autofill character generation");
 			obstacle = GameObject.Instantiate(autofillObject);
 		}
+		// else if(count%7 == 0 && HealthBar.healthObj.slider.value<=75)
+		// {
+		// 	// Debug.Log("In Healthup object generation");
+		// 	obstacle = GameObject.Instantiate(healthUpObject);
+		// }
+		// else if(count%8==0){
+		// 	// Debug.Log("In autofill object generation");
+		// 	obstacle = GameObject.Instantiate(autofillObject);
+		// }
 		else{
 			num = Random.Range(0,displayCharacter.Count);
 			obstacle = GameObject.Instantiate(displayCharacter[num]);
