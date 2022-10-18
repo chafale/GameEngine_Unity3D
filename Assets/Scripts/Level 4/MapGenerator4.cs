@@ -35,6 +35,7 @@ public class MapGenerator4 : MonoBehaviour {
 	public static List<GameObject> displayCharacter = new List<GameObject>();
 	public static List<GameObject> correctCharacters = new List<GameObject>();
 	public static List<GameObject> healCharacters = new List<GameObject>();
+	public static List<GameObject> goCharacters = new List<GameObject>();
 	public static List<GameObject> obstaclesSpawn = new List<GameObject>();
 
 	public float minObstacleY;
@@ -146,6 +147,7 @@ public class MapGenerator4 : MonoBehaviour {
 		SetTransformCharacter(obstacle,start_obs,end_obs);
 		GameManager4 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager4>();
 		gameMananger.HealCanvas.SetActive(false);
+		gameMananger.GoCanvas.SetActive(false);
 		return obstacle;
 
 		// var checkCollider = Physics2D.OverlapCircle(obstacle.transform.position, 1);

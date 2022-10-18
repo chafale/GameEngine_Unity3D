@@ -61,10 +61,13 @@ public class Camera4 : MonoBehaviour {
         mg.chars = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         mapgen.correctCharacters = new List<GameObject>();
+        GameManager4 gameManager = GameObject.Find("GameManager").GetComponent<GameManager4>();
         Time.timeScale = 0;
         // mapgen.displayCharacter = new List<GameObject>();
         goldScript4.goldText.text="";
         overReset.SetActive(true);
+        gameManager.HealCanvas.SetActive(false);
+		gameManager.GoCanvas.SetActive(false);
     }
     public void Reset()
     {
@@ -72,8 +75,10 @@ public class Camera4 : MonoBehaviour {
         mg.solvedList = new List<char>();
         mg.letterHolderList = new List<TMP_Text>();
         mg.healHolderList = new List<TMP_Text>();
+        mg.goHolderList = new List<TMP_Text>();
         mapgen.correctCharacters = new List<GameObject>();
         mapgen.healCharacters = new List<GameObject>();
+        mapgen.goCharacters = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         goldScript4.goldText.text="";
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
