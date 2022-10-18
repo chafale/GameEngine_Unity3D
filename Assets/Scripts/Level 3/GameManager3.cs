@@ -13,18 +13,12 @@ public class GameManager3 : MonoBehaviour
     // public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();
     public  static List<TMP_Text> letterHolderList = new List<TMP_Text>();
-    public  static List<TMP_Text> healHolderList = new List<TMP_Text>();
     public  static List<TMP_Text> goHolderList = new List<TMP_Text>();
     public  GameObject letterPrefab;
-    public  GameObject HealCanvas;
     public  GameObject GoCanvas;
-    public int healCount = 0;
     public bool goCollected = false;
-    public bool healCollected = false;
-    public TMP_Text healText;
     public TMP_Text goText;
     public  Transform letterHolder;
-    public  Transform healHolder;
     public  Transform goHolder;
     public  TMP_Text hint;
     public  ScoringSystem instance;
@@ -36,9 +30,7 @@ public class GameManager3 : MonoBehaviour
     public static List<GameObject> chars = new List<GameObject>();
 
     public TMP_Text riddle;
-    public static List<char> healList = new List<char>{'H', 'E', 'A', 'L'};
     public static List<char> goList = new List<char>{'G', 'O'};
-    public static string healWord = "HEAL";
     public static string goWord = "GO";
     [SerializeField] GameObject scoreAnimPrefab;
 
@@ -48,7 +40,6 @@ public class GameManager3 : MonoBehaviour
     public TMP_Text RiddleCanvasriddle;
 
     void Start(){
-        HealCanvas.SetActive(false);
         GoCanvas.SetActive(false);
         mg.correctCharacters.Clear();
         chars.Clear();
@@ -81,15 +72,6 @@ public class GameManager3 : MonoBehaviour
                 }
             }
         }
-        //Add letters of the word HEAL
-        foreach (char letter in healList){
-            foreach(GameObject letter_prefab in chars){
-              char inputLetter = char.Parse(letter_prefab.tag);
-              if(inputLetter == letter){
-                mg.healCharacters.Add(letter_prefab);
-              }
-            }
-        }
 
          //Add letters of the word GO
         foreach (char letter in goList){
@@ -108,12 +90,6 @@ public class GameManager3 : MonoBehaviour
             GameObject temp1 = Instantiate(letterPrefab, RiddleletterHolder, false);
             RiddleletterHolderList.Add(temp1.GetComponent<TMP_Text>());
  
-        }
-
-        for (int i = 0; i < healWord.Length; i++)
-        {
-            GameObject temp = Instantiate(letterPrefab, healHolder, false);
-            healHolderList.Add(temp.GetComponent<TMP_Text>());
         }
 
         for (int i = 0; i < goWord.Length; i++)
