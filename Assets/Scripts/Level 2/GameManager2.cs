@@ -9,8 +9,8 @@ using mg = MapGenerator2;
 public class GameManager2 : MonoBehaviour
 {
     //public  static string[] wordList = {"DOG"};
-    // public  static string[] wordList = {"CANDLE","FUTURE","QUEUE","PIANO","STARS","CLOCK","CLOUDS","COFFIN","SKULL","JOKES"};
-    public  static string[] wordList = {"HEAL"};
+    public  static string[] wordList = {"CANDLE","FUTURE","QUEUE","PIANO","STARS","CLOCK","CLOUDS","COFFIN","SKULL","JOKES"};
+    // public  static string[] wordList = {"HEAL"};
     // public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();
     public  static List<TMP_Text> letterHolderList = new List<TMP_Text>();
