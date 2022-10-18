@@ -222,6 +222,7 @@ public class MapGenerator3 : MonoBehaviour {
 	void Update () {
 		GameManager3 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager3>();
 		frame += 1;
+		// Debug.Log("frame: "+frame);
 		if (gameMananger.goCollected == true && flag == true) {
 			Debug.Log("else " + startFrame);
 			startFrame = frame;
@@ -256,7 +257,7 @@ public class MapGenerator3 : MonoBehaviour {
 				SetTransform(tempObstacle, obstacle3.transform.position.x);
 			} else {
 				// frame
-				if (frame-startFrame <= 20000) {
+				if (frame-startFrame <= 500) {
 					Debug.Log("else" + "  " + frame + "  " + startFrame + "  " + obstacle1.transform.position.x + "  " + obstacle2.transform.position.x + "  " + obstacle3.transform.position.x + "  " + obstacle4.transform.position.x);
 					VanishObstacle(tempObstacle, obstacle3.transform.position.x);
 				} else {
