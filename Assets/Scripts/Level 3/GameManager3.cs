@@ -9,7 +9,7 @@ using mg = MapGenerator3;
 public class GameManager3 : MonoBehaviour
 {
     //public  static string[] wordList = {"DOG"};
-    public  static string[] wordList = {"TON","EGG","CANDLE","FUTURE","PROMISE","BANK","CHICAGO","QUEUE","SILENCE","PIANO"};
+    public  static string[] wordList = {"BATTERY","UMBRELLA","DOORBELL","NOTHING","ALPHABET","DARKNESS","CHICAGO","SHADOW","SILENCE","LIBRARY"};
     // public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();
     public  static List<TMP_Text> letterHolderList = new List<TMP_Text>();
