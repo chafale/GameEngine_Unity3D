@@ -20,6 +20,9 @@ public class GameManager3 : MonoBehaviour
     public  GameObject GoCanvas;
     public int healCount = 0;
     public bool goCollected = false;
+    public bool healCollected = false;
+    public TMP_Text healText;
+    public TMP_Text goText;
     public  Transform letterHolder;
     public  Transform healHolder;
     public  Transform goHolder;

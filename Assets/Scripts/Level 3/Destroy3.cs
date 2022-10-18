@@ -265,8 +265,10 @@ public class Destroy3 : MonoBehaviour
 
                 }
             }
-            if (healCheck == 0) {
+            if (healCheck == 0 && gameManager.healCollected == false) {
                 FindObjectOfType<HealthBar>().SetMaxHealth(100);
+                gameManager.healCollected = true;
+                gameManager.healText.text = "Awesome! Your health has been refilled";
                 gameManager.HealCanvas.SetActive(true);
             }
             
@@ -282,8 +284,9 @@ public class Destroy3 : MonoBehaviour
 
                 }
             }
-            if (goCheck == 0) {
+            if (goCheck == 0 && gameManager.goCollected == false) {
                 gameManager.goCollected = true;
+                gameManager.goText.text = "Obstacles will be eliminated for some time";
                 print(gameManager.goCollected);
             }
 

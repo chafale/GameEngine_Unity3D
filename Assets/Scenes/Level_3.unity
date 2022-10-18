@@ -1911,6 +1911,11 @@ MonoBehaviour:
   letterPrefab: {fileID: 2337904157474710171, guid: 89f961bc3a411463990c0f105d141a99, type: 3}
   HealCanvas: {fileID: 1487632123}
   GoCanvas: {fileID: 2116214521}
+  healCount: 0
+  goCollected: 0
+  healCollected: 0
+  healText: {fileID: 750574104}
+  goText: {fileID: 2013925831}
   letterHolder: {fileID: 191071542}
   healHolder: {fileID: 1310772706}
   goHolder: {fileID: 1149312918}
@@ -4845,7 +4850,7 @@ GameObject:
   - component: {fileID: 2013925832}
   - component: {fileID: 2013925831}
   m_Layer: 5
-  m_Name: HealText
+  m_Name: GoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
