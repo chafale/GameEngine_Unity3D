@@ -183,9 +183,9 @@ public class Destroy2 : MonoBehaviour
                         if (index >= 0) {
                          mapgen.healCharacters.RemoveAt(index);
                         }
-                        c=1;
-                        sc_correct  = true;
-                        FindObjectOfType<Player>().showScoreAnim("+10",sc_correct);
+                        // c=1;
+                        // sc_correct  = true;
+                        // FindObjectOfType<Player>().showScoreAnim("+10",sc_correct);
                     }
                 }
                 if (gameManager.healCount == 1){
