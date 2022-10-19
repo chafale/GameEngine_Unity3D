@@ -47,6 +47,8 @@ TagManager:
   - ^
   - RiddleCanvas
   - ^
+  - laser
+  - BackToHome
   layers:
   - Default
   - TransparentFX

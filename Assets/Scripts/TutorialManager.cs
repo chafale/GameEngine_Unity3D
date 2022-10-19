@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
@@ -21,12 +22,9 @@ public class TutorialManager : MonoBehaviour
     public GameObject obstaclePrefab;
     public GameObject A, D, E, G, O;
     public  GameObject letterPrefab;
-    public GameObject hintObj;
-    public GameObject hintData;
-    public GameObject speedUp;
-    public GameObject speedUpData;
-    public GameObject autofill;
-    public GameObject autofillData;
+
+    //public GameObject autofill;
+    public GameObject backToHome;
     public static GameObject overReset;
 
     public static List<GameObject> chars = new List<GameObject>();
@@ -90,12 +88,9 @@ public class TutorialManager : MonoBehaviour
             letterHolderList.Add(temp.GetComponent<TMP_Text>());
         }
        // hintObj=GameObject.FindWithTag("HintObj");
-        hintObj.SetActive(false);
-        hintData.SetActive(false);
-        speedUp.SetActive(false);
-        speedUpData.SetActive(false);
-        autofill.SetActive(false);
-        autofillData.SetActive(false);
+
+        backToHome.SetActive(false);
+
     }
 
     GameObject GenerateObstacle(float referenceX) {
@@ -220,18 +215,15 @@ public class TutorialManager : MonoBehaviour
                     player.SetActive(false);
                     popUps[4].SetActive(false);
                     popUpIndex++;
-                    hintObj.SetActive(true);
-                    hintData.SetActive(true);
-                    speedUp.SetActive(true);
-                    speedUpData.SetActive(true);
-                    autofill.SetActive(true);
-                    autofillData.SetActive(true);
+                    backToHome.SetActive(true);
+                    //autofillData.SetActive(true);
                     Time.timeScale = 0;
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
                         Debug.Log("Check if the Space bar was pressed ");
                         Time.timeScale = 1;
-                        GameEnd();
+                        SceneManager.LoadScene("MainMenu");
+                        
                         Player.body.isKinematic = true;
                     }
                     else{
