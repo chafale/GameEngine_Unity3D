@@ -68,6 +68,9 @@ public class Player : MonoBehaviour {
             FindObjectOfType<Player>().TakeDamage(15);
             sc = true;
             showScoreAnim("Health: -15",sc);
+            
+            //Analytics : Obstacle Blade
+            PlayerPrefs.SetInt("obsBlade", PlayerPrefs.GetInt("obsBlade") + 1);
         }
         if (collider.gameObject.CompareTag("fire"))
         {
@@ -76,6 +79,8 @@ public class Player : MonoBehaviour {
             sc = true;
             showScoreAnim("Health: -20",sc);
            
+            //Analytics : Obstacle Fire
+            PlayerPrefs.SetInt("obsFire", PlayerPrefs.GetInt("obsFire") + 1);
         }
         if (collider.gameObject.CompareTag("rod"))
         {
@@ -84,6 +89,8 @@ public class Player : MonoBehaviour {
             sc = true;
             showScoreAnim("Health: -10",sc);
             
+            //Analytics : Obstacle Rod
+            PlayerPrefs.SetInt("obsRod", PlayerPrefs.GetInt("obsRod") + 1);
         }
         if (collider.gameObject.CompareTag("mace"))
         {
@@ -92,6 +99,8 @@ public class Player : MonoBehaviour {
             sc = true;
             showScoreAnim("Health: -15",sc);
 
+            //Analytics : Obstacle Mace
+            PlayerPrefs.SetInt("obsMace", PlayerPrefs.GetInt("obsMace") + 1);
         }
         
         if(currentHealth <= 0)
@@ -111,6 +120,9 @@ public class Player : MonoBehaviour {
     {
         currentHealth -= damage;
         FindObjectOfType<HealthBar>().SetHealth(currentHealth);
+        
+        // Analytics : health
+        PlayerPrefs.SetInt("health", currentHealth);
     }
     
     public void showScoreAnim(string text, bool pr){

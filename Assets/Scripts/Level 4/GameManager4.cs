@@ -59,6 +59,10 @@ public class GameManager4 : MonoBehaviour
         correct_word = wordList[index];
         Debug.Log("CORRECT WORD IS:" + correct_word);
 
+        // Analytics : LevelName, wordLength
+        PlayerPrefs.SetString("levelName", "Level 4");
+        PlayerPrefs.SetInt("wordLength", correct_word.Length);
+        
         gs.assign_values();
 
         // hint.text = hintList[index]
