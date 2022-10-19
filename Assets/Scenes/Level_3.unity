@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -95, y: -75}
+  m_AnchoredPosition: {x: -110, y: -75}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &20628467
@@ -1639,15 +1639,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letterPrefab: {fileID: 2337904157474710171, guid: 89f961bc3a411463990c0f105d141a99, type: 3}
-  HealCanvas: {fileID: 0}
   GoCanvas: {fileID: 2116214521}
-  healCount: 0
   goCollected: 0
-  healCollected: 0
-  healText: {fileID: 0}
   goText: {fileID: 2013925831}
   letterHolder: {fileID: 191071542}
-  healHolder: {fileID: 0}
   goHolder: {fileID: 1149312918}
   hint: {fileID: 250761867}
   instance: {fileID: 20628467}
@@ -3135,7 +3130,6 @@ MonoBehaviour:
   obstacle3: {fileID: 0}
   obstacle4: {fileID: 0}
   bladePrefab: {fileID: 8016871299957817026, guid: baaefbbe1a6c4470f9f915647b6c5618, type: 3}
-  mace: {fileID: 8016871299957817026, guid: 6c8a7504d0fa34939893acd65e8290a7, type: 3}
   firePrefab: {fileID: 498014882596820967, guid: 0743797dd588340f5a004fc820052b3f, type: 3}
   character1: {fileID: 0}
   character2: {fileID: 0}
@@ -3631,7 +3625,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.427}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -160, y: -40}
+  m_AnchoredPosition: {x: -180, y: -40}
   m_SizeDelta: {x: 214.5199, y: 34.8174}
   m_Pivot: {x: 0.4375, y: 0.57161}
 --- !u!114 &1601186855

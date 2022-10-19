@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -95, y: -75}
+  m_AnchoredPosition: {x: -110, y: -75}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &20628467
@@ -1712,9 +1712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letterPrefab: {fileID: 2337904157474710171, guid: 89f961bc3a411463990c0f105d141a99, type: 3}
-  HealCanvas: {fileID: 0}
   letterHolder: {fileID: 191071542}
-  healHolder: {fileID: 0}
   hint: {fileID: 250761867}
   instance: {fileID: 20628467}
   A: {fileID: 195844281613412553, guid: 1a0aa93eb88b34810909a38938b4328a, type: 3}
@@ -3345,8 +3343,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.427}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -160, y: -40}
-  m_SizeDelta: {x: 214.5199, y: 34.8174}
+  m_AnchoredPosition: {x: -180, y: -39.795}
+  m_SizeDelta: {x: 214.5199, y: 34.149}
   m_Pivot: {x: 0.4375, y: 0.57161}
 --- !u!114 &1601186855
 MonoBehaviour:

@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -95, y: -75}
+  m_AnchoredPosition: {x: -110, y: -75}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &20628467
@@ -3478,6 +3478,9 @@ MonoBehaviour:
   prevBackground: {fileID: 1193930439}
   currBackground: {fileID: 1580550048}
   player: {fileID: 1722864593}
+  frame: 0
+  startFrame: 0
+  flag: 0
   obstacle1: {fileID: 0}
   obstacle2: {fileID: 0}
   obstacle3: {fileID: 0}
@@ -4147,7 +4150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.427}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -160, y: -40}
+  m_AnchoredPosition: {x: -180, y: -40}
   m_SizeDelta: {x: 214.5199, y: 34.8174}
   m_Pivot: {x: 0.4375, y: 0.57161}
 --- !u!114 &1601186855
