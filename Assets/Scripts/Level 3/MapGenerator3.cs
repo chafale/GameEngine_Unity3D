@@ -55,7 +55,7 @@ public class MapGenerator3 : MonoBehaviour {
 
 	 void Awake () {
 		QualitySettings.vSyncCount = 0;  // VSync must be disabled
-		Application.targetFrameRate = 45;
+		Application.targetFrameRate = 2000;
 	}
 
 	// Use this for initialization
@@ -249,7 +249,7 @@ public class MapGenerator3 : MonoBehaviour {
 				SetTransform(tempObstacle, obstacle3.transform.position.x);
 			} else {
 				// frame
-				if (frame-startFrame <= 500) {
+				if (frame-startFrame <= 10000) {
 					Debug.Log("else" + "  " + frame + "  " + startFrame + "  " + obstacle1.transform.position.x + "  " + obstacle2.transform.position.x + "  " + obstacle3.transform.position.x + "  " + obstacle4.transform.position.x);
 					VanishObstacle(tempObstacle, obstacle3.transform.position.x);
 				} else {
