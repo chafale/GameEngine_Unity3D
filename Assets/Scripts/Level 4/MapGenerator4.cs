@@ -13,6 +13,10 @@ public class MapGenerator4 : MonoBehaviour {
 
 	public GameObject player;
 
+	public int frame;
+	public int startFrame;
+	public bool flag;
+
 	public GameObject obstacle1;
 	public GameObject obstacle2;
 	public GameObject obstacle3;
@@ -47,8 +51,15 @@ public class MapGenerator4 : MonoBehaviour {
 	public float minObstacleScaleY;
 	public float maxObstacleScaleY;
 
+
+	void Awake () {
+		QualitySettings.vSyncCount = 0;  // VSync must be disabled
+		Application.targetFrameRate = 45;
+	}
+
 	// Use this for initialization
 	void Start () {
+		flag = true;
 		displayCharacter.Clear();
 		obstaclesSpawn.Clear();
 		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,obstaclePrefab,bladePrefab,firePrefab,mace});
@@ -199,12 +210,43 @@ public class MapGenerator4 : MonoBehaviour {
 		}
 	}
 
+	void VanishObstacle(GameObject obstacle, float referenceX) {
+		if(obstacle.tag == "blade"){
+			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), 40, 0);
+			float scale_blade1 = Random.Range(1, 10);
+			float scale_blade2 = Random.Range(scale_blade1+1, 3*scale_blade1);
+			obstacle.transform.localScale = new Vector3(scale_blade1/scale_blade2, scale_blade1/scale_blade2, scale_blade1/scale_blade2);
+		}
+		else if(obstacle.tag == "rod"){
+			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), 40, 0);
+			float random_size = Random.Range(1, 10);
+			if(random_size==5 || random_size==6){
+				obstacle.transform.localScale = new Vector3(1,2, 0);
+			}
+		}
+		else if(obstacle.tag == "mace"){
+			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), 40, 0);
+
+		}
+		else if(obstacle.tag == "fire"){
+			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), 40, 0);
+		}
+	}
+
 	void SetTransformCharacter(GameObject obstacle, float start, float end) {
 		obstacle.transform.position = new Vector3(start, end, 0);
 	}
 
 	// Update is called once per frame
 	void Update () {
+		GameManager4 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager4>();
+		frame += 1;
+		// Debug.Log("frame: "+frame);
+		if (gameMananger.goCollected == true && flag == true) {
+			Debug.Log("else " + startFrame);
+			startFrame = frame;
+			flag = false;
+		}
 		if (player.transform.position.x > floor.transform.position.x - 6) {
 			var tempCeiling = prevCeiling;
 			var tempFloor = prevFloor;
@@ -226,7 +268,19 @@ public class MapGenerator4 : MonoBehaviour {
 			obstacle2 = obstacle3;
 			obstacle3 = obstacle4;
 			tempObstacle = GameObject.Instantiate(obstaclesSpawn[Random.Range(0,obstaclesSpawn.Count)]);
-			SetTransform(tempObstacle, obstacle3.transform.position.x);
+			// SetTransform(tempObstacle, obstacle3.transform.position.x);
+			Debug.Log("else " + flag  +  " "  +"  " + frame + "  " + startFrame + "  " + obstacle1.transform.position.x + "  " + obstacle2.transform.position.x + "  " + obstacle3.transform.position.x + "  " + obstacle4.transform.position.x);
+			if (gameMananger.goCollected == false) {
+				SetTransform(tempObstacle, obstacle3.transform.position.x);
+			} else {
+				// frame
+				if (frame-startFrame <= 500) {
+					Debug.Log("else" + "  " + frame + "  " + startFrame + "  " + obstacle1.transform.position.x + "  " + obstacle2.transform.position.x + "  " + obstacle3.transform.position.x + "  " + obstacle4.transform.position.x);
+					VanishObstacle(tempObstacle, obstacle3.transform.position.x);
+				} else {
+					SetTransform(tempObstacle, obstacle3.transform.position.x);
+				}
+			}
 			obstacle4 = tempObstacle;
 
 			if(character1){
