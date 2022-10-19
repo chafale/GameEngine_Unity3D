@@ -11,15 +11,18 @@ public class goldScript1 : MonoBehaviour
     public static string [][] hint_array = new string[][] {
                                                 new string[] {"Forward I am heavy, backwards I am not. What am I?","Answer is in the question","Measurement unit","What is 2000 pounds?"},
                                                 new string[] {"What has to be broken before you can use it?","I give you strength","I am made up of only 2 colors","My end product has multiple shapes"},
-                                                new string[] {"I am tall when I am young, and I am short when I am old. What am I?","I am the light of your darkness","You blow me on a special day","I melt on heat"},
-                                                new string[] {"What is always in front of you but can not be seen?","You are sometimes worried about me","I am unpredictable","Only Dr.Strange can see me"},
-                                                new string[] {"What can you break, even if you never pick it up or touch it?","Other might get hurt if you break me","Word of honor","I am often asked before sharing secrets"},
-                                                new string[] {"I have branches, but no fruit, trunk or leaves. What am I?","You can see me in most of the streets","You can not live without me","You save your valuables with me"},
-                                                new string[] {"What is 3/7th chicken, 2/3th cat and 2/4th goat?","Do math of the words","The letters you have to collect are in the question","I am a famous city"},
-                                                new string[] {"What word is pronounced the same if you take away four of its five letters?","You are in this when you call customer care","Can be broken if you know someone in this","You often stand in this"},
-                                                new string[] {"What is so fragile that saying its name breaks it?","You gain peace ","It is not an object","Meditation room"},
-                                                new string[] {"I have many keys but can’t open a single door","You have to learn to be able to use me","You can have your career built around me","I sound on touch"}
-                                                        };
+                                                new string[] {"What goes up but never comes down.What am I?","•	It increases once a year !","You should never ask woman about it?","Which three letters change a girl into a woman?"},
+                                                new string[] {"I have branches, but no fruit, trunk or leaves. What am I? ","People create account but am not any social media app","Money heist","River has two of me!!"},
+                                                new string[] {"What can’t talk but will reply when spoken to?","You've heard me before, yet you hear me again, Then I die 'til you call me again.","It repeat only the last word you say. The more I repeat, the softer I got. ","It speaks without a mouth and hear without ears, has no body, but come alive with wind."},
+                                                new string[] {"I am invisible, weigh nothing, and if you put me in a barrel, it will become lighter. What am I?","It gets bigger when more is taken away","Pants pocket is empty, but there’s still something in it","Remove the W from whole to score"},
+                                                new string[] {"It belongs to you, but other people use it more than you do. What is it? ","How do people address you","People call you by first, professional call you by last and parents when angry calls by middle","Always in the first line of myself"},
+                                                new string[] {"Without fingers, I point, without arms, I strike, without feet, I run. What am I?","It has hands, but can’t clap","Do you have time for me?","It has a face that does not frown and hands that do not wave. I do not walk but move around"},
+                                                new string[] {"What has words, but never speaks?","This thing has a cover, But it is not a bed, It has many pages and is something that’s read ","A spine, no knees, Full of stories, You will find these, In libraries","It has spine, but no bones"},
+                                                new string[] {"A hand without flesh and nothing can i hold my grip cannot be used until i am sold. What am I?","It has a thumb and four fingers, but is not a hand","Surgeons, skiers, thieves and boxers all wear me for different reasons","Used in winter to keep your hands warm"},
+												new string[] {"Although this item is never half, It can sometimes be a quarter. If you come across a wishing well, You might throw it in the water? ","What has a head and a tail but no body I am NOT a snake ?","Surgeons, skiers, thieves and boxers all wear me for different reasons","I have two Faces but can bear only one"},
+												new string[] {"If two’s company, and three’s a crowd, what are four plus five?","Do math 3+3+3","Highest single digit number","Greater than eight but smaller than ten"},
+												new string[] {"I turn once, what is out will not get in. I turn again, what is in will not get out. What am I?","To open a door you can knock or use this item to unlock","1/3rd of the Turkey from the end"}
+  };
 
     [SerializeField] public static TextMeshProUGUI goldText;
 
