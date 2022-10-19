@@ -38,7 +38,6 @@ public class MapGenerator1 : MonoBehaviour {
 
 	public static List<GameObject> displayCharacter = new List<GameObject>();
 	public static List<GameObject> correctCharacters = new List<GameObject>();
-	public static List<GameObject> healCharacters = new List<GameObject>();
 	public static List<GameObject> obstaclesSpawn = new List<GameObject>();
 
 	public float minObstacleY;
@@ -105,10 +104,6 @@ public class MapGenerator1 : MonoBehaviour {
 			num = Random.Range(0,correctCharacters.Count);
 			obstacle = GameObject.Instantiate(correctCharacters[num]);
 		}
-		else if(count%4==0){
-			num = Random.Range(0,healCharacters.Count);
-			obstacle = GameObject.Instantiate(healCharacters[num]);
-		}
 		else if((count==2 || count%5==0) && GameManager1.hints>0 && GameManager1.hints<=3){
 			Debug.Log("In Hint object generation");
 			obstacle = GameObject.Instantiate(hintObject);
@@ -130,8 +125,6 @@ public class MapGenerator1 : MonoBehaviour {
 		}
 
 		SetTransformCharacter(obstacle,start_obs,end_obs);
-		GameManager1 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager1>();
-		gameMananger.HealCanvas.SetActive(false);
 		return obstacle;
 	}
 

@@ -12,7 +12,6 @@ using hb = HealthBar;
 public class Destroy1 : MonoBehaviour
 {
     public int check;
-    public int healCheck;
     public static Destroy1 destroyObj;
     public Player player;
     public int gamescore = 0;
@@ -160,30 +159,6 @@ public class Destroy1 : MonoBehaviour
                         FindObjectOfType<Player>().showScoreAnim(" +10 ",sc_correct);
                     }
                 }
-                for (int i = 0; i < mg.healList.Count; i++)
-                {
-                    if(mg.healList[i] == inputLetter){
-                        gameMananger.HealCanvas.SetActive(true);
-                        Debug.Log("PJ");
-                        mg.healHolderList[i].text = inputLetter.ToString();
-                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
-                        if (index >= 0) {
-                         mapgen.displayCharacter.RemoveAt(index);
-                        }
-                        var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
-                        if (index1 >= 0) {
-                         mapgen.correctCharacters.RemoveAt(index1);
-                        }
-                        // Debug.Log(collided_letter + " " + mapgen.correctCharacters.Count);
-                        // for (int k = 0;k < mapgen.correctCharacters.Count;k++)
-                        //  {
-                        //    Debug.Log("Sanya "+mapgen.correctCharacters[k].tag);
-                        //  }
-                        c=1;
-                        sc_correct  = true;
-                        FindObjectOfType<Player>().showScoreAnim("+10",sc_correct);
-                    }
-                }
 
                 if (c == 0)
                 {
@@ -220,20 +195,7 @@ public class Destroy1 : MonoBehaviour
                 //    gamsta.gameStatusObj.updateStatus();
                 //}
             }
-            healCheck = 0;
-            for (int i = 0; i < mg.healList.Count; i++)
-            {
-                char[] holder = mg.healHolderList[i].text.ToCharArray();
-                if(mg.healList[i] != holder[0]){
-                    Debug.Log("mg.healList[i] is not equal to holder[0]");
-                    healCheck = 1;
-                    break;
 
-                }
-            }
-            if (healCheck == 0) {
-                FindObjectOfType<HealthBar>().SetMaxHealth(100);
-            }
             if(check==0){
                 // same as i == mg.solvedList.Count - 1
                 Debug.Log("check ==0");
