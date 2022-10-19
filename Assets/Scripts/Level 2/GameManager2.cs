@@ -40,9 +40,13 @@ public class GameManager2 : MonoBehaviour
     public  Transform RiddleletterHolder;
     public bool check = true;
     public TMP_Text RiddleCanvasriddle;
+    public  GameObject RiddleCanvas;
+    public  GameObject L2Canvas;
 
+    public int count = 0;
 
     void Start(){
+
         HealCanvas.SetActive(false);
         mg.correctCharacters.Clear();
         mg.healCharacters.Clear();
@@ -63,7 +67,7 @@ public class GameManager2 : MonoBehaviour
         // hint.text = "Hint: " + gs.goldList[gs.goldIndex].ToString();
         riddle.text = gs.goldList[0].ToString();
         RiddleCanvasriddle.text = gs.goldList[0].ToString();
-
+        
 
         string tempWord = wordList[index];
 
@@ -131,14 +135,24 @@ public class GameManager2 : MonoBehaviour
 
         public void Update(){
         if (check)
-            Time.timeScale = 0;
-        if(Input.GetKeyDown(KeyCode.Space))
+            Time.timeScale = 0; 
+        if(count == 0 && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Continue Bar was pressed");
-            GameObject RiddleCanvas=GameObject.FindWithTag("RiddleCanvas");
+            L2Canvas.SetActive(false);
+            RiddleCanvas.SetActive(true); 
+            count++;
+            
+        }
+
+        else if(count == 1 && Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Continue Bar was pressed");
+            
             RiddleCanvas.SetActive(false);
             Time.timeScale = 1;
             check = false;
+            count++;
         }
 }
 }
