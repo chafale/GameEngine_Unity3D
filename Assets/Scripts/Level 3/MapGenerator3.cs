@@ -22,7 +22,6 @@ public class MapGenerator3 : MonoBehaviour {
 	public GameObject obstacle3;
 	public GameObject obstacle4;
 	public GameObject bladePrefab;
-	public GameObject mace;
 	public GameObject firePrefab;
 
 	public GameObject character1;
@@ -65,7 +64,7 @@ public class MapGenerator3 : MonoBehaviour {
 		Debug.Log("Application.targetFrameRate: " + Application.targetFrameRate);
 		displayCharacter.Clear();
 		obstaclesSpawn.Clear();
-		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,obstaclePrefab,bladePrefab,firePrefab,mace});
+		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,obstaclePrefab,bladePrefab,firePrefab});
 		displayCharacter.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
 		obstacle1 = GenerateObstacle(player.transform.position.x + 10);
 		obstacle2 = GenerateObstacle(obstacle1.transform.position.x);
@@ -182,10 +181,6 @@ public class MapGenerator3 : MonoBehaviour {
 				obstacle.transform.localScale = new Vector3(1,2, 0);
 			}
 		}
-		else if(obstacle.tag == "mace"){
-			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(-2, 2), 0);
-
-		}
 		else if(obstacle.tag == "fire"){
 			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(-2, 2), 0);
 		}
@@ -204,10 +199,6 @@ public class MapGenerator3 : MonoBehaviour {
 			if(random_size==5 || random_size==6){
 				obstacle.transform.localScale = new Vector3(1,2, 0);
 			}
-		}
-		else if(obstacle.tag == "mace"){
-			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), 40, 0);
-
 		}
 		else if(obstacle.tag == "fire"){
 			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), 40, 0);
