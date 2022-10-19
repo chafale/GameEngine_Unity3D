@@ -68,6 +68,7 @@ public class Camera2 : MonoBehaviour {
         overReset.SetActive(true);
         gameMananger.HealCanvas.SetActive(false);
         ScoringSystem.myScore = 0;
+        mapgen.healCharacters = new List<GameObject>();
     }
 
     public void Reset()

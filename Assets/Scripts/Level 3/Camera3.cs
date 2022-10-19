@@ -62,6 +62,7 @@ public class Camera3 : MonoBehaviour {
         mg.chars = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         mapgen.correctCharacters = new List<GameObject>();
+        mapgen.goCharacters = new List<GameObject>();
         GameManager3 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager3>();
         Time.timeScale = 0;
         // mapgen.displayCharacter = new List<GameObject>();
