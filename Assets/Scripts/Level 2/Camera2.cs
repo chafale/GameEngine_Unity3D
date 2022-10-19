@@ -67,7 +67,9 @@ public class Camera2 : MonoBehaviour {
         goldScript2.goldText.text="";
         overReset.SetActive(true);
         gameMananger.HealCanvas.SetActive(false);
+        ScoringSystem.myScore = 0;
     }
+
     public void Reset()
     {
         Debug.Log("Reset");

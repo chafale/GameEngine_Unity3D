@@ -68,6 +68,7 @@ public class Camera3 : MonoBehaviour {
         goldScript3.goldText.text="";
         overReset.SetActive(true);
 		gameMananger.GoCanvas.SetActive(false);
+    ScoringSystem.myScore = 0;
     }
     public void Reset()
     {

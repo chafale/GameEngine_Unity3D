@@ -68,6 +68,7 @@ public class Camera4 : MonoBehaviour {
         overReset.SetActive(true);
         gameManager.HealCanvas.SetActive(false);
 		gameManager.GoCanvas.SetActive(false);
+    ScoringSystem.myScore = 0;
     }
     public void Reset()
     {

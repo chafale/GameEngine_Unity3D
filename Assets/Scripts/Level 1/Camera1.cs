@@ -65,6 +65,7 @@ public class Camera1 : MonoBehaviour {
         // mapgen.displayCharacter = new List<GameObject>();
         goldScript1.goldText.text="";
         overReset.SetActive(true);
+        ScoringSystem.myScore = 0;
     }
     public void Reset()
     {

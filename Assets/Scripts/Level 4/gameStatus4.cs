@@ -35,11 +35,11 @@ public class gameStatus4 : MonoBehaviour
         {
             Debug.Log("Game end health: "+ FindObjectOfType<Player>().currentHealth);
             statusText.text = "Game Over! :( \n\n The correct word was : " + mg.correct_word + "\nScore : " + ScoringSystem.myScore;
-            
+
             // Analytics : winStatus, score
             PlayerPrefs.SetInt("winStatus", 0);
             PlayerPrefs.SetInt("score", ScoringSystem.myScore);
-            
+
             Camera4.GameEnd();
         }
         else
@@ -49,7 +49,7 @@ public class gameStatus4 : MonoBehaviour
             // Analytics : winStatus, score
             PlayerPrefs.SetInt("winStatus", 1);
             PlayerPrefs.SetInt("score", ScoringSystem.myScore);
-            
+
             //Camera.GameEnd();
         }
     }

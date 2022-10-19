@@ -63,7 +63,7 @@ public class Destroy4 : MonoBehaviour
                 gs.goldObj.updateHint(103);
                 mapgen.activateColorChange += 1;
                 Debug.Log("Activating colour change  "+ mapgen.activateColorChange);
-                
+
                 // Analytics : Color Change Power-up
                 PlayerPrefs.SetInt("colorChangePowerUp", PlayerPrefs.GetInt("colorChangePowerUp") + 1);
             }
@@ -72,7 +72,7 @@ public class Destroy4 : MonoBehaviour
             {
                 // Analytics : Medical Kit Power-up
                 PlayerPrefs.SetInt("medKitPowerUp", PlayerPrefs.GetInt("medKitPowerUp") + 1);
-                
+
                 if(hb.healthObj.slider.value<=75)
                 {
                     gs.goldObj.updateHint(102);
@@ -85,7 +85,7 @@ public class Destroy4 : MonoBehaviour
             {
                 // Analytics : Autofill Power-up capture
                 PlayerPrefs.SetInt("autofillPowerUp", PlayerPrefs.GetInt("autofillPowerUp") + 1);
-                
+
                 FindObjectOfType<Player>().TakeDamage(5);
                 char solved='a';
                 for(int i=0;i<mg.letterHolderList.Count;i++)
@@ -129,7 +129,7 @@ public class Destroy4 : MonoBehaviour
             {
                 // Analytics : Speed Power-up
                 PlayerPrefs.SetInt("speedPowerUp",PlayerPrefs.GetInt("speedPowerUp") + 1);
-                
+
                 if(pl.playerSpeed<10)
                 {
                     pl.playerSpeed+=3;
@@ -141,10 +141,10 @@ public class Destroy4 : MonoBehaviour
             else if(inputLetter=='*')
             {
                 mg.hints-=1;
-                
+
                 // Analytics : hints
                 PlayerPrefs.SetInt("hintsCollected",PlayerPrefs.GetInt("hintsCollected") + 1);
-                
+
                 gs.goldIndex+=1;
                 if(gs.goldIndex<=2)
                 {
@@ -251,7 +251,7 @@ public class Destroy4 : MonoBehaviour
                 }
             }
             //HEAL CHECK
-    
+
             healCheck = 0;
             for (int i = 0; i < mg.healList.Count; i++)
             {
@@ -268,13 +268,13 @@ public class Destroy4 : MonoBehaviour
                 gameManager.healCollected = true;
                 gameManager.healText.text = "Awesome! Your health has been refilled";
                 gameManager.HealCanvas.SetActive(true);
-                
+
                 // Analytics : HEAL word complete
                 PlayerPrefs.SetInt("healStatus", 1);
             }
-            
+
             // GO CHECK
-            
+
             goCheck = 0;
             for (int i = 0; i < mg.goList.Count; i++)
             {
@@ -288,7 +288,7 @@ public class Destroy4 : MonoBehaviour
                 gameManager.goCollected = true;
                 gameManager.goText.text = "Obstacles will be eliminated for some time";
                 print(gameManager.goCollected);
-                
+
                 // Analytics : GO word complete
                 PlayerPrefs.SetInt("goStatus", 1);
             }
