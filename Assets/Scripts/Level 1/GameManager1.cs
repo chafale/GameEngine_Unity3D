@@ -41,6 +41,10 @@ public class GameManager1 : MonoBehaviour
         index = Random.Range(0, wordList.Length);
         correct_word = wordList[index];
         Debug.Log("CORRECT WORD IS:" + correct_word);
+        
+        // Analytics : LevelName, wordLength
+        PlayerPrefs.SetString("levelName", "Level 1");
+        PlayerPrefs.SetInt("wordLength", correct_word.Length);
 
         gs.assign_values();
 
@@ -61,7 +65,7 @@ public class GameManager1 : MonoBehaviour
               if(inputLetter == letter){
                     mg.correctCharacters.Add(letter_prefab);
 
-                }
+              }
             }
         }
 
@@ -85,7 +89,7 @@ public class GameManager1 : MonoBehaviour
 
     public void Update(){
         if (check)
-        Time.timeScale = 0; 
+            Time.timeScale = 0; 
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Continue Bar was pressed");

@@ -59,6 +59,9 @@ public class Destroy1 : MonoBehaviour
             // Health bar increase power up if letter = #
             if(inputLetter=='#')
             {
+                // Analytics : Medical Kit Power-up
+                PlayerPrefs.SetInt("medKitPowerUp", PlayerPrefs.GetInt("medKitPowerUp") + 1);
+                
                 if(hb.healthObj.slider.value<=75)
                 {
                     gs.goldObj.updateHint(102);
@@ -71,6 +74,7 @@ public class Destroy1 : MonoBehaviour
             {
                 // Analytics : Autofill Power-up capture
                 PlayerPrefs.SetInt("autofillPowerUp", PlayerPrefs.GetInt("autofillPowerUp") + 1);
+                
                 FindObjectOfType<Player>().TakeDamage(5);
                 char solved='a';
                 for(int i=0;i<mg.letterHolderList.Count;i++)
@@ -112,6 +116,9 @@ public class Destroy1 : MonoBehaviour
             // Speed up player if letter = @
             else if(inputLetter=='@')
             {
+                // Analytics : Speed Power-up
+                PlayerPrefs.SetInt("speedPowerUp",PlayerPrefs.GetInt("speedPowerUp") + 1);
+                
                 pl.playerSpeed+=3;
                 gs.goldObj.updateHint(101);
                 FindObjectOfType<Player>().TakeDamage(5);
@@ -120,7 +127,10 @@ public class Destroy1 : MonoBehaviour
             else if(inputLetter=='*')
             {
                 mg.hints-=1;
+                
+                // Analytics : hints
                 PlayerPrefs.SetInt("hintsCollected",PlayerPrefs.GetInt("hintsCollected") + 1);
+                
                 gs.goldIndex+=1;
                 if(gs.goldIndex<=2)
                 {
