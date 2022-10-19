@@ -70,6 +70,7 @@ public class Camera3 : MonoBehaviour {
         overReset.SetActive(true);
 		gameMananger.GoCanvas.SetActive(false);
     ScoringSystem.myScore = 0;
+    mg.goHolderList = new List<TMP_Text>();
     }
     public void Reset()
     {
@@ -80,7 +81,10 @@ public class Camera3 : MonoBehaviour {
         mapgen.correctCharacters = new List<GameObject>();
         mapgen.goCharacters = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
+        mapgen.goCharacters = new List<GameObject>();
         goldScript3.goldText.text="";
+        ScoringSystem.myScore = 0;
+        mg.goHolderList = new List<TMP_Text>();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public static void Pause()

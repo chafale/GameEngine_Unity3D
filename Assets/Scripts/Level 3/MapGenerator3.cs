@@ -57,7 +57,7 @@ public class MapGenerator3 : MonoBehaviour {
 		QualitySettings.vSyncCount = 0;  // VSync must be disabled
 		Application.targetFrameRate = 45;
 	}
-	
+
 	// Use this for initialization
 	void Start () {
 		flag = true;
@@ -119,15 +119,16 @@ public class MapGenerator3 : MonoBehaviour {
 			Debug.Log("In Hint object generation");
 			obstacle = GameObject.Instantiate(hintObject);
 			// obstacle = GameObject.Instantiate(invisibleObject);
+		}
+		else if(count%7==0){
 			num = Random.Range(0,goCharacters.Count);
 			obstacle = GameObject.Instantiate(goCharacters[num]);
-			
 		}
 		else if(count%6==0){
 			// Debug.Log("In speed object generation");
 			obstacle = GameObject.Instantiate(speedObject);
 		}
-		else if(count%7 == 0 && HealthBar.healthObj.slider.value<=75)
+		else if(count%11 == 0 && HealthBar.healthObj.slider.value<=75)
 		{
 			// Debug.Log("In Healthup object generation");
 			obstacle = GameObject.Instantiate(healthUpObject);
@@ -219,7 +220,7 @@ public class MapGenerator3 : MonoBehaviour {
 			startFrame = frame;
 			flag = false;
 		}
-		
+
 		print(gameMananger.goCollected);
 		if (player.transform.position.x > floor.transform.position.x - 6) {
 			var tempCeiling = prevCeiling;

@@ -63,7 +63,7 @@ public class Destroy2 : MonoBehaviour
             {
                 // Analytics : Medical Kit Power-up
                 PlayerPrefs.SetInt("medKitPowerUp", PlayerPrefs.GetInt("medKitPowerUp") + 1);
-                
+
                 if(hb.healthObj.slider.value<=75)
                 {
                     gs.goldObj.updateHint(102);
@@ -76,7 +76,7 @@ public class Destroy2 : MonoBehaviour
             {
                 // Analytics : Autofill Power-up capture
                 PlayerPrefs.SetInt("autofillPowerUp", PlayerPrefs.GetInt("autofillPowerUp") + 1);
-                
+
                 FindObjectOfType<Player>().TakeDamage(5);
                 char solved='a';
                 for(int i=0;i<mg.letterHolderList.Count;i++)
@@ -120,7 +120,7 @@ public class Destroy2 : MonoBehaviour
             {
                 // Analytics : Speed Power-up
                 PlayerPrefs.SetInt("speedPowerUp",PlayerPrefs.GetInt("speedPowerUp") + 1);
-                
+
                 pl.playerSpeed+=3;
                 gs.goldObj.updateHint(101);
                 FindObjectOfType<Player>().TakeDamage(5);
@@ -129,10 +129,10 @@ public class Destroy2 : MonoBehaviour
             else if(inputLetter=='*')
             {
                 mg.hints-=1;
-                
+
                 // Analytics : hints
                 PlayerPrefs.SetInt("hintsCollected",PlayerPrefs.GetInt("hintsCollected") + 1);
-                
+
                 gs.goldIndex+=1;
                 if(gs.goldIndex<=2)
                 {
@@ -170,8 +170,8 @@ public class Destroy2 : MonoBehaviour
                         sc_correct  = true;
                         FindObjectOfType<Player>().showScoreAnim(" +10 ",sc_correct);
                     }
-                } 
-                for (int i = 0; i < mg.healList.Count; i++) 
+                }
+                for (int i = 0; i < mg.healList.Count; i++)
                 {
                     if(mg.healList[i] == inputLetter)
                     {
@@ -179,13 +179,9 @@ public class Destroy2 : MonoBehaviour
                         // gameManager.HealCanvas.SetActive(true);
                         Debug.Log(healCount);
                         mg.healHolderList[i].text = inputLetter.ToString();
-                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
+                        var index = mapgen.healCharacters.FindIndex(i => i.tag == gameObject.tag);
                         if (index >= 0) {
-                         mapgen.displayCharacter.RemoveAt(index);
-                        }
-                        var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
-                        if (index1 >= 0) {
-                         mapgen.correctCharacters.RemoveAt(index1);
+                         mapgen.healCharacters.RemoveAt(index);
                         }
                         c=1;
                         sc_correct  = true;
@@ -195,7 +191,7 @@ public class Destroy2 : MonoBehaviour
                 if (gameManager.healCount == 1){
                     gameManager.HealCanvas.SetActive(true);
                 }
-        
+
 
                 if (c == 0)
                 {
@@ -248,7 +244,7 @@ public class Destroy2 : MonoBehaviour
                 gameManager.healCollected = true;
                 gameManager.healText.text = "Awesome! Your health has been refilled";
                 gameManager.HealCanvas.SetActive(true);
-                
+
                 // Analytics : HEAL word complete
                 PlayerPrefs.SetInt("healStatus", 1);
             }

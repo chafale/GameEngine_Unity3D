@@ -42,6 +42,7 @@ public class GameManager3 : MonoBehaviour
     void Start(){
         GoCanvas.SetActive(false);
         mg.correctCharacters.Clear();
+        mg.goCharacters.Clear();
         chars.Clear();
         hints = 3;
         chars.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
@@ -52,7 +53,7 @@ public class GameManager3 : MonoBehaviour
         // Analytics : LevelName, wordLength
         PlayerPrefs.SetString("levelName", "Level 3");
         PlayerPrefs.SetInt("wordLength", correct_word.Length);
-        
+
         gs.assign_values();
 
         // hint.text = hintList[index]
@@ -93,7 +94,7 @@ public class GameManager3 : MonoBehaviour
             letterHolderList.Add(temp.GetComponent<TMP_Text>());
             GameObject temp1 = Instantiate(letterPrefab, RiddleletterHolder, false);
             RiddleletterHolderList.Add(temp1.GetComponent<TMP_Text>());
- 
+
         }
 
         for (int i = 0; i < goWord.Length; i++)
@@ -105,13 +106,13 @@ public class GameManager3 : MonoBehaviour
 
         public void Update(){
         if (check)
-            Time.timeScale = 0; 
+            Time.timeScale = 0;
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Continue Bar was pressed");
             GameObject RiddleCanvas=GameObject.FindWithTag("RiddleCanvas");
             RiddleCanvas.SetActive(false);
-            Time.timeScale = 1; 
+            Time.timeScale = 1;
             check = false;
         }
 }

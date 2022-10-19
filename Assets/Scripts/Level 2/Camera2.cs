@@ -69,6 +69,7 @@ public class Camera2 : MonoBehaviour {
         gameMananger.HealCanvas.SetActive(false);
         ScoringSystem.myScore = 0;
         mapgen.healCharacters = new List<GameObject>();
+        mg.healHolderList = new List<TMP_Text>();
     }
 
     public void Reset()
@@ -81,6 +82,9 @@ public class Camera2 : MonoBehaviour {
         mapgen.healCharacters = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         goldScript2.goldText.text="";
+        ScoringSystem.myScore = 0;
+        mapgen.healCharacters = new List<GameObject>();
+        mg.healHolderList = new List<TMP_Text>();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public static void Pause()

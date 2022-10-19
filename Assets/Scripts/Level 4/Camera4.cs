@@ -71,6 +71,8 @@ public class Camera4 : MonoBehaviour {
         ScoringSystem.myScore = 0;
         mapgen.healCharacters = new List<GameObject>();
         mapgen.goCharacters = new List<GameObject>();
+        mg.healHolderList = new List<TMP_Text>();
+        mg.goHolderList = new List<TMP_Text>();
     }
     public void Reset()
     {
@@ -84,6 +86,11 @@ public class Camera4 : MonoBehaviour {
         mapgen.goCharacters = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         goldScript4.goldText.text="";
+        ScoringSystem.myScore = 0;
+        mapgen.healCharacters = new List<GameObject>();
+        mapgen.goCharacters = new List<GameObject>();
+        mg.healHolderList = new List<TMP_Text>();
+        mg.goHolderList = new List<TMP_Text>();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public static void Pause()

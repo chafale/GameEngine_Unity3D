@@ -190,14 +190,12 @@ public class Destroy4 : MonoBehaviour
                         // gameMananger.HealCanvas.SetActive(true);
                         Debug.Log("PJ");
                         mg.healHolderList[i].text = inputLetter.ToString();
-                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
+
+                        var index = mapgen.healCharacters.FindIndex(i => i.tag == gameObject.tag);
                         if (index >= 0) {
-                         mapgen.displayCharacter.RemoveAt(index);
+                         mapgen.healCharacters.RemoveAt(index);
                         }
-                        var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
-                        if (index1 >= 0) {
-                         mapgen.correctCharacters.RemoveAt(index1);
-                        }
+
                         // Debug.Log(collided_letter + " " + mapgen.correctCharacters.Count);
                         // for (int k = 0;k < mapgen.correctCharacters.Count;k++)
                         //  {
@@ -217,6 +215,10 @@ public class Destroy4 : MonoBehaviour
                     if(mg.goList[i] == inputLetter){
                         gameManager.GoCanvas.SetActive(true);
                         mg.goHolderList[i].text = inputLetter.ToString();
+                        var index = mapgen.goCharacters.FindIndex(i => i.tag == gameObject.tag);
+                        if (index >= 0) {
+                         mapgen.goCharacters.RemoveAt(index);
+                        }
                     }
                 }
 
