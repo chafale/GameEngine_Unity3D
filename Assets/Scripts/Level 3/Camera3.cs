@@ -32,7 +32,7 @@ public class Camera3 : MonoBehaviour {
     void Update () {
         if (!player.gameOver)
         {
-            transform.position += new Vector3(5f * Time.deltaTime, 0, 0);
+            transform.position += new Vector3(7.0f * Time.deltaTime, 0, 0);
 
         }
         else
