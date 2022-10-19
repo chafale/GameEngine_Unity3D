@@ -82,7 +82,7 @@ public class GameManager4 : MonoBehaviour
               if(inputLetter == letter){
                     mg.correctCharacters.Add(letter_prefab);
 
-                }
+              }
             }
         }
         //Add letters of the word HEAL
@@ -152,7 +152,7 @@ public class GameManager4 : MonoBehaviour
 
         public void Update(){
         if (check)
-        Time.timeScale = 0; 
+            Time.timeScale = 0; 
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Continue Bar was pressed");

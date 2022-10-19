@@ -73,7 +73,7 @@ public class GameManager3 : MonoBehaviour
               if(inputLetter == letter){
                     mg.correctCharacters.Add(letter_prefab);
 
-                }
+              }
             }
         }
 
@@ -105,7 +105,7 @@ public class GameManager3 : MonoBehaviour
 
         public void Update(){
         if (check)
-        Time.timeScale = 0; 
+            Time.timeScale = 0; 
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Continue Bar was pressed");

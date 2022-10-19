@@ -51,7 +51,11 @@ public class GameManager2 : MonoBehaviour
         index = Random.Range(0, wordList.Length);
         correct_word = wordList[index];
         Debug.Log("CORRECT WORD IS:" + correct_word);
-
+        
+        // Analytics : LevelName, wordLength
+        PlayerPrefs.SetString("levelName", "Level 2");
+        PlayerPrefs.SetInt("wordLength", correct_word.Length);
+        
         gs.assign_values();
 
         // hint.text = hintList[index]
@@ -71,8 +75,7 @@ public class GameManager2 : MonoBehaviour
               char inputLetter = char.Parse(letter_prefab.tag);
               if(inputLetter == letter){
                     mg.correctCharacters.Add(letter_prefab);
-
-                }
+              }
             }
         }
         //Add letters of the word HEAL
@@ -126,7 +129,7 @@ public class GameManager2 : MonoBehaviour
 
         public void Update(){
         if (check)
-        Time.timeScale = 0; 
+            Time.timeScale = 0; 
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Continue Bar was pressed");
