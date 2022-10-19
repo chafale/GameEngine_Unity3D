@@ -1847,6 +1847,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   letterPrefab: {fileID: 2337904157474710171, guid: 89f961bc3a411463990c0f105d141a99, type: 3}
   HealCanvas: {fileID: 1487632123}
+  healCount: 0
+  healText: {fileID: 750574104}
+  healCollected: 0
   letterHolder: {fileID: 191071542}
   healHolder: {fileID: 1310772706}
   hint: {fileID: 250761867}

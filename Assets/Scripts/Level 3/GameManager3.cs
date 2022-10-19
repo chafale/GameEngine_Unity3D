@@ -9,15 +9,17 @@ using mg = MapGenerator3;
 public class GameManager3 : MonoBehaviour
 {
     //public  static string[] wordList = {"DOG"};
-    public  static string[] wordList = {"TON","EGG","CANDLE","FUTURE","PROMISE","BANK","CHICAGO","QUEUE","SILENCE","PIANO"};
+    public  static string[] wordList = {"BATTERY","UMBRELLA","DOORBELL","NOTHING","ALPHABET","DARKNESS","CHICAGO","SHADOW","SILENCE","LIBRARY"};
     // public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();
     public  static List<TMP_Text> letterHolderList = new List<TMP_Text>();
-    public  static List<TMP_Text> healHolderList = new List<TMP_Text>();
+    public  static List<TMP_Text> goHolderList = new List<TMP_Text>();
     public  GameObject letterPrefab;
-    public  GameObject HealCanvas;
+    public  GameObject GoCanvas;
+    public bool goCollected = false;
+    public TMP_Text goText;
     public  Transform letterHolder;
-    public  Transform healHolder;
+    public  Transform goHolder;
     public  TMP_Text hint;
     public  ScoringSystem instance;
     public static int hints;
@@ -28,8 +30,8 @@ public class GameManager3 : MonoBehaviour
     public static List<GameObject> chars = new List<GameObject>();
 
     public TMP_Text riddle;
-    public static List<char> healList = new List<char>{'H', 'E', 'A', 'L'};
-    public static string healWord = "HEAL";
+    public static List<char> goList = new List<char>{'G', 'O'};
+    public static string goWord = "GO";
     [SerializeField] GameObject scoreAnimPrefab;
 
     public  static List<TMP_Text> RiddleletterHolderList = new List<TMP_Text>();
@@ -38,7 +40,7 @@ public class GameManager3 : MonoBehaviour
     public TMP_Text RiddleCanvasriddle;
 
     void Start(){
-        HealCanvas.SetActive(false);
+        GoCanvas.SetActive(false);
         mg.correctCharacters.Clear();
         chars.Clear();
         hints = 3;
@@ -70,12 +72,13 @@ public class GameManager3 : MonoBehaviour
                 }
             }
         }
-        //Add letters of the word HEAL
-        foreach (char letter in healList){
+
+         //Add letters of the word GO
+        foreach (char letter in goList){
             foreach(GameObject letter_prefab in chars){
               char inputLetter = char.Parse(letter_prefab.tag);
               if(inputLetter == letter){
-                mg.healCharacters.Add(letter_prefab);
+                mg.goCharacters.Add(letter_prefab);
               }
             }
         }
@@ -89,13 +92,12 @@ public class GameManager3 : MonoBehaviour
  
         }
 
-        for (int i = 0; i < healWord.Length; i++)
+        for (int i = 0; i < goWord.Length; i++)
         {
-            GameObject temp = Instantiate(letterPrefab, healHolder, false);
-            healHolderList.Add(temp.GetComponent<TMP_Text>());
+            GameObject temp1 = Instantiate(letterPrefab, goHolder, false);
+            goHolderList.Add(temp1.GetComponent<TMP_Text>());
         }
     }
-
 
         public void Update(){
         if (check)

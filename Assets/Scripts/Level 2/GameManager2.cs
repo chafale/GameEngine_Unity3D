@@ -10,12 +10,16 @@ public class GameManager2 : MonoBehaviour
 {
     //public  static string[] wordList = {"DOG"};
     public  static string[] wordList = {"CANDLE","FUTURE","QUEUE","PIANO","STARS","CLOCK","CLOUDS","COFFIN","SKULL","JOKES"};
+    // public  static string[] wordList = {"HEAL"};
     // public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();
     public  static List<TMP_Text> letterHolderList = new List<TMP_Text>();
     public  static List<TMP_Text> healHolderList = new List<TMP_Text>();
     public  GameObject letterPrefab;
     public  GameObject HealCanvas;
+    public int healCount = 0;
+    public TMP_Text healText;
+    public bool healCollected = false;
     public  Transform letterHolder;
     public  Transform healHolder;
     public  TMP_Text hint;

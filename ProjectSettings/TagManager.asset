@@ -44,7 +44,9 @@ TagManager:
   - rod
   - mace
   - fire
+  - ^
   - RiddleCanvas
+  - ^
   layers:
   - Default
   - TransparentFX

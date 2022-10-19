@@ -61,10 +61,12 @@ public class Camera2 : MonoBehaviour {
         mg.chars = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         mapgen.correctCharacters = new List<GameObject>();
+        GameManager2 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager2>();
         Time.timeScale = 0;
         // mapgen.displayCharacter = new List<GameObject>();
         goldScript2.goldText.text="";
         overReset.SetActive(true);
+        gameMananger.HealCanvas.SetActive(false);
     }
     public void Reset()
     {

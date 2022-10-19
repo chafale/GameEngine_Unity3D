@@ -17,6 +17,7 @@ public class Camera3 : MonoBehaviour {
     public static GameObject goldReset;
 
     public static GameObject completeLevelUI;
+
     // Use this for initialization
     void Start () {
 
@@ -61,19 +62,21 @@ public class Camera3 : MonoBehaviour {
         mg.chars = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         mapgen.correctCharacters = new List<GameObject>();
+        GameManager3 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager3>();
         Time.timeScale = 0;
         // mapgen.displayCharacter = new List<GameObject>();
         goldScript3.goldText.text="";
         overReset.SetActive(true);
+		gameMananger.GoCanvas.SetActive(false);
     }
     public void Reset()
     {
         Debug.Log("Reset");
         mg.solvedList = new List<char>();
         mg.letterHolderList = new List<TMP_Text>();
-        mg.healHolderList = new List<TMP_Text>();
+        mg.goHolderList = new List<TMP_Text>();
         mapgen.correctCharacters = new List<GameObject>();
-        mapgen.healCharacters = new List<GameObject>();
+        mapgen.goCharacters = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         goldScript3.goldText.text="";
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

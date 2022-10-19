@@ -12,7 +12,9 @@ using hb = HealthBar;
 public class Destroy4 : MonoBehaviour
 {
     public int check;
-    public int healCheck;
+     public int healCheck;
+    public int healCount = 0;
+    public int goCheck;
     public static Destroy4 destroyObj;
     public Player player;
     public int gamescore = 0;
@@ -20,8 +22,6 @@ public class Destroy4 : MonoBehaviour
     public Canvas animeCanvas;
     public bool sc_correct = false;
     public bool sc_incorrect = false;
-
-
 
     void Awake()
     {
@@ -32,7 +32,7 @@ public class Destroy4 : MonoBehaviour
 
         GameObject obj1 = this.gameObject;
         GameObject collion_obj = collide.gameObject;
-        GameManager4 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager4>();
+        GameManager4 gameManager = GameObject.Find("GameManager").GetComponent<GameManager4>();
 
         // if(obj1.tag=="blade"){
         //   if(collion_obj.tag=="Player"){
@@ -57,8 +57,16 @@ public class Destroy4 : MonoBehaviour
                 Debug.Log("In Invisible Mode");
 
             }
+            // Change letters colour to red or green if letter = '^'
+            else if(inputLetter=='^')
+            {
+                gs.goldObj.updateHint(103);
+                mapgen.activateColorChange += 1;
+                Debug.Log("Activating colour change  "+ mapgen.activateColorChange);
+
+            }
             // Health bar increase power up if letter = #
-            if(inputLetter=='#')
+            else if(inputLetter=='#')
             {
                 if(hb.healthObj.slider.value<=75)
                 {
@@ -113,9 +121,12 @@ public class Destroy4 : MonoBehaviour
             // Speed up player if letter = @
             else if(inputLetter=='@')
             {
+                if(pl.playerSpeed<10)
+                {
                 pl.playerSpeed+=3;
                 gs.goldObj.updateHint(101);
                 FindObjectOfType<Player>().TakeDamage(5);
+                }
             }
             // Hint PopUp if letter = *
             else if(inputLetter=='*')
@@ -163,7 +174,8 @@ public class Destroy4 : MonoBehaviour
                 for (int i = 0; i < mg.healList.Count; i++)
                 {
                     if(mg.healList[i] == inputLetter){
-                        gameMananger.HealCanvas.SetActive(true);
+                        gameManager.healCount += 1;
+                        // gameMananger.HealCanvas.SetActive(true);
                         Debug.Log("PJ");
                         mg.healHolderList[i].text = inputLetter.ToString();
                         var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
@@ -182,6 +194,17 @@ public class Destroy4 : MonoBehaviour
                         c=1;
                         sc_correct  = true;
                         FindObjectOfType<Player>().showScoreAnim("+10",sc_correct);
+                    }
+                }
+                if (gameManager.healCount == 1){
+                    gameManager.HealCanvas.SetActive(true);
+                }
+
+                for (int i = 0; i < mg.goList.Count; i++)
+                {
+                    if(mg.goList[i] == inputLetter){
+                        gameManager.GoCanvas.SetActive(true);
+                        mg.goHolderList[i].text = inputLetter.ToString();
                     }
                 }
 
@@ -214,12 +237,9 @@ public class Destroy4 : MonoBehaviour
                     check = 1;
                     break;
                 }
-                //if (i == mg.solvedList.Count - 1)
-                //{
-                //    Debug.Log("solvedlist count -1");
-                //    gamsta.gameStatusObj.updateStatus();
-                //}
             }
+            //HEAL CHECK
+    
             healCheck = 0;
             for (int i = 0; i < mg.healList.Count; i++)
             {
@@ -231,9 +251,31 @@ public class Destroy4 : MonoBehaviour
 
                 }
             }
-            if (healCheck == 0) {
+            if (healCheck == 0 && gameManager.healCollected == false) {
                 FindObjectOfType<HealthBar>().SetMaxHealth(100);
+                gameManager.healCollected = true;
+                gameManager.healText.text = "Awesome! Your health has been refilled";
+                gameManager.HealCanvas.SetActive(true);
             }
+            
+            // GO CHECK
+            
+            goCheck = 0;
+            for (int i = 0; i < mg.goList.Count; i++)
+            {
+                char[] holder = mg.goHolderList[i].text.ToCharArray();
+                if(mg.goList[i] != holder[0]){
+                    goCheck = 1;
+                    break;
+
+                }
+            }
+            if (goCheck == 0 && gameManager.goCollected == false) {
+                gameManager.goCollected = true;
+                gameManager.goText.text = "Obstacles will be eliminated for some time";
+                print(gameManager.goCollected);
+            }
+
             if(check==0){
                 // same as i == mg.solvedList.Count - 1
                 Debug.Log("check ==0");
