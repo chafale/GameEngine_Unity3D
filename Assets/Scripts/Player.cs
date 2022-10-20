@@ -146,7 +146,7 @@ public class Player : MonoBehaviour {
     {
         Physics2D.IgnoreLayerCollision(6,7);
         GetComponent<Animator>().SetLayerWeight(1,1);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         GetComponent<Animator>().SetLayerWeight(1,0);
         Physics2D.IgnoreLayerCollision(6,7, false);
         
