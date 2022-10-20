@@ -46,7 +46,10 @@ public class GameManager4 : MonoBehaviour
     public  Transform RiddleletterHolder;
     public bool check = true;
     public TMP_Text RiddleCanvasriddle;
+    public GameObject RiddleCanvas;
+    public GameObject L4Canvas;
 
+    public int count = 0;
 
     void Start(){
         HealCanvas.SetActive(false);
@@ -156,13 +159,21 @@ public class GameManager4 : MonoBehaviour
         public void Update(){
         if (check)
             Time.timeScale = 0;
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(count==0 && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Continue Bar was pressed");
+            L4Canvas.SetActive(false);
+            RiddleCanvas.SetActive(true);
+            count++;
+        } 
+        else if(count == 1 && Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Continue Bar 2 was pressed");
             GameObject RiddleCanvas=GameObject.FindWithTag("RiddleCanvas");
             RiddleCanvas.SetActive(false);
             Time.timeScale = 1;
             check = false;
+            count++;
         }
 }
 
