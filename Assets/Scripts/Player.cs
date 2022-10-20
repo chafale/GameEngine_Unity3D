@@ -68,7 +68,6 @@ public class Player : MonoBehaviour {
             FindObjectOfType<Player>().TakeDamage(15);
             sc = true;
             showScoreAnim("Health: -15",sc);
-            StartCoroutine(GetHurt());
 
             //Analytics : Obstacle Blade
             PlayerPrefs.SetInt("obsBlade", PlayerPrefs.GetInt("obsBlade") + 1);
@@ -79,7 +78,7 @@ public class Player : MonoBehaviour {
             FindObjectOfType<Player>().TakeDamage(20);
             sc = true;
             showScoreAnim("Health: -20",sc);
-            StartCoroutine(GetHurt());
+
             //Analytics : Obstacle Fire
             PlayerPrefs.SetInt("obsFire", PlayerPrefs.GetInt("obsFire") + 1);
         }
@@ -89,7 +88,6 @@ public class Player : MonoBehaviour {
             FindObjectOfType<Player>().TakeDamage(10);
             sc = true;
             showScoreAnim("Health: -10",sc);
-            StartCoroutine(GetHurt());
 
             //Analytics : Obstacle Rod
             PlayerPrefs.SetInt("obsRod", PlayerPrefs.GetInt("obsRod") + 1);
@@ -100,7 +98,6 @@ public class Player : MonoBehaviour {
             FindObjectOfType<Player>().TakeDamage(15);
             sc = true;
             showScoreAnim("Health: -15",sc);
-            StartCoroutine(GetHurt());
 
             //Analytics : Obstacle Mace
             PlayerPrefs.SetInt("obsMace", PlayerPrefs.GetInt("obsMace") + 1);
@@ -140,16 +137,6 @@ public class Player : MonoBehaviour {
             Debug.Log("Anime Here");
             Destroy(prefab, 1f);
         }
-    }
-
-    IEnumerator GetHurt()
-    {
-        Physics2D.IgnoreLayerCollision(6,7);
-        GetComponent<Animator>().SetLayerWeight(1,1);
-        yield return new WaitForSeconds(1);
-        GetComponent<Animator>().SetLayerWeight(1,0);
-        Physics2D.IgnoreLayerCollision(6,7, false);
-        
     }
 
 }
