@@ -66,6 +66,7 @@ public class Destroy3 : MonoBehaviour
                 if(hb.healthObj.slider.value<=75)
                 {
                     gs.goldObj.updateHint(102);
+                    FindObjectOfType<Player>().currentHealth+=25;
                     hb.healthObj.slider.value+=25f;
                     showScoreAnim("10000");
                 }
