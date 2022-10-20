@@ -242,6 +242,7 @@ public class Destroy2 : MonoBehaviour
             }
             if (healCheck == 0 && gameManager.healCollected == false) {
                 FindObjectOfType<HealthBar>().SetMaxHealth(100);
+                FindObjectOfType<Player>().currentHealth=100;
                 gameManager.healCollected = true;
                 gameManager.healText.text = "Awesome! Your health has been refilled";
                 gameManager.HealCanvas.SetActive(true);
