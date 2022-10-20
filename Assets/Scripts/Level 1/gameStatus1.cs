@@ -39,7 +39,7 @@ public class gameStatus1 : MonoBehaviour
             // Analytics : winStatus, score
             PlayerPrefs.SetInt("winStatus", 0);
             PlayerPrefs.SetInt("score", ScoringSystem.myScore);
-
+            
             // Camera1.GameEnd();
         }
         else
