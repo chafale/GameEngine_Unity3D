@@ -15,7 +15,7 @@ public class fireCollider : MonoBehaviour
       }
       else{
         Debug.Log("Collide with blade");
-        Destroy(GetComponent<Collider>());
+        Destroy(collider.gameObject);
       }
     }
 
