@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5639324839422182629}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ScoreAnimParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6625610188561850098}
   - component: {fileID: 6432370549212169724}
   - component: {fileID: 9037913608220510299}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ScoreAnim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
