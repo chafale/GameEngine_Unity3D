@@ -18,8 +18,7 @@ public class MapGenerator1 : MonoBehaviour {
 	public GameObject obstacle3;
 	public GameObject obstacle4;
 	public GameObject bladePrefab;
-	// public GameObject mace;
-	// public GameObject firePrefab;
+	
 
 	public GameObject character1;
 	public GameObject character2;

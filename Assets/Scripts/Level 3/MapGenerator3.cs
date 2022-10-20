@@ -53,10 +53,6 @@ public class MapGenerator3 : MonoBehaviour {
 	public float minObstacleScaleY;
 	public float maxObstacleScaleY;
 
-	 void Awake () {
-		QualitySettings.vSyncCount = 0;  // VSync must be disabled
-		Application.targetFrameRate = 2000;
-	}
 
 	// Use this for initialization
 	void Start () {
@@ -210,16 +206,15 @@ public class MapGenerator3 : MonoBehaviour {
 		obstacle.transform.position = new Vector3(start, end, 0);
 	}
 
+	public void ResetGoCollected() {
+		Debug.Log("gameMananger Inside reset");
+		GameManager3 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager3>();
+		gameMananger.goCollected = false;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		GameManager3 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager3>();
-		frame += 1;
-		// Debug.Log("frame: "+frame);
-		if (gameMananger.goCollected == true && flag == true) {
-			Debug.Log("else " + startFrame);
-			startFrame = frame;
-			flag = false;
-		}
 
 		print(gameMananger.goCollected);
 		if (player.transform.position.x > floor.transform.position.x - 6) {
@@ -244,17 +239,12 @@ public class MapGenerator3 : MonoBehaviour {
 			obstacle3 = obstacle4;
 			tempObstacle = GameObject.Instantiate(obstaclesSpawn[Random.Range(0,obstaclesSpawn.Count)]);
 			// SetTransform(tempObstacle, obstacle3.transform.position.x);
-			Debug.Log("else " + flag  +  " "  +"  " + frame + "  " + startFrame + "  " + obstacle1.transform.position.x + "  " + obstacle2.transform.position.x + "  " + obstacle3.transform.position.x + "  " + obstacle4.transform.position.x);
+			Debug.Log("gameMananger.goCollected: " + gameMananger.goCollected);
 			if (gameMananger.goCollected == false) {
 				SetTransform(tempObstacle, obstacle3.transform.position.x);
 			} else {
-				// frame
-				if (frame-startFrame <= 10000) {
-					Debug.Log("else" + "  " + frame + "  " + startFrame + "  " + obstacle1.transform.position.x + "  " + obstacle2.transform.position.x + "  " + obstacle3.transform.position.x + "  " + obstacle4.transform.position.x);
-					VanishObstacle(tempObstacle, obstacle3.transform.position.x);
-				} else {
-					SetTransform(tempObstacle, obstacle3.transform.position.x);
-				}
+				VanishObstacle(tempObstacle, obstacle3.transform.position.x);
+				Invoke(nameof(ResetGoCollected), 5);
 			}
 			obstacle4 = tempObstacle;
 
