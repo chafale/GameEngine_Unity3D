@@ -35,13 +35,21 @@ public class gameStatus3 : MonoBehaviour
         {
             Debug.Log("Game end health: "+ FindObjectOfType<Player>().currentHealth);
             statusText.text = "Game Over! :( \n\n The correct word was : " + mg.correct_word + "\nScore : " + ScoringSystem.myScore;
-            PlayerPrefs.SetInt("gameStatus", 1);
+
+            // Analytics : winStatus, score
+            PlayerPrefs.SetInt("winStatus", 0);
+            PlayerPrefs.SetInt("score", ScoringSystem.myScore);
+
             Camera3.GameEnd();
         }
         else
         { //when player wins
             statusText.text = "Congratulations! You Win!\n\n The correct word was: " + mg.correct_word + "\nScore : " + ScoringSystem.myScore;
-            PlayerPrefs.SetInt("gameStatus", 1);
+
+            // Analytics : winStatus, score
+            PlayerPrefs.SetInt("winStatus", 1);
+            PlayerPrefs.SetInt("score", ScoringSystem.myScore);
+
             //Camera.GameEnd();
         }
     }

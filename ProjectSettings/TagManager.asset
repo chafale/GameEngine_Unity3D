@@ -46,6 +46,11 @@ TagManager:
   - fire
   - ^
   - RiddleCanvas
+  - ^
+  - laser
+  - BackToHome
+  - Level2TutotorialCanvas
+  - Level1tutorial
   layers:
   - Default
   - TransparentFX

@@ -10,12 +10,16 @@ public class GameManager2 : MonoBehaviour
 {
     //public  static string[] wordList = {"DOG"};
     public  static string[] wordList = {"CANDLE","FUTURE","QUEUE","PIANO","STARS","CLOCK","CLOUDS","COFFIN","SKULL","JOKES"};
+    // public  static string[] wordList = {"HEAL"};
     // public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();
     public  static List<TMP_Text> letterHolderList = new List<TMP_Text>();
     public  static List<TMP_Text> healHolderList = new List<TMP_Text>();
     public  GameObject letterPrefab;
     public  GameObject HealCanvas;
+    public int healCount = 0;
+    public TMP_Text healText;
+    public bool healCollected = false;
     public  Transform letterHolder;
     public  Transform healHolder;
     public  TMP_Text hint;
@@ -36,11 +40,16 @@ public class GameManager2 : MonoBehaviour
     public  Transform RiddleletterHolder;
     public bool check = true;
     public TMP_Text RiddleCanvasriddle;
+    public  GameObject RiddleCanvas;
+    public  GameObject L2Canvas;
 
+    public int count = 0;
 
     void Start(){
+
         HealCanvas.SetActive(false);
         mg.correctCharacters.Clear();
+        mg.healCharacters.Clear();
         chars.Clear();
         hints = 3;
         chars.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
@@ -48,13 +57,17 @@ public class GameManager2 : MonoBehaviour
         correct_word = wordList[index];
         Debug.Log("CORRECT WORD IS:" + correct_word);
 
+        // Analytics : LevelName, wordLength
+        PlayerPrefs.SetString("levelName", "Level 2");
+        PlayerPrefs.SetInt("wordLength", correct_word.Length);
+
         gs.assign_values();
 
         // hint.text = hintList[index]
         // hint.text = "Hint: " + gs.goldList[gs.goldIndex].ToString();
         riddle.text = gs.goldList[0].ToString();
         RiddleCanvasriddle.text = gs.goldList[0].ToString();
-
+        
 
         string tempWord = wordList[index];
 
@@ -67,10 +80,10 @@ public class GameManager2 : MonoBehaviour
               char inputLetter = char.Parse(letter_prefab.tag);
               if(inputLetter == letter){
                     mg.correctCharacters.Add(letter_prefab);
-
-                }
+              }
             }
         }
+
         //Add letters of the word HEAL
         foreach (char letter in healList){
             foreach(GameObject letter_prefab in chars){
@@ -87,7 +100,7 @@ public class GameManager2 : MonoBehaviour
             letterHolderList.Add(temp.GetComponent<TMP_Text>());
             GameObject temp1 = Instantiate(letterPrefab, RiddleletterHolder, false);
             RiddleletterHolderList.Add(temp1.GetComponent<TMP_Text>());
- 
+
         }
 
         for (int i = 0; i < healWord.Length; i++)
@@ -122,14 +135,24 @@ public class GameManager2 : MonoBehaviour
 
         public void Update(){
         if (check)
-        Time.timeScale = 0; 
-        if(Input.GetKeyDown(KeyCode.Space))
+            Time.timeScale = 0; 
+        if(count == 0 && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Continue Bar was pressed");
-            GameObject RiddleCanvas=GameObject.FindWithTag("RiddleCanvas");
+            L2Canvas.SetActive(false);
+            RiddleCanvas.SetActive(true); 
+            count++;
+            
+        }
+
+        else if(count == 1 && Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Continue Bar was pressed");
+            
             RiddleCanvas.SetActive(false);
-            Time.timeScale = 1; 
+            Time.timeScale = 1;
             check = false;
+            count++;
         }
 }
 }
