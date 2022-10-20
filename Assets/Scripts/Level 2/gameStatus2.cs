@@ -40,11 +40,11 @@ public class gameStatus2 : MonoBehaviour
             PlayerPrefs.SetInt("winStatus", 0);
             PlayerPrefs.SetInt("score", ScoringSystem.myScore);
 
-            Camera2.GameEnd();
+            // Camera2.GameEnd();
         }
         else
         { //when player wins
-            statusText.text = "Congratulations! You Win!\n\n The correct word was: " + mg.correct_word + "\nScore : " + ScoringSystem.myScore;
+            statusText.text = "Congratulations! You Win!\n\n Score : " + ScoringSystem.myScore;
 
             // Analytics : winStatus, score
             PlayerPrefs.SetInt("winStatus", 1);
