@@ -36,11 +36,13 @@ public class Camera4 : MonoBehaviour {
         }
         else
         {
+            if(FindObjectOfType<Player>().currentHealth <= 0){
+              gameStatus4.gameStatusObj.updateStatus();
+            }
             Camera4.GameEnd();
             //GameEnd();
             player.currentHealth = 0;
             FindObjectOfType<HealthBar>().SetHealth(player.currentHealth);
-            gameStatus4.gameStatusObj.updateStatus();
             Debug.Log("I am obstacle here");
         }
         //if (player.currentHealth == 0)

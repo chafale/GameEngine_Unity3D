@@ -36,20 +36,23 @@ public class Camera2 : MonoBehaviour {
         }
         else
         {
+
+            if(FindObjectOfType<Player>().currentHealth <= 0){
+              gameStatus2.gameStatusObj.updateStatus();
+            }
             Camera2.GameEnd();
             //GameEnd();
             player.currentHealth = 0;
             FindObjectOfType<HealthBar>().SetHealth(player.currentHealth);
-            gameStatus2.gameStatusObj.updateStatus();
             Debug.Log("I am obstacle here");
         }
         //if (player.currentHealth == 0)
-        if (player.currentHealth <= 0 )
-        {
-            //gameStatus.gameStatusObj.updateStatus();
-            GameEnd();
-            Debug.Log("I am health here");
-        }
+        // if (player.currentHealth <= 0 )
+        // {
+        //     //gameStatus.gameStatusObj.updateStatus();
+        //     GameEnd();
+        //     Debug.Log("I am health here");
+        // }
 
 
     }
