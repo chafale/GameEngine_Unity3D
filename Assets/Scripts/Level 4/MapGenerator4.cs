@@ -108,20 +108,20 @@ public class MapGenerator4 : MonoBehaviour {
 			return null;
 		}
 
-		if(count%9==0){
+		if(count%17==0){
 			// Debug.Log("In split object generation");
 			obstacle = GameObject.Instantiate(splitObject);
 		}
-		else if(count%8==0){
+		else if(count%14==0){
 			// Debug.Log("In autofill object generation");
 			obstacle = GameObject.Instantiate(autofillObject);
 		}
-		else if(count%7 == 0 && HealthBar.healthObj.slider.value<=75)
+		else if(count%13 == 0 && HealthBar.healthObj.slider.value<=75)
 		{
 			// Debug.Log("In Healthup object generation");
 			obstacle = GameObject.Instantiate(healthUpObject);
 		}
-		else if(count%6==0){
+		else if(count%11==0){
 			// Debug.Log("In speed object generation");
 			obstacle = GameObject.Instantiate(speedObject);
 		}
@@ -136,13 +136,12 @@ public class MapGenerator4 : MonoBehaviour {
 			if(activateColorChange > 0)
 			{
 				obstacle.GetComponent<Renderer>().material.color = new Color(0,255,0);
-				Invoke(nameof(ResetEffect),5);
+				Invoke(nameof(ResetEffect),10);
 			}
 		}
 		else if((count==2 || count%5==0) && GameManager4.hints>0 && GameManager4.hints<=3){
 			Debug.Log("In Hint object generation");
-			// obstacle = GameObject.Instantiate(hintObject);
-			obstacle = GameObject.Instantiate(splitObject);
+			obstacle = GameObject.Instantiate(hintObject);
 		}
 		else{
 			num = Random.Range(0,displayCharacter.Count);
@@ -151,7 +150,7 @@ public class MapGenerator4 : MonoBehaviour {
 			if(activateColorChange > 0)
 			{
 				obstacle.GetComponent<Renderer>().material.color = new Color(255,0,0);
-				Invoke(nameof(ResetEffect),5);
+				Invoke(nameof(ResetEffect),10);
 			}
 		}
 
