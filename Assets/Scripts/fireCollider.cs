@@ -6,7 +6,7 @@ public class fireCollider : MonoBehaviour
 {
     // Start is called before the first frame update
     void OnTriggerEnter(Collider collider) {
-      if(GetComponent<Collider>().tag=="Player"){
+      if(collider.tag=="Player"){
         Debug.Log("Fire Trigger");
         // Debug.Log(GetComponent<Collider>().isTrigger);
         // FindObjectOfType<Player>().TakeDamage(10);
@@ -15,7 +15,7 @@ public class fireCollider : MonoBehaviour
       }
       else{
         Debug.Log("Collide with blade");
-        Destroy(GetComponent<Collider>());
+        Destroy(collider.gameObject);
       }
     }
 

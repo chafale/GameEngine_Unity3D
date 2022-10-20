@@ -52,11 +52,6 @@ public class MapGenerator4 : MonoBehaviour {
 	public float maxObstacleScaleY;
 
 
-	void Awake () {
-		QualitySettings.vSyncCount = 0;  // VSync must be disabled
-		Application.targetFrameRate = 2000;
-	}
-
 	// Use this for initialization
 	void Start () {
 		flag = true;
@@ -108,20 +103,20 @@ public class MapGenerator4 : MonoBehaviour {
 			return null;
 		}
 
-		if(count%9==0){
+		if(count%17==0){
 			// Debug.Log("In split object generation");
 			obstacle = GameObject.Instantiate(splitObject);
 		}
-		else if(count%8==0){
+		else if(count%14==0){
 			// Debug.Log("In autofill object generation");
 			obstacle = GameObject.Instantiate(autofillObject);
 		}
-		else if(count%7 == 0 && HealthBar.healthObj.slider.value<=75)
+		else if(count%13 == 0 && HealthBar.healthObj.slider.value<=75)
 		{
 			// Debug.Log("In Healthup object generation");
 			obstacle = GameObject.Instantiate(healthUpObject);
 		}
-		else if(count%6==0){
+		else if(count%11==0){
 			// Debug.Log("In speed object generation");
 			obstacle = GameObject.Instantiate(speedObject);
 		}
@@ -136,13 +131,12 @@ public class MapGenerator4 : MonoBehaviour {
 			if(activateColorChange > 0)
 			{
 				obstacle.GetComponent<Renderer>().material.color = new Color(0,255,0);
-				Invoke(nameof(ResetEffect),5);
+				Invoke(nameof(ResetEffect),10);
 			}
 		}
 		else if((count==2 || count%5==0) && GameManager4.hints>0 && GameManager4.hints<=3){
 			Debug.Log("In Hint object generation");
-			// obstacle = GameObject.Instantiate(hintObject);
-			obstacle = GameObject.Instantiate(splitObject);
+			obstacle = GameObject.Instantiate(hintObject);
 		}
 		else{
 			num = Random.Range(0,displayCharacter.Count);
@@ -151,7 +145,7 @@ public class MapGenerator4 : MonoBehaviour {
 			if(activateColorChange > 0)
 			{
 				obstacle.GetComponent<Renderer>().material.color = new Color(255,0,0);
-				Invoke(nameof(ResetEffect),5);
+				Invoke(nameof(ResetEffect),10);
 			}
 		}
 
@@ -237,16 +231,15 @@ public class MapGenerator4 : MonoBehaviour {
 		obstacle.transform.position = new Vector3(start, end, 0);
 	}
 
+	public void ResetGoCollected() {
+		Debug.Log("gameMananger Inside reset");
+		GameManager4 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager4>();
+		gameMananger.goCollected = false;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		GameManager4 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager4>();
-		frame += 1;
-		// Debug.Log("frame: "+frame);
-		if (gameMananger.goCollected == true && flag == true) {
-			Debug.Log("else " + startFrame);
-			startFrame = frame;
-			flag = false;
-		}
 		if (player.transform.position.x > floor.transform.position.x - 6) {
 			var tempCeiling = prevCeiling;
 			var tempFloor = prevFloor;
@@ -269,17 +262,12 @@ public class MapGenerator4 : MonoBehaviour {
 			obstacle3 = obstacle4;
 			tempObstacle = GameObject.Instantiate(obstaclesSpawn[Random.Range(0,obstaclesSpawn.Count)]);
 			// SetTransform(tempObstacle, obstacle3.transform.position.x);
-			Debug.Log("else " + flag  +  " "  +"  " + frame + "  " + startFrame + "  " + obstacle1.transform.position.x + "  " + obstacle2.transform.position.x + "  " + obstacle3.transform.position.x + "  " + obstacle4.transform.position.x);
+			Debug.Log("gameMananger.goCollected: " + gameMananger.goCollected);
 			if (gameMananger.goCollected == false) {
 				SetTransform(tempObstacle, obstacle3.transform.position.x);
 			} else {
-				// frame
-				if (frame-startFrame <= 10000) {
-					Debug.Log("else" + "  " + frame + "  " + startFrame + "  " + obstacle1.transform.position.x + "  " + obstacle2.transform.position.x + "  " + obstacle3.transform.position.x + "  " + obstacle4.transform.position.x);
-					VanishObstacle(tempObstacle, obstacle3.transform.position.x);
-				} else {
-					SetTransform(tempObstacle, obstacle3.transform.position.x);
-				}
+				VanishObstacle(tempObstacle, obstacle3.transform.position.x);
+				Invoke(nameof(ResetGoCollected), 5);
 			}
 			obstacle4 = tempObstacle;
 
