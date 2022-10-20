@@ -32,7 +32,7 @@ public class GameManager1 : MonoBehaviour
     public  Transform RiddleletterHolder;
     public bool check = true;
     public TMP_Text RiddleCanvasriddle;
-    public GameObject Riddle;
+    public GameObject RiddleCanvas;
     public  GameObject L1Canvas;
     public int count = 0;
     void Start(){
@@ -96,13 +96,13 @@ public class GameManager1 : MonoBehaviour
         {
             Debug.Log("Continue Bar was pressed");
             L1Canvas.SetActive(false);
-            Riddle.SetActive(true); 
+            RiddleCanvas.SetActive(true); 
             count++;
         }
         else if(count == 1 && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Continue Bar was pressed");
-            Riddle.SetActive(false);
+            RiddleCanvas.SetActive(false);
             Time.timeScale = 1;
             check = false;
             count++;

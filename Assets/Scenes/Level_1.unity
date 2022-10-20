@@ -1961,7 +1961,9 @@ MonoBehaviour:
   RiddleletterHolder: {fileID: 1110337428}
   check: 1
   RiddleCanvasriddle: {fileID: 990631508}
-  L1Canvas: {fileID: 0}
+  RiddleCanvas: {fileID: 1458162617}
+  L1Canvas: {fileID: 1913290048}
+  count: 0
 --- !u!1 &990631506
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,7 +3073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1458162618
 MonoBehaviour:
   m_ObjectHideFlags: 0
