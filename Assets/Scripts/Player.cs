@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
-    
+
     public static Rigidbody body;
     public bool gameOver = false;
     private Vector2 playerDirection;
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
     private Renderer test;
 
 
-    public bool sc = false; 
+    public bool sc = false;
     // Use this for initialization
     void Start () {
         playerSpeed = 5;
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour {
         PlayerPrefs.SetString("gameStartTime", gameStartTime.ToString());
 
     }
-    
+
     void Update()
     {
         // up arrow = 1, down arrow = -1
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour {
 
     void FixedUpdate () {
         // if (gameOver) {
-            
+
         //  if (Input.GetMouseButtonDown(0)) {
         //      SceneManager.LoadScene("Game");
         //  }
@@ -59,15 +59,18 @@ public class Player : MonoBehaviour {
         // }
         body.velocity = new Vector2(0, playerDirection.y * playerSpeed);
     }
-    
+
     void OnTriggerEnter(Collider collider) {
-        
+
         if (collider.gameObject.CompareTag("blade"))
         {
             Debug.Log("player blade enter");
             FindObjectOfType<Player>().TakeDamage(15);
             sc = true;
             showScoreAnim("Health: -15",sc);
+
+            //Analytics : Obstacle Blade
+            PlayerPrefs.SetInt("obsBlade", PlayerPrefs.GetInt("obsBlade") + 1);
         }
         if (collider.gameObject.CompareTag("fire"))
         {
@@ -75,7 +78,9 @@ public class Player : MonoBehaviour {
             FindObjectOfType<Player>().TakeDamage(20);
             sc = true;
             showScoreAnim("Health: -20",sc);
-           
+
+            //Analytics : Obstacle Fire
+            PlayerPrefs.SetInt("obsFire", PlayerPrefs.GetInt("obsFire") + 1);
         }
         if (collider.gameObject.CompareTag("rod"))
         {
@@ -83,7 +88,9 @@ public class Player : MonoBehaviour {
             FindObjectOfType<Player>().TakeDamage(10);
             sc = true;
             showScoreAnim("Health: -10",sc);
-            
+
+            //Analytics : Obstacle Rod
+            PlayerPrefs.SetInt("obsRod", PlayerPrefs.GetInt("obsRod") + 1);
         }
         if (collider.gameObject.CompareTag("mace"))
         {
@@ -92,8 +99,10 @@ public class Player : MonoBehaviour {
             sc = true;
             showScoreAnim("Health: -15",sc);
 
+            //Analytics : Obstacle Mace
+            PlayerPrefs.SetInt("obsMace", PlayerPrefs.GetInt("obsMace") + 1);
         }
-        
+
         if(currentHealth <= 0)
         {
             // new code for death by obstacles
@@ -104,15 +113,18 @@ public class Player : MonoBehaviour {
             gameOver = true;
             body.isKinematic = true;
         }
-       
+
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         FindObjectOfType<HealthBar>().SetHealth(currentHealth);
+
+        // Analytics : health
+        PlayerPrefs.SetInt("health", currentHealth);
     }
-    
+
     public void showScoreAnim(string text, bool pr){
         Debug.Log("Anime Function Here");
         sc = pr;
@@ -126,5 +138,5 @@ public class Player : MonoBehaviour {
             Destroy(prefab, 1f);
         }
     }
-    
+
 }

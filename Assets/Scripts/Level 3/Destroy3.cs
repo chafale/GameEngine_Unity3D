@@ -12,7 +12,7 @@ using hb = HealthBar;
 public class Destroy3 : MonoBehaviour
 {
     public int check;
-    public int healCheck;
+    public int goCheck;
     public static Destroy3 destroyObj;
     public Player player;
     public int gamescore = 0;
@@ -32,7 +32,7 @@ public class Destroy3 : MonoBehaviour
 
         GameObject obj1 = this.gameObject;
         GameObject collion_obj = collide.gameObject;
-        GameManager3 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager3>();
+        GameManager3 gameManager = GameObject.Find("GameManager").GetComponent<GameManager3>();
 
         // if(obj1.tag=="blade"){
         //   if(collion_obj.tag=="Player"){
@@ -60,6 +60,9 @@ public class Destroy3 : MonoBehaviour
             // Health bar increase power up if letter = #
             if(inputLetter=='#')
             {
+                // Analytics : Medical Kit Power-up
+                PlayerPrefs.SetInt("medKitPowerUp", PlayerPrefs.GetInt("medKitPowerUp") + 1);
+
                 if(hb.healthObj.slider.value<=75)
                 {
                     gs.goldObj.updateHint(102);
@@ -72,6 +75,7 @@ public class Destroy3 : MonoBehaviour
             {
                 // Analytics : Autofill Power-up capture
                 PlayerPrefs.SetInt("autofillPowerUp", PlayerPrefs.GetInt("autofillPowerUp") + 1);
+
                 FindObjectOfType<Player>().TakeDamage(5);
                 char solved='a';
                 for(int i=0;i<mg.letterHolderList.Count;i++)
@@ -113,6 +117,9 @@ public class Destroy3 : MonoBehaviour
             // Speed up player if letter = @
             else if(inputLetter=='@')
             {
+                // Analytics : Speed Power-up
+                PlayerPrefs.SetInt("speedPowerUp",PlayerPrefs.GetInt("speedPowerUp") + 1);
+
                 pl.playerSpeed+=3;
                 gs.goldObj.updateHint(101);
                 FindObjectOfType<Player>().TakeDamage(5);
@@ -121,7 +128,10 @@ public class Destroy3 : MonoBehaviour
             else if(inputLetter=='*')
             {
                 mg.hints-=1;
+
+                // Analytics : hints
                 PlayerPrefs.SetInt("hintsCollected",PlayerPrefs.GetInt("hintsCollected") + 1);
+
                 gs.goldIndex+=1;
                 if(gs.goldIndex<=2)
                 {
@@ -160,28 +170,34 @@ public class Destroy3 : MonoBehaviour
                         FindObjectOfType<Player>().showScoreAnim(" +10 ",sc_correct);
                     }
                 }
-                for (int i = 0; i < mg.healList.Count; i++)
+
+                for (int i = 0; i < mg.goList.Count; i++)
                 {
-                    if(mg.healList[i] == inputLetter){
-                        gameMananger.HealCanvas.SetActive(true);
-                        Debug.Log("PJ");
-                        mg.healHolderList[i].text = inputLetter.ToString();
-                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
+                    if(mg.goList[i] == inputLetter){
+                        gameManager.GoCanvas.SetActive(true);
+                        mg.goHolderList[i].text = inputLetter.ToString();
+
+                        var index = mapgen.goCharacters.FindIndex(i => i.tag == gameObject.tag);
                         if (index >= 0) {
-                         mapgen.displayCharacter.RemoveAt(index);
+                         mapgen.goCharacters.RemoveAt(index);
                         }
-                        var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
-                        if (index1 >= 0) {
-                         mapgen.correctCharacters.RemoveAt(index1);
-                        }
-                        // Debug.Log(collided_letter + " " + mapgen.correctCharacters.Count);
-                        // for (int k = 0;k < mapgen.correctCharacters.Count;k++)
-                        //  {
-                        //    Debug.Log("Sanya "+mapgen.correctCharacters[k].tag);
-                        //  }
-                        c=1;
-                        sc_correct  = true;
-                        FindObjectOfType<Player>().showScoreAnim("+10",sc_correct);
+
+                        // var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
+                        // if (index >= 0) {
+                        //  mapgen.displayCharacter.RemoveAt(index);
+                        // }
+                        // var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
+                        // if (index1 >= 0) {
+                        //  mapgen.correctCharacters.RemoveAt(index1);
+                        // }
+                        // // Debug.Log(collided_letter + " " + mapgen.correctCharacters.Count);
+                        // // for (int k = 0;k < mapgen.correctCharacters.Count;k++)
+                        // //  {
+                        // //    Debug.Log("Sanya "+mapgen.correctCharacters[k].tag);
+                        // //  }
+                        // c=1;
+                        // sc_correct  = true;
+                        // FindObjectOfType<Player>().showScoreAnim("+10",sc_correct);
                     }
                 }
 
@@ -220,20 +236,29 @@ public class Destroy3 : MonoBehaviour
                 //    gamsta.gameStatusObj.updateStatus();
                 //}
             }
-            healCheck = 0;
-            for (int i = 0; i < mg.healList.Count; i++)
+
+            // GO CHECK
+
+            goCheck = 0;
+            for (int i = 0; i < mg.goList.Count; i++)
             {
-                char[] holder = mg.healHolderList[i].text.ToCharArray();
-                if(mg.healList[i] != holder[0]){
-                    Debug.Log("mg.healList[i] is not equal to holder[0]");
-                    healCheck = 1;
+                char[] holder = mg.goHolderList[i].text.ToCharArray();
+                if(mg.goList[i] != holder[0]){
+                    goCheck = 1;
                     break;
 
                 }
             }
-            if (healCheck == 0) {
-                FindObjectOfType<HealthBar>().SetMaxHealth(100);
+            if (goCheck == 0 && gameManager.goCollected == false) {
+                gameManager.goCollected = true;
+                gameManager.goText.text = "Obstacles will be eliminated for some time";
+                print(gameManager.goCollected);
+
+                // Analytics : GO word complete
+                PlayerPrefs.SetInt("goStatus", 1);
             }
+
+
             if(check==0){
                 // same as i == mg.solvedList.Count - 1
                 Debug.Log("check ==0");

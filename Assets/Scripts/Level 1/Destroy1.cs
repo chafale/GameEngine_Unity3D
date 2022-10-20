@@ -12,7 +12,6 @@ using hb = HealthBar;
 public class Destroy1 : MonoBehaviour
 {
     public int check;
-    public int healCheck;
     public static Destroy1 destroyObj;
     public Player player;
     public int gamescore = 0;
@@ -60,6 +59,9 @@ public class Destroy1 : MonoBehaviour
             // Health bar increase power up if letter = #
             if(inputLetter=='#')
             {
+                // Analytics : Medical Kit Power-up
+                PlayerPrefs.SetInt("medKitPowerUp", PlayerPrefs.GetInt("medKitPowerUp") + 1);
+                
                 if(hb.healthObj.slider.value<=75)
                 {
                     gs.goldObj.updateHint(102);
@@ -72,6 +74,7 @@ public class Destroy1 : MonoBehaviour
             {
                 // Analytics : Autofill Power-up capture
                 PlayerPrefs.SetInt("autofillPowerUp", PlayerPrefs.GetInt("autofillPowerUp") + 1);
+                
                 FindObjectOfType<Player>().TakeDamage(5);
                 char solved='a';
                 for(int i=0;i<mg.letterHolderList.Count;i++)
@@ -113,6 +116,9 @@ public class Destroy1 : MonoBehaviour
             // Speed up player if letter = @
             else if(inputLetter=='@')
             {
+                // Analytics : Speed Power-up
+                PlayerPrefs.SetInt("speedPowerUp",PlayerPrefs.GetInt("speedPowerUp") + 1);
+                
                 pl.playerSpeed+=3;
                 gs.goldObj.updateHint(101);
                 FindObjectOfType<Player>().TakeDamage(5);
@@ -121,7 +127,10 @@ public class Destroy1 : MonoBehaviour
             else if(inputLetter=='*')
             {
                 mg.hints-=1;
+                
+                // Analytics : hints
                 PlayerPrefs.SetInt("hintsCollected",PlayerPrefs.GetInt("hintsCollected") + 1);
+                
                 gs.goldIndex+=1;
                 if(gs.goldIndex<=2)
                 {
@@ -160,30 +169,6 @@ public class Destroy1 : MonoBehaviour
                         FindObjectOfType<Player>().showScoreAnim(" +10 ",sc_correct);
                     }
                 }
-                for (int i = 0; i < mg.healList.Count; i++)
-                {
-                    if(mg.healList[i] == inputLetter){
-                        gameMananger.HealCanvas.SetActive(true);
-                        Debug.Log("PJ");
-                        mg.healHolderList[i].text = inputLetter.ToString();
-                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
-                        if (index >= 0) {
-                         mapgen.displayCharacter.RemoveAt(index);
-                        }
-                        var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
-                        if (index1 >= 0) {
-                         mapgen.correctCharacters.RemoveAt(index1);
-                        }
-                        // Debug.Log(collided_letter + " " + mapgen.correctCharacters.Count);
-                        // for (int k = 0;k < mapgen.correctCharacters.Count;k++)
-                        //  {
-                        //    Debug.Log("Sanya "+mapgen.correctCharacters[k].tag);
-                        //  }
-                        c=1;
-                        sc_correct  = true;
-                        FindObjectOfType<Player>().showScoreAnim("+10",sc_correct);
-                    }
-                }
 
                 if (c == 0)
                 {
@@ -220,20 +205,7 @@ public class Destroy1 : MonoBehaviour
                 //    gamsta.gameStatusObj.updateStatus();
                 //}
             }
-            healCheck = 0;
-            for (int i = 0; i < mg.healList.Count; i++)
-            {
-                char[] holder = mg.healHolderList[i].text.ToCharArray();
-                if(mg.healList[i] != holder[0]){
-                    Debug.Log("mg.healList[i] is not equal to holder[0]");
-                    healCheck = 1;
-                    break;
 
-                }
-            }
-            if (healCheck == 0) {
-                FindObjectOfType<HealthBar>().SetMaxHealth(100);
-            }
             if(check==0){
                 // same as i == mg.solvedList.Count - 1
                 Debug.Log("check ==0");

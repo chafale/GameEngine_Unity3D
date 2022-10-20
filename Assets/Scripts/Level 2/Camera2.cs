@@ -61,11 +61,17 @@ public class Camera2 : MonoBehaviour {
         mg.chars = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         mapgen.correctCharacters = new List<GameObject>();
+        GameManager2 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager2>();
         Time.timeScale = 0;
         // mapgen.displayCharacter = new List<GameObject>();
         goldScript2.goldText.text="";
         overReset.SetActive(true);
+        gameMananger.HealCanvas.SetActive(false);
+        ScoringSystem.myScore = 0;
+        mapgen.healCharacters = new List<GameObject>();
+        mg.healHolderList = new List<TMP_Text>();
     }
+
     public void Reset()
     {
         Debug.Log("Reset");
@@ -76,6 +82,9 @@ public class Camera2 : MonoBehaviour {
         mapgen.healCharacters = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         goldScript2.goldText.text="";
+        ScoringSystem.myScore = 0;
+        mapgen.healCharacters = new List<GameObject>();
+        mg.healHolderList = new List<TMP_Text>();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public static void Pause()
