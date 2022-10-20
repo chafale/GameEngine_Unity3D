@@ -1,34 +1,34 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using mg = GameManager4;
-using mapgen = MapGenerator4;
+using mg = GameManager2;
+using mapgen = MapGenerator2;
 using TMPro;
 
-public class Camera4 : MonoBehaviour {
-
-    public Player player;
+public class Camera : MonoBehaviour
+{
+      public Player player;
     public GameObject Background;
-    public static GameObject overReset;
+   // public static GameObject overReset;
 
     public GameObject Hintground;
     public static GameObject goldReset;
 
     public static GameObject completeLevelUI;
-    // Use this for initialization
-    void Start () {
-
-        goldScript4.goldIndex = 0;
-        overReset = GameObject.Find("Background");
-        overReset.SetActive(false);
+    // Start is called before the first frame update
+    void Start()
+    {
+        goldScript2.goldIndex = 0;
+        //overReset = GameObject.Find("Background");
+        //overReset.SetActive(false);
         // goldReset = GameObject.Find("Hintground");
         // goldReset.SetActive(false);
         Time.timeScale = 1;
     }
-    // Update is called once per frame
-    void Update () {
+
+   void Update () {
         if (!player.gameOver)
         {
             transform.position += new Vector3(7.0f * Time.deltaTime, 0, 0);
@@ -36,11 +36,11 @@ public class Camera4 : MonoBehaviour {
         }
         else
         {
-            Camera4.GameEnd();
+            Camera2.GameEnd();
             //GameEnd();
             player.currentHealth = 0;
             FindObjectOfType<HealthBar>().SetHealth(player.currentHealth);
-            gameStatus4.gameStatusObj.updateStatus();
+            gameStatus2.gameStatusObj.updateStatus();
             Debug.Log("I am obstacle here");
         }
         //if (player.currentHealth == 0)
@@ -61,18 +61,12 @@ public class Camera4 : MonoBehaviour {
         mg.chars = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         mapgen.correctCharacters = new List<GameObject>();
-        GameManager4 gameManager = GameObject.Find("GameManager").GetComponent<GameManager4>();
+        GameManager2 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager2>();
         Time.timeScale = 0;
         // mapgen.displayCharacter = new List<GameObject>();
-        goldScript4.goldText.text="";
-        overReset.SetActive(true);
-        gameManager.HealCanvas.SetActive(false);
-    		gameManager.GoCanvas.SetActive(false);
-        ScoringSystem.myScore = 0;
-        mapgen.healCharacters = new List<GameObject>();
-        mapgen.goCharacters = new List<GameObject>();
-        mg.healHolderList = new List<TMP_Text>();
-        mg.goHolderList = new List<TMP_Text>();
+        goldScript2.goldText.text="";
+        //overReset.SetActive(true);
+        gameMananger.HealCanvas.SetActive(false);
     }
     public void Reset()
     {
@@ -80,17 +74,10 @@ public class Camera4 : MonoBehaviour {
         mg.solvedList = new List<char>();
         mg.letterHolderList = new List<TMP_Text>();
         mg.healHolderList = new List<TMP_Text>();
-        mg.goHolderList = new List<TMP_Text>();
         mapgen.correctCharacters = new List<GameObject>();
         mapgen.healCharacters = new List<GameObject>();
-        mapgen.goCharacters = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
-        goldScript4.goldText.text="";
-        ScoringSystem.myScore = 0;
-        mapgen.healCharacters = new List<GameObject>();
-        mapgen.goCharacters = new List<GameObject>();
-        mg.healHolderList = new List<TMP_Text>();
-        mg.goHolderList = new List<TMP_Text>();
+        goldScript2.goldText.text="";
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public static void Pause()

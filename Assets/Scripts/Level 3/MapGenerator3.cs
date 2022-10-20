@@ -13,12 +13,15 @@ public class MapGenerator3 : MonoBehaviour {
 
 	public GameObject player;
 
+	public int frame;
+	public int startFrame;
+	public bool flag;
+
 	public GameObject obstacle1;
 	public GameObject obstacle2;
 	public GameObject obstacle3;
 	public GameObject obstacle4;
 	public GameObject bladePrefab;
-	public GameObject mace;
 	public GameObject firePrefab;
 
 	public GameObject character1;
@@ -38,7 +41,7 @@ public class MapGenerator3 : MonoBehaviour {
 
 	public static List<GameObject> displayCharacter = new List<GameObject>();
 	public static List<GameObject> correctCharacters = new List<GameObject>();
-	public static List<GameObject> healCharacters = new List<GameObject>();
+	public static List<GameObject> goCharacters = new List<GameObject>();
 	public static List<GameObject> obstaclesSpawn = new List<GameObject>();
 
 	public float minObstacleY;
@@ -50,11 +53,18 @@ public class MapGenerator3 : MonoBehaviour {
 	public float minObstacleScaleY;
 	public float maxObstacleScaleY;
 
+	 void Awake () {
+		QualitySettings.vSyncCount = 0;  // VSync must be disabled
+		Application.targetFrameRate = 2000;
+	}
+
 	// Use this for initialization
 	void Start () {
+		flag = true;
+		Debug.Log("Application.targetFrameRate: " + Application.targetFrameRate);
 		displayCharacter.Clear();
 		obstaclesSpawn.Clear();
-		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,obstaclePrefab,bladePrefab,firePrefab,mace});
+		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,obstaclePrefab,bladePrefab,firePrefab});
 		displayCharacter.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
 		obstacle1 = GenerateObstacle(player.transform.position.x + 10);
 		obstacle2 = GenerateObstacle(obstacle1.transform.position.x);
@@ -105,21 +115,20 @@ public class MapGenerator3 : MonoBehaviour {
 			num = Random.Range(0,correctCharacters.Count);
 			obstacle = GameObject.Instantiate(correctCharacters[num]);
 		}
-		else if(count%4==0){
-			num = Random.Range(0,healCharacters.Count);
-			obstacle = GameObject.Instantiate(healCharacters[num]);
-
-		}
 		else if((count==2 || count%5==0) && GameManager3.hints>0 && GameManager3.hints<=3){
 			Debug.Log("In Hint object generation");
 			obstacle = GameObject.Instantiate(hintObject);
 			// obstacle = GameObject.Instantiate(invisibleObject);
 		}
+		else if(count%7==0){
+			num = Random.Range(0,goCharacters.Count);
+			obstacle = GameObject.Instantiate(goCharacters[num]);
+		}
 		else if(count%6==0){
 			// Debug.Log("In speed object generation");
 			obstacle = GameObject.Instantiate(speedObject);
 		}
-		else if(count%7 == 0 && HealthBar.healthObj.slider.value<=75)
+		else if(count%11 == 0 && HealthBar.healthObj.slider.value<=75)
 		{
 			// Debug.Log("In Healthup object generation");
 			obstacle = GameObject.Instantiate(healthUpObject);
@@ -135,7 +144,7 @@ public class MapGenerator3 : MonoBehaviour {
 
 		SetTransformCharacter(obstacle,start_obs,end_obs);
 		GameManager3 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager3>();
-		gameMananger.HealCanvas.SetActive(false);
+		gameMananger.GoCanvas.SetActive(false);
 		return obstacle;
 
 		// var checkCollider = Physics2D.OverlapCircle(obstacle.transform.position, 1);
@@ -173,12 +182,27 @@ public class MapGenerator3 : MonoBehaviour {
 				obstacle.transform.localScale = new Vector3(1,2, 0);
 			}
 		}
-		else if(obstacle.tag == "mace"){
-			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(-2, 2), 0);
-
-		}
 		else if(obstacle.tag == "fire"){
 			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(-2, 2), 0);
+		}
+	}
+
+	void VanishObstacle(GameObject obstacle, float referenceX) {
+		if(obstacle.tag == "blade"){
+			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), 40, 0);
+			float scale_blade1 = Random.Range(1, 10);
+			float scale_blade2 = Random.Range(scale_blade1+1, 3*scale_blade1);
+			obstacle.transform.localScale = new Vector3(scale_blade1/scale_blade2, scale_blade1/scale_blade2, scale_blade1/scale_blade2);
+		}
+		else if(obstacle.tag == "rod"){
+			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), 40, 0);
+			float random_size = Random.Range(1, 10);
+			if(random_size==5 || random_size==6){
+				obstacle.transform.localScale = new Vector3(1,2, 0);
+			}
+		}
+		else if(obstacle.tag == "fire"){
+			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), 40, 0);
 		}
 	}
 
@@ -188,6 +212,16 @@ public class MapGenerator3 : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		GameManager3 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager3>();
+		frame += 1;
+		// Debug.Log("frame: "+frame);
+		if (gameMananger.goCollected == true && flag == true) {
+			Debug.Log("else " + startFrame);
+			startFrame = frame;
+			flag = false;
+		}
+
+		print(gameMananger.goCollected);
 		if (player.transform.position.x > floor.transform.position.x - 6) {
 			var tempCeiling = prevCeiling;
 			var tempFloor = prevFloor;
@@ -209,7 +243,19 @@ public class MapGenerator3 : MonoBehaviour {
 			obstacle2 = obstacle3;
 			obstacle3 = obstacle4;
 			tempObstacle = GameObject.Instantiate(obstaclesSpawn[Random.Range(0,obstaclesSpawn.Count)]);
-			SetTransform(tempObstacle, obstacle3.transform.position.x);
+			// SetTransform(tempObstacle, obstacle3.transform.position.x);
+			Debug.Log("else " + flag  +  " "  +"  " + frame + "  " + startFrame + "  " + obstacle1.transform.position.x + "  " + obstacle2.transform.position.x + "  " + obstacle3.transform.position.x + "  " + obstacle4.transform.position.x);
+			if (gameMananger.goCollected == false) {
+				SetTransform(tempObstacle, obstacle3.transform.position.x);
+			} else {
+				// frame
+				if (frame-startFrame <= 10000) {
+					Debug.Log("else" + "  " + frame + "  " + startFrame + "  " + obstacle1.transform.position.x + "  " + obstacle2.transform.position.x + "  " + obstacle3.transform.position.x + "  " + obstacle4.transform.position.x);
+					VanishObstacle(tempObstacle, obstacle3.transform.position.x);
+				} else {
+					SetTransform(tempObstacle, obstacle3.transform.position.x);
+				}
+			}
 			obstacle4 = tempObstacle;
 
 			if(character1){

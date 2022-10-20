@@ -65,15 +65,14 @@ public class Camera1 : MonoBehaviour {
         // mapgen.displayCharacter = new List<GameObject>();
         goldScript1.goldText.text="";
         overReset.SetActive(true);
+        ScoringSystem.myScore = 0;
     }
     public void Reset()
     {
         Debug.Log("Reset");
         mg.solvedList = new List<char>();
         mg.letterHolderList = new List<TMP_Text>();
-        mg.healHolderList = new List<TMP_Text>();
         mapgen.correctCharacters = new List<GameObject>();
-        mapgen.healCharacters = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         goldScript1.goldText.text="";
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

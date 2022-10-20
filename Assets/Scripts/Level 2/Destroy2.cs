@@ -13,6 +13,7 @@ public class Destroy2 : MonoBehaviour
 {
     public int check;
     public int healCheck;
+    public int healCount = 0;
     public static Destroy2 destroyObj;
     public Player player;
     public int gamescore = 0;
@@ -32,7 +33,7 @@ public class Destroy2 : MonoBehaviour
 
         GameObject obj1 = this.gameObject;
         GameObject collion_obj = collide.gameObject;
-        GameManager2 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager2>();
+        GameManager2 gameManager = GameObject.Find("GameManager").GetComponent<GameManager2>();
 
         // if(obj1.tag=="blade"){
         //   if(collion_obj.tag=="Player"){
@@ -60,6 +61,9 @@ public class Destroy2 : MonoBehaviour
             // Health bar increase power up if letter = #
             if(inputLetter=='#')
             {
+                // Analytics : Medical Kit Power-up
+                PlayerPrefs.SetInt("medKitPowerUp", PlayerPrefs.GetInt("medKitPowerUp") + 1);
+
                 if(hb.healthObj.slider.value<=75)
                 {
                     gs.goldObj.updateHint(102);
@@ -72,6 +76,7 @@ public class Destroy2 : MonoBehaviour
             {
                 // Analytics : Autofill Power-up capture
                 PlayerPrefs.SetInt("autofillPowerUp", PlayerPrefs.GetInt("autofillPowerUp") + 1);
+
                 FindObjectOfType<Player>().TakeDamage(5);
                 char solved='a';
                 for(int i=0;i<mg.letterHolderList.Count;i++)
@@ -113,6 +118,9 @@ public class Destroy2 : MonoBehaviour
             // Speed up player if letter = @
             else if(inputLetter=='@')
             {
+                // Analytics : Speed Power-up
+                PlayerPrefs.SetInt("speedPowerUp",PlayerPrefs.GetInt("speedPowerUp") + 1);
+
                 pl.playerSpeed+=3;
                 gs.goldObj.updateHint(101);
                 FindObjectOfType<Player>().TakeDamage(5);
@@ -121,7 +129,10 @@ public class Destroy2 : MonoBehaviour
             else if(inputLetter=='*')
             {
                 mg.hints-=1;
+
+                // Analytics : hints
                 PlayerPrefs.SetInt("hintsCollected",PlayerPrefs.GetInt("hintsCollected") + 1);
+
                 gs.goldIndex+=1;
                 if(gs.goldIndex<=2)
                 {
@@ -162,28 +173,25 @@ public class Destroy2 : MonoBehaviour
                 }
                 for (int i = 0; i < mg.healList.Count; i++)
                 {
-                    if(mg.healList[i] == inputLetter){
-                        gameMananger.HealCanvas.SetActive(true);
-                        Debug.Log("PJ");
+                    if(mg.healList[i] == inputLetter)
+                    {
+                        gameManager.healCount += 1;
+                        // gameManager.HealCanvas.SetActive(true);
+                        Debug.Log(healCount);
                         mg.healHolderList[i].text = inputLetter.ToString();
-                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
+                        var index = mapgen.healCharacters.FindIndex(i => i.tag == gameObject.tag);
                         if (index >= 0) {
-                         mapgen.displayCharacter.RemoveAt(index);
+                         mapgen.healCharacters.RemoveAt(index);
                         }
-                        var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
-                        if (index1 >= 0) {
-                         mapgen.correctCharacters.RemoveAt(index1);
-                        }
-                        // Debug.Log(collided_letter + " " + mapgen.correctCharacters.Count);
-                        // for (int k = 0;k < mapgen.correctCharacters.Count;k++)
-                        //  {
-                        //    Debug.Log("Sanya "+mapgen.correctCharacters[k].tag);
-                        //  }
-                        c=1;
-                        sc_correct  = true;
-                        FindObjectOfType<Player>().showScoreAnim("+10",sc_correct);
+                        // c=1;
+                        // sc_correct  = true;
+                        // FindObjectOfType<Player>().showScoreAnim("+10",sc_correct);
                     }
                 }
+                if (gameManager.healCount == 1){
+                    gameManager.HealCanvas.SetActive(true);
+                }
+
 
                 if (c == 0)
                 {
@@ -231,8 +239,14 @@ public class Destroy2 : MonoBehaviour
 
                 }
             }
-            if (healCheck == 0) {
+            if (healCheck == 0 && gameManager.healCollected == false) {
                 FindObjectOfType<HealthBar>().SetMaxHealth(100);
+                gameManager.healCollected = true;
+                gameManager.healText.text = "Awesome! Your health has been refilled";
+                gameManager.HealCanvas.SetActive(true);
+
+                // Analytics : HEAL word complete
+                PlayerPrefs.SetInt("healStatus", 1);
             }
             if(check==0){
                 // same as i == mg.solvedList.Count - 1

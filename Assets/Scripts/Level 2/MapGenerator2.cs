@@ -105,10 +105,9 @@ public class MapGenerator2 : MonoBehaviour {
 			num = Random.Range(0,correctCharacters.Count);
 			obstacle = GameObject.Instantiate(correctCharacters[num]);
 		}
-		else if(count%4==0){
+		else if(count%4==0 && healCharacters.Count>0){
 			num = Random.Range(0,healCharacters.Count);
 			obstacle = GameObject.Instantiate(healCharacters[num]);
-
 		}
 		else if((count==2 || count%5==0) && GameManager2.hints>0 && GameManager2.hints<=3){
 			Debug.Log("In Hint object generation");

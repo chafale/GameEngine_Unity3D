@@ -13,11 +13,8 @@ public class GameManager1 : MonoBehaviour
     // public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();
     public  static List<TMP_Text> letterHolderList = new List<TMP_Text>();
-    public  static List<TMP_Text> healHolderList = new List<TMP_Text>();
     public  GameObject letterPrefab;
-    public  GameObject HealCanvas;
     public  Transform letterHolder;
-    public  Transform healHolder;
     public  TMP_Text hint;
     public  ScoringSystem instance;
     public static int hints;
@@ -28,8 +25,6 @@ public class GameManager1 : MonoBehaviour
     public static List<GameObject> chars = new List<GameObject>();
 
     public TMP_Text riddle;
-    public static List<char> healList = new List<char>{'H', 'E', 'A', 'L'};
-    public static string healWord = "HEAL";
     [SerializeField] GameObject scoreAnimPrefab;
 
 
@@ -39,7 +34,6 @@ public class GameManager1 : MonoBehaviour
     public TMP_Text RiddleCanvasriddle;
 
     void Start(){
-        HealCanvas.SetActive(false);
         mg.correctCharacters.Clear();
         chars.Clear();
         hints = 3;
@@ -47,6 +41,10 @@ public class GameManager1 : MonoBehaviour
         index = Random.Range(0, wordList.Length);
         correct_word = wordList[index];
         Debug.Log("CORRECT WORD IS:" + correct_word);
+        
+        // Analytics : LevelName, wordLength
+        PlayerPrefs.SetString("levelName", "Level 1");
+        PlayerPrefs.SetInt("wordLength", correct_word.Length);
 
         gs.assign_values();
 
@@ -67,15 +65,6 @@ public class GameManager1 : MonoBehaviour
               if(inputLetter == letter){
                     mg.correctCharacters.Add(letter_prefab);
 
-                }
-            }
-        }
-        //Add letters of the word HEAL
-        foreach (char letter in healList){
-            foreach(GameObject letter_prefab in chars){
-              char inputLetter = char.Parse(letter_prefab.tag);
-              if(inputLetter == letter){
-                mg.healCharacters.Add(letter_prefab);
               }
             }
         }
@@ -88,11 +77,6 @@ public class GameManager1 : MonoBehaviour
             RiddleletterHolderList.Add(temp1.GetComponent<TMP_Text>());
         }
 
-        for (int i = 0; i < healWord.Length; i++)
-        {
-            GameObject temp = Instantiate(letterPrefab, healHolder, false);
-            healHolderList.Add(temp.GetComponent<TMP_Text>());
-        }
     }
 
     // To call non static methods.
@@ -105,7 +89,7 @@ public class GameManager1 : MonoBehaviour
 
     public void Update(){
         if (check)
-        Time.timeScale = 0; 
+            Time.timeScale = 0; 
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Continue Bar was pressed");
