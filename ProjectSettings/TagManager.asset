@@ -50,6 +50,7 @@ TagManager:
   - laser
   - BackToHome
   - Level2TutotorialCanvas
+  - Level1tutorial
   layers:
   - Default
   - TransparentFX
