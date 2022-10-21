@@ -131,7 +131,7 @@ public class Player : MonoBehaviour {
     public void showScoreAnim(string text, bool pr){
         Debug.Log("Anime Function Here");
         sc = pr;
-        if(sc == true)
+        if(sc == true && currentHealth > 0)
         {
             GameObject prefab = Instantiate(scoreAnimPrefab, Vector3.zero, Quaternion.identity);
             prefab.transform.SetParent(animeCanvas.transform);
