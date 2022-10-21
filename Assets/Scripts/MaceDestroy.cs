@@ -34,7 +34,7 @@ public class MaceDestroy : MonoBehaviour
       }
       else{
         Debug.Log("Collide with blade");
-        Destroy(collider);
+        Destroy(collider.gameObject);
       }
   }
 }

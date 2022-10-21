@@ -15,7 +15,7 @@ public class BladeDestroy : MonoBehaviour
       }
       else{
         Debug.Log("Collide with blade");
-        Destroy(collider);
+        Destroy(collider.gameObject);
       }
   }
 

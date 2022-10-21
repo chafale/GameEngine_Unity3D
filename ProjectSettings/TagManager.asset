@@ -50,6 +50,7 @@ TagManager:
   - laser
   - BackToHome
   - Level2TutotorialCanvas
+  - Level4TutorialCanvas
   - Level1tutorial
   layers:
   - Default
@@ -58,8 +59,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - player
+  - enemy
   - 
   - 
   - 
