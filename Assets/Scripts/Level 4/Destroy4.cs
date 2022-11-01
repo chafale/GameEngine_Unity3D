@@ -76,6 +76,7 @@ public class Destroy4 : MonoBehaviour
                 if(hb.healthObj.slider.value<=75)
                 {
                     gs.goldObj.updateHint(102);
+                    FindObjectOfType<Player>().currentHealth+=25;
                     hb.healthObj.slider.value+=25f;
                     showScoreAnim("10000");
                 }
@@ -267,6 +268,7 @@ public class Destroy4 : MonoBehaviour
             }
             if (healCheck == 0 && gameManager.healCollected == false) {
                 FindObjectOfType<HealthBar>().SetMaxHealth(100);
+                FindObjectOfType<Player>().currentHealth=100;
                 gameManager.healCollected = true;
                 gameManager.healText.text = "Awesome! Your health has been refilled";
                 gameManager.HealCanvas.SetActive(true);
