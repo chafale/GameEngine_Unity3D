@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using mg = GameManager4;
 using mapgen = MapGenerator4;
 using TMPro;
+using pl = Player;
 
 public class Camera4 : MonoBehaviour {
 
@@ -51,6 +52,18 @@ public class Camera4 : MonoBehaviour {
             //gameStatus.gameStatusObj.updateStatus();
             GameEnd();
             Debug.Log("I am health here");
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Debug.Log("Space key was pressed.");
+            pl.playerSpeed+=3;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            // Debug.Log("Space key was released.");
+            pl.playerSpeed-=3;
         }
 
 
