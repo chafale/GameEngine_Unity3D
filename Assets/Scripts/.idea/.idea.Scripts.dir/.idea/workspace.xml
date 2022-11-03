@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3592542b-1e37-46c5-ab15-49b6024777ef" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Prefabs/ScoreAnimParent.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../Prefabs/ScoreAnimParent.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Level 1/gameStatus1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Level 1/gameStatus1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +19,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Level 1/gameStatus1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Player.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -46,6 +49,7 @@
       <updated>1665817323922</updated>
       <workItem from="1665817329279" duration="2524000" />
       <workItem from="1665899777436" duration="722000" />
+      <workItem from="1666251534552" duration="1199000" />
     </task>
     <servers />
   </component>

@@ -5,8 +5,9 @@ using UnityEngine;
 public class DatabaseAccess : MonoBehaviour
 {
     private DateTime _gameEndTime;
-    private const string FirebaseURL = "https://csci-526-flappy-kids-default-rtdb.firebaseio.com/";
-
+    // private const string FirebaseURL = "https://csci-526-flappy-kids-default-rtdb.firebaseio.com/";
+    private const string FirebaseURL =  "https://csci-526-game-analytics-default-rtdb.firebaseio.com/";
+    
     void Start()
     {
         Debug.Log("Database script has started . . . !!!!!");

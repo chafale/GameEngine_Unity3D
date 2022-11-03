@@ -25,9 +25,8 @@ public class MapGenerator1 : MonoBehaviour {
 	public GameObject character3;
 
 	public GameObject hintObject;
-	public GameObject speedObject;
-	public GameObject autofillObject;
-	public GameObject healthUpObject;
+	
+
 	public GameObject invisibleObject;
 
 	public GameObject obstaclePrefab;
@@ -103,21 +102,13 @@ public class MapGenerator1 : MonoBehaviour {
 			num = Random.Range(0,correctCharacters.Count);
 			obstacle = GameObject.Instantiate(correctCharacters[num]);
 		}
-		else if((count==2 || count%5==0) && GameManager1.hints>0 && GameManager1.hints<=3){
+		else if ((count == 2 || count % 5 == 0) && GameManager1.hints > 0 && GameManager1.hints <= 3)
+		{
 			Debug.Log("In Hint object generation");
 			obstacle = GameObject.Instantiate(hintObject);
 			//obstacle = GameObject.Instantiate(invisibleObject);
 		}
-		else if(count%6==0){
-			// Debug.Log("In speed object generation");
-			obstacle = GameObject.Instantiate(speedObject);
-		}
-		else if(count%7 == 0 && HealthBar.healthObj.slider.value<=75)
-		{
-			// Debug.Log("In Healthup object generation");
-			obstacle = GameObject.Instantiate(healthUpObject);
-		}
-		
+
 		else{
 			num = Random.Range(0,displayCharacter.Count);
 			obstacle = GameObject.Instantiate(displayCharacter[num]);
