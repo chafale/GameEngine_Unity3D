@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
     public int currentHealth;
     // public HealthBar healthBar;
     [SerializeField] GameObject scoreAnimPrefab;
+    [SerializeField] GameObject healthAnimPrefab;
     public Canvas animeCanvas;
     public GameObject player;
     public static int playerSpeed;
@@ -129,11 +130,16 @@ public class Player : MonoBehaviour {
     }
 
     public void showScoreAnim(string text, bool pr){
+        GameObject prefab; 
         Debug.Log("Anime Function Here");
         sc = pr;
         if(sc == true && currentHealth > 10)
         {
-            GameObject prefab = Instantiate(scoreAnimPrefab, Vector3.zero, Quaternion.identity);
+
+            prefab = Instantiate(scoreAnimPrefab, Vector3.zero, Quaternion.identity);
+            if (text.Contains("-")){             
+            prefab = Instantiate(healthAnimPrefab, Vector3.zero, Quaternion.identity);
+            }
             prefab.transform.SetParent(animeCanvas.transform);
             prefab.transform.localPosition = player.transform.position - new Vector3(200f, 0f, 0f);
             prefab.GetComponentInChildren<TMP_Text>().text = text;
