@@ -57,7 +57,7 @@ public class MapGeneratorEndless : MonoBehaviour {
 		flag = true;
 		displayCharacter.Clear();
 		obstaclesSpawn.Clear();
-		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,obstaclePrefab,bladePrefab,firePrefab,mace});
+		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,bladePrefab,firePrefab,mace});
 		displayCharacter.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
 		obstacle1 = GenerateObstacle(player.transform.position.x + 10);
 		obstacle2 = GenerateObstacle(obstacle1.transform.position.x);
@@ -134,7 +134,7 @@ public class MapGeneratorEndless : MonoBehaviour {
 				Invoke(nameof(ResetEffect),10);
 			}
 		}
-		else if((count==2 || count%5==0) && GameManager4.hints>0 && GameManager4.hints<=3){
+		else if((count==2 || count%5==0) && GameManagerEndless.hints>0 && GameManagerEndless.hints<=3){
 			Debug.Log("In Hint object generation");
 			obstacle = GameObject.Instantiate(hintObject);
 		}
@@ -150,7 +150,7 @@ public class MapGeneratorEndless : MonoBehaviour {
 		}
 
 		SetTransformCharacter(obstacle,start_obs,end_obs);
-		GameManager4 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager4>();
+		GameManagerEndless gameMananger = GameObject.Find("GameManager").GetComponent<GameManagerEndless>();
 		gameMananger.HealCanvas.SetActive(false);
 		gameMananger.GoCanvas.SetActive(false);
 		return obstacle;
@@ -233,13 +233,13 @@ public class MapGeneratorEndless : MonoBehaviour {
 
 	public void ResetGoCollected() {
 		Debug.Log("gameMananger Inside reset");
-		GameManager4 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager4>();
+		GameManagerEndless gameMananger = GameObject.Find("GameManager").GetComponent<GameManagerEndless>();
 		gameMananger.goCollected = false;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		GameManager4 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager4>();
+		GameManagerEndless gameMananger = GameObject.Find("GameManager").GetComponent<GameManagerEndless>();
 		if (player.transform.position.x > floor.transform.position.x - 6) {
 			var tempCeiling = prevCeiling;
 			var tempFloor = prevFloor;
