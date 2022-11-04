@@ -8,7 +8,7 @@ public class SceneLoader : MonoBehaviour
 
     public void goToLevel_One()
     {
-        
+
         SceneManager.LoadScene("Level_1");
     }
 
@@ -34,6 +34,12 @@ public class SceneLoader : MonoBehaviour
     {
 
         SceneManager.LoadScene("Tutorial");
+    }
+    // Endless runner scene
+    public void goToEndless()
+    {
+
+        SceneManager.LoadScene("Endless");
     }
     // MainMenu scene routing
     public void LoadStartScene()
