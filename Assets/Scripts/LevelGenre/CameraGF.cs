@@ -57,6 +57,20 @@ public class CameraGF : MonoBehaviour {
     }
 
     public static void GameEnd(){
+
+        GameObject[] scoreA;
+        GameObject[] healthA;
+        scoreA = GameObject.FindGameObjectsWithTag("ScoreAnim");
+        healthA = GameObject.FindGameObjectsWithTag("HealthAnim");
+
+        foreach (GameObject scoreAnim in scoreA)
+        {
+            scoreAnim.SetActive(false);  
+        }
+        foreach (GameObject healthAnim in healthA)
+        {
+            healthAnim.SetActive(false);    
+        }
         // GameObject.Find("Background").SetActive(true);
         mg.solvedList = new List<char>();
         mg.letterHolderList = new List<TMP_Text>();

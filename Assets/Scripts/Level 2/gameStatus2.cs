@@ -32,19 +32,6 @@ public class gameStatus2 : MonoBehaviour
     public void updateStatus()
     {   //when health is zero
 
-        GameObject[] scoreA;
-        GameObject[] healthA;
-        scoreA = GameObject.FindGameObjectsWithTag("ScoreAnim");
-        healthA = GameObject.FindGameObjectsWithTag("HealthAnim");
-        foreach (GameObject scoreAnim in scoreA)
-        {
-            scoreAnim.SetActive(false);
-        }
-       foreach (GameObject healthAnim in healthA)
-        {
-            healthAnim.SetActive(false);
-        }
-        
         if (FindObjectOfType<Player>().currentHealth <= 0 )
         {
             Debug.Log("Game end health: "+ FindObjectOfType<Player>().currentHealth);
