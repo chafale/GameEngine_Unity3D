@@ -5473,8 +5473,8 @@ MonoBehaviour:
   gameOver: 0
   maxHealth: 100
   currentHealth: 0
-  scoreAnimPrefab: {fileID: 2385413481178058446, guid: ed5192287082585448f207395ad656d6, type: 3}
-  healthAnimPrefab: {fileID: 0}
+  scoreAnimPrefab: {fileID: 2385413481178058446, guid: 58c41b5d583644c9b812d7dd7021975c, type: 3}
+  healthAnimPrefab: {fileID: 2385413481178058446, guid: ed5192287082585448f207395ad656d6, type: 3}
   animeCanvas: {fileID: 1708747845}
   player: {fileID: 1722864593}
   sc: 0
