@@ -116,7 +116,7 @@ public class MapGenerator3 : MonoBehaviour {
 			obstacle = GameObject.Instantiate(hintObject);
 			// obstacle = GameObject.Instantiate(invisibleObject);
 		}
-		else if(count%7==0){
+		else if(count%7==0 && goCharacters.Count>0){
 			num = Random.Range(0,goCharacters.Count);
 			obstacle = GameObject.Instantiate(goCharacters[num]);
 		}

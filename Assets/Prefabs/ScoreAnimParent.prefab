@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5639324839422182629}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: ScoreAnimParent
-  m_TagString: Untagged
+  m_TagString: ScoreAnim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,9 +44,9 @@ GameObject:
   - component: {fileID: 6625610188561850098}
   - component: {fileID: 6432370549212169724}
   - component: {fileID: 9037913608220510299}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: ScoreAnim
-  m_TagString: Untagged
+  m_TagString: ScoreAnim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +68,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -406.62262, y: -178.4668}
+  m_AnchoredPosition: {x: -406.62262, y: -129.5}
   m_SizeDelta: {x: 67.5021, y: 47.7267}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6625610188561850098
@@ -101,15 +101,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8fb496cfe7aa146b381e2ff27219fb8b, type: 2}
+  m_sharedMaterial: {fileID: 5001525984157236735, guid: 8fb496cfe7aa146b381e2ff27219fb8b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294770894
-  m_fontColor: {r: 0.8078432, g: 0, b: 0.9921569, a: 1}
+  m_fontColor: {r: 0.011747932, g: 0.8301887, b: 0.12335358, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
