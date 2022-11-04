@@ -21,7 +21,7 @@ public class CameraEndless : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        goldScript4.goldIndex = 0;
+        goldScriptEndless.goldIndex = 0;
         overReset = GameObject.Find("Background");
         overReset.SetActive(false);
         // goldReset = GameObject.Find("Hintground");
@@ -38,9 +38,9 @@ public class CameraEndless : MonoBehaviour {
         else
         {
             if(FindObjectOfType<Player>().currentHealth <= 0){
-              gameStatus4.gameStatusObj.updateStatus();
+              gameStatusEndless.gameStatusObj.updateStatus();
             }
-            Camera4.GameEnd();
+            CameraEndless.GameEnd();
             //GameEnd();
             player.currentHealth = 0;
             FindObjectOfType<HealthBar>().SetHealth(player.currentHealth);
@@ -76,10 +76,10 @@ public class CameraEndless : MonoBehaviour {
         mg.chars = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
         mapgen.correctCharacters = new List<GameObject>();
-        GameManager4 gameManager = GameObject.Find("GameManager").GetComponent<GameManager4>();
+        GameManagerEndless gameManager = GameObject.Find("GameManager").GetComponent<GameManagerEndless>();
         Time.timeScale = 0;
         // mapgen.displayCharacter = new List<GameObject>();
-        goldScript4.goldText.text="";
+        goldScriptEndless.goldText.text="";
         overReset.SetActive(true);
         gameManager.HealCanvas.SetActive(false);
     		gameManager.GoCanvas.SetActive(false);
@@ -100,7 +100,7 @@ public class CameraEndless : MonoBehaviour {
         mapgen.healCharacters = new List<GameObject>();
         mapgen.goCharacters = new List<GameObject>();
         mapgen.displayCharacter = new List<GameObject>();
-        goldScript4.goldText.text="";
+        goldScriptEndless.goldText.text="";
         ScoringSystem.myScore = 0;
         mapgen.healCharacters = new List<GameObject>();
         mapgen.goCharacters = new List<GameObject>();

@@ -32,7 +32,7 @@ public class DestroyEndless : MonoBehaviour
 
         GameObject obj1 = this.gameObject;
         GameObject collion_obj = collide.gameObject;
-        GameManager4 gameManager = GameObject.Find("GameManager").GetComponent<GameManager4>();
+        GameManagerEndless gameManager = GameObject.Find("GameManager").GetComponent<GameManagerEndless>();
 
         // if(obj1.tag=="blade"){
         //   if(collion_obj.tag=="Player"){
@@ -302,7 +302,7 @@ public class DestroyEndless : MonoBehaviour
                 Debug.Log("check ==0");
                 // win message
                 gamsta.gameStatusObj.updateStatus();
-                Camera4.GameEnd();
+                CameraEndless.GameEnd();
                 Player.body.isKinematic = true;
             }
         }
