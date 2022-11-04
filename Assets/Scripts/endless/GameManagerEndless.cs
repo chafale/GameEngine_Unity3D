@@ -10,10 +10,10 @@ public class GameManagerEndless : MonoBehaviour
 {
     //public  static string[] wordList = {"DOG"};
     public  static string[] wordList = {"TON","EGG","AGE","BANK","ECHO","HOLE","NAME","CLOCK","BOOK"
-                                        // "GLOVE","COIN","NINE","KEY","CANDLE","FUTURE","QUEUE","PIANO","STARS",
-                                        // "CLOCK","CLOUDS","COFFIN","SKULL","JOKES","BATTERY","UMBRELLA","DOORBELL",
-                                        // "NOTHING","ALPHABET","DARKNESS","CHICAGO","SHADOW","SILENCE","LIBRARY",
-                                        // "FOOTSTEPS","CHARCOAL","MOUNTEVEREST","NOTHING","PROMISE","YOURBREATH","DARKNESS","SILENCE"
+                                        "GLOVE","COIN","NINE","KEY","CANDLE","FUTURE","QUEUE","PIANO","STARS",
+                                        "CLOCK","CLOUDS","COFFIN","SKULL","JOKES","BATTERY","UMBRELLA","DOORBELL",
+                                        "NOTHING","ALPHABET","DARKNESS","CHICAGO","SHADOW","SILENCE","LIBRARY",
+                                        "FOOTSTEPS","CHARCOAL","MOUNTEVEREST","NOTHING","PROMISE","YOURBREATH","DARKNESS","SILENCE"
                                       };
     // public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();

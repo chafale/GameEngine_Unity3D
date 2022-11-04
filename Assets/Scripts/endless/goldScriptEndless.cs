@@ -49,7 +49,7 @@ public class goldScriptEndless : MonoBehaviour
                         new string[] {"What can you break, even if you never pick it up or touch it?","Other might get hurt if you break me","Word of honor","I am often asked before sharing secrets"},
                         new string[] {"What is light as a feather, yet no man can hold it for very long?","You can not touch it","You can feel it","You need it for survival"},
                         new string[] {"The more of this there is, the less you see. What is it?","This comes every day","Sight out","Most of us need this to sleep"},
-                        new string[] {"What is so fragile that saying its name breaks it?","You gain peace ","It is not an object","Meditation room"}                  
+                        new string[] {"What is so fragile that saying its name breaks it?","You gain peace ","It is not an object","Meditation room"}
   };
 
     [SerializeField] public static TextMeshProUGUI goldText;
