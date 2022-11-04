@@ -4018,8 +4018,8 @@ MonoBehaviour:
   Y: {fileID: 4752191548605056332, guid: 9ac73d3ee1ec0492ea9000f2568ee7e2, type: 3}
   Z: {fileID: 6962685886252760066, guid: 859880fa0598f43a78bce07b8d93f50a, type: 3}
   count: 0
-  minObstacleY: -6
-  maxObstacleY: 6
+  minObstacleY: -4
+  maxObstacleY: 4
   minObstacleSpacing: 5
   maxObstacleSpacing: 10
   minObstacleScaleY: 2
