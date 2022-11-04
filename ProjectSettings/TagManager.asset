@@ -52,6 +52,8 @@ TagManager:
   - Level2TutotorialCanvas
   - Level4TutorialCanvas
   - Level1tutorial
+  - HealthAnim
+  - ScoreAnim
   layers:
   - Default
   - TransparentFX
