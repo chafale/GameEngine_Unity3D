@@ -10,7 +10,7 @@ public class goldScriptGF : MonoBehaviour
 
     public static string [][] hint_array = new string[][] {
                                                 new string[] {"Guess the first three alphabets of an uncommonly used language","Greek Alphabets"},
-                                                new string[] {"Things with 4 legs present in every house","They are sed everyday"},
+                                                new string[] {"Things with 4 legs present in every house","They are used everyday"},
                                                 // new string[] {"Before Mount Everest was discovered, what was the highest mountain on Earth?","Read the question again","You can not change what it is","Think logically"},
                                                 };
 

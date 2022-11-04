@@ -75,7 +75,6 @@ public class GameManagerGF : MonoBehaviour
         riddle.text = gs.goldList[0].ToString();
 
         RiddleCanvasriddle.text = gs.goldList[0].ToString();
-        hint.text = "Hint: " + gs.goldList[1].ToString();
         string tempWord = wordList[index];
 
         string[] splittedWord = tempWord.Split(' ', tempWord.Length);
@@ -142,11 +141,11 @@ public class GameManagerGF : MonoBehaviour
         gamag = this;
     }
 
-    public void updateGameHint()
-    {
-        hint.text = "Hint: " + gs.goldList[gs.goldIndex].ToString();
-        showScoreAnim("1000000");
-    }
+    // public void updateGameHint()
+    // {
+    //     hint.text = "Hint: " + gs.goldList[gs.goldIndex].ToString();
+    //     showScoreAnim("1000000");
+    // }
     public void showScoreAnim(string text){
         Debug.Log("Anime Function Here");
         if(scoreAnimPrefab)
@@ -175,6 +174,7 @@ public class GameManagerGF : MonoBehaviour
             Time.timeScale = 1;
             check = false;
             count++;
+            hint.text = "Hint: " + gs.goldList[1].ToString();
         }
 }
 
