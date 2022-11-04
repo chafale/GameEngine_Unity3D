@@ -177,7 +177,7 @@ public class Destroy1 : MonoBehaviour
                     // when health has decreased to zero
                     FindObjectOfType<Player>().TakeDamage(10);
                     sc_incorrect  = true;
-                    FindObjectOfType<Player>().showScoreAnim("Health: -10 ",sc_incorrect);
+                    FindObjectOfType<Player>().showScoreAnim("Wrong Letter: -10 ",sc_incorrect);
                     Debug.Log("Health decreased" + FindObjectOfType<Player>().currentHealth);
                     gamsta.gameStatusObj.updateStatus();
                     PlayerPrefs.SetInt("highscore", gamescore);

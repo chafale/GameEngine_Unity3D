@@ -70,6 +70,20 @@ public class CameraEndless : MonoBehaviour {
     }
 
     public static void GameEnd(){
+
+        GameObject[] scoreA;
+        GameObject[] healthA;
+        scoreA = GameObject.FindGameObjectsWithTag("ScoreAnim");
+        healthA = GameObject.FindGameObjectsWithTag("HealthAnim");
+
+        foreach (GameObject scoreAnim in scoreA)
+        {
+            scoreAnim.SetActive(false);  
+        }
+        foreach (GameObject healthAnim in healthA)
+        {
+            healthAnim.SetActive(false);    
+        }
         // GameObject.Find("Background").SetActive(true);
         mg.solvedList = new List<char>();
         mg.letterHolderList = new List<TMP_Text>();
@@ -82,7 +96,7 @@ public class CameraEndless : MonoBehaviour {
         goldScriptEndless.goldText.text="";
         overReset.SetActive(true);
         gameManager.HealCanvas.SetActive(false);
-    		gameManager.GoCanvas.SetActive(false);
+    	gameManager.GoCanvas.SetActive(false);
         ScoringSystem.myScore = 0;
         mapgen.healCharacters = new List<GameObject>();
         mapgen.goCharacters = new List<GameObject>();

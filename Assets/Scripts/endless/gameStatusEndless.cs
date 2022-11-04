@@ -31,22 +31,11 @@ public class gameStatusEndless : MonoBehaviour
     // Update is called once per frame
     public void updateStatus()
     {  
-        GameObject[] scoreA;
-        GameObject[] healthA;
-        scoreA = GameObject.FindGameObjectsWithTag("ScoreAnim");
-        healthA = GameObject.FindGameObjectsWithTag("HealthAnim");
-        foreach (GameObject scoreAnim in scoreA)
-        {
-            scoreAnim.SetActive(false);
-        }
-       foreach (GameObject healthAnim in healthA)
-        {
-            healthAnim.SetActive(false);
-        }
+          
         
-         //when health is zero
-        if (FindObjectOfType<Player>().currentHealth <= 0 )
-        {
+            //when health is zero
+            if (FindObjectOfType<Player>().currentHealth <= 0 )
+            {
             Debug.Log("Game end health: "+ FindObjectOfType<Player>().currentHealth);
             statusText.text = "Game Over! :( \n\n The correct word was : " + mg.correct_word + "\nScore : " + ScoringSystem.myScore;
 
