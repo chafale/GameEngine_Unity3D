@@ -29,6 +29,10 @@ public class SceneLoader : MonoBehaviour
 
         SceneManager.LoadScene("Level_4");
     }
+    public void goToLevel_Genre()
+    {
+        SceneManager.LoadScene("Level_Genre");
+    }
     // Tutorial scene routing
     public void goToTutorial()
     {
