@@ -113,10 +113,10 @@ public class DestroyEndless : MonoBehaviour
                 {
                     if(mg.solvedList[i] == solved && mg.letterHolderList[i].text == '_'.ToString()){
                         mg.letterHolderList[i].text = solved.ToString();
-                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == solved.ToString());
-                        if (index >= 0) {
-                         mapgen.displayCharacter.RemoveAt(index);
-                        }
+                        // var index = mapgen.displayCharacter.FindIndex(i => i.tag == solved.ToString());
+                        // if (index >= 0) {
+                        //  mapgen.displayCharacter.RemoveAt(index);
+                        // }
                         var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == solved.ToString());
                         if (index1 >= 0) {
                          mapgen.correctCharacters.RemoveAt(index1);
@@ -162,11 +162,13 @@ public class DestroyEndless : MonoBehaviour
                 {
                     if(mg.solvedList[i] == inputLetter){
                         Debug.Log("Ayush");
+                        Debug.Log(mg.solvedList[i]);
+                        Debug.Log(mg.letterHolderList);
                         mg.letterHolderList[i].text = inputLetter.ToString();
-                        var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
-                        if (index >= 0) {
-                         mapgen.displayCharacter.RemoveAt(index);
-                        }
+                        // var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
+                        // if (index >= 0) {
+                        //  mapgen.displayCharacter.RemoveAt(index);
+                        // }
                         var index1 = mapgen.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
                         if (index1 >= 0) {
                          mapgen.correctCharacters.RemoveAt(index1);
@@ -301,9 +303,12 @@ public class DestroyEndless : MonoBehaviour
                 // same as i == mg.solvedList.Count - 1
                 Debug.Log("check ==0");
                 // win message
-                gamsta.gameStatusObj.updateStatus();
-                CameraEndless.GameEnd();
-                Player.body.isKinematic = true;
+                // gamsta.gameStatusObj.updateStatus();
+                // CameraEndless.GameEnd();
+                // Player.body.isKinematic = true;
+
+                mg.newWord();
+
             }
         }
         else{
