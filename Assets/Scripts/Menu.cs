@@ -10,6 +10,7 @@ public class Menu : MonoBehaviour
     public string level3;
     public string level4;
     public string tutorialLevel;
+    public string endlessLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -37,5 +38,8 @@ public class Menu : MonoBehaviour
     }
     public void StartTutorial() {
         SceneManager.LoadScene(tutorialLevel);
+    }
+    public void StartEndless() {
+        SceneManager.LoadScene(endlessLevel);
     }
 }
