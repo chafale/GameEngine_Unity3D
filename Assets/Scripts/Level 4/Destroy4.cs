@@ -87,7 +87,7 @@ public class Destroy4 : MonoBehaviour
                 // Analytics : Autofill Power-up capture
                 PlayerPrefs.SetInt("autofillPowerUp", PlayerPrefs.GetInt("autofillPowerUp") + 1);
 
-                FindObjectOfType<Player>().TakeDamage(5);
+                // FindObjectOfType<Player>().TakeDamage(5);
                 char solved='a';
                 for(int i=0;i<mg.letterHolderList.Count;i++)
                 {
@@ -135,7 +135,7 @@ public class Destroy4 : MonoBehaviour
                 {
                     pl.playerSpeed+=3;
                     gs.goldObj.updateHint(101);
-                    FindObjectOfType<Player>().TakeDamage(5);
+                    // FindObjectOfType<Player>().TakeDamage(5);
                 }
             }
             // Hint PopUp if letter = *
@@ -231,9 +231,12 @@ public class Destroy4 : MonoBehaviour
                     sc_incorrect  = true;
                     FindObjectOfType<Player>().showScoreAnim("Wrong Letter: -10 ",sc_incorrect);
                     Debug.Log("Health decreased" + FindObjectOfType<Player>().currentHealth);
-                    gamsta.gameStatusObj.updateStatus();
+                    // gamsta.gameStatusObj.updateStatus();
+                    if(FindObjectOfType<Player>().currentHealth<=0){
+                      FindObjectOfType<Player>().gameOver = true;
+                    }
                     PlayerPrefs.SetInt("highscore", gamescore);
-                    Debug.Log("The correct word was" + mg.correct_word);
+                    // Debug.Log("The correct word was" + mg.correct_word);
                     // if(LivesScript.lives == 0){
                     //     PlayerPrefs.SetInt("livesLeft", 0);
                     //     Camera.GameEnd();
