@@ -32,7 +32,7 @@ public class CameraEndless : MonoBehaviour {
     void Update () {
         if (!player.gameOver)
         {
-            transform.position += new Vector3(7.0f * Time.deltaTime, 0, 0);
+            transform.position += new Vector3(6.0f * Time.deltaTime, 0, 0);
 
         }
         else
@@ -78,11 +78,11 @@ public class CameraEndless : MonoBehaviour {
 
         foreach (GameObject scoreAnim in scoreA)
         {
-            scoreAnim.SetActive(false);  
+            scoreAnim.SetActive(false);
         }
         foreach (GameObject healthAnim in healthA)
         {
-            healthAnim.SetActive(false);    
+            healthAnim.SetActive(false);
         }
         // GameObject.Find("Background").SetActive(true);
         mg.solvedList = new List<char>();
