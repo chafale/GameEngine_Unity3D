@@ -10,11 +10,13 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
     }
+    // resume functionality
     public void Resume()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
+    // adding home routing
     public void Home()
     {
         Time.timeScale = 1f;
