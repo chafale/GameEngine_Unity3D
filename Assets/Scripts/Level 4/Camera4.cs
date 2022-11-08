@@ -20,7 +20,6 @@ public class Camera4 : MonoBehaviour {
     public static GameObject completeLevelUI;
     // Use this for initialization
     void Start () {
-
         goldScript4.goldIndex = 0;
         overReset = GameObject.Find("Background");
         overReset.SetActive(false);
@@ -70,8 +69,6 @@ public class Camera4 : MonoBehaviour {
     }
 
     public static void GameEnd(){
-
-
         GameObject[] scoreA;
         GameObject[] healthA;
         scoreA = GameObject.FindGameObjectsWithTag("ScoreAnim");
@@ -103,6 +100,7 @@ public class Camera4 : MonoBehaviour {
         mapgen.goCharacters = new List<GameObject>();
         mg.healHolderList = new List<TMP_Text>();
         mg.goHolderList = new List<TMP_Text>();
+        mapgen.activateColorChange = 0;
     }
     public void Reset()
     {
