@@ -103,6 +103,7 @@ public class Camera4 : MonoBehaviour {
         mapgen.goCharacters = new List<GameObject>();
         mg.healHolderList = new List<TMP_Text>();
         mg.goHolderList = new List<TMP_Text>();
+        mapgen.activateColorChange = 0;
     }
     public void Reset()
     {

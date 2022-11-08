@@ -160,7 +160,12 @@ public class Destroy4 : MonoBehaviour
             else{
                 for (int i = 0; i < mg.solvedList.Count; i++)
                 {
-                    if(mg.solvedList[i] == inputLetter){
+                    if(mg.solvedList[i] == '-')
+                    {
+                        // Debug.Log("In HV");
+                        mg.letterHolderList[i].text = '-'.ToString();
+                    }
+                    else if(mg.solvedList[i] == inputLetter){
                         Debug.Log("Ayush");
                         mg.letterHolderList[i].text = inputLetter.ToString();
                         var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
