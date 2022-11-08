@@ -12,7 +12,7 @@ using hb = HealthBar;
 public class Destroy4 : MonoBehaviour
 {
     public int check;
-     public int healCheck;
+    public int healCheck;
     public int healCount = 0;
     public int goCheck;
     public static Destroy4 destroyObj;
@@ -34,14 +34,6 @@ public class Destroy4 : MonoBehaviour
         GameObject collion_obj = collide.gameObject;
         GameManager4 gameManager = GameObject.Find("GameManager").GetComponent<GameManager4>();
 
-        // if(obj1.tag=="blade"){
-        //   if(collion_obj.tag=="Player"){
-        //     Debug.Log("DIED HEREEEEEEE");
-        //     Camera.GameEnd();
-        //     Player.body.isKinematic = true;
-        //   }
-        //   return;
-        // }
         Debug.Log(collion_obj.tag);
 
         if(collion_obj.tag=="Player"){
@@ -162,7 +154,6 @@ public class Destroy4 : MonoBehaviour
                 {
                     if(mg.solvedList[i] == '-')
                     {
-                        // Debug.Log("In HV");
                         mg.letterHolderList[i].text = '-'.ToString();
                     }
                     else if(mg.solvedList[i] == inputLetter){
@@ -201,15 +192,6 @@ public class Destroy4 : MonoBehaviour
                         if (index >= 0) {
                          mapgen.healCharacters.RemoveAt(index);
                         }
-
-                        // Debug.Log(collided_letter + " " + mapgen.correctCharacters.Count);
-                        // for (int k = 0;k < mapgen.correctCharacters.Count;k++)
-                        //  {
-                        //    Debug.Log("Sanya "+mapgen.correctCharacters[k].tag);
-                        //  }
-                        // c=1;
-                        // sc_correct  = true;
-                        // FindObjectOfType<Player>().showScoreAnim("+10",sc_correct);
                     }
                 }
                 if (gameManager.healCount == 1){
@@ -241,13 +223,6 @@ public class Destroy4 : MonoBehaviour
                       FindObjectOfType<Player>().gameOver = true;
                     }
                     PlayerPrefs.SetInt("highscore", gamescore);
-                    // Debug.Log("The correct word was" + mg.correct_word);
-                    // if(LivesScript.lives == 0){
-                    //     PlayerPrefs.SetInt("livesLeft", 0);
-                    //     Camera.GameEnd();
-                    //     Player.body.isKinematic = true;
-                    //     Debug.Log("I am lives here");
-                    // }
                 }
             }
             check=0;

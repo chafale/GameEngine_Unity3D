@@ -8,9 +8,7 @@ using mg = MapGenerator4;
 
 public class GameManager4 : MonoBehaviour
 {
-    //public  static string[] wordList = {"DOG"};
     public  static string[] wordList = {"FOOTSTEPS","CHARCOAL","MOUNT-EVEREST","NOTHING","PROMISE","YOURBREATH","DARKNESS","SILENCE"};
-    // public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();
     public  static List<TMP_Text> letterHolderList = new List<TMP_Text>();
     public  static List<TMP_Text> healHolderList = new List<TMP_Text>();
@@ -19,7 +17,7 @@ public class GameManager4 : MonoBehaviour
     public  GameObject HealCanvas;
     public  GameObject GoCanvas;
     public int healCount = 0;
-     public bool goCollected = false;
+    public bool goCollected = false;
     public bool healCollected = false;
     public TMP_Text healText;
     public TMP_Text goText;
@@ -79,7 +77,6 @@ public class GameManager4 : MonoBehaviour
 
         string[] splittedWord = tempWord.Split(' ', tempWord.Length);
         char[] splitWord = tempWord.ToCharArray();
-        // Debug.Log(tempWord);
         foreach (char letter in splitWord){
             solvedList.Add(letter);
             foreach(GameObject letter_prefab in chars){

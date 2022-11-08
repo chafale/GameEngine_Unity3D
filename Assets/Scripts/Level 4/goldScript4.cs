@@ -25,8 +25,6 @@ public class goldScript4 : MonoBehaviour
 
     public static void assign_values(){
         goldList = hint_array[GameManager4.index];
-        // Debug.Log(goldIndex);
-        // Debug.Log(goldList);
     }
 
     public static goldScript4 goldObj;

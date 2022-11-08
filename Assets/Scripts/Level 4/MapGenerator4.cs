@@ -74,7 +74,7 @@ public class MapGenerator4 : MonoBehaviour {
 	}
 
 	GameObject GenerateCharacter(float start, float end, float obj1, float obj2, float obj3, float obj4) {
-		// Debug.Log(correctCharacters.Count + " " + displayCharacter.Count);
+		
 		count += 1;
 		int num;
 		GameObject obstacle;
@@ -158,26 +158,6 @@ public class MapGenerator4 : MonoBehaviour {
 		gameMananger.HealCanvas.SetActive(false);
 		gameMananger.GoCanvas.SetActive(false);
 		return obstacle;
-
-		// var checkCollider = Physics2D.OverlapCircle(obstacle.transform.position, 1);
-		// if (checkCollider != null && checkCollider.transform != obstacle.transform)
-		// {
-		// 	Destroy(obstacle);
-		// 	return null;
-		// }
-		// SetTransformCharacter(obstacle,start,end);
-		// return obstacle;
-
-		// Collider2D[] neighbours = Physics2D.OverlapCircleAll(obstacle.transform.position, 4);
-		// if (neighbours.Length>0){
-		// 	Debug.Log(neighbours.Length);
-		// 	Destroy(obstacle);
-		// 	return null;
-		// }
-		// else{
-		// 	SetTransformCharacter(obstacle,start,end);
-		// 	return obstacle;
-		// }
 	}
 
 	private void ResetEffect(){
