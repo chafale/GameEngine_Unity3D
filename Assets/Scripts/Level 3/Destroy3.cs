@@ -253,12 +253,7 @@ public class Destroy3 : MonoBehaviour
 
                 }
             }
-            if (goCheck == 0 && gameManager.goCollected == false) {
-                gameManager.goCollected = true;
-                gameManager.goText.text = "Obstacles will be eliminated for some time";
-                print(gameManager.goCollected);
-                gameManager.GoPopup.SetActive(true);
-
+            if (goCheck == 0) {
                 // Analytics : GO word complete
                 foreach( TMP_Text g in mg.goHolderList){
                     Destroy(g.gameObject);
@@ -269,10 +264,13 @@ public class Destroy3 : MonoBehaviour
                     GameObject temp = Instantiate(gameManager.letterPrefab, gameManager.goHolder, false);
                     mg.goHolderList.Add(temp.GetComponent<TMP_Text>());
                 }
-
+                gameManager.goCollected = true;
+                gameManager.goText.text = "Obstacles will be eliminated for some time";
+                Debug.Log("gameMananger.goCollected in destroy: " + gameManager.goCollected);
+                gameManager.GoPopup.SetActive(true);
                 // Analytics : HEAL word complete
                 PlayerPrefs.SetInt("goStatus", 1);
-                gameManager.goCollected = false;
+                // gameManager.goCollected = false;
                 
             }
             
