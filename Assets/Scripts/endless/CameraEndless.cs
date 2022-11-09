@@ -95,7 +95,7 @@ public class CameraEndless : MonoBehaviour {
         // mapgen.displayCharacter = new List<GameObject>();
         goldScriptEndless.goldText.text="";
         overReset.SetActive(true);
-        gameManager.HealCanvas.SetActive(false);
+        gameManager.HealPopup.SetActive(false);
     	gameManager.GoPopup.SetActive(false);
         ScoringSystem.myScore = 0;
         mapgen.healCharacters = new List<GameObject>();

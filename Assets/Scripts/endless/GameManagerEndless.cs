@@ -21,7 +21,7 @@ public class GameManagerEndless : MonoBehaviour
     public  static List<TMP_Text> healHolderList = new List<TMP_Text>();
     public  static List<TMP_Text> goHolderList = new List<TMP_Text>();
     public  GameObject letterPrefab;
-    public  GameObject HealCanvas;
+    public GameObject HealPopup;
     public  GameObject GoCanvas;
     public  GameObject GoPopup;
     public int healCount = 0;
@@ -59,7 +59,7 @@ public class GameManagerEndless : MonoBehaviour
     public int count = 0;
 
     void Start(){
-        HealCanvas.SetActive(false);
+        HealPopup.SetActive(false);
         GoPopup.SetActive(false);
         mg.correctCharacters.Clear();
         mg.goCharacters.Clear();

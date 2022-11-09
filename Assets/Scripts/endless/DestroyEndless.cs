@@ -214,9 +214,6 @@ public class DestroyEndless : MonoBehaviour
                         // FindObjectOfType<Player>().showScoreAnim("+10",sc_correct);
                     }
                 }
-                if (gameManager.healCount == 1){
-                    gameManager.HealCanvas.SetActive(true);
-                }
 
                 for (int i = 0; i < mg.goList.Count; i++)
                 {
@@ -281,10 +278,23 @@ public class DestroyEndless : MonoBehaviour
                 FindObjectOfType<Player>().currentHealth=100;
                 gameManager.healCollected = true;
                 gameManager.healText.text = "Awesome! Your health has been refilled";
-                gameManager.HealCanvas.SetActive(true);
+                gameManager.HealPopup.SetActive(true);
+
+                Debug.Log("mg.healHolderList: " +  mg.healHolderList.Count);
+                foreach( TMP_Text g in mg.healHolderList){
+                    Destroy(g.gameObject);
+                }
+                mg.healHolderList.Clear();
+                for (int i = 0; i < 4; i++)
+                {
+                    GameObject temp = Instantiate(gameManager.letterPrefab, gameManager.healHolder, false);
+                    mg.healHolderList.Add(temp.GetComponent<TMP_Text>());
+                    Debug.Log("mg.healHolderList: " +  mg.healHolderList.Count);
+                }
 
                 // Analytics : HEAL word complete
                 PlayerPrefs.SetInt("healStatus", 1);
+                gameManager.healCollected = false;
             }
 
             // GO CHECK

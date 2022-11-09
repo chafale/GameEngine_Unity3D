@@ -155,7 +155,7 @@ public class MapGeneratorEndless : MonoBehaviour {
 
 		SetTransformCharacter(obstacle,start_obs,end_obs);
 		GameManagerEndless gameMananger = GameObject.Find("GameManager").GetComponent<GameManagerEndless>();
-		gameMananger.HealCanvas.SetActive(false);
+		gameMananger.HealPopup.SetActive(false);
 		gameMananger.GoPopup.SetActive(false);
 		return obstacle;
 
