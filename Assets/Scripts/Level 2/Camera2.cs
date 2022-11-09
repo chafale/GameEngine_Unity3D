@@ -95,7 +95,7 @@ public class Camera2 : MonoBehaviour {
         // mapgen.displayCharacter = new List<GameObject>();
         goldScript2.goldText.text="";
         overReset.SetActive(true);
-        gameMananger.HealCanvas.SetActive(false);
+        gameMananger.HealPopup.SetActive(false);
         ScoringSystem.myScore = 0;
         mapgen.healCharacters = new List<GameObject>();
         mg.healHolderList = new List<TMP_Text>();

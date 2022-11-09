@@ -82,7 +82,7 @@ public class CameraGF : MonoBehaviour {
         // mapgen.displayCharacter = new List<GameObject>();
         goldScriptGF.goldText.text="";
         overReset.SetActive(true);
-        gameManager.HealCanvas.SetActive(false);
+        gameManager.HealPopup.SetActive(false);
     		gameManager.GoCanvas.SetActive(false);
         ScoringSystem.myScore = 0;
         mapgen.healCharacters = new List<GameObject>();

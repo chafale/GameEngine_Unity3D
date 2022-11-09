@@ -177,7 +177,6 @@ public class Destroy2 : MonoBehaviour
                     if(mg.healList[i] == inputLetter)
                     {
                         gameManager.healCount += 1;
-                        // gameManager.HealCanvas.SetActive(true);
                         Debug.Log(healCount);
                         mg.healHolderList[i].text = inputLetter.ToString();
                         var index = mapgen.healCharacters.FindIndex(i => i.tag == gameObject.tag);
@@ -188,9 +187,6 @@ public class Destroy2 : MonoBehaviour
                         // sc_correct  = true;
                         // FindObjectOfType<Player>().showScoreAnim("+10",sc_correct);
                     }
-                }
-                if (gameManager.healCount == 1){
-                    gameManager.HealCanvas.SetActive(true);
                 }
 
 
@@ -248,10 +244,23 @@ public class Destroy2 : MonoBehaviour
                 FindObjectOfType<Player>().currentHealth=100;
                 gameManager.healCollected = true;
                 gameManager.healText.text = "Awesome! Your health has been refilled";
-                gameManager.HealCanvas.SetActive(true);
+                gameManager.HealPopup.SetActive(true);
+                
+                Debug.Log("mg.healHolderList: " +  mg.healHolderList.Count);
+                foreach( TMP_Text g in mg.healHolderList){
+                    Destroy(g.gameObject);
+                }
+                mg.healHolderList.Clear();
+                for (int i = 0; i < 4; i++)
+                {
+                    GameObject temp = Instantiate(gameManager.letterPrefab, gameManager.healHolder, false);
+                    mg.healHolderList.Add(temp.GetComponent<TMP_Text>());
+                    Debug.Log("mg.healHolderList: " +  mg.healHolderList.Count);
+                }
 
                 // Analytics : HEAL word complete
                 PlayerPrefs.SetInt("healStatus", 1);
+                gameManager.healCollected = false;
             }
             if(check==0){
                 // same as i == mg.solvedList.Count - 1

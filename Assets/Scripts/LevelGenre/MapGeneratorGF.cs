@@ -150,7 +150,7 @@ public class MapGeneratorGF : MonoBehaviour {
 
 		SetTransformCharacter(obstacle,start_obs,end_obs);
 		GameManagerGF gameMananger = GameObject.Find("GameManager").GetComponent<GameManagerGF>();
-		gameMananger.HealCanvas.SetActive(false);
+		gameMananger.HealPopup.SetActive(false);
 		gameMananger.GoCanvas.SetActive(false);
 		return obstacle;
 

@@ -25,6 +25,8 @@ public class GameManagerGF : MonoBehaviour
     public TMP_Text goText;
     public  Transform letterHolder;
     public  Transform healHolder;
+    public  GameObject HealPopup;
+
     public  Transform goHolder;
     public  TMP_Text hint;
     public  ScoringSystem instance;
@@ -52,7 +54,7 @@ public class GameManagerGF : MonoBehaviour
     public int count = 0;
 
     void Start(){
-        HealCanvas.SetActive(false);
+        HealPopup.SetActive(false);
         GoCanvas.SetActive(false);
         mg.correctCharacters.Clear();
         mg.goCharacters.Clear();

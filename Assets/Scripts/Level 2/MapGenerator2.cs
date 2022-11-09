@@ -134,7 +134,7 @@ public class MapGenerator2 : MonoBehaviour {
 
 		SetTransformCharacter(obstacle,start_obs,end_obs);
 		GameManager2 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager2>();
-		gameMananger.HealCanvas.SetActive(false);
+		gameMananger.HealPopup.SetActive(false);
 		return obstacle;
 
 		// var checkCollider = Physics2D.OverlapCircle(obstacle.transform.position, 1);

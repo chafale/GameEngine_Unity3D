@@ -16,7 +16,7 @@ public class GameManager2 : MonoBehaviour
     public  static List<TMP_Text> letterHolderList = new List<TMP_Text>();
     public  static List<TMP_Text> healHolderList = new List<TMP_Text>();
     public  GameObject letterPrefab;
-    public  GameObject HealCanvas;
+    public  GameObject HealPopup;
     public int healCount = 0;
     public TMP_Text healText;
     public bool healCollected = false;
@@ -47,7 +47,7 @@ public class GameManager2 : MonoBehaviour
 
     void Start(){
 
-        HealCanvas.SetActive(false);
+        HealPopup.SetActive(false);
         mg.correctCharacters.Clear();
         mg.healCharacters.Clear();
         chars.Clear();

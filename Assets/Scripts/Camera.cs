@@ -66,7 +66,8 @@ public class Camera : MonoBehaviour
         // mapgen.displayCharacter = new List<GameObject>();
         goldScript2.goldText.text="";
         //overReset.SetActive(true);
-        gameMananger.HealCanvas.SetActive(false);
+        // gameMananger.HealCanvas.SetActive(false);
+        gameMananger.HealPopup.SetActive(false);
     }
     public void Reset()
     {

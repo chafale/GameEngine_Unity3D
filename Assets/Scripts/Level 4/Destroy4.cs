@@ -252,12 +252,26 @@ public class Destroy4 : MonoBehaviour
             if (healCheck == 0 && gameManager.healCollected == false) {
                 FindObjectOfType<HealthBar>().SetMaxHealth(100);
                 FindObjectOfType<Player>().currentHealth=100;
+                Debug.Log("Collected");
                 gameManager.healCollected = true;
                 gameManager.healText.text = "Awesome! Your health has been refilled";
-                gameManager.HealCanvas.SetActive(true);
+                gameManager.HealPopup.SetActive(true);
+                
+                Debug.Log("mg.healHolderList: " +  mg.healHolderList.Count);
+                foreach( TMP_Text g in mg.healHolderList){
+                    Destroy(g.gameObject);
+                }
+                mg.healHolderList.Clear();
+                for (int i = 0; i < 4; i++)
+                {
+                    GameObject temp = Instantiate(gameManager.letterPrefab, gameManager.healHolder, false);
+                    mg.healHolderList.Add(temp.GetComponent<TMP_Text>());
+                    Debug.Log("mg.healHolderList: " +  mg.healHolderList.Count);
+                }
 
                 // Analytics : HEAL word complete
                 PlayerPrefs.SetInt("healStatus", 1);
+                gameManager.healCollected = false;
             }
 
             // GO CHECK
