@@ -140,7 +140,7 @@ public class MapGenerator3 : MonoBehaviour {
 
 		SetTransformCharacter(obstacle,start_obs,end_obs);
 		GameManager3 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager3>();
-		gameMananger.GoCanvas.SetActive(false);
+		gameMananger.GoPopup.SetActive(false);
 		return obstacle;
 
 		// var checkCollider = Physics2D.OverlapCircle(obstacle.transform.position, 1);

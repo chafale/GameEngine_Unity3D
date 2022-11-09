@@ -96,7 +96,7 @@ public class Camera3 : MonoBehaviour {
         // mapgen.displayCharacter = new List<GameObject>();
         goldScript3.goldText.text="";
         overReset.SetActive(true);
-		gameMananger.GoCanvas.SetActive(false);
+		gameMananger.GoPopup.SetActive(false);
     ScoringSystem.myScore = 0;
     mg.goHolderList = new List<TMP_Text>();
     }

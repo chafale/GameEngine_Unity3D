@@ -257,11 +257,25 @@ public class Destroy3 : MonoBehaviour
                 gameManager.goCollected = true;
                 gameManager.goText.text = "Obstacles will be eliminated for some time";
                 print(gameManager.goCollected);
+                gameManager.GoPopup.SetActive(true);
 
                 // Analytics : GO word complete
-                PlayerPrefs.SetInt("goStatus", 1);
-            }
+                foreach( TMP_Text g in mg.goHolderList){
+                    Destroy(g.gameObject);
+                }
+                mg.goHolderList.Clear();
+                for (int i = 0; i < 2; i++)
+                {
+                    GameObject temp = Instantiate(gameManager.letterPrefab, gameManager.goHolder, false);
+                    mg.goHolderList.Add(temp.GetComponent<TMP_Text>());
+                }
 
+                // Analytics : HEAL word complete
+                PlayerPrefs.SetInt("goStatus", 1);
+                gameManager.goCollected = false;
+                
+            }
+            
 
             if(check==0){
                 // same as i == mg.solvedList.Count - 1

@@ -16,6 +16,7 @@ public class GameManager3 : MonoBehaviour
     public  static List<TMP_Text> goHolderList = new List<TMP_Text>();
     public  GameObject letterPrefab;
     public  GameObject GoCanvas;
+    public  GameObject GoPopup;
     public bool goCollected = false;
     public TMP_Text goText;
     public  Transform letterHolder;
@@ -44,7 +45,7 @@ public class GameManager3 : MonoBehaviour
     public int count = 0;
 
     void Start(){
-        GoCanvas.SetActive(false);
+        GoPopup.SetActive(false);
         mg.correctCharacters.Clear();
         mg.goCharacters.Clear();
         chars.Clear();
