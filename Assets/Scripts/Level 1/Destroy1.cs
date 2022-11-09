@@ -133,7 +133,8 @@ public class Destroy1 : MonoBehaviour
                 PlayerPrefs.SetInt("hintsCollected",PlayerPrefs.GetInt("hintsCollected") + 1);
 
                 gs.goldIndex+=1;
-                if(gs.goldIndex<=2)
+                gs.currGoldIndex = gs.goldIndex;
+                if(gs.goldIndex<=3)
                 {
                     mg.gamag.updateGameHint();
 
