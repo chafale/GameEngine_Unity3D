@@ -156,7 +156,7 @@ public class MapGeneratorEndless : MonoBehaviour {
 		SetTransformCharacter(obstacle,start_obs,end_obs);
 		GameManagerEndless gameMananger = GameObject.Find("GameManager").GetComponent<GameManagerEndless>();
 		gameMananger.HealCanvas.SetActive(false);
-		gameMananger.GoCanvas.SetActive(false);
+		gameMananger.GoPopup.SetActive(false);
 		return obstacle;
 
 		// var checkCollider = Physics2D.OverlapCircle(obstacle.transform.position, 1);

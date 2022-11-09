@@ -252,7 +252,6 @@ public class Destroy4 : MonoBehaviour
             if (healCheck == 0 && gameManager.healCollected == false) {
                 FindObjectOfType<HealthBar>().SetMaxHealth(100);
                 FindObjectOfType<Player>().currentHealth=100;
-                Debug.Log("Collected");
                 gameManager.healCollected = true;
                 gameManager.healText.text = "Awesome! Your health has been refilled";
                 gameManager.HealPopup.SetActive(true);
@@ -271,7 +270,6 @@ public class Destroy4 : MonoBehaviour
 
                 // Analytics : HEAL word complete
                 PlayerPrefs.SetInt("healStatus", 1);
-                gameManager.healCollected = false;
             }
 
             // GO CHECK
@@ -285,13 +283,24 @@ public class Destroy4 : MonoBehaviour
                     break;
                 }
             }
-            if (goCheck == 0 && gameManager.goCollected == false) {
+            if (goCheck == 0) {
+                // Analytics : GO word complete
+                foreach( TMP_Text g in mg.goHolderList){
+                    Destroy(g.gameObject);
+                }
+                mg.goHolderList.Clear();
+                for (int i = 0; i < 2; i++)
+                {
+                    GameObject temp = Instantiate(gameManager.letterPrefab, gameManager.goHolder, false);
+                    mg.goHolderList.Add(temp.GetComponent<TMP_Text>());
+                }
                 gameManager.goCollected = true;
                 gameManager.goText.text = "Obstacles will be eliminated for some time";
-                print(gameManager.goCollected);
-
-                // Analytics : GO word complete
+                Debug.Log("gameMananger.goCollected in destroy: " + gameManager.goCollected);
+                gameManager.GoPopup.SetActive(true);
+                // Analytics : HEAL word complete
                 PlayerPrefs.SetInt("goStatus", 1);
+                // gameManager.goCollected = false;
             }
 
             if(check==0){

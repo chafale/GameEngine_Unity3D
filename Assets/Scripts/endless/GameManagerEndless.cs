@@ -23,6 +23,7 @@ public class GameManagerEndless : MonoBehaviour
     public  GameObject letterPrefab;
     public  GameObject HealCanvas;
     public  GameObject GoCanvas;
+    public  GameObject GoPopup;
     public int healCount = 0;
      public bool goCollected = false;
     public bool healCollected = false;
@@ -59,7 +60,7 @@ public class GameManagerEndless : MonoBehaviour
 
     void Start(){
         HealCanvas.SetActive(false);
-        GoCanvas.SetActive(false);
+        GoPopup.SetActive(false);
         mg.correctCharacters.Clear();
         mg.goCharacters.Clear();
         mg.healCharacters.Clear();

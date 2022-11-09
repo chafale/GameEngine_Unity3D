@@ -156,7 +156,7 @@ public class MapGenerator4 : MonoBehaviour {
 		SetTransformCharacter(obstacle,start_obs,end_obs);
 		GameManager4 gameMananger = GameObject.Find("GameManager").GetComponent<GameManager4>();
 		gameMananger.HealPopup.SetActive(false);
-		gameMananger.GoCanvas.SetActive(false);
+		gameMananger.GoPopup.SetActive(false);
 		return obstacle;
 	}
 

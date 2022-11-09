@@ -16,6 +16,7 @@ public class GameManager4 : MonoBehaviour
     public  GameObject letterPrefab;
     public  GameObject HealCanvas;
     public  GameObject HealPopup;
+    public  GameObject GoPopup;
     public  GameObject GoCanvas;
     public int healCount = 0;
     public bool goCollected = false;
@@ -52,7 +53,7 @@ public class GameManager4 : MonoBehaviour
 
     void Start(){
         HealPopup.SetActive(false);
-        GoCanvas.SetActive(false);
+        GoPopup.SetActive(false);
         mg.correctCharacters.Clear();
         mg.goCharacters.Clear();
         mg.healCharacters.Clear();
