@@ -119,6 +119,10 @@ public class MapGeneratorGF : MonoBehaviour {
 			// Debug.Log("In speed object generation");
 			obstacle = GameObject.Instantiate(speedObject);
 		}
+		else if(count%5==0 && goCharacters.Count>0){
+			num = Random.Range(0,goCharacters.Count);
+			obstacle = GameObject.Instantiate(goCharacters[num]);
+		}
 		else if(count%4==0 && healCharacters.Count>0){
 			num = Random.Range(0,healCharacters.Count);
 			obstacle = GameObject.Instantiate(healCharacters[num]);
