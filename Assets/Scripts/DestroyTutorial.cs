@@ -39,14 +39,14 @@ public class DestroyTutorial : MonoBehaviour
                     if(tm.solvedList[i] == inputLetter){
                         Debug.Log("Ayush");
                         tm.letterHolderList[i].text = inputLetter.ToString();
-                        var index = tm.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
-                        if (index >= 0) {
-                         tm.displayCharacter.RemoveAt(index);
-                        }
-                        var index1 = tm.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
-                        if (index1 >= 0) {
-                         tm.correctCharacters.RemoveAt(index1);
-                        }
+                        // var index = tm.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
+                        // if (index >= 0) {
+                        //  tm.displayCharacter.RemoveAt(index);
+                        // }
+                        // var index1 = tm.correctCharacters.FindIndex(i => i.tag == gameObject.tag);
+                        // if (index1 >= 0) {
+                        //  tm.correctCharacters.RemoveAt(index1);
+                        // }
                         //c=1;
                     }
                 }
@@ -59,6 +59,8 @@ public class DestroyTutorial : MonoBehaviour
                 //         Player.body.isKinematic = true;
                 //     }
                 // }
+
+
             }
         }
         else{

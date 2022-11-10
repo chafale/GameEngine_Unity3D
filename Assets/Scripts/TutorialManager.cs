@@ -42,6 +42,7 @@ public class TutorialManager : MonoBehaviour
 
     private int popUpIndex = 0;
     private int flag = 0;
+    public bool x = true;
     public static int hints;
     public static int index;
 
@@ -204,31 +205,62 @@ public class TutorialManager : MonoBehaviour
                     {
                     Debug.Log("Move to Character Generation");
                     popUps[4].SetActive(true);
+                    //while(x){
                     character1 = GenerateCharacter(player.transform.position.x + 20,1);
                     character2 = GenerateCharacter(player.transform.position.x + 30,2);
                     character3 = GenerateCharacter(player.transform.position.x + 40,3);
                     temp_chr = GenerateCharacter(player.transform.position.x + 45,3);
                     temp_chr.SetActive(false);
+                    //}
                     flag = 1;
                     }
                 if(temp_chr && player.transform.position.x > temp_chr.transform.position.x){
-                    player.SetActive(false);
-                    popUps[4].SetActive(false);
-                    popUpIndex++;
-                    backToHome.SetActive(true);
-                    //autofillData.SetActive(true);
-                    Time.timeScale = 0;
-                    if (Input.GetKeyDown(KeyCode.Space))
+
+                    // check if all letters are filled 
+                    int check = 0; 
+                    for (int i = 0; i < solvedList.Count; i++)
                     {
-                        Debug.Log("Check if the Space bar was pressed ");
-                        Time.timeScale = 1;
-                        SceneManager.LoadScene("MainMenu");
-                        
-                        Player.body.isKinematic = true;
+                        char[] holder = letterHolderList[i].text.ToCharArray();
+                            if(solvedList[i] != holder[0]){
+                            Debug.Log("Are all characters filled");
+                            check = 1;
+                            break;
+                        } 
+                        // if (i == tm.solvedList.Count - 1)
+                        // {
+                        //   Debug.Log(solvedList);
+                    
+                        // }
+
+                    }
+                    if(check==1){
+                        character1 = GenerateCharacter(player.transform.position.x + 20,1);
+                        character2 = GenerateCharacter(player.transform.position.x + 30,2);
+                        character3 = GenerateCharacter(player.transform.position.x + 40,3);
+                        temp_chr = GenerateCharacter(player.transform.position.x + 45,3);
+                        temp_chr.SetActive(false);
                     }
                     else{
-                        popUpIndex--;
+                        player.SetActive(false);
+                        popUps[4].SetActive(false);
+                        popUpIndex++;
+                        backToHome.SetActive(true);
+                        //autofillData.SetActive(true);
+                        Time.timeScale = 0;
+                        if (Input.GetKeyDown(KeyCode.Space))
+                        {
+                            Debug.Log("Check if the Space bar was pressed ");
+                            Time.timeScale = 1;
+                            SceneManager.LoadScene("MainMenu");
+                            
+                            Player.body.isKinematic = true;
+                        }
+                        else{
+                            popUpIndex--;
+                        }
                     }
+
+                    
 
 
                 }

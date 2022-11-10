@@ -54,6 +54,7 @@ TagManager:
   - Level1tutorial
   - HealthAnim
   - ScoreAnim
+  - TutorialBacktohome
   layers:
   - Default
   - TransparentFX
