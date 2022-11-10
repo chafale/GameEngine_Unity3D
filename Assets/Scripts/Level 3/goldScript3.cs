@@ -7,6 +7,7 @@ using TMPro;
 public class goldScript3 : MonoBehaviour
 {
     public static int goldIndex;
+    public static int currGoldIndex;
 
     public static string [][] hint_array = new string[][] {
                                                 //BATTERY
