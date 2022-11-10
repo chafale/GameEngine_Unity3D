@@ -7,6 +7,7 @@ using TMPro;
 public class goldScript2 : MonoBehaviour
 {
     public static int goldIndex;
+    public static int currGoldIndex;
 
     public static string [][] hint_array = new string[][] {
                                                 new string[] {"I am tall when I am young, and I am short when I am old. What am I?","I am the light of your darkness","You blow me on a special day","I melt on heat"},

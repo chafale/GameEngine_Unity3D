@@ -7,6 +7,7 @@ using TMPro;
 public class goldScript1 : MonoBehaviour
 {
     public static int goldIndex;
+    public static int currGoldIndex;
 
     public static string [][] hint_array = new string[][] {
                                                 new string[] {"Forward I am heavy, backwards I am not. What am I?","Answer is in the question","Measurement unit","What is 2000 pounds?"},

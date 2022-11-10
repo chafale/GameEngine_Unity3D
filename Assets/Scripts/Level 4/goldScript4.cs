@@ -7,6 +7,7 @@ using TMPro;
 public class goldScript4 : MonoBehaviour
 {
     public static int goldIndex;
+    public static int currGoldIndex;
 
     public static string [][] hint_array = new string[][] {
                                                 new string[] {"The more you take, the more you leave behind. What am I?","It comes in various sizes","Also has various patterns","Most observed by detectives"},

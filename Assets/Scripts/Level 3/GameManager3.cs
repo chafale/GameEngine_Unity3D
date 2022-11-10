@@ -130,6 +130,14 @@ public class GameManager3 : MonoBehaviour
             check = false;
             count++;
         }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            if (gs.goldIndex > 0)
+            {
+                gs.currGoldIndex = (gs.currGoldIndex % gs.goldIndex) + 1;
+                hint.text = "Hint: " + gs.goldList[gs.currGoldIndex].ToString();
+            }
+        }
 }
 
     // To call non static methods.
