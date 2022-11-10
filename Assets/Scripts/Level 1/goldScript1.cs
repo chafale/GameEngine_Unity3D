@@ -12,7 +12,10 @@ public class goldScript1 : MonoBehaviour
     public static string [][] hint_array = new string[][] {
                                                 new string[] {"Forward I am heavy, backwards I am not. What am I?","Answer is in the question","Measurement unit","What is 2000 pounds?"},
                                                 new string[] {"What has to be broken before you can use it?","I give you strength","I am made up of only 2 colors","My end product has multiple shapes"},
+<<<<<<< HEAD
 
+=======
+>>>>>>> 17fdc8b1 (Uncommenting the hint arryas)
                                                  new string[] {"What goes up but never comes down.What am I?","•	It increases once a year !","You should never ask woman about it?","Which three letters change a girl into a woman?"},
                                                  new string[] {"I have branches, but no fruit, trunk or leaves. What am I? ","People create account but am not any social media app","Money heist","River has two of me!!"},
                                                  new string[] {"What can’t talk but will reply when spoken to?","You've heard me before, yet you hear me again, Then I die 'til you call me again.","It repeat only the last word you say. The more I repeat, the softer I got. ","It speaks without a mouth and hear without ears, has no body, but come alive with wind."},
@@ -24,8 +27,11 @@ public class goldScript1 : MonoBehaviour
 												new string[] {"Although this item is never half, It can sometimes be a quarter. If you come across a wishing well, You might throw it in the water? ","What has a head and a tail but no body I am NOT a snake ?","Surgeons, skiers, thieves and boxers all wear me for different reasons","I have two Faces but can bear only one"},
 												 new string[] {"If two’s company, and three’s a crowd, what are four plus five?","Do math 3+3+3","Highest single digit number","Greater than eight but smaller than ten"},
 												 new string[] {"I turn once, what is out will not get in. I turn again, what is in will not get out. What am I?","To open a door you can knock or use this item to unlock","1/3rd of the Turkey from the end"}
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 17fdc8b1 (Uncommenting the hint arryas)
   };
 
     [SerializeField] public static TextMeshProUGUI goldText;
