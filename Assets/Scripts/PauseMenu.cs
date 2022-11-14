@@ -54,7 +54,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Level_Genre");
     }
-    // Endless runner scene
+    // Endless runner scene restart routing
     public void goToEndless()
     {
         Time.timeScale = 1f;
