@@ -24,4 +24,39 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu"); // rounting to main menu
     }
     // restart functionality
+
+    public void goToLevel_One()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_1");
+    }
+
+    public void goToLevel_Two()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_2");
+    }
+
+    public void goToLevel_Three()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_3");
+    }
+
+    public void goToLevel_Four()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_4");
+    }
+    public void goToLevel_Genre()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_Genre");
+    }
+    // Endless runner scene
+    public void goToEndless()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Endless");
+    }
 }
