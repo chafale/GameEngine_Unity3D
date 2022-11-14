@@ -36,7 +36,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Level_2");
     }
-
+    // level three restart routing
     public void goToLevel_Three()
     {
         Time.timeScale = 1f;
