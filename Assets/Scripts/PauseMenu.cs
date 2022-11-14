@@ -24,7 +24,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu"); // rounting to main menu
     }
     // restart functionality
-
+    // level one routing
     public void goToLevel_One()
     {
         Time.timeScale = 1f;
