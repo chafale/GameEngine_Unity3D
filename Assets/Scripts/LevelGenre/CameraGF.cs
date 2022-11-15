@@ -17,6 +17,16 @@ public class CameraGF : MonoBehaviour {
     public static GameObject goldReset;
 
     public static GameObject completeLevelUI;
+    public AudioSource GameoverBGM;
+
+    public AudioSource GamestartBGM;
+
+    public static CameraGF camObj;
+
+    void Awake()
+    {
+        camObj = this;
+    }
     // Use this for initialization
     void Start () {
 
@@ -26,6 +36,7 @@ public class CameraGF : MonoBehaviour {
         // goldReset = GameObject.Find("Hintground");
         // goldReset.SetActive(false);
         Time.timeScale = 1;
+        GamestartBGM.Play();
     }
     // Update is called once per frame
     void Update () {
@@ -55,7 +66,10 @@ public class CameraGF : MonoBehaviour {
 
 
     }
-
+    public void updateBGM()
+    {
+            GamestartBGM.Stop();
+    }
     public static void GameEnd(){
 
         GameObject[] scoreA;
@@ -90,6 +104,7 @@ public class CameraGF : MonoBehaviour {
         mg.healHolderList = new List<TMP_Text>();
         mg.goHolderList = new List<TMP_Text>();
         mapgen.activateColorChange = 0;
+        CameraGF.camObj.updateBGM();
     }
     public void Reset()
     {
