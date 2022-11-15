@@ -2228,7 +2228,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &960214596
 MonoBehaviour:
@@ -2426,6 +2426,7 @@ GameObject:
   - component: {fileID: 1043748293}
   - component: {fileID: 1043748295}
   - component: {fileID: 1043748294}
+  - component: {fileID: 1043748296}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -2495,6 +2496,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043748292}
   m_CullTransparentMesh: 1
+--- !u!210 &1043748296
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043748292}
+  m_Enabled: 1
+  m_SortingLayerID: -1798026205
+  m_SortingLayer: 1
+  m_SortingOrder: 1
 --- !u!1 &1093808919
 GameObject:
   m_ObjectHideFlags: 0
@@ -3269,7 +3281,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1365853667
 GameObject:
@@ -3599,6 +3611,7 @@ GameObject:
   - component: {fileID: 1458162620}
   - component: {fileID: 1458162619}
   - component: {fileID: 1458162618}
+  - component: {fileID: 1458162622}
   m_Layer: 5
   m_Name: RiddleCanvas
   m_TagString: RiddleCanvas
@@ -3686,13 +3699,24 @@ RectTransform:
   - {fileID: 990631507}
   - {fileID: 1286645196}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!210 &1458162622
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458162617}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &1476601627
 GameObject:
   m_ObjectHideFlags: 0
@@ -4492,6 +4516,7 @@ GameObject:
   - component: {fileID: 1708747844}
   - component: {fileID: 1708747843}
   - component: {fileID: 1708747847}
+  - component: {fileID: 1708747848}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4558,7 +4583,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1708747846
 RectTransform:
@@ -4581,7 +4606,7 @@ RectTransform:
   - {fileID: 1866202463}
   - {fileID: 1043748293}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4600,6 +4625,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16960a150ac5d4ce78c91847684c39b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &1708747848
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708747842}
+  m_Enabled: 1
+  m_SortingLayerID: -1798026205
+  m_SortingLayer: 1
+  m_SortingOrder: 1
 --- !u!1 &1722864593
 GameObject:
   m_ObjectHideFlags: 0
@@ -4974,7 +5010,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5327,6 +5363,7 @@ GameObject:
   - component: {fileID: 1913290051}
   - component: {fileID: 1913290050}
   - component: {fileID: 1913290049}
+  - component: {fileID: 1913290053}
   m_Layer: 5
   m_Name: L1TutorialCanvas
   m_TagString: Level2TutotorialCanvas
@@ -5414,13 +5451,24 @@ RectTransform:
   - {fileID: 139705132}
   - {fileID: 1093808920}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!210 &1913290053
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913290048}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &1916275644
 GameObject:
   m_ObjectHideFlags: 0
