@@ -18,6 +18,16 @@ public class Camera4 : MonoBehaviour {
     public static GameObject goldReset;
 
     public static GameObject completeLevelUI;
+    public AudioSource GameoverBGM;
+
+    public AudioSource GamestartBGM;
+
+    public static Camera4 camObj;
+
+    void Awake()
+    {
+        camObj = this;
+    }
     // Use this for initialization
     void Start () {
         goldScript4.goldIndex = 0;
@@ -26,6 +36,7 @@ public class Camera4 : MonoBehaviour {
         // goldReset = GameObject.Find("Hintground");
         // goldReset.SetActive(false);
         Time.timeScale = 1;
+        GamestartBGM.Play();
     }
     // Update is called once per frame
     void Update () {
@@ -67,7 +78,10 @@ public class Camera4 : MonoBehaviour {
 
 
     }
-
+    public void updateBGM()
+    {
+        GamestartBGM.Stop();
+    }
     public static void GameEnd(){
         GameObject[] scoreA;
         GameObject[] healthA;
@@ -101,6 +115,7 @@ public class Camera4 : MonoBehaviour {
         mg.healHolderList = new List<TMP_Text>();
         mg.goHolderList = new List<TMP_Text>();
         mapgen.activateColorChange = 0;
+        Camera4.camObj.updateBGM();
     }
     public void Reset()
     {

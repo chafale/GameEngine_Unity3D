@@ -18,7 +18,16 @@ public class Camera3 : MonoBehaviour {
     public static GameObject goldReset;
 
     public static GameObject completeLevelUI;
+    public AudioSource GameoverBGM;
 
+    public AudioSource GamestartBGM;
+
+    public static Camera3 camObj;
+
+    void Awake()
+    {
+        camObj = this;
+    }
     // Use this for initialization
     void Start () {
 
@@ -28,6 +37,7 @@ public class Camera3 : MonoBehaviour {
         // goldReset = GameObject.Find("Hintground");
         // goldReset.SetActive(false);
         Time.timeScale = 1;
+        GamestartBGM.Play();
     }
     // Update is called once per frame
     void Update () {
@@ -69,6 +79,10 @@ public class Camera3 : MonoBehaviour {
 
     }
 
+     public void updateBGM()
+    {
+        GamestartBGM.Stop();
+    }
     public static void GameEnd(){
 
         GameObject[] scoreA;
@@ -99,6 +113,7 @@ public class Camera3 : MonoBehaviour {
 		gameMananger.GoPopup.SetActive(false);
     ScoringSystem.myScore = 0;
     mg.goHolderList = new List<TMP_Text>();
+    Camera3.camObj.updateBGM();
     }
     public void Reset()
     {

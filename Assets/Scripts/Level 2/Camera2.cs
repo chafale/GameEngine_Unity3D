@@ -19,6 +19,17 @@ public class Camera2 : MonoBehaviour {
 
     public static GameObject completeLevelUI;
     // Use this for initialization
+    public AudioSource GameoverBGM;
+
+    public AudioSource GamestartBGM;
+
+    public static Camera2 camObj;
+
+    void Awake()
+    {
+        camObj = this;
+    }
+
     void Start () {
 
         goldScript2.goldIndex = 0;
@@ -27,6 +38,7 @@ public class Camera2 : MonoBehaviour {
         // goldReset = GameObject.Find("Hintground");
         // goldReset.SetActive(false);
         Time.timeScale = 1;
+        GamestartBGM.Play();
     }
     // Update is called once per frame
     void Update () {
@@ -69,6 +81,10 @@ public class Camera2 : MonoBehaviour {
 
     }
 
+     public void updateBGM()
+    {
+        GamestartBGM.Stop();
+    }
     public static void GameEnd(){
 
         GameObject[] scoreA;
@@ -99,6 +115,7 @@ public class Camera2 : MonoBehaviour {
         ScoringSystem.myScore = 0;
         mapgen.healCharacters = new List<GameObject>();
         mg.healHolderList = new List<TMP_Text>();
+        Camera2.camObj.updateBGM();
     }
 
     public void Reset()
