@@ -23,7 +23,7 @@ public class MapGeneratorEndless : MonoBehaviour {
 	public GameObject obstacle4;
 	public GameObject bladePrefab;
 	public GameObject mace;
-	public GameObject firePrefab;
+	public GameObject laserPrefab;
 
 	public GameObject character1, character2, character3;
 
@@ -57,7 +57,7 @@ public class MapGeneratorEndless : MonoBehaviour {
 		flag = true;
 		displayCharacter.Clear();
 		obstaclesSpawn.Clear();
-		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,bladePrefab,firePrefab,mace});
+		obstaclesSpawn.AddRange(new List<GameObject> {obstaclePrefab,bladePrefab,laserPrefab,mace});
 		displayCharacter.AddRange(new List<GameObject> {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z });
 		obstacle1 = GenerateObstacle(player.transform.position.x + 10);
 		obstacle2 = GenerateObstacle(obstacle1.transform.position.x);
@@ -203,8 +203,8 @@ public class MapGeneratorEndless : MonoBehaviour {
 			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(-2, 2), 0);
 
 		}
-		else if(obstacle.tag == "fire"){
-			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(-2, 2), 0);
+		else if(obstacle.tag == "laser"){
+			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(-1, 2), 0);
 		}
 	}
 
@@ -226,7 +226,7 @@ public class MapGeneratorEndless : MonoBehaviour {
 			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), 40, 0);
 
 		}
-		else if(obstacle.tag == "fire"){
+		else if(obstacle.tag == "laser"){
 			obstacle.transform.position = new Vector3(referenceX + Random.Range(minObstacleSpacing, maxObstacleSpacing), 40, 0);
 		}
 	}

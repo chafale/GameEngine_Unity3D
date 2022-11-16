@@ -106,6 +106,16 @@ public class Player : MonoBehaviour {
             //Analytics : Obstacle Mace
             PlayerPrefs.SetInt("obsMace", PlayerPrefs.GetInt("obsMace") + 1);
         }
+        if (collider.gameObject.CompareTag("laser"))
+        {
+            Debug.Log("player fire enter");
+            FindObjectOfType<Player>().TakeDamage(15);
+            sc = true;
+            showScoreAnim("Health: -15",sc);
+            StartCoroutine(GetHurt());
+            //Analytics : Obstacle Fire
+            //PlayerPrefs.SetInt("obsFire", PlayerPrefs.GetInt("obsFire") + 1);
+        }
 
         if(currentHealth <= 0)
         {
