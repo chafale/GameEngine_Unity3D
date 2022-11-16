@@ -45,9 +45,15 @@ public class SceneLoader : MonoBehaviour
 
         SceneManager.LoadScene("Endless");
     }
+    public void goToShape()
+    {
+
+        SceneManager.LoadScene("Level_Shape");
+    }
     // MainMenu scene routing
     public void LoadStartScene()
     {
         SceneManager.LoadScene("MainMenu");
     }
+
 }
