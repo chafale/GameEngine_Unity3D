@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.80732363, g: 0, b: 0.990566, a: 1}
+  m_Color: {r: 0.01886791, g: 0.018066913, b: 0.018066913, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -921,7 +921,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 34528648218a64b408a2e322f50749b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85c8639463f8e48b4a9443bc2d2313d5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3299,6 +3299,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   scoreAnimPrefab: {fileID: 2385413481178058446, guid: ed5192287082585448f207395ad656d6, type: 3}
+  healthAnimPrefab: {fileID: 0}
   animeCanvas: {fileID: 1708747845}
   player: {fileID: 1722864593}
   sc: 0
