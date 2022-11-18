@@ -74,7 +74,7 @@ public class MapGenerator_sh : MonoBehaviour {
 	}
 
 	GameObject GenerateCharacter(float start, float end, float obj1, float obj2, float obj3, float obj4) {
-		
+
 		count += 1;
 		int num;
 		GameObject obstacle;
@@ -223,6 +223,21 @@ public class MapGenerator_sh : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+		if(Input.GetKeyDown(KeyCode.I))
+    {
+			  if(player.transform.localScale.x<0.7 && player.transform.localScale.y<0.7){
+					player.transform.localScale = player.transform.localScale  + new Vector3(0.1f,0.1f,0.1f);
+				}
+    }
+
+		if(Input.GetKeyDown(KeyCode.L))
+    {
+			  if(player.transform.localScale.x>0.2 && player.transform.localScale.y>0.2){
+					player.transform.localScale = player.transform.localScale - new Vector3(0.1f,0.1f,0.1f);
+				}
+    }
+
 		GameManager_sh gameMananger = GameObject.Find("GameManager").GetComponent<GameManager_sh>();
 		if (player.transform.position.x > floor.transform.position.x - 6) {
 			var tempCeiling = prevCeiling;
