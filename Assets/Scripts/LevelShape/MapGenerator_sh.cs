@@ -227,14 +227,14 @@ public class MapGenerator_sh : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.I))
     {
 			  if(player.transform.localScale.x<0.7 && player.transform.localScale.y<0.7){
-					player.transform.localScale = player.transform.localScale  + new Vector3(0.1f,0.1f,0.1f);
+					player.transform.localScale = player.transform.localScale  + new Vector3(0.05f,0.05f,0.05f);
 				}
     }
 
 		if(Input.GetKeyDown(KeyCode.L))
     {
-			  if(player.transform.localScale.x>0.2 && player.transform.localScale.y>0.2){
-					player.transform.localScale = player.transform.localScale - new Vector3(0.1f,0.1f,0.1f);
+			  if(player.transform.localScale.x>0.15 && player.transform.localScale.y>0.15){
+					player.transform.localScale = player.transform.localScale - new Vector3(0.05f,0.05f,0.05f);
 				}
     }
 
