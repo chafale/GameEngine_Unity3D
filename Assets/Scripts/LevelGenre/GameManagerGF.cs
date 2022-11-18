@@ -117,7 +117,9 @@ public class GameManagerGF : MonoBehaviour
         for (int i = 0; i < tempWord.Length; i++)
         {
             GameObject temp = Instantiate(letterPrefab, letterHolder, false);
-            letterHolderList.Add(temp.GetComponent<TMP_Text>());
+            TMP_Text tempText = temp.GetComponent<TMP_Text>();
+            tempText.color = Color.black;
+            letterHolderList.Add(tempText);            
             GameObject temp1 = Instantiate(letterPrefab, RiddleletterHolder, false);
             RiddleletterHolderList.Add(temp1.GetComponent<TMP_Text>());
 
@@ -126,14 +128,21 @@ public class GameManagerGF : MonoBehaviour
         for (int i = 0; i < healWord.Length; i++)
         {
             GameObject temp = Instantiate(letterPrefab, healHolder, false);
-            healHolderList.Add(temp.GetComponent<TMP_Text>());
+            TMP_Text tempText = temp.GetComponent<TMP_Text>();
+            tempText.color = Color.black;
+            tempText.fontSize = 60;
+            tempText.fontStyle = FontStyles.Bold;
+            healHolderList.Add(tempText);
         }
 
         for (int i = 0; i < goWord.Length; i++)
         {
             GameObject temp1 = Instantiate(letterPrefab, goHolder, false);
-            goHolderList.Add(temp1.GetComponent<TMP_Text>());
-        }
+            TMP_Text temp1Text = temp1.GetComponent<TMP_Text>();
+            temp1Text.color = Color.black;
+            temp1Text.fontSize = 60;
+            temp1Text.fontStyle = FontStyles.Bold;
+            goHolderList.Add(temp1Text);        }
     }
 
     // To call non static methods.
