@@ -74,7 +74,9 @@ public class GameManager1 : MonoBehaviour
         for (int i = 0; i < tempWord.Length; i++)
         {
             GameObject temp = Instantiate(letterPrefab, letterHolder, false);
-            letterHolderList.Add(temp.GetComponent<TMP_Text>());
+            TMP_Text tempText = temp.GetComponent<TMP_Text>();
+            tempText.color = Color.black;
+            letterHolderList.Add(tempText);
             GameObject temp1 = Instantiate(letterPrefab, RiddleletterHolder, false);
             RiddleletterHolderList.Add(temp1.GetComponent<TMP_Text>());
         }
