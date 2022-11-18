@@ -97,7 +97,9 @@ public class GameManager2 : MonoBehaviour
         for (int i = 0; i < tempWord.Length; i++)
         {
             GameObject temp = Instantiate(letterPrefab, letterHolder, false);
-            letterHolderList.Add(temp.GetComponent<TMP_Text>());
+            TMP_Text tempText = temp.GetComponent<TMP_Text>();
+            tempText.color = Color.black;
+            letterHolderList.Add(tempText);
             GameObject temp1 = Instantiate(letterPrefab, RiddleletterHolder, false);
             RiddleletterHolderList.Add(temp1.GetComponent<TMP_Text>());
 
@@ -106,7 +108,11 @@ public class GameManager2 : MonoBehaviour
         for (int i = 0; i < healWord.Length; i++)
         {
             GameObject temp = Instantiate(letterPrefab, healHolder, false);
-            healHolderList.Add(temp.GetComponent<TMP_Text>());
+            TMP_Text tempText = temp.GetComponent<TMP_Text>();
+            tempText.color = Color.black;
+            tempText.fontSize = 60;
+            tempText.fontStyle = FontStyles.Bold;
+            healHolderList.Add(tempText);
         }
     }
 

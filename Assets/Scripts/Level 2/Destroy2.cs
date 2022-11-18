@@ -255,7 +255,11 @@ public class Destroy2 : MonoBehaviour
                 for (int i = 0; i < 4; i++)
                 {
                     GameObject temp = Instantiate(gameManager.letterPrefab, gameManager.healHolder, false);
-                    mg.healHolderList.Add(temp.GetComponent<TMP_Text>());
+                    TMP_Text tempText = temp.GetComponent<TMP_Text>();
+                    tempText.color = Color.black;
+                    tempText.fontSize = 60;
+                    tempText.fontStyle = FontStyles.Bold;
+                    mg.healHolderList.Add(tempText);
                     Debug.Log("mg.healHolderList: " +  mg.healHolderList.Count);
                 }
 
