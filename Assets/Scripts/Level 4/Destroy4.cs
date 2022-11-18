@@ -265,7 +265,11 @@ public class Destroy4 : MonoBehaviour
                 for (int i = 0; i < 4; i++)
                 {
                     GameObject temp = Instantiate(gameManager.letterPrefab, gameManager.healHolder, false);
-                    mg.healHolderList.Add(temp.GetComponent<TMP_Text>());
+                    TMP_Text tempText = temp.GetComponent<TMP_Text>();
+                    tempText.color = Color.black;
+                    tempText.fontSize = 60;
+                    tempText.fontStyle = FontStyles.Bold;
+                    mg.healHolderList.Add(tempText);
                     Debug.Log("mg.healHolderList: " +  mg.healHolderList.Count);
                 }
 
@@ -293,7 +297,11 @@ public class Destroy4 : MonoBehaviour
                 for (int i = 0; i < 2; i++)
                 {
                     GameObject temp = Instantiate(gameManager.letterPrefab, gameManager.goHolder, false);
-                    mg.goHolderList.Add(temp.GetComponent<TMP_Text>());
+                    TMP_Text tempText = temp.GetComponent<TMP_Text>();
+                    tempText.color = Color.black;
+                    tempText.fontSize = 60;
+                    tempText.fontStyle = FontStyles.Bold;
+                    mg.goHolderList.Add(tempText);
                 }
                 gameManager.goCollected = true;
                 gameManager.goText.text = "Obstacles will be eliminated for some time";
