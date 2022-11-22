@@ -5554,9 +5554,9 @@ MonoBehaviour:
   obstacle2: {fileID: 0}
   obstacle3: {fileID: 0}
   obstacle4: {fileID: 0}
-  bladePrefab: {fileID: 8016871299957817026, guid: baaefbbe1a6c4470f9f915647b6c5618, type: 3}
-  mace: {fileID: 8016871299957817026, guid: 6c8a7504d0fa34939893acd65e8290a7, type: 3}
-  firePrefab: {fileID: 498014882596820967, guid: 0743797dd588340f5a004fc820052b3f, type: 3}
+  bladePrefab: {fileID: 8016871299957817026, guid: 3fc47e45b4bc349ec95de0a2ebfddcb4, type: 3}
+  mace: {fileID: 8016871299957817026, guid: d5c80c8e6de094b19beaf89c721db466, type: 3}
+  firePrefab: {fileID: 498014882596820967, guid: bd9ba1992e7f24eb592a125cbe8ca3ff, type: 3}
   character1: {fileID: 0}
   character2: {fileID: 0}
   character3: {fileID: 0}
@@ -5566,7 +5566,7 @@ MonoBehaviour:
   healthUpObject: {fileID: 1801001809952329807, guid: c5c1e030fde0f441b95b6f7aee19655d, type: 3}
   splitObject: {fileID: 4603214084831550269, guid: 27b0bd044b00d4a988b9319ce99f57a0, type: 3}
   invisibleObject: {fileID: 8188863263824143127, guid: b95c4f1713a15491586d523f54725cbc, type: 3}
-  obstaclePrefab: {fileID: 1130431016740994, guid: 4f29d0d0d3d5190409d2d05756c134f6, type: 3}
+  obstaclePrefab: {fileID: 1130431016740994, guid: 98c7a5631112c4c8bb49c20f65ab91ba, type: 3}
   A: {fileID: 195844281613412553, guid: b31e0dd94a4b7488eb19ea1ebd521b7e, type: 3}
   B: {fileID: 530938983474132534, guid: 9cf6c1fea92ee4b43a77423b0244186b, type: 3}
   C: {fileID: 8866982497739399286, guid: 3c5b4d6664bc44855a0bfb727e213ee2, type: 3}

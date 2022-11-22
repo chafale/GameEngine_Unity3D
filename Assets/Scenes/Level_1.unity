@@ -4013,13 +4013,13 @@ MonoBehaviour:
   obstacle2: {fileID: 0}
   obstacle3: {fileID: 0}
   obstacle4: {fileID: 0}
-  bladePrefab: {fileID: 8016871299957817026, guid: baaefbbe1a6c4470f9f915647b6c5618, type: 3}
+  bladePrefab: {fileID: 8016871299957817026, guid: 6fe16cf9e7cb941e887efde48deca327, type: 3}
   character1: {fileID: 0}
   character2: {fileID: 0}
   character3: {fileID: 0}
   hintObject: {fileID: 1367839526414575666, guid: 05f1f63cf36564fa3806741a6b699c47, type: 3}
   invisibleObject: {fileID: 8188863263824143127, guid: cfec838a6db4b4acdbcd0067484e67e8, type: 3}
-  obstaclePrefab: {fileID: 1130431016740994, guid: 4f29d0d0d3d5190409d2d05756c134f6, type: 3}
+  obstaclePrefab: {fileID: 1130431016740994, guid: 1acb84c6c5741424abafc2c38c7bb43e, type: 3}
   A: {fileID: 195844281613412553, guid: 1a0aa93eb88b34810909a38938b4328a, type: 3}
   B: {fileID: 530938983474132534, guid: 0c758788fc9c0448998404a9d8d496a4, type: 3}
   C: {fileID: 8866982497739399286, guid: 6e274423f71f549968c169dcadaaba1d, type: 3}
