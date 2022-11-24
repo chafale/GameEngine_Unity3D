@@ -60,7 +60,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Endless");
     }
-    // level shape routing
+    // level shape re routing to level shape
     public void goToLevel_Shape()
     {
         Time.timeScale = 1f;
