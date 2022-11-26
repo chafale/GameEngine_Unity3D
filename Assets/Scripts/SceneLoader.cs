@@ -39,6 +39,12 @@ public class SceneLoader : MonoBehaviour
 
         SceneManager.LoadScene("Tutorial");
     }
+    // Tutorial Size routing
+    public void goToSizeTutorial()
+    {
+
+        SceneManager.LoadScene("Tutorial SizeChange");
+    }
     // Endless runner scene
     public void goToEndless()
     {
