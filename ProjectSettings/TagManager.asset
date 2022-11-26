@@ -55,6 +55,7 @@ TagManager:
   - HealthAnim
   - ScoreAnim
   - TutorialBacktohome
+  - Guesstext
   layers:
   - Default
   - TransparentFX
