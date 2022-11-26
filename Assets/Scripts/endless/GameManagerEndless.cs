@@ -194,6 +194,8 @@ public class GameManagerEndless : MonoBehaviour
         }
         if(update){
             riddle.text = gs.goldList[0].ToString();
+            hint.text = "";
+            gs.goldIndex=1;
 
             string tempWord = wordList[index];
             char inputLetter_new;

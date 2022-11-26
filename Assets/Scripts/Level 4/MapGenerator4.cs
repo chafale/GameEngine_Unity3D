@@ -74,7 +74,7 @@ public class MapGenerator4 : MonoBehaviour {
 	}
 
 	GameObject GenerateCharacter(float start, float end, float obj1, float obj2, float obj3, float obj4) {
-		
+
 		count += 1;
 		int num;
 		GameObject obstacle;
@@ -111,7 +111,7 @@ public class MapGenerator4 : MonoBehaviour {
 			// Debug.Log("In autofill object generation");
 			obstacle = GameObject.Instantiate(autofillObject);
 		}
-		else if(count%13 == 0 && HealthBar.healthObj.slider.value<=75)
+		else if(count%13 == 0)
 		{
 			// Debug.Log("In Healthup object generation");
 			obstacle = GameObject.Instantiate(healthUpObject);

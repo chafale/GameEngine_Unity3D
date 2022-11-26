@@ -110,7 +110,7 @@ public class MapGeneratorGF : MonoBehaviour {
 			// Debug.Log("In autofill object generation");
 			obstacle = GameObject.Instantiate(autofillObject);
 		}
-		else if(count%13 == 0 && HealthBar.healthObj.slider.value<=75)
+		else if(count%13 == 0)
 		{
 			// Debug.Log("In Healthup object generation");
 			obstacle = GameObject.Instantiate(healthUpObject);
