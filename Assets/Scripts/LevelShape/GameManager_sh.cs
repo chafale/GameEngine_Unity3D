@@ -114,8 +114,8 @@ public class GameManager_sh : MonoBehaviour
         {
             GameObject temp = Instantiate(letterPrefab, letterHolder, false);
             letterHolderList.Add(temp.GetComponent<TMP_Text>());
-            GameObject temp1 = Instantiate(letterPrefab, RiddleletterHolder, false);
-            RiddleletterHolderList.Add(temp1.GetComponent<TMP_Text>());
+            // GameObject temp1 = Instantiate(letterPrefab, RiddleletterHolder, false);
+            // RiddleletterHolderList.Add(temp1.GetComponent<TMP_Text>());
 
         }
 
