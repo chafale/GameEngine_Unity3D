@@ -12,7 +12,6 @@ public class goldScript4 : MonoBehaviour
     public static string [][] hint_array = new string[][] {
                                                 new string[] {"The more you take, the more you leave behind. What am I?","It comes in various sizes","Also has various patterns","Most observed by detectives"},
                                                 new string[] {"What is black when you buy it, red when you use it, and gray when you throw it away?","Often comes in small pieces","To use it you burn it","Rare earth resource"},
-                                                new string[] {"Before Mount Everest was discovered, what was the highest mountain on Earth?","Read the question again","You can not change what it is","Think logically"},
                                                 new string[] {"Poor people have it. Rich people need it. If you eat it, you will eventually die. What is it?","It is a *thing*","What do you eat while you sleep","What do you have if you lose everything you have"},
                                                 new string[] {"What can you break, even if you never pick it up or touch it?","Other might get hurt if you break me","Word of honor","I am often asked before sharing secrets"},
                                                 new string[] {"What is light as a feather, yet no man can hold it for very long?","You can not touch it","You can feel it","You need it for survival"},

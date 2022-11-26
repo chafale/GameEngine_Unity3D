@@ -13,7 +13,7 @@ public class GameManagerEndless : MonoBehaviour
                                         "GLOVE","COIN","NINE","KEY","CANDLE","FUTURE","QUEUE","PIANO","STARS",
                                         "CLOCK","CLOUDS","COFFIN","SKULL","JOKES","BATTERY","UMBRELLA","DOORBELL",
                                         "NOTHING","ALPHABET","DARKNESS","CHICAGO","SHADOW","SILENCE","LIBRARY",
-                                        "FOOTSTEPS","CHARCOAL","MOUNT-EVEREST","NOTHING","PROMISE","YOURBREATH","DARKNESS","SILENCE"
+                                        "FOOTSTEPS","CHARCOAL","NOTHING","PROMISE","YOURBREATH","DARKNESS","SILENCE"
                                       };
     // public  static string[] hintList = {"Most Adopted Pet"};
     public static List<char> solvedList = new List<char>();

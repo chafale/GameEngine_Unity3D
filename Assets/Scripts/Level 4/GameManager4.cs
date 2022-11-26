@@ -8,7 +8,7 @@ using mg = MapGenerator4;
 
 public class GameManager4 : MonoBehaviour
 {
-    public  static string[] wordList = {"FOOTSTEPS","CHARCOAL","MOUNT-EVEREST","NOTHING","PROMISE","YOURBREATH","DARKNESS","SILENCE"};
+    public  static string[] wordList = {"FOOTSTEPS","CHARCOAL","NOTHING","PROMISE","YOURBREATH","DARKNESS","SILENCE"};
     public static List<char> solvedList = new List<char>();
     public  static List<TMP_Text> letterHolderList = new List<TMP_Text>();
     public  static List<TMP_Text> healHolderList = new List<TMP_Text>();
@@ -174,7 +174,7 @@ public class GameManager4 : MonoBehaviour
             L4Canvas.SetActive(false);
             RiddleCanvas.SetActive(true);
             count++;
-        } 
+        }
         else if(count == 1 && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Continue Bar 2 was pressed");
