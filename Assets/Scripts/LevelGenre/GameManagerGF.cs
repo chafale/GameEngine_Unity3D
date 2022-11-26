@@ -119,9 +119,16 @@ public class GameManagerGF : MonoBehaviour
             GameObject temp = Instantiate(letterPrefab, letterHolder, false);
             TMP_Text tempText = temp.GetComponent<TMP_Text>();
             tempText.color = Color.black;
-            letterHolderList.Add(tempText);            
+            if(tempWord[i]=='-'){
+              tempText.text = "-";
+            }
+            letterHolderList.Add(tempText);
             GameObject temp1 = Instantiate(letterPrefab, RiddleletterHolder, false);
-            RiddleletterHolderList.Add(temp1.GetComponent<TMP_Text>());
+            TMP_Text tempText1 = temp1.GetComponent<TMP_Text>();
+            if(tempWord[i]=='-'){
+              tempText1.text = "-";
+            }
+            RiddleletterHolderList.Add(tempText1);
 
         }
 
@@ -177,7 +184,7 @@ public class GameManagerGF : MonoBehaviour
             LGFCanvas.SetActive(false);
             RiddleCanvas.SetActive(true);
             count++;
-        } 
+        }
         else if(count == 1 && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Continue Bar 2 was pressed");
