@@ -3986,7 +3986,7 @@ MonoBehaviour:
   HintAudioPlayer: {fileID: 1042222438}
   PowerAudioPlayer: {fileID: 1675843794}
   WinAudioPlayer: {fileID: 586814607}
-  LoseAudioPlayer: {fileID: 0}
+  LoseAudioPlayer: {fileID: 1690851741}
   CorrectLetterAudioPlayer: {fileID: 1214903895}
   WrongLetterAudioPlayer: {fileID: 1334915678}
 --- !u!1 &965957116
@@ -7592,7 +7592,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e39f4e6dcd1504aa097f992b6b20fa7b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

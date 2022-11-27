@@ -34,9 +34,9 @@ public class gameStatus4 : MonoBehaviour
 
         if (FindObjectOfType<Player>().currentHealth <= 0 )
         {  
+            mg.gamag.LoseAudioPlayer.Play();
             Debug.Log("Game end health: "+ FindObjectOfType<Player>().currentHealth);
             statusText.text = "Game Over! :( \n\n The correct word was : " + mg.correct_word + "\nScore : " + ScoringSystem.myScore;
-
             // Analytics : winStatus, score
             PlayerPrefs.SetInt("winStatus", 0);
             PlayerPrefs.SetInt("score", ScoringSystem.myScore);

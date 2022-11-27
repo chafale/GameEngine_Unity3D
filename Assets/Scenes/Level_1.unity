@@ -1907,7 +1907,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e39f4e6dcd1504aa097f992b6b20fa7b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3196,7 +3196,7 @@ MonoBehaviour:
   HintAudioPlayer: {fileID: 676454380}
   PowerAudioPlayer: {fileID: 267908479}
   WinAudioPlayer: {fileID: 1115311079}
-  LoseAudioPlayer: {fileID: 0}
+  LoseAudioPlayer: {fileID: 556587711}
   CorrectLetterAudioPlayer: {fileID: 1181576735}
   WrongLetterAudioPlayer: {fileID: 119382532}
 --- !u!1 &990631506
@@ -5947,7 +5947,6 @@ MonoBehaviour:
   animeCanvas: {fileID: 1708747845}
   player: {fileID: 1722864593}
   ObstacleAudioPlayer: {fileID: 258525762}
-  HintAudioPlayer: {fileID: 676454380}
   sc: 0
 --- !u!212 &1722864600
 SpriteRenderer:
