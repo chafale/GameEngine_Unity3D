@@ -34,16 +34,15 @@ public class GameManager3 : MonoBehaviour
     public static List<char> goList = new List<char>{'G', 'O'};
     public static string goWord = "GO";
     [SerializeField] GameObject scoreAnimPrefab;
-
     public  static List<TMP_Text> RiddleletterHolderList = new List<TMP_Text>();
     public  Transform RiddleletterHolder;
     public bool check = true;
     public TMP_Text RiddleCanvasriddle;
     public  GameObject RiddleCanvas;
     public  GameObject L3Canvas;
-
     public int count = 0;
-
+    public AudioSource HintAudioPlayer, PowerAudioPlayer, WinAudioPlayer, LoseAudioPlayer, CorrectLetterAudioPlayer, WrongLetterAudioPlayer;
+    
     void Start(){
         GoPopup.SetActive(false);
         mg.correctCharacters.Clear();

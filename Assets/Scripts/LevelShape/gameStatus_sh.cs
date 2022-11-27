@@ -44,7 +44,9 @@ public class gameStatus_sh : MonoBehaviour
             // Camera_sh.GameEnd();
         }
         else
-        { //when player wins
+        { 
+            //when player wins
+            mg.gamag.WinAudioPlayer.Play();
             statusText.text = "Congratulations! You Win!\n\n Score : " + ScoringSystem.myScore;
 
             // Analytics : winStatus, score

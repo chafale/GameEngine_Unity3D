@@ -60,6 +60,7 @@ public class Destroy3 : MonoBehaviour
             // Health bar increase power up if letter = #
             if(inputLetter=='#')
             {
+                mg.gamag.PowerAudioPlayer.Play();
                 // Analytics : Medical Kit Power-up
                 PlayerPrefs.SetInt("medKitPowerUp", PlayerPrefs.GetInt("medKitPowerUp") + 1);
 
@@ -74,6 +75,7 @@ public class Destroy3 : MonoBehaviour
             // Autofill the first uncaught character if letter = $
             else if(inputLetter == '$')
             {
+                mg.gamag.PowerAudioPlayer.Play();
                 // Analytics : Autofill Power-up capture
                 PlayerPrefs.SetInt("autofillPowerUp", PlayerPrefs.GetInt("autofillPowerUp") + 1);
 
@@ -118,6 +120,7 @@ public class Destroy3 : MonoBehaviour
             // Speed up player if letter = @
             else if(inputLetter=='@')
             {
+                mg.gamag.PowerAudioPlayer.Play();
                 // Analytics : Speed Power-up
                 PlayerPrefs.SetInt("speedPowerUp",PlayerPrefs.GetInt("speedPowerUp") + 1);
 
@@ -128,8 +131,8 @@ public class Destroy3 : MonoBehaviour
             // Hint PopUp if letter = *
             else if(inputLetter=='*')
             {
+                mg.gamag.HintAudioPlayer.Play();
                 mg.hints-=1;
-
                 // Analytics : hints
                 PlayerPrefs.SetInt("hintsCollected",PlayerPrefs.GetInt("hintsCollected") + 1);
 
@@ -150,6 +153,7 @@ public class Destroy3 : MonoBehaviour
                 {
                     if(mg.solvedList[i] == inputLetter){
                         Debug.Log("Ayush");
+                        mg.gamag.CorrectLetterAudioPlayer.Play();
                         mg.letterHolderList[i].text = inputLetter.ToString();
                         var index = mapgen.displayCharacter.FindIndex(i => i.tag == gameObject.tag);
                         if (index >= 0) {
@@ -207,6 +211,7 @@ public class Destroy3 : MonoBehaviour
                 {
                     // LivesScript.lives -= 1;
                     // when health has decreased to zero
+                    mg.gamag.WrongLetterAudioPlayer.Play();
                     FindObjectOfType<Player>().TakeDamage(10);
                     sc_incorrect  = true;
                     FindObjectOfType<Player>().showScoreAnim("Wrong Letter: -10 ",sc_incorrect);

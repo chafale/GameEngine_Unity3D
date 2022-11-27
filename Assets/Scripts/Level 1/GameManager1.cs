@@ -35,6 +35,8 @@ public class GameManager1 : MonoBehaviour
     public GameObject RiddleCanvas;
     public  GameObject L1Canvas;
     public int count = 0;
+    public AudioSource HintAudioPlayer, PowerAudioPlayer, WinAudioPlayer, LoseAudioPlayer, CorrectLetterAudioPlayer, WrongLetterAudioPlayer;
+
     void Start(){
         mg.correctCharacters.Clear();
         chars.Clear();

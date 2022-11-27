@@ -44,6 +44,7 @@ public class gameStatusGF : MonoBehaviour
         }
         else
         { //when player wins
+            mg.gamag.WinAudioPlayer.Play();
             statusText.text = "Congratulations! You Win!\n\n Score : " + ScoringSystem.myScore;
 
             // Analytics : winStatus, score
