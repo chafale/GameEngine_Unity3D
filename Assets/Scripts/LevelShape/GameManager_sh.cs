@@ -48,8 +48,8 @@ public class GameManager_sh : MonoBehaviour
     public TMP_Text RiddleCanvasriddle;
     public GameObject RiddleCanvas;
     public GameObject L_shCanvas;
-
     public int count = 0;
+    public AudioSource HintAudioPlayer, PowerAudioPlayer, WinAudioPlayer, LoseAudioPlayer, CorrectLetterAudioPlayer, WrongLetterAudioPlayer;
 
     void Start(){
         HealPopup.SetActive(false);

@@ -21,8 +21,7 @@ public class Player : MonoBehaviour {
     public GameObject player;
     public static int playerSpeed;
     private Renderer test;
-
-
+    public AudioSource ObstacleAudioPlayer;
     public bool sc = false;
     // Use this for initialization
     void Start () {
@@ -62,7 +61,7 @@ public class Player : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider collider) {
-
+        ObstacleAudioPlayer.Play();
         if (collider.gameObject.CompareTag("blade"))
         {
             Debug.Log("player blade enter");
@@ -127,7 +126,6 @@ public class Player : MonoBehaviour {
             gameOver = true;
             body.isKinematic = true;
         }
-
     }
 
     public void TakeDamage(int damage)

@@ -7,7 +7,6 @@ using Unity.VisualScripting;
 using des = Destroy1;
 using mg = GameManager1;
 
-
 public class gameStatus1 : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -35,6 +34,7 @@ public class gameStatus1 : MonoBehaviour
         
         if (FindObjectOfType<Player>().currentHealth <= 0 )
         {
+            mg.gamag.LoseAudioPlayer.Play();
             Debug.Log("Game end health: "+ FindObjectOfType<Player>().currentHealth);
             statusText.text = "Game Over! :( \n\n The correct word was : " + mg.correct_word + "\nScore : " + ScoringSystem.myScore;
 
@@ -47,7 +47,8 @@ public class gameStatus1 : MonoBehaviour
         else
         { //when player wins
             statusText.text = "Congratulations! You Win! \n\n Score : " + ScoringSystem.myScore;
-
+            mg.gamag.WinAudioPlayer.Play();
+            // pl.plobj.WinAudioPlayer.Play();
             // Analytics : winStatus, score
             PlayerPrefs.SetInt("winStatus", 1);
             PlayerPrefs.SetInt("score", ScoringSystem.myScore);

@@ -44,7 +44,8 @@ public class GameManager2 : MonoBehaviour
     public  GameObject L2Canvas;
 
     public int count = 0;
-
+    public AudioSource HintAudioPlayer, PowerAudioPlayer, WinAudioPlayer, LoseAudioPlayer, CorrectLetterAudioPlayer, WrongLetterAudioPlayer;
+    
     void Start(){
 
         HealPopup.SetActive(false);
