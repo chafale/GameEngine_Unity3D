@@ -122,13 +122,23 @@ public class GameManager_sh : MonoBehaviour
         for (int i = 0; i < healWord.Length; i++)
         {
             GameObject temp = Instantiate(letterPrefab, healHolder, false);
-            healHolderList.Add(temp.GetComponent<TMP_Text>());
+            TMP_Text tempText = temp.GetComponent<TMP_Text>();
+            tempText.color = Color.black;
+            tempText.fontSize = 100;
+            tempText.fontStyle = FontStyles.Bold;
+            healHolderList.Add(tempText);
+            // healHolderList.Add(temp.GetComponent<TMP_Text>());
         }
 
         for (int i = 0; i < goWord.Length; i++)
         {
             GameObject temp1 = Instantiate(letterPrefab, goHolder, false);
-            goHolderList.Add(temp1.GetComponent<TMP_Text>());
+            TMP_Text temp1Text = temp1.GetComponent<TMP_Text>();
+            temp1Text.color = Color.black;
+            temp1Text.fontSize = 100;
+            temp1Text.fontStyle = FontStyles.Bold;
+            goHolderList.Add(temp1Text);
+            // goHolderList.Add(temp1.GetComponent<TMP_Text>());
         }
     }
 
