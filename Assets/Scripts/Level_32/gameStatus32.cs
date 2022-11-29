@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 using des = Destroy32;
 using mg = GameManager32;
 
-
+// for level_32
 public class gameStatus32 : MonoBehaviour
 {
     // Start is called before the first frame update
