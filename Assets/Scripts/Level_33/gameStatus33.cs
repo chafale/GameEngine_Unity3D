@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 using des = Destroy33;
 using mg = GameManager33;
 
-
+// for level_33
 public class gameStatus33 : MonoBehaviour
 {
     // Start is called before the first frame update
