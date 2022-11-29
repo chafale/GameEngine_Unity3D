@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class goldScript3 : MonoBehaviour
+public class goldScript32 : MonoBehaviour
 {
     public static int goldIndex;
     public static int currGoldIndex;
@@ -23,13 +23,13 @@ public class goldScript3 : MonoBehaviour
                                                 //DARKNESS
                                                 new string[] {"The more of this there is, the less you see. What is it?", "You are surrounded by me in a cave", "Some people fear me", "I am present at night"},
                                                 //CHICAGO
-                                                //new string[] {"What is 3/7th chicken, 2/3th cat and 2/4th goat?","Do math of the words","The letters you have to collect are in the question","I am a famous city"},
+                                                new string[] {"What is 3/7th chicken, 2/3th cat and 2/4th goat?","Do math of the words","The letters you have to collect are in the question","I am a famous city"},
                                                 //SHADOW
-                                                //new string[] {"I follow you all the time and copy your every move, but you can’t touch me or catch me. What am I?","I am as big as you are and yet do not weigh anything?", "I can only live where there is light, but I die if the light shines on me.", "I nearly perish after the midday sun."},
+                                                new string[] {"I follow you all the time and copy your every move, but you can’t touch me or catch me. What am I?","I am as big as you are and yet do not weigh anything?", "I can only live where there is light, but I die if the light shines on me.", "I nearly perish after the midday sun."},
                                                 //SILENCE
-                                                //new string[] {"What is so fragile that saying its name breaks it?", "I am there when you are quiet but I disappear when you speak", "I am the opposite of noise", "I am present in a library"},
+                                                new string[] {"What is so fragile that saying its name breaks it?", "I am there when you are quiet but I disappear when you speak", "I am the opposite of noise", "I am present in a library"},
                                                 //LIBRARY
-                                                //new string[] {"What building has the most stories?", "I contain a lot of books", "People come here to study", "Preferred to be a silent zone"}
+                                                new string[] {"What building has the most stories?", "I contain a lot of books", "People come here to study", "Preferred to be a silent zone"}
                                                         };
 
     [SerializeField] public static TextMeshProUGUI goldText;
@@ -37,12 +37,12 @@ public class goldScript3 : MonoBehaviour
     public static string[] goldList;
 
     public static void assign_values(){
-        goldList = hint_array[GameManager3.index];
+        goldList = hint_array[GameManager32.index];
         // Debug.Log(goldIndex);
         // Debug.Log(goldList);
     }
 
-    public static goldScript3 goldObj;
+    public static goldScript32 goldObj;
     void Awake()
     {
         goldObj = this;
