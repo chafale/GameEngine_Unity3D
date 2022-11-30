@@ -3460,7 +3460,7 @@ MonoBehaviour:
   goText: {fileID: 275686209}
   letterHolder: {fileID: 191071542}
   goHolder: {fileID: 1580546183}
-  hint: {fileID: 1420289909}
+  hint: {fileID: 250761867}
   instance: {fileID: 20628467}
   A: {fileID: 195844281613412553, guid: 5bf7de1aa3dd841279ad5367396d5ea0, type: 3}
   B: {fileID: 530938983474132534, guid: 444e0ec21b2ea41ab8f20762b120a493, type: 3}

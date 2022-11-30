@@ -3947,7 +3947,7 @@ MonoBehaviour:
   letterHolder: {fileID: 191071542}
   healHolder: {fileID: 1624168690}
   goHolder: {fileID: 1005737751}
-  hint: {fileID: 1420289909}
+  hint: {fileID: 250761867}
   instance: {fileID: 20628467}
   A: {fileID: 195844281613412553, guid: a132e8db042dd4fefa6dce9add5db1bd, type: 3}
   B: {fileID: 530938983474132534, guid: 3129b21c16ac544a9b03921e199ed0c8, type: 3}
