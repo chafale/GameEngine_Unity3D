@@ -25,29 +25,80 @@ public class PauseMenu : MonoBehaviour
     }
     // restart functionality
     // level one routing
-    public void goToLevel_One()
+    public void goToLevel_OneOne()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Level_1");
+        SceneManager.LoadScene("Level_1.1");
     }
     // level two restart routing
-    public void goToLevel_Two()
+    public void goToLevel_TwoOne()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Level_2");
     }
     // level three restart routing
-    public void goToLevel_Three()
+    public void goToLevel_ThreeOne()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Level_3");
     }
     // level four restart routing
-    public void goToLevel_Four()
+    public void goToLevel_FourOne()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Level_4");
     }
+
+    public void goToLevel_OneTwo()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_1.2");
+    }
+    // level two restart routing
+    public void goToLevel_TwoTwo()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_2_2");
+    }
+    // level three restart routing
+    public void goToLevel_ThreeTwo()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_32");
+    }
+    // level four restart routing
+    public void goToLevel_FourTwo()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_42");
+    }
+
+    public void goToLevel_OneThree()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_1.3");
+    }
+    // level two restart routing
+    public void goToLevel_TwoThree()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_2_3");
+    }
+    // level three restart routing
+    public void goToLevel_ThreeThree()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_33");
+    }
+    // level four restart routing
+    public void goToLevel_FourThree()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_43");
+    }
+
+
+
     // level genre restart routing
     public void goToLevel_Genre()
     {

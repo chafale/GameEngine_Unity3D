@@ -9,36 +9,54 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 03a3553b0a8ee4413819f0e9e6726058
   - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: c36b4f00dc2c46e4ba43f4b5b11d24c6
-  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 64d78a8991a02486d9a0d6277f8e69cb
+  - enabled: 1
+    path: Assets/Scenes/Tutorial SizeChange.unity
+    guid: 582bf1fb62e7849d8b62d79c27db4e43
   - enabled: 1
     path: Assets/Scenes/Level_1.1.unity
     guid: f364171c1478f4e82b816f3d7e792cf8
   - enabled: 1
-    path: Assets/Scenes/endless.unity
-    guid: 223fb2192a166493782878b66b4b6796
+    path: Assets/Scenes/Level_1.2.unity
+    guid: 79f5fb46e67794d5288683d8e71030d6
   - enabled: 1
-    path: Assets/Scenes/Level_3.unity
-    guid: d94f4a56bf2d24e6a8e3a97f64502237
+    path: Assets/Scenes/Level_1.3.unity
+    guid: 4134d8f26b7044bbebc4c8346239faae
   - enabled: 1
     path: Assets/Scenes/Level_2.unity
     guid: c256a6ece7a7b42e4b452b325b45f6b5
   - enabled: 1
-    path: Assets/Scenes/Level_4.unity
-    guid: 41f9e2c9c0ab34fefb69df8ec63be3d7
+    path: Assets/Scenes/Level_2_1.unity
+    guid: 7d083d5733dc64b7e9a643ebf85f0e3b
   - enabled: 1
-    path: Assets/Scenes/Level_Genre.unity
-    guid: 2fd6612918c784af88a1c381cbe9db02
+    path: Assets/Scenes/Level_2_2.unity
+    guid: 6f99abaa950f04febb3abc4d3bc6c3d2
   - enabled: 1
-    path: Assets/Scenes/Level_Shape.unity
-    guid: 933e348fc09e344579610e0ecee6d20f
+    path: Assets/Scenes/Level_3.unity
+    guid: d94f4a56bf2d24e6a8e3a97f64502237
   - enabled: 1
     path: Assets/Scenes/Level_32.unity
     guid: 44f9023c52bfa4d4c9890661733e7efb
   - enabled: 1
     path: Assets/Scenes/Level_33.unity
     guid: 797ed65a88e094b41879c0789bc24ab9
+  - enabled: 1
+    path: Assets/Scenes/Level_4.unity
+    guid: 41f9e2c9c0ab34fefb69df8ec63be3d7
+  - enabled: 1
+    path: Assets/Scenes/Level_42.unity
+    guid: e5df6bb33ce134a339b5ddac7d982ce7
+  - enabled: 1
+    path: Assets/Scenes/Level_43.unity
+    guid: 216cf6a751508445f8ec7a054a9ed641
+  - enabled: 1
+    path: Assets/Scenes/Level_Genre.unity
+    guid: 2fd6612918c784af88a1c381cbe9db02
+  - enabled: 1
+    path: Assets/Scenes/endless.unity
+    guid: 223fb2192a166493782878b66b4b6796
+  - enabled: 1
+    path: Assets/Scenes/Level_Shape.unity
+    guid: 933e348fc09e344579610e0ecee6d20f
   m_configObjects: {}
