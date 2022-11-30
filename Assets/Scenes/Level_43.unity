@@ -3944,9 +3944,9 @@ MonoBehaviour:
   healCollected: 0
   healText: {fileID: 726527585}
   goText: {fileID: 1927149771}
-  letterHolder: {fileID: 1005737751}
-  healHolder: {fileID: 191071542}
-  goHolder: {fileID: 1497395190}
+  letterHolder: {fileID: 191071542}
+  healHolder: {fileID: 1624168690}
+  goHolder: {fileID: 1005737751}
   hint: {fileID: 250761867}
   instance: {fileID: 20628467}
   A: {fileID: 195844281613412553, guid: 6a468e0ed6fa54f0499df9d74dce902f, type: 3}
@@ -4214,7 +4214,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1343208477}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: goToLevel_Four
+        m_MethodName: goToLevel_FourThree
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5832,7 +5832,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1365853672}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: goToLevel_Four
+        m_MethodName: goToLevel_FourThree
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
