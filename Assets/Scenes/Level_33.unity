@@ -1747,7 +1747,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1143689671}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: goToLevel_Three
+        m_MethodName: goToLevel_ThreeThree
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5076,7 +5076,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1365853672}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: goToLevel_Three
+        m_MethodName: goToLevel_ThreeThree
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7647,7 +7647,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2029664231}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: goToLevel_Four
+        m_MethodName: goToLevel_FourOne
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
