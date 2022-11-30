@@ -58,7 +58,7 @@ public class PauseMenu : MonoBehaviour
     public void goToLevel_TwoTwo()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Level_2_2");
+        SceneManager.LoadScene("Level_2_1");
     }
     // level three restart routing
     public void goToLevel_ThreeTwo()
@@ -82,7 +82,7 @@ public class PauseMenu : MonoBehaviour
     public void goToLevel_TwoThree()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Level_2_3");
+        SceneManager.LoadScene("Level_2_2");
     }
     // level three restart routing
     public void goToLevel_ThreeThree()

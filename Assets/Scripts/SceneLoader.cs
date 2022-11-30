@@ -33,13 +33,13 @@ public class SceneLoader : MonoBehaviour
     public void goToLevel_TwoTwo()
     {
 
-        SceneManager.LoadScene("Level_2_2");
+        SceneManager.LoadScene("Level_2_1");
     }
 
     public void goToLevel_TwoThree()
     {
 
-        SceneManager.LoadScene("Level_2_3");
+        SceneManager.LoadScene("Level_2_2");
     }
 
     public void goToLevel_ThreeOne()
