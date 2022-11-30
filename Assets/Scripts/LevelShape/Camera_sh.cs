@@ -62,7 +62,7 @@ public class Camera_sh : MonoBehaviour {
             GameEnd();
             Debug.Log("I am health here");
         }
-        
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Debug.Log("Space key was pressed.");
@@ -89,11 +89,11 @@ public class Camera_sh : MonoBehaviour {
 
         foreach (GameObject scoreAnim in scoreA)
         {
-            scoreAnim.SetActive(false);  
+            scoreAnim.SetActive(false);
         }
         foreach (GameObject healthAnim in healthA)
         {
-            healthAnim.SetActive(false);    
+            healthAnim.SetActive(false);
         }
         // GameObject.Find("Background").SetActive(true);
         mg.solvedList = new List<char>();
@@ -114,7 +114,7 @@ public class Camera_sh : MonoBehaviour {
         mg.healHolderList = new List<TMP_Text>();
         mg.goHolderList = new List<TMP_Text>();
         mapgen.activateColorChange = 0;
-        CameraGF.camObj.updateBGM();
+        Camera_sh.camObj.updateBGM();
     }
     public void Reset()
     {

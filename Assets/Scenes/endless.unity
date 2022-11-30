@@ -3698,7 +3698,7 @@ MonoBehaviour:
   HintAudioPlayer: {fileID: 1838225632}
   PowerAudioPlayer: {fileID: 568450864}
   WinAudioPlayer: {fileID: 1935905792}
-  LoseAudioPlayer: {fileID: 0}
+  LoseAudioPlayer: {fileID: 382808742}
   CorrectLetterAudioPlayer: {fileID: 775494475}
   WrongLetterAudioPlayer: {fileID: 1782305045}
 --- !u!1 &978899603
