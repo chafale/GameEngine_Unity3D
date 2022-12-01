@@ -4368,6 +4368,7 @@ MonoBehaviour:
   healthAnimPrefab: {fileID: 2385413481178058446, guid: ed5192287082585448f207395ad656d6, type: 3}
   animeCanvas: {fileID: 1708747845}
   player: {fileID: 1853572505}
+  ObstacleAudioPlayer: {fileID: 0}
   sc: 0
 --- !u!54 &1853572508
 Rigidbody:
@@ -4426,7 +4427,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: cea7a927c6fb34ed1908a75e0114f6e6, type: 3}
+  m_Sprite: {fileID: 2995288305113397050, guid: 826cca8098ba67444800308fae791ca3, type: 3}
   m_Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4447,7 +4448,7 @@ Animator:
   m_GameObject: {fileID: 1853572505}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3059105c006723e44a04662d2f3c6596, type: 2}
+  m_Controller: {fileID: 9100000, guid: 146e32bee62766e40b6e8e34bba8339e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

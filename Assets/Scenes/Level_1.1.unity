@@ -5888,6 +5888,7 @@ GameObject:
   - component: {fileID: 1722864600}
   - component: {fileID: 1722864601}
   - component: {fileID: 1722864602}
+  - component: {fileID: 1722864603}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -5989,7 +5990,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: cea7a927c6fb34ed1908a75e0114f6e6, type: 3}
+  m_Sprite: {fileID: 2995288305113397050, guid: 826cca8098ba67444800308fae791ca3, type: 3}
   m_Color: {r: 1, g: 0.9764151, b: 0.9764151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6010,7 +6011,7 @@ Animator:
   m_GameObject: {fileID: 1722864593}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3059105c006723e44a04662d2f3c6596, type: 2}
+  m_Controller: {fileID: 9100000, guid: 146e32bee62766e40b6e8e34bba8339e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6034,6 +6035,23 @@ CapsuleCollider:
   m_Height: 6.539223
   m_Direction: 0
   m_Center: {x: -0.2518, y: -0.075966, z: 0}
+--- !u!111 &1722864603
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722864593}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8b5bf9cf027230b4384f77134fb727d7, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8b5bf9cf027230b4384f77134fb727d7, type: 2}
+  - {fileID: 7400000, guid: 813c3d1f8605d0b479b4a6e7b8f54d3d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1775684203
 GameObject:
   m_ObjectHideFlags: 0
